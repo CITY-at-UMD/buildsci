@@ -1,0 +1,798 @@
+Program Version,EnergyPlus-Linux-OMP-32 7.2.0.006, YMD=2013.05.31 15:08
+! <Version>, Version ID
+ Version, 7.2
+! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
+ Timesteps per Hour,  4, 15
+! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
+ System Convergence Limits, 1, 20, 2, 8
+! <Simulation Control>, Do Zone Sizing, Do System Sizing, Do Plant Sizing, Do Design Days, Do Weather Simulation
+ Simulation Control, Yes, Yes, Yes, Yes, Yes
+! <Output Reporting Tolerances>, Tolerance for Time Heating Setpoint Not Met, Tolerance for Time Cooling Setpoint Not Met
+ Output Reporting Tolerances, 0.200, 0.200, 
+! <Site:GroundTemperature:BuildingSurface>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:BuildingSurface,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00
+! <Site:GroundTemperature:FCfactorMethod>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:FCfactorMethod,   5.32,   4.33,   6.08,   8.81,  15.97,  21.49,  25.21,  26.35,  24.42,  20.13,  14.40,   9.09
+! <Site:GroundTemperature:Shallow>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
+! <Site:GroundTemperature:Deep>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
+! <Site:GroundReflectance>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:SnowModifier>, Normal, Daylighting {dimensionless}
+ Site:GroundReflectance:SnowModifier,   1.000,   1.000
+! <Site:GroundReflectance:Snow>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:Snow:Daylighting>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow:Daylighting,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Environment:Weather Station>,Wind Sensor Height Above Ground {m},Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Sensor Height Above Ground {m},Wind Speed Modifier Coefficient [Internal],Temperature Modifier Coefficient [Internal]
+Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
+! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
+Site:Location,Nashville International Ap TN USA TMY3 WMO#=723270,36.12,-86.68,-6.00,177.00,99217,1.1792
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information,Building 1,0.000,Suburbs,4.00000E-002,0.40000,FullExterior,25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,DOE-2
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Carbon Dioxide Balance Simulation, No,N/A
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Generic Contaminant Concentration
+ Zone Air Generic Contaminant Balance Simulation, No,N/A
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
+! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,RelativeCoordinateSystem,RelativeCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,15,102,12
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, THERMAL ZONE 15,0.0,3.00,12.81,8.00,7.91,14.52,10.00,1,1,1,0.00,15.81,12.81,15.81,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 14,0.0,3.00,3.00,8.00,7.91,7.91,10.00,1,1,1,3.00,12.81,3.00,12.81,8.00,12.00,4.00,385.05,TARP,DOE-2,96.26,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 2,0.0,3.00,3.00,0.00,7.91,7.91,2.00,1,1,1,3.00,12.81,3.00,12.81,0.00,4.00,4.00,385.05,TARP,DOE-2,96.26,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 9,0.0,0.00,0.00,4.00,7.91,1.29,6.00,1,1,1,0.00,15.81,0.00,3.00,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 7,0.0,0.00,0.00,0.00,1.29,7.91,2.00,1,1,1,0.00,3.00,0.00,15.81,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 3,0.0,0.00,0.00,8.00,1.29,7.91,10.00,1,1,1,0.00,3.00,0.00,15.81,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 11,0.0,12.81,3.00,8.00,14.52,7.91,10.00,1,1,1,12.81,15.81,0.00,15.81,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 12,0.0,0.00,0.00,0.00,7.91,1.29,2.00,1,1,1,0.00,15.81,0.00,3.00,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 10,0.0,12.81,3.00,0.00,14.52,7.91,2.00,1,1,1,12.81,15.81,0.00,15.81,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 4,0.0,3.00,3.00,4.00,7.91,7.91,6.00,1,1,1,3.00,12.81,3.00,12.81,4.00,8.00,4.00,385.05,TARP,DOE-2,96.26,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 6,0.0,3.00,12.81,4.00,7.91,14.52,6.00,1,1,1,0.00,15.81,12.81,15.81,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 1,0.0,0.00,0.00,8.00,7.91,1.29,10.00,1,1,1,0.00,15.81,0.00,3.00,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 5,0.0,3.00,12.81,0.00,7.91,14.52,2.00,1,1,1,0.00,15.81,12.81,15.81,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 8,0.0,0.00,0.00,4.00,1.29,7.91,6.00,1,1,1,0.00,3.00,0.00,15.81,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+ Zone Information, THERMAL ZONE 13,0.0,12.81,3.00,4.00,14.52,7.91,6.00,1,1,1,12.81,15.81,0.00,15.81,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,37.95,25.30,6,1,0,Yes
+! <Zone Internal Gains/Equipment Information - Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
+ Zone Internal Gains, THERMAL ZONE 15,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 14,96.26,5.2,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 2,96.26,5.2,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 9,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 7,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 3,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 11,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 12,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 10,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 4,96.26,5.2,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 6,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 1,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 5,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 8,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 13,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+! <People Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Number of People {},People/Floor Area {person/m2},Floor Area per person {m2/person},Fraction Radiant,Fraction Convected,Sensible Fraction Calculation,Activity level,ASHRAE 55 Warnings,Carbon Dioxide Generation Rate 
+ People Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 1,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 10,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 11,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 12,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 13,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 14,96.26,5.2,5.2,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 15,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 2,96.26,5.2,5.2,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 3,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 4,96.26,5.2,5.2,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 5,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 6,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 7,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 8,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 9,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+! <Lights Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Lighting Level {W},Lights/Floor Area {W/m2},Lights per person {W/person},Fraction Return Air,Fraction Radiant,Fraction Short Wave,Fraction Convected,Fraction Replaceable,EndUse Category
+ Lights Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 1,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 10,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 11,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 12,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 13,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 14,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 15,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 2,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 3,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 4,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 5,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 6,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 7,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 8,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 9,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+! <ElectricEquipment Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Equipment Level {W},Equipment/Floor Area {W/m2},Equipment per person {W/person},Fraction Latent,Fraction Radiant,Fraction Lost,Fraction Convected,EndUse SubCategory
+ ElectricEquipment Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 1,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 10,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 11,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 12,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 13,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 14,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 15,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 2,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 3,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 4,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 5,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 6,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 7,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 8,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 9,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}, Polygon Clipping Algorithm, Sky Diffuse Modeling Algorithm
+Shadowing/Sun Position Calculations,20,15000,SutherlandHodgman,SimpleSkyDiffuseModeling
+! <Infiltration Airflow Stats - Nominal>,Name,Schedule Name,Zone Name, Zone Floor Area {m2}, # Zone Occupants,Design Volume Flow Rate {m3/s},Volume Flow Rate/Floor Area {m3/s/m2},Volume Flow Rate/Exterior Surface Area {m3/s/m2},ACH - Air Changes per Hour,Equation A - Constant Term Coefficient {},Equation B - Temperature Term Coefficient {1/C},Equation C - Velocity Term Coefficient {s/m}, Equation D - Velocity Squared Term Coefficient {s2/m2}
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 1,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 10,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 11,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 12,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 13,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 14,96.26,5.2,2.910E-002,3.023E-004,3.023E-004,0.272,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 15,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 2,96.26,5.2,0.000,0.000,N/A,0.000,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 3,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 4,96.26,5.2,0.000,0.000,N/A,0.000,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 5,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 6,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 7,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 8,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 9,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+! <AirFlow Model>, Simple
+ AirFlow Model, Simple
+! <RoomAir Model>, Zone Name, Mixing/Mundt/UCSDDV/UCSDCV/UCSDUFI/UCSDUFE/User Defined
+RoomAir Model,THERMAL ZONE 15,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 14,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 2,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 9,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 7,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 3,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 11,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 12,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 10,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 4,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 6,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 1,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 5,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 8,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 13,Mixing/Well-Stirred
+! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
+AirflowNetwork Model:Control,NoMultizoneOrDistribution
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier, Generic Contaminant Capacity Multiplier
+Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
+! <Load Timesteps in Zone Design Calculation Averaging Window>, Value
+ Load Timesteps in Zone Design Calculation Averaging Window,    4
+! <Heating Sizing Factor Information>, Sizing Factor ID, Value
+ Heating Sizing Factor Information, Global,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 15,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 14,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 2,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 9,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 7,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 3,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 11,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 12,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 10,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 4,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 6,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 1,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 5,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 8,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 13,   1.2500    
+! <Cooling Sizing Factor Information>, Sizing Factor ID, Value
+ Cooling Sizing Factor Information, Global,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 15,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 14,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 2,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 9,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 7,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 3,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 11,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 12,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 10,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 4,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 6,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 1,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 5,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 8,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 13,   1.1500    
+! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}
+ Zone Sizing Information, THERMAL ZONE 15, Cooling, 2408.26644, 2769.50641, 0.14296, 0.16440, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:00:00, 32.25200, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 15, Heating, 3831.28231, 4789.10289, 0.19903, 0.24879, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 14, Cooling, 3240.92917, 3727.06855, 0.19238, 0.22124, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:45:00, 32.50700, 1.46392E-002, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 14, Heating, 2613.54132, 3266.92665, 0.13581, 0.16976, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 2, Cooling, 1642.45831, 1888.82705, 9.74942E-002, 0.11212, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 16:15:00, 33.88400, 1.46392E-002, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 2, Heating, 1339.49257, 1674.36571, 6.96205E-002, 8.70256E-002, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:45:00, -10.60000, 1.54844E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 9, Cooling, 3576.45298, 4112.92093, 0.21229, 0.24414, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:00:00, 34.70000, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 9, Heating, 3035.29822, 3794.12277, 0.15771, 0.19714, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 7, Cooling, 4075.14878, 4686.42110, 0.24189, 0.27818, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 16:30:00, 33.68000, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 7, Heating, 3174.63119, 3968.28898, 0.16495, 0.20619, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 3, Cooling, 5051.95340, 5809.74641, 0.29988, 0.34487, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 16:45:00, 33.47600, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 3, Heating, 3830.78411, 4788.48014, 0.19901, 0.24876, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 11, Cooling, 4388.24792, 5046.48511, 0.26049, 0.29956, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 10:30:00, 31.58900, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 11, Heating, 3830.78411, 4788.48014, 0.19901, 0.24876, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 12, Cooling, 2677.87063, 3079.55122, 0.15896, 0.18280, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 13:15:00, 34.31750, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 12, Heating, 3167.00814, 3958.76018, 0.16455, 0.20569, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 10, Cooling, 3498.27716, 4023.01873, 0.20765, 0.23880, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 09:45:00, 30.39050, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 10, Heating, 3174.63119, 3968.28898, 0.16495, 0.20619, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 4, Cooling, 2869.21540, 3299.59771, 0.17031, 0.19586, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:00:00, 33.27200, 1.46392E-002, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 4, Heating, 773.50407, 966.88008, 4.02031E-002, 5.02539E-002, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 07:00:00, -10.60000, 1.54844E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 6, Cooling, 2246.49167, 2583.46542, 0.13335, 0.15335, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:00:00, 32.25200, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 6, Heating, 3052.66081, 3815.82601, 0.15861, 0.19826, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 1, Cooling, 3654.93609, 4203.17651, 0.21696, 0.24950, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:00:00, 34.70000, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 1, Heating, 3809.84369, 4762.30462, 0.19792, 0.24740, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 5, Cooling, 1426.88613, 1640.91905, 8.47023E-002, 9.74077E-002, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:45:00, 32.50700, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 5, Heating, 3174.81071, 3968.51339, 0.16496, 0.20620, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 8, Cooling, 4945.88329, 5687.76579, 0.29358, 0.33761, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:00:00, 33.27200, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 8, Heating, 3052.24788, 3815.30986, 0.15859, 0.19824, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 13, Cooling, 4363.86547, 5018.44529, 0.25903, 0.29788, NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 10:30:00, 31.58900, 1.46392E-002, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 13, Heating, 3052.24788, 3815.30986, 0.15859, 0.19824, NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 06:00:00, -10.60000, 1.54844E-003, 38.43416, 2.06851, 1.95246E-002
+! <System Sizing Information>, System Name, Field Description, Value
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Cooling Design Air Flow Rate [m3/s], 3.41772
+ System Sizing Information, AIR LOOP HVAC 1, User Cooling Design Air Flow Rate [m3/s], 3.41772
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Heating Design Air Flow Rate [m3/s], 2.91689
+ System Sizing Information, AIR LOOP HVAC 1, User Heating Design Air Flow Rate [m3/s], 2.91689
+! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Air Flow Rate [m3/s], 0.24879
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow Fraction during Reheat [], 0.31391
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Reheat Water Flow Rate [m3/s], 1.79788E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.24879
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Maximum Water Flow Rate [m3/s], 1.79788E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Design Coil Load [W], 8275.69037
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, U-Factor Times Area Value [W/K], 173.32175
+! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 13,7839.68
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Air Flow Rate [m3/s], 0.22124
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow Fraction during Reheat [], 0.88413
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Reheat Water Flow Rate [m3/s], 1.22674E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.16976
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Maximum Water Flow Rate [m3/s], 1.22674E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Design Coil Load [W], 5646.71502
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, U-Factor Times Area Value [W/K], 154.12793
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 5,6371.09
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Air Flow Rate [m3/s], 0.11212
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.16470E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Reheat Water Flow Rate [m3/s], 6.28882E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 8.70256E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Maximum Water Flow Rate [m3/s], 6.28882E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Design Coil Load [W], 2894.76340
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, U-Factor Times Area Value [W/K], 78.10723
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 17,3242.53
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Air Flow Rate [m3/s], 0.24414
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow Fraction during Reheat [], 0.31990
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Reheat Water Flow Rate [m3/s], 1.42459E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19714
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Maximum Water Flow Rate [m3/s], 1.42459E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Design Coil Load [W], 6557.41295
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, U-Factor Times Area Value [W/K], 170.07692
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 12,7163.15
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Air Flow Rate [m3/s], 0.27818
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.17132E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Reheat Water Flow Rate [m3/s], 1.48998E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.20619
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Maximum Water Flow Rate [m3/s], 1.48998E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Design Coil Load [W], 6858.43726
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, U-Factor Times Area Value [W/K], 193.79174
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 11,7906.67
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Air Flow Rate [m3/s], 0.34487
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.69187E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Reheat Water Flow Rate [m3/s], 1.79764E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.24876
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Maximum Water Flow Rate [m3/s], 1.79764E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Design Coil Load [W], 8274.61418
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, U-Factor Times Area Value [W/K], 240.25114
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 9,9699.92
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Air Flow Rate [m3/s], 0.29956
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.33823E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Reheat Water Flow Rate [m3/s], 1.79764E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.24876
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Maximum Water Flow Rate [m3/s], 1.79764E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Design Coil Load [W], 8274.61418
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, U-Factor Times Area Value [W/K], 208.68871
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 15,8877.54
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Air Flow Rate [m3/s], 0.20569
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow Fraction during Reheat [], 0.37969
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Reheat Water Flow Rate [m3/s], 1.48641E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.20569
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Maximum Water Flow Rate [m3/s], 1.48641E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Design Coil Load [W], 6841.96838
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, U-Factor Times Area Value [W/K], 143.29462
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 6,6481.49
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Air Flow Rate [m3/s], 0.23880
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow Fraction during Reheat [], 0.32704
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Reheat Water Flow Rate [m3/s], 1.48998E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.20619
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Maximum Water Flow Rate [m3/s], 1.48998E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Design Coil Load [W], 6858.43726
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, U-Factor Times Area Value [W/K], 166.36051
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 10,7173.56
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Air Flow Rate [m3/s], 0.19586
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow Fraction during Reheat [], 0.99872
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Reheat Water Flow Rate [m3/s], 4.24604E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.87573E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Maximum Water Flow Rate [m3/s], 4.24604E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Design Coil Load [W], 1954.46303
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, U-Factor Times Area Value [W/K], 136.44419
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 7,3499.54
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Air Flow Rate [m3/s], 0.19826
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow Fraction during Reheat [], 0.39391
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Reheat Water Flow Rate [m3/s], 1.43274E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19826
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Maximum Water Flow Rate [m3/s], 1.43274E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Design Coil Load [W], 6594.92317
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, U-Factor Times Area Value [W/K], 138.12064
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 8,6247.46
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Air Flow Rate [m3/s], 0.24950
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow Fraction during Reheat [], 0.31302
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Reheat Water Flow Rate [m3/s], 1.78782E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.24740
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Maximum Water Flow Rate [m3/s], 1.78782E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Design Coil Load [W], 8229.38197
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, U-Factor Times Area Value [W/K], 173.81592
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 14,7841.49
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Air Flow Rate [m3/s], 0.20620
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow Fraction during Reheat [], 0.37875
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Reheat Water Flow Rate [m3/s], 1.49007E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.20620
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Maximum Water Flow Rate [m3/s], 1.49007E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Design Coil Load [W], 6858.82511
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, U-Factor Times Area Value [W/K], 143.64766
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 16,6497.46
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Air Flow Rate [m3/s], 0.33761
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.63525E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Reheat Water Flow Rate [m3/s], 1.43254E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19824
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Maximum Water Flow Rate [m3/s], 1.43254E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Design Coil Load [W], 6594.03106
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, U-Factor Times Area Value [W/K], 235.19733
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 4,8713.92
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Air Flow Rate [m3/s], 0.29788
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.32515E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Reheat Water Flow Rate [m3/s], 1.43254E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19824
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Maximum Water Flow Rate [m3/s], 1.43254E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Design Coil Load [W], 6594.03106
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, U-Factor Times Area Value [W/K], 207.52108
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 3,8112.55
+ Component Sizing Information, Branch, BRANCH {51E35303-C2B7-471C-B699-C152CA4C219E}, Maximum Flow Rate [m3/s], 3.41772
+ Component Sizing Information, AirLoopHVAC, AIR LOOP HVAC 1, Design Supply Air Flow Rate [m3/s], 3.41772
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Maximum Outdoor Air Flow Rate [m3/s], 3.41772
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Minimum Outdoor Air Flow Rate [m3/s], 0.38100
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Air Flow Rate [m3/s], 3.41772
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Total Cooling Capacity (gross) [W], 84870.03611
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Sensible Heat Ratio, 0.67608
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Air Flow Rate [m3/s], 1.13912
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Total Cooling Capacity (gross) [W], 28287.18303
+! <VAV DX Cooling Coil Standard Rating Information>, DX Coil Type, DX Coil Name, Fan Type, Fan Name, Standard Net Cooling Capacity {W}, Standard Net Cooling Capacity {Btu/h}, IEER {Btu/W-h}, COP 100% Capacity {W/W}, COP 75% Capacity {W/W}, COP 50% Capacity {W/W}, COP 25% Capacity {W/W}, EER 100% Capacity {Btu/W-h}, EER 75% Capacity {Btu/W-h}, EER 50% Capacity {Btu/W-h}, EER 25% Capacity {Btu/W-h}, Supply Air Flow 100% {kg/s}, Supply Air Flow 75% {kg/s},Supply Air Flow 50% {kg/s},Supply Air Flow 25% {kg/s}
+ VAV DX Cooling Coil Standard Rating Information, Coil:Cooling:DX:TwoSpeed,COIL COOLING DX TWO SPEED 1,N/A,N/A,82370.84,281060.98,25.81,4.59,6.17,8.69,12.77,15.66,21.05,29.65,43.58,3.8708,3.1013,2.1344,1.0953,
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Maximum Water Flow Rate [m3/s], 6.17647E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Design Coil Load [W], 28430.45890
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, U-Factor Times Area Value [W/K], 388.93714
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 1,22176.13
+ Component Sizing Information, Fan:VariableVolume, FAN VARIABLE VOLUME 1, Maximum Flow Rate [m3/s], 3.41772
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Maximum Actuated Flow [m3/s], 6.17647E-004
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Controller Convergence Tolerance, 7.70976E-004
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Nominal Capacity [W], 126225.49800
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Design Water Flow Rate [m3/s], 2.73165E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Maximum Loop Flow Rate [m3/s], 2.73165E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Plant Loop Volume [m3], 3.07311
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Flow Rate [m3/s], 2.73165E-003
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Power Consumption [W], 697.90203
+! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values
+! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
+! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
+! <Environment:WarmupDays>, NumberofWarmupDays
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+! <Environment:Design Day Data>, Max Dry-Bulb Temp {C}, Temp Range {dC}, Temp Range Ind Type, Hum Ind Value at Max Temp, Hum Ind Type,Pressure {Pa}, Wind Direction {deg CW from N}, Wind Speed {m/s}, Clearness, Rain, Snow
+! <Environment:Design_Day_Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
+Environment:Design Day Data,31.00,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+! <Tabular Report>,Style
+Tabular Report,HTML
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,7.3206698542E-002,7.5805799476E-002,Pass,Pass,1.4116275699E-002,1.4499766883E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,2.3626787589E-004,4.5787934800E-004,Pass,Pass,1.1654404513E-002,2.1008032941E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,2.2318555566E-002,3.7289580660E-002,Pass,Pass,2.0896930621E-002,4.0887373104E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,7.4594175994E-002,9.0899420861E-002,Pass,Pass,2.2442230823E-002,2.0942324918E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3865285528E-002,0.1407996329,Pass,Pass,4.3532064307E-002,4.6597366560E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3393190066E-002,8.8319310625E-002,Pass,Pass,2.6637023962E-002,3.1528691679E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3369608948E-002,0.1420235593,Pass,Pass,2.3827245295E-002,2.4445665053E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3729944174E-002,0.1245281428,Pass,Pass,3.4059390127E-002,3.2125674896E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3687544981E-002,0.1800574383,Pass,Pass,3.9198986831E-002,4.4780503528E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,1.6806884798E-004,3.0066281022E-004,Pass,Pass,8.5669973363E-003,1.2196873078E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,6.1841886840E-002,7.8770704713E-002,Pass,Pass,1.6567775154E-002,1.6013265340E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,7.2694177951E-002,9.1059175025E-002,Pass,Pass,2.2211489653E-002,2.0556870193E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3949913382E-002,8.8885773827E-002,Pass,Pass,2.0695660732E-002,2.5043516062E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3420684439E-002,8.9708581526E-002,Pass,Pass,2.6813424803E-002,3.0975657031E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3428384910E-002,0.1428356668,Pass,Pass,2.5239038764E-002,2.4724005344E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,33.40,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,5.6476174585E-002,7.0500927900E-002,Pass,Pass,1.4775746454E-002,1.4315504743E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,1.7948006374E-004,4.0679649738E-004,Pass,Pass,1.0147448890E-002,1.5790140791E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,1.9035988949E-002,3.4802630263E-002,Pass,Pass,2.1200505784E-002,3.5655288148E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,6.0409017252E-002,7.9019011655E-002,Pass,Pass,2.2624445549E-002,2.1490816343E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3709018553E-002,0.1274259084,Pass,Pass,3.8369751660E-002,4.3928605312E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,7.4417222083E-002,6.8797694738E-002,Pass,Pass,2.4730546550E-002,2.8426640638E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,6.9986438407E-002,0.1269747290,Pass,Pass,2.3044973011E-002,2.4878259973E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3692851669E-002,0.1158180225,Pass,Pass,2.8841581953E-002,2.8049724156E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3716371212E-002,0.1753452964,Pass,Pass,3.3684098208E-002,3.8338649440E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,1.5970485509E-004,3.1085615533E-004,Pass,Pass,7.8416726386E-003,1.1650425962E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,4.6959530218E-002,7.1160788787E-002,Pass,Pass,1.7327494047E-002,1.6652000887E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,5.5728408604E-002,7.6069652536E-002,Pass,Pass,2.2427206483E-002,2.0752385956E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3543536707E-002,9.1529483185E-002,Pass,Pass,1.6793969977E-002,1.7819785210E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,7.7543805390E-002,7.3753940673E-002,Pass,Pass,2.4872462593E-002,2.9184562247E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,7.6178127070E-002,0.1343337017,Pass,Pass,2.3496249024E-002,2.5115776374E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,27.60,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3449015443E-002,8.2096844546E-002,Pass,Pass,1.8283562514E-002,1.9624666171E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,2.1763106696E-004,4.3135518959E-004,Pass,Pass,1.4374575420E-002,3.0265012844E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,2.6865617307E-002,3.8498895480E-002,Pass,Pass,1.9763711487E-002,2.9539227563E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3489573952E-002,0.1026096144,Pass,Pass,2.5926768840E-002,2.5548929766E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.4049102114E-002,0.1575733638,Pass,Pass,5.8261772782E-002,6.0847647876E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3646584203E-002,0.1112966321,Pass,Pass,3.3560072525E-002,3.7301045035E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3598890879E-002,0.1528567944,Pass,Pass,3.1085355504E-002,3.0075662736E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3792168407E-002,0.1316732839,Pass,Pass,5.0172350594E-002,5.2682840596E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3821742051E-002,0.1744344159,Pass,Pass,5.4765773393E-002,6.1794153268E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,1.5842567959E-004,2.9524964133E-004,Pass,Pass,9.6910645853E-003,1.3077405007E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3356235027E-002,8.4216327861E-002,Pass,Pass,1.5649810882E-002,1.6962520411E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3547554176E-002,0.1051892045,Pass,Pass,2.6749381392E-002,2.9482430815E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,7.4856740819E-002,8.2356410125E-002,Pass,Pass,3.7810650146E-002,6.0168523176E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3572563708E-002,0.1097031668,Pass,Pass,3.2210500425E-002,3.4069642740E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3604044359E-002,0.1503370581,Pass,Pass,3.0718543606E-002,2.8682030010E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,30.10,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,7.9777284825E-002,7.7704589238E-002,Pass,Pass,1.3796114943E-002,1.4457290304E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,2.2870683606E-004,4.4512044895E-004,Pass,Pass,1.2308606415E-002,2.3238644217E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,2.3571010110E-002,3.7619992112E-002,Pass,Pass,2.0565708344E-002,3.9405552755E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.0064849195E-002,9.4210636864E-002,Pass,Pass,2.2280890343E-002,2.0791994323E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3908884232E-002,0.1442804105,Pass,Pass,4.6149380576E-002,4.7166059065E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3543770019E-002,9.3237245891E-002,Pass,Pass,2.8309180619E-002,3.2145707878E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3421513008E-002,0.1452312560,Pass,Pass,2.5645982754E-002,2.5145495378E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3703983435E-002,0.1278009035,Pass,Pass,3.6922229196E-002,3.5108530762E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3741837727E-002,0.1774288379,Pass,Pass,4.2428651732E-002,5.2104588398E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,1.6678289027E-004,3.0161073618E-004,Pass,Pass,8.8592415208E-003,1.2426035560E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,6.7686353948E-002,8.1145143706E-002,Pass,Pass,1.6244273801E-002,1.6146569082E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,7.9240953326E-002,9.6475981526E-002,Pass,Pass,2.2070406822E-002,2.0583343523E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3994848003E-002,8.7532620605E-002,Pass,Pass,2.3022995671E-002,3.0427393884E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3475283442E-002,9.4522907786E-002,Pass,Pass,2.8059760290E-002,3.1392695427E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3472706542E-002,0.1444404462,Pass,Pass,2.6623666345E-002,2.5505280747E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,30.10,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,7.9616007428E-002,7.7885560501E-002,Pass,Pass,1.3898409338E-002,1.4472794379E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,2.5389242211E-004,5.0559054805E-004,Pass,Pass,1.2299130159E-002,2.3189067284E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,2.3520138874E-002,3.7582374052E-002,Pass,Pass,2.0628139686E-002,3.9357671993E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,7.9968034166E-002,9.4294003173E-002,Pass,Pass,2.2341194519E-002,2.0847685523E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3940494717E-002,0.1440964659,Pass,Pass,4.6258235313E-002,4.7094009655E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3593983118E-002,9.3078838836E-002,Pass,Pass,2.8307176571E-002,3.2193938184E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3524792319E-002,0.1451453098,Pass,Pass,2.5556801838E-002,2.5068278260E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3716819755E-002,0.1279606635,Pass,Pass,3.6944364788E-002,3.4847868750E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3846208737E-002,0.1775820216,Pass,Pass,4.2055030640E-002,5.1497658632E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,1.6376278687E-004,3.0180092202E-004,Pass,Pass,8.8599674751E-003,1.2409910829E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,6.7569226157E-002,8.1229987689E-002,Pass,Pass,1.6352921883E-002,1.6097094378E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,7.9102765784E-002,9.6555191817E-002,Pass,Pass,2.2124025432E-002,2.0639149520E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.4090473573E-002,8.7814277900E-002,Pass,Pass,2.3260432994E-002,3.0239943043E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3558934395E-002,9.4333581803E-002,Pass,Pass,2.8120525942E-002,3.1238839543E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3473622502E-002,0.1444412215,Pass,Pass,2.6599443686E-002,2.5489761109E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,32.20,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,6.4883542798E-002,7.3063484693E-002,Pass,Pass,1.4446539237E-002,1.4424372932E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,1.7501996335E-004,4.0029321744E-004,Pass,Pass,1.0821692216E-002,1.8254061030E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,2.0795644932E-002,3.5997913054E-002,Pass,Pass,2.1073313346E-002,3.8132692715E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,6.7510477434E-002,8.5238117324E-002,Pass,Pass,2.2519407879E-002,2.0729592960E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3834808515E-002,0.1362853996,Pass,Pass,4.0619381954E-002,4.5333871191E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.1966911923E-002,8.0129612926E-002,Pass,Pass,2.4804686816E-002,2.9275477179E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,7.7936527569E-002,0.1367412900,Pass,Pass,2.3050885482E-002,2.3952446688E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3612943563E-002,0.1202581442,Pass,Pass,3.1052133816E-002,2.9775004660E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3739448717E-002,0.1769633918,Pass,Pass,3.6255749678E-002,3.9574281859E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,1.5544884219E-004,2.9779980043E-004,Pass,Pass,8.1990864055E-003,1.1905806588E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,5.4446644307E-002,7.5835330203E-002,Pass,Pass,1.6940322946E-002,1.5863625905E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,6.4168929123E-002,8.3960789559E-002,Pass,Pass,2.2309319207E-002,2.0682448828E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.4088014804E-002,9.2428437955E-002,Pass,Pass,1.8378579306E-002,2.1147021188E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3418312377E-002,8.4744999743E-002,Pass,Pass,2.5148701239E-002,2.8890492442E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.2829626578E-002,0.1404727275,Pass,Pass,2.3441814351E-002,2.4783158547E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,31.50,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,6.9610949571E-002,7.4739672584E-002,Pass,Pass,1.4280768242E-002,1.4557534067E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,2.4108874157E-004,4.8951787644E-004,Pass,Pass,1.1290178629E-002,1.9818114876E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,2.1619936821E-002,3.6330598706E-002,Pass,Pass,2.0975009708E-002,3.8367359231E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,7.1572292139E-002,8.7627228726E-002,Pass,Pass,2.2469891333E-002,2.1046042920E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3916881801E-002,0.1386918557,Pass,Pass,4.2300266168E-002,4.7236522856E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3405261289E-002,8.5513682525E-002,Pass,Pass,2.5718103991E-002,2.9367285454E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.2394791009E-002,0.1409159838,Pass,Pass,2.2987173111E-002,2.4463049722E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3662549463E-002,0.1220658128,Pass,Pass,3.2636520402E-002,3.1118466069E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3737470390E-002,0.1794123955,Pass,Pass,3.7778172767E-002,4.1997982326E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,1.7147518071E-004,3.0907369966E-004,Pass,Pass,8.4078060380E-003,1.2073142281E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,5.8630377542E-002,7.7616953806E-002,Pass,Pass,1.6743431634E-002,1.5908277824E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,6.9084615133E-002,8.8328908919E-002,Pass,Pass,2.2231646240E-002,2.0763167457E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3900995171E-002,9.0316930124E-002,Pass,Pass,1.9705183368E-002,2.2869058663E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3407438843E-002,8.7895838897E-002,Pass,Pass,2.6075931261E-002,3.1043611867E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3410014066E-002,0.1424069898,Pass,Pass,2.4388404603E-002,2.4023611400E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,9.10,0.00,DefaultMultipliers,99217,0,9.3,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.7054488312E-004,6.0568256164E-004,Pass,Pass,6.2920888843E-003,4.3168089048E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,8.1584225449E-005,2.6955503411E-004,Pass,Pass,9.2946429319E-003,6.4658320725E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.5261107854E-003,2.6512583895E-004,Pass,Pass,8.5983209664E-003,4.3274225007E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.0446561231E-003,2.0700553964E-003,Pass,Pass,6.5843948756E-003,3.1717802296E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.4772774556E-003,2.3574379750E-003,Pass,Pass,6.5163060105E-003,2.5402970096E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.9361749693E-003,2.3699936131E-003,Pass,Pass,7.9225272623E-003,4.3351426495E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.5742885883E-003,2.5065904367E-003,Pass,Pass,9.4140401843E-003,4.2895838488E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.5220639792E-004,4.8604883219E-004,Pass,Pass,3.8348674736E-003,2.6025137960E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.6237412277E-004,1.0395223132E-003,Pass,Pass,3.8110213588E-003,2.5720628297E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.3081651749E-003,2.3674442292E-004,Pass,Pass,1.0370985316E-002,1.6011556638E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,3.4680105042E-004,1.3049540412E-003,Pass,Pass,4.6252085216E-003,3.0688005646E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.5661421319E-003,1.6654663497E-003,Pass,Pass,8.0818393219E-003,4.3241686021E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.1263288017E-004,8.2028416465E-004,Pass,Pass,3.8031012541E-003,2.5635346593E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,3.6632508093E-003,7.9313139629E-004,Pass,Pass,8.9828734224E-003,2.9898806130E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.9131646190E-003,2.3765623244E-003,Pass,Pass,6.6427200759E-003,3.0998516890E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-5.30,0.00,DefaultMultipliers,99217,0,3.6,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.3871783657E-002,5.9254317089E-002,Pass,Pass,7.5663184377E-003,3.9403597044E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.8458375504E-003,1.3785492810E-003,Pass,Pass,1.2953348501E-002,6.9606795823E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.0886289761E-003,1.1996485939E-003,Pass,Pass,2.2240809252E-003,3.0468428891E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,3.1396282249E-003,3.4018132572E-003,Pass,Pass,6.6493211739E-003,3.3617342257E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,5.2839296535E-003,3.0063607873E-003,Pass,Pass,7.9474759402E-003,3.1926933182E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.5928307900E-003,2.4273646121E-003,Pass,Pass,7.2638898956E-003,4.6179845837E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.3892278740E-003,2.8279488321E-003,Pass,Pass,7.2409771039E-003,4.6404698063E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.4582092271E-002,5.9843006305E-002,Pass,Pass,4.1434772939E-003,1.8649907583E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,4.4179635429E-003,3.7321571902E-003,Pass,Pass,6.8756342770E-003,3.1367437305E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,9.2610333552E-004,6.2849983056E-004,Pass,Pass,3.1927106906E-003,3.0054481948E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.3661508432E-002,5.4069052247E-002,Pass,Pass,5.0806868096E-003,2.3200213389E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.1666159693E-002,5.0998676178E-002,Pass,Pass,7.5770277290E-003,4.0926567427E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.5554685683E-002,6.0938761347E-002,Pass,Pass,4.2548737055E-003,1.7857345863E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.4857389375E-003,2.8636467629E-003,Pass,Pass,6.0507418769E-003,3.3566481753E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.5724043098E-003,3.1497417394E-003,Pass,Pass,6.4931642935E-003,3.4268548248E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-7.60,0.00,DefaultMultipliers,99217,0,3.6,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.3886020222E-002,0.1040301917,Pass,Pass,6.4220049279E-003,2.9785974404E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.1555414879E-003,1.6009780378E-003,Pass,Pass,1.3334454881E-002,7.0340810316E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,1.3814343907E-003,1.2664871994E-003,Pass,Pass,2.5290490275E-003,3.3081660588E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.7924561941E-003,3.0895221100E-003,Pass,Pass,6.2090648169E-003,3.4366269735E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.1086871234E-003,2.9936405050E-003,Pass,Pass,5.6043494124E-003,3.2859958215E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.7160777986E-003,3.1221693529E-003,Pass,Pass,7.7849027147E-003,4.6593144980E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.8521660146E-003,3.5821940653E-003,Pass,Pass,7.9090605447E-003,4.6501053195E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.1758388116E-002,8.4991254665E-002,Pass,Pass,3.1481254629E-003,1.3188349494E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,3.5246460240E-003,3.3465638849E-003,Pass,Pass,6.3510967052E-003,3.2672119038E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,9.1437222357E-004,6.1963279803E-004,Pass,Pass,3.0044183833E-003,3.1282569621E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.2450059082E-002,8.3236217002E-002,Pass,Pass,3.4288740040E-003,1.4136071397E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.1484400201E-002,9.5778140278E-002,Pass,Pass,6.2512685793E-003,3.1147923467E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.2572683435E-002,8.5349004662E-002,Pass,Pass,3.2025942956E-003,1.2718573282E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,3.6009889650E-003,3.9218266448E-003,Pass,Pass,6.7729863203E-003,3.3927367478E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99% CONDNS DB,2.7174099265E-003,3.4338202367E-003,Pass,Pass,6.3976540285E-003,3.4753965275E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-7.90,0.00,DefaultMultipliers,99217,0,3.6,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.5562818313E-002,0.1099467908,Pass,Pass,5.7512817217E-003,2.6674995332E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.9852024306E-003,1.5082849435E-003,Pass,Pass,1.2680053393E-002,6.9570635236E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.7500647755E-003,1.2436477114E-003,Pass,Pass,3.8994440092E-003,3.1836292899E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,3.6494480839E-003,3.6113240156E-003,Pass,Pass,6.7127927867E-003,3.4049573286E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,3.3921745778E-003,3.3872083002E-003,Pass,Pass,6.3618375548E-003,3.2246068421E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.7574155288E-003,3.4382499732E-003,Pass,Pass,7.8201776882E-003,4.6542335956E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,3.0221726506E-003,3.5692760346E-003,Pass,Pass,7.8561434514E-003,4.6160269530E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.3169930819E-002,8.7963246245E-002,Pass,Pass,3.1167423140E-003,1.2490522122E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.9584085915E-003,3.4530443387E-003,Pass,Pass,6.0444632619E-003,3.2593443334E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,9.9569636295E-004,7.0431453668E-004,Pass,Pass,3.6387456407E-003,3.3267122368E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.3743269104E-002,8.6299417457E-002,Pass,Pass,3.2190716574E-003,1.3440398348E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.3338803498E-002,0.1029429687,Pass,Pass,6.2625015767E-003,2.9990327019E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.3703122293E-002,8.7993630466E-002,Pass,Pass,2.9937919239E-003,1.2457296835E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,4.0742483197E-003,3.4011659476E-003,Pass,Pass,7.1416480014E-003,3.4411124362E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.8456494794E-003,2.7591436043E-003,Pass,Pass,5.7748348368E-003,3.4291968554E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,27.10,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3486821442E-002,7.9334428658E-002,Pass,Pass,1.9448554801E-002,2.2064369132E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,2.0831620710E-004,4.2013505481E-004,Pass,Pass,1.4815542850E-002,3.1806307083E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,2.7483347145E-002,3.9600038338E-002,Pass,Pass,1.9628980194E-002,2.8424107822E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3535334584E-002,0.1046738478,Pass,Pass,2.6852207262E-002,2.8622665145E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3952571545E-002,0.1599583193,Pass,Pass,6.1815206978E-002,6.3233190098E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3637719031E-002,0.1141668903,Pass,Pass,3.4757172391E-002,3.8873728029E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3631561214E-002,0.1534962082,Pass,Pass,3.2358782383E-002,3.1045436927E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3889071385E-002,0.1318312684,Pass,Pass,5.6973213450E-002,6.4941656679E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3797376205E-002,0.1748817585,Pass,Pass,5.9171616408E-002,6.6634101848E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,1.6048634893E-004,3.0549702884E-004,Pass,Pass,9.8521006815E-003,1.3198126252E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3392166469E-002,8.4205247225E-002,Pass,Pass,1.6687706611E-002,1.8214177244E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3529018408E-002,0.1071977685,Pass,Pass,2.8032026058E-002,3.3611165662E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,7.2746385710E-002,8.1299711918E-002,Pass,Pass,4.2968818886E-002,6.9352508452E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3652464916E-002,0.1119549364,Pass,Pass,3.3109035231E-002,3.5190971632E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3668335743E-002,0.1506741786,Pass,Pass,3.1586544177E-002,2.9992862400E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,31.00,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,7.3072865975E-002,7.5924184715E-002,Pass,Pass,1.4220338611E-002,1.4521264642E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,2.6651124485E-004,5.2286738758E-004,Pass,Pass,1.1644692837E-002,2.0958879778E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,2.2266452331E-002,3.7272608486E-002,Pass,Pass,2.0954595663E-002,4.0902608319E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,7.4488627835E-002,9.0968177313E-002,Pass,Pass,2.2507933293E-002,2.1078046346E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3853259686E-002,0.1406356417,Pass,Pass,4.3617076641E-002,4.7067684901E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3446548386E-002,8.8188322363E-002,Pass,Pass,2.6632907796E-002,3.1418386996E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3433998672E-002,0.1419831575,Pass,Pass,2.3795983832E-002,2.4554664193E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3699894846E-002,0.1246765269,Pass,Pass,3.4144912308E-002,3.2248334408E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3800037533E-002,0.1802030217,Pass,Pass,3.9208059729E-002,4.4601966516E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,1.6478331732E-004,2.9980863359E-004,Pass,Pass,8.5681801645E-003,1.2179041153E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,6.1712831602E-002,7.8805535051E-002,Pass,Pass,1.6680386835E-002,1.5942361436E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,7.2539941939E-002,9.0978910245E-002,Pass,Pass,2.2265626297E-002,2.0564856400E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.4013340746E-002,8.8848166565E-002,Pass,Pass,2.0907160276E-002,2.4947813238E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3436964668E-002,8.9773519704E-002,Pass,Pass,2.6826467626E-002,3.1164233503E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3557328562E-002,0.1428555441,Pass,Pass,2.5215666581E-002,2.4780243604E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,9.80,0.00,DefaultMultipliers,99217,0,10.8,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.0103808873E-003,2.1084002534E-003,Pass,Pass,7.9910012562E-003,4.3417683145E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.5958523098E-003,8.8082749341E-004,Pass,Pass,1.3225614071E-002,6.4870140160E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.0808295068E-003,1.2013136875E-003,Pass,Pass,2.8299160150E-003,3.5244958449E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.1516696646E-003,2.0879014722E-003,Pass,Pass,7.6853402515E-003,3.0877529740E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.2168128029E-003,2.4788800926E-003,Pass,Pass,5.6384856030E-003,2.4579795510E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.3422437284E-004,4.6612373552E-004,Pass,Pass,6.2921933414E-003,4.3302772474E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.3399148414E-003,2.3249574624E-003,Pass,Pass,8.3788819802E-003,4.2752851204E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.1831616849E-003,2.0747770139E-003,Pass,Pass,5.9318762517E-003,2.5739167193E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.0487770023E-003,2.1679588613E-003,Pass,Pass,5.3608912404E-003,2.5407412549E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,4.3773411936E-004,5.7400392875E-004,Pass,Pass,1.5519010933E-003,2.5101142356E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.7553462469E-003,2.3431517563E-003,Pass,Pass,6.7324124843E-003,3.1091948957E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.5646943664E-003,2.0261879674E-003,Pass,Pass,7.5112532264E-003,4.3206706881E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,4.4679394445E-003,7.0016613926E-004,Pass,Pass,8.6379856230E-003,2.4855202612E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.3516599716E-003,2.0026067849E-003,Pass,Pass,7.0109620214E-003,3.0282890250E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.3217907565E-004,5.2158971200E-004,Pass,Pass,4.5697139364E-003,3.1218760013E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,28.20,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3447259267E-002,8.1381406432E-002,Pass,Pass,1.6981435024E-002,1.7866228799E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,2.2025559516E-004,4.3973497847E-004,Pass,Pass,1.3859718752E-002,2.8468404832E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,2.6119520915E-002,3.7975072749E-002,Pass,Pass,1.9913643748E-002,3.1451750013E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3506355127E-002,0.1000780787,Pass,Pass,2.4834473670E-002,2.3076373090E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.4080448439E-002,0.1558082605,Pass,Pass,5.5281876933E-002,5.8616081452E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3586920797E-002,0.1077253673,Pass,Pass,3.2224889771E-002,3.5706291981E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3539013021E-002,0.1547986639,Pass,Pass,2.9714531678E-002,2.8521797762E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3723702515E-002,0.1315274929,Pass,Pass,4.5904537746E-002,4.5714676692E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3793490771E-002,0.1704257188,Pass,Pass,5.0642640992E-002,5.7222236171E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,1.5496624433E-004,2.9712579998E-004,Pass,Pass,9.4923713518E-003,1.2918937972E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,7.9867875666E-002,8.3417637756E-002,Pass,Pass,1.5585800395E-002,1.6714953441E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3523902447E-002,0.1024442698,Pass,Pass,2.5303041267E-002,2.5304552930E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,7.7265965120E-002,8.3314275019E-002,Pass,Pass,3.2090997339E-002,4.6923505465E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3535341479E-002,0.1066732247,Pass,Pass,3.1147711713E-002,3.2976014750E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3605545931E-002,0.1515843757,Pass,Pass,2.9723360349E-002,2.7710047974E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,31.90,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,6.6625295304E-002,7.4319880526E-002,Pass,Pass,1.4484026113E-002,1.4643451550E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,2.5114348445E-004,5.5492121663E-004,Pass,Pass,1.0999724227E-002,1.8824093828E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,2.0992798839E-002,3.6066563815E-002,Pass,Pass,2.1064504694E-002,3.7651854089E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,6.9099573673E-002,8.6706048981E-002,Pass,Pass,2.2535846672E-002,2.1220387132E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3855400794E-002,0.1371619425,Pass,Pass,4.1321835469E-002,4.5564869687E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3453823456E-002,8.2049256098E-002,Pass,Pass,2.4960830893E-002,2.9014747773E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,7.9552805143E-002,0.1388259034,Pass,Pass,2.3027422668E-002,2.3959818830E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3742942637E-002,0.1212875591,Pass,Pass,3.1776558125E-002,3.0350841605E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3639612658E-002,0.1781779822,Pass,Pass,3.6826800563E-002,4.0191315607E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,1.5352441843E-004,3.0277815471E-004,Pass,Pass,8.2803211052E-003,1.1931987755E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,5.5986298048E-002,7.7012199410E-002,Pass,Pass,1.6967561144E-002,1.5969148927E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,6.6103624153E-002,8.6172473069E-002,Pass,Pass,2.2356648999E-002,2.0716142927E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.4033309087E-002,9.1829231295E-002,Pass,Pass,1.9108745928E-002,2.1490544300E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3452439990E-002,8.6000618916E-002,Pass,Pass,2.5520660510E-002,2.8869508334E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3399505742E-002,0.1415701877,Pass,Pass,2.3687488856E-002,2.4445882267E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-10.60,0.00,DefaultMultipliers,99217,0,3.6,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,3.6932014366E-002,0.1352796336,Pass,Pass,4.5657684415E-003,1.9811674402E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.2962842225E-003,1.5920539331E-003,Pass,Pass,1.3018200813E-002,7.0493709607E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,1.6780489503E-003,1.1711607635E-003,Pass,Pass,3.2531983769E-003,3.1315378996E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,3.5195764745E-003,3.2580918713E-003,Pass,Pass,6.5420739342E-003,3.4987062867E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,3.5820279169E-003,3.4527910401E-003,Pass,Pass,6.3597648771E-003,3.3157427078E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.5061195594E-003,3.0168608477E-003,Pass,Pass,7.4494137054E-003,4.7051230125E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.7252874667E-003,3.3000138469E-003,Pass,Pass,7.5741199526E-003,4.6982531508E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.7164359350E-002,9.6626584035E-002,Pass,Pass,2.6277300530E-003,1.2213009907E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,8.9369378130E-003,3.3116288010E-002,Pass,Pass,5.9873183689E-003,2.6834522320E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,9.2434534306E-004,6.2630955279E-004,Pass,Pass,3.0184671143E-003,2.4912840741E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.9066729026E-002,9.6531514078E-002,Pass,Pass,2.8041378636E-003,1.2146709745E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,3.4485184904E-002,0.1319268033,Pass,Pass,4.8564960440E-003,2.0953855407E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.7825533671E-002,9.6262654780E-002,Pass,Pass,2.6593743039E-003,1.2063176140E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,3.0663272664E-003,3.5717264626E-003,Pass,Pass,6.3030403520E-003,3.4748345791E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,3.2234872134E-003,3.4389083539E-003,Pass,Pass,6.5728912463E-003,3.4628069189E-002,Pass,Pass
+Environment,NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,34.70,10.20,DefaultMultipliers,99217,230,3.5,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,4.7619197006E-002,6.5349311967E-002,Pass,Pass,1.5096313629E-002,1.4128240179E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,1.7091854667E-004,3.5151782794E-004,Pass,Pass,9.5169507611E-003,1.3313731340E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,1.7023732022E-002,3.3310993751E-002,Pass,Pass,2.1299243527E-002,3.3892394469E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,5.2870104950E-002,7.1759840526E-002,Pass,Pass,2.2773145206E-002,2.1383841021E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.3641083699E-002,0.1111255885,Pass,Pass,3.6226572850E-002,4.4306983045E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,6.6276790968E-002,6.0135981736E-002,Pass,Pass,2.4575494991E-002,2.8687291172E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,6.1647885556E-002,0.1179481563,Pass,Pass,2.3136410582E-002,2.4713327901E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.3552376809E-002,0.1102267434,Pass,Pass,2.6672698837E-002,2.6062959824E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.3705915560E-002,0.1708219723,Pass,Pass,3.1665787465E-002,3.8321735689E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,1.5876741817E-004,2.8085519391E-004,Pass,Pass,7.5141906145E-003,1.1413193150E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,3.9029124314E-002,6.6310908268E-002,Pass,Pass,1.7734388974E-002,1.7083214542E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,4.6881134429E-002,6.5098121621E-002,Pass,Pass,2.2541505425E-002,2.0711400218E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.3466195528E-002,8.7557235814E-002,Pass,Pass,1.5289788376E-002,1.6086662573E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,7.0760798806E-002,6.5493688264E-002,Pass,Pass,2.4847756273E-002,2.8735741281E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: NASHVILLE INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,6.9166180634E-002,0.1248431986,Pass,Pass,2.3574292372E-002,2.6668167087E-002,Pass,Pass
+Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01,12/31,Thursday,365,Use RunPeriod Specified Day,Yes,Yes,No ,Yes,Yes
+Environment:Daylight Saving,Yes,InputFile,03/08,11/01
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 15,RunPeriod: RUN PERIOD 1,2.6075157502E-003,2.1310284014E-003,Pass,Pass,0.1178251010,0.2503583897,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,RunPeriod: RUN PERIOD 1,4.4662486705E-002,0.1086028235,Pass,Pass,0.1033557304,0.2927654464,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,RunPeriod: RUN PERIOD 1,5.9297633108E-002,0.1297018475,Pass,Pass,0.1659913755,0.7160811345,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,RunPeriod: RUN PERIOD 1,6.7261726428E-002,0.1317260975,Pass,Pass,0.1238199992,0.3000271620,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,RunPeriod: RUN PERIOD 1,2.3446582577E-003,1.9918711447E-003,Pass,Pass,0.1913939141,0.6381877444,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,RunPeriod: RUN PERIOD 1,2.1758435434E-003,1.9872124329E-003,Pass,Pass,0.1669151203,0.4913013419,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,RunPeriod: RUN PERIOD 1,2.2160579905E-003,2.1961902203E-003,Pass,Pass,0.1582062788,0.4495256895,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,RunPeriod: RUN PERIOD 1,8.6229667923E-002,0.2025001668,Pass,Pass,0.1067444835,0.1688416229,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,RunPeriod: RUN PERIOD 1,2.8928667543E-002,9.0239379981E-002,Pass,Pass,0.3286279135,1.6785195767,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,RunPeriod: RUN PERIOD 1,7.2800532630E-002,0.1510428180,Pass,Pass,5.0461576926E-002,9.8674466020E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,RunPeriod: RUN PERIOD 1,2.2875116485E-003,2.2145691852E-003,Pass,Pass,1.5228211012,8.6953548939,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,RunPeriod: RUN PERIOD 1,3.6929924347E-002,8.6161219439E-002,Pass,Pass,0.2384844082,0.8468700311,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,RunPeriod: RUN PERIOD 1,2.0392721501E-003,1.9070802576E-003,Pass,Pass,4.2517138207,39.3150065097,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,RunPeriod: RUN PERIOD 1,2.2737317752E-003,1.9295878056E-003,Pass,Pass,0.2144705469,0.5890276348,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,RunPeriod: RUN PERIOD 1,5.9669961340E-003,1.9852497529E-002,Pass,Pass,8.6297573288E-002,0.1368307575,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, Yes,1, Not Set, Not Set, 1, 1, 102, N/A
+End of Data

@@ -1,0 +1,730 @@
+Program Version,EnergyPlus-Linux-OMP-32 7.2.0.006, YMD=2013.06.20 15:09
+! <Version>, Version ID
+ Version, 7.2
+! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
+ Timesteps per Hour,  4, 15
+! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
+ System Convergence Limits, 1, 20, 2, 8
+! <Simulation Control>, Do Zone Sizing, Do System Sizing, Do Plant Sizing, Do Design Days, Do Weather Simulation
+ Simulation Control, Yes, Yes, Yes, Yes, Yes
+! <Output Reporting Tolerances>, Tolerance for Time Heating Setpoint Not Met, Tolerance for Time Cooling Setpoint Not Met
+ Output Reporting Tolerances, 0.200, 0.200, 
+! <Site:GroundTemperature:BuildingSurface>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:BuildingSurface,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00
+! <Site:GroundTemperature:FCfactorMethod>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:FCfactorMethod,  10.86,  10.57,  11.08,  11.88,  13.97,  15.58,  16.67,  17.00,  16.44,  15.19,  13.51,  11.96
+! <Site:GroundTemperature:Shallow>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
+! <Site:GroundTemperature:Deep>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
+! <Site:GroundReflectance>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:SnowModifier>, Normal, Daylighting {dimensionless}
+ Site:GroundReflectance:SnowModifier,   1.000,   1.000
+! <Site:GroundReflectance:Snow>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:Snow:Daylighting>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow:Daylighting,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Environment:Weather Station>,Wind Sensor Height Above Ground {m},Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Sensor Height Above Ground {m},Wind Speed Modifier Coefficient [Internal],Temperature Modifier Coefficient [Internal]
+Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
+! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
+Site:Location,San Francisco Intl Ap CA USA TMY3 WMO#=724940,37.62,-122.40,-8.00,2.00,101301,1.2040
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information,Building 1,0.000,Suburbs,4.00000E-002,0.40000,FullExterior,25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,DOE-2
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Carbon Dioxide Balance Simulation, No,N/A
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Generic Contaminant Concentration
+ Zone Air Generic Contaminant Balance Simulation, No,N/A
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
+! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,RelativeCoordinateSystem,RelativeCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,15,102,12
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, THERMAL ZONE 12,0.0,0.00,0.00,0.00,6.45,1.24,2.00,1,1,1,0.00,12.91,0.00,3.00,0.00,4.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 9,0.0,0.00,0.00,4.00,1.24,6.45,6.00,1,1,1,0.00,3.00,0.00,12.91,4.00,8.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 15,0.0,0.00,0.00,0.00,1.24,6.45,2.00,1,1,1,0.00,3.00,0.00,12.91,0.00,4.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 4,0.0,3.00,3.00,8.00,6.45,6.45,10.00,1,1,1,3.00,9.91,3.00,9.91,8.00,12.00,4.00,190.99,TARP,DOE-2,47.75,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 1,0.0,3.00,9.91,4.00,6.45,11.67,6.00,1,1,1,0.00,12.91,9.91,12.91,4.00,8.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 13,0.0,3.00,3.00,4.00,6.45,6.45,6.00,1,1,1,3.00,9.91,3.00,9.91,4.00,8.00,4.00,190.99,TARP,DOE-2,47.75,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 2,0.0,0.00,0.00,8.00,6.45,1.24,10.00,1,1,1,0.00,12.91,0.00,3.00,8.00,12.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 11,0.0,3.00,9.91,0.00,6.45,11.67,2.00,1,1,1,0.00,12.91,9.91,12.91,0.00,4.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 3,0.0,9.91,3.00,4.00,11.67,6.45,6.00,1,1,1,9.91,12.91,0.00,12.91,4.00,8.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 6,0.0,9.91,3.00,0.00,11.67,6.45,2.00,1,1,1,9.91,12.91,0.00,12.91,0.00,4.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 5,0.0,0.00,0.00,8.00,1.24,6.45,10.00,1,1,1,0.00,3.00,0.00,12.91,8.00,12.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 8,0.0,3.00,9.91,8.00,6.45,11.67,10.00,1,1,1,0.00,12.91,9.91,12.91,8.00,12.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 7,0.0,0.00,0.00,4.00,6.45,1.24,6.00,1,1,1,0.00,12.91,0.00,3.00,4.00,8.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 10,0.0,9.91,3.00,8.00,11.67,6.45,10.00,1,1,1,9.91,12.91,0.00,12.91,8.00,12.00,4.00,118.92,TARP,DOE-2,29.73,51.64,38.73,12.91,6,1,0,Yes
+ Zone Information, THERMAL ZONE 14,0.0,3.00,3.00,0.00,6.45,6.45,2.00,1,1,1,3.00,9.91,3.00,9.91,0.00,4.00,4.00,190.99,TARP,DOE-2,47.75,0.00,0.00,0.00,6,0,0,Yes
+! <Zone Internal Gains/Equipment Information - Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
+ Zone Internal Gains, THERMAL ZONE 12,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 9,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 15,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 4,47.75,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 1,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 13,47.75,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 2,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 11,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 3,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 6,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 5,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 8,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 7,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 10,29.73,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 14,47.75,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}, Polygon Clipping Algorithm, Sky Diffuse Modeling Algorithm
+Shadowing/Sun Position Calculations,20,15000,SutherlandHodgman,SimpleSkyDiffuseModeling
+! <RoomAir Model>, Zone Name, Mixing/Mundt/UCSDDV/UCSDCV/UCSDUFI/UCSDUFE/User Defined
+RoomAir Model,THERMAL ZONE 12,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 9,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 15,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 4,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 1,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 13,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 2,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 11,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 3,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 6,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 5,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 8,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 7,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 10,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 14,Mixing/Well-Stirred
+! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
+AirflowNetwork Model:Control,NoMultizoneOrDistribution
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier, Generic Contaminant Capacity Multiplier
+Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
+! <Load Timesteps in Zone Design Calculation Averaging Window>, Value
+ Load Timesteps in Zone Design Calculation Averaging Window,    4
+! <Heating Sizing Factor Information>, Sizing Factor ID, Value
+ Heating Sizing Factor Information, Global,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 12,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 9,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 15,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 4,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 1,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 13,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 2,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 11,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 3,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 6,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 5,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 8,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 7,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 10,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 14,   1.2500    
+! <Cooling Sizing Factor Information>, Sizing Factor ID, Value
+ Cooling Sizing Factor Information, Global,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 12,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 9,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 15,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 4,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 1,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 13,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 2,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 11,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 3,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 6,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 5,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 8,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 7,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 10,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 14,   1.1500    
+! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}
+ Zone Sizing Information, THERMAL ZONE 12, Cooling, 741.43288, 852.64781, 4.30957E-002, 4.95601E-002, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 14:15:00, 28.30000, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 12, Heating, 1003.24664, 1254.05830, 5.10711E-002, 6.38389E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 9, Cooling, 1893.68730, 2177.74039, 0.11007, 0.12658, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 17:45:00, 26.47250, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 9, Heating, 808.47919, 1010.59899, 4.11563E-002, 5.14454E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 15, Cooling, 1212.46808, 1394.33829, 7.04745E-002, 8.10457E-002, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 17:15:00, 26.89750, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 15, Heating, 1004.20822, 1255.26027, 5.11201E-002, 6.39001E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 4, Cooling, 261.82178, 301.09504, 1.52184E-002, 1.75012E-002, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 18:30:00, 25.62250, 7.71373E-003, 47.74733, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 4, Heating, 423.38573, 529.23216, 2.15528E-002, 2.69410E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 47.74733, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 1, Cooling, 197.01305, 226.56501, 1.14514E-002, 1.31691E-002, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 18:30:00, 25.62250, 7.71373E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 1, Heating, 808.47919, 1010.59899, 4.11563E-002, 5.14454E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 13, Cooling, 113.08370, 130.04626, 6.57300E-003, 7.55895E-003, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 18:00:00, 26.26000, 7.71373E-003, 47.74733, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 13, Heating, 271.97544, 339.96931, 1.38451E-002, 1.73064E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 47.74733, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 2, Cooling, 1550.49509, 1783.06935, 9.01228E-002, 0.10364, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 14:45:00, 28.30000, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 2, Heating, 920.09574, 1150.11967, 4.68383E-002, 5.85478E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 11, Heating, 1004.20822, 1255.26027, 5.11201E-002, 6.39001E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 3, Cooling, 1463.30297, 1682.79842, 8.50547E-002, 9.78129E-002, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 11:00:00, 26.34500, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 3, Heating, 808.48264, 1010.60330, 4.11565E-002, 5.14456E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 6, Cooling, 730.13187, 839.65166, 4.24387E-002, 4.88046E-002, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 10:30:00, 25.70750, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 6, Heating, 1003.24664, 1254.05830, 5.10711E-002, 6.38389E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 5, Cooling, 1965.98112, 2260.87829, 0.11427, 0.13141, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 17:45:00, 26.47250, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 5, Heating, 919.51683, 1149.39604, 4.68088E-002, 5.85110E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 8, Cooling, 312.60313, 359.49360, 1.81701E-002, 2.08956E-002, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 18:30:00, 25.62250, 7.71373E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 8, Heating, 919.51683, 1149.39604, 4.68088E-002, 5.85110E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 7, Cooling, 1511.09560, 1737.75993, 8.78327E-002, 0.10101, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 15:00:00, 28.30000, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 7, Heating, 808.48264, 1010.60330, 4.11565E-002, 5.14456E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 10, Cooling, 1522.63244, 1751.02731, 8.85032E-002, 0.10178, SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB, 8/21 11:00:00, 26.34500, 7.71372E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 10, Heating, 920.09574, 1150.11967, 4.68383E-002, 5.85478E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 29.72983, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 14, Heating, 603.42684, 754.28355, 3.07180E-002, 3.83975E-002, SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, 3.80000, 4.96421E-003, 47.74733, 0.00000, 0.00000
+! <System Sizing Information>, System Name, Field Description, Value
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Cooling Design Air Flow Rate [m3/s], 0.90077
+ System Sizing Information, AIR LOOP HVAC 1, User Cooling Design Air Flow Rate [m3/s], 0.90077
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Heating Design Air Flow Rate [m3/s], 0.77802
+ System Sizing Information, AIR LOOP HVAC 1, User Heating Design Air Flow Rate [m3/s], 0.77802
+! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Air Flow Rate [m3/s], 6.38389E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow Fraction during Reheat [], 0.94630
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Reheat Water Flow Rate [m3/s], 4.71017E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 6.38389E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Maximum Water Flow Rate [m3/s], 4.71017E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Design Coil Load [W], 2168.10584
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, U-Factor Times Area Value [W/K], 45.40768
+! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 12,2053.78
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Air Flow Rate [m3/s], 0.12658
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow Fraction during Reheat [], 0.47725
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Reheat Water Flow Rate [m3/s], 3.79575E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.14454E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Maximum Water Flow Rate [m3/s], 3.79575E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Design Coil Load [W], 1747.19594
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, U-Factor Times Area Value [W/K], 90.03554
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 4,2773.81
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Air Flow Rate [m3/s], 8.10457E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow Fraction during Reheat [], 0.74539
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Reheat Water Flow Rate [m3/s], 4.71469E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 6.39001E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Maximum Water Flow Rate [m3/s], 4.71469E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Design Coil Load [W], 2170.18389
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, U-Factor Times Area Value [W/K], 57.64663
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 13,2406.82
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Air Flow Rate [m3/s], 2.69410E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 5.64241E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Reheat Water Flow Rate [m3/s], 1.98777E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 2.69410E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Maximum Water Flow Rate [m3/s], 1.98777E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Design Coil Load [W], 914.97447
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, U-Factor Times Area Value [W/K], 19.16275
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 8,866.73
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Air Flow Rate [m3/s], 5.14454E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.73043E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Reheat Water Flow Rate [m3/s], 3.79575E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.14454E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Maximum Water Flow Rate [m3/s], 3.79575E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Design Coil Load [W], 1747.19594
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, U-Factor Times Area Value [W/K], 36.59236
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 10,1655.06
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Air Flow Rate [m3/s], 1.73064E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 3.62459E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Reheat Water Flow Rate [m3/s], 1.27691E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 1.73064E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Maximum Water Flow Rate [m3/s], 1.27691E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Design Coil Load [W], 587.76329
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, U-Factor Times Area Value [W/K], 12.30981
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 14,556.77
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Air Flow Rate [m3/s], 0.10364
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow Fraction during Reheat [], 0.58289
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Reheat Water Flow Rate [m3/s], 4.31978E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.85478E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Maximum Water Flow Rate [m3/s], 4.31978E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Design Coil Load [W], 1988.40929
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, U-Factor Times Area Value [W/K], 73.71843
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 3,2683.69
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Air Flow Rate [m3/s], 6.39001E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow Fraction during Reheat [], 0.94540
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Reheat Water Flow Rate [m3/s], 4.71469E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 6.39001E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Maximum Water Flow Rate [m3/s], 4.71469E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Design Coil Load [W], 2170.18389
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, U-Factor Times Area Value [W/K], 45.45120
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 17,2055.75
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Air Flow Rate [m3/s], 9.78129E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow Fraction during Reheat [], 0.61762
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Reheat Water Flow Rate [m3/s], 3.79577E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.14456E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Maximum Water Flow Rate [m3/s], 3.79577E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Design Coil Load [W], 1747.20339
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, U-Factor Times Area Value [W/K], 69.57287
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 16,2449.45
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Air Flow Rate [m3/s], 6.38389E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow Fraction during Reheat [], 0.94630
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Reheat Water Flow Rate [m3/s], 4.71017E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 6.38389E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Maximum Water Flow Rate [m3/s], 4.71017E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Design Coil Load [W], 2168.10584
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, U-Factor Times Area Value [W/K], 45.40768
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 15,2053.78
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Air Flow Rate [m3/s], 0.13141
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow Fraction during Reheat [], 0.45970
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Reheat Water Flow Rate [m3/s], 4.31707E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.85110E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Maximum Water Flow Rate [m3/s], 4.31707E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Design Coil Load [W], 1987.15822
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, U-Factor Times Area Value [W/K], 93.47275
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 7,3025.96
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Air Flow Rate [m3/s], 5.85110E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.96809E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Reheat Water Flow Rate [m3/s], 4.31707E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.85110E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Maximum Water Flow Rate [m3/s], 4.31707E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Design Coil Load [W], 1987.15822
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, U-Factor Times Area Value [W/K], 41.61801
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 6,1882.37
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Air Flow Rate [m3/s], 0.10101
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow Fraction during Reheat [], 0.59808
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Reheat Water Flow Rate [m3/s], 3.79577E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.14456E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Maximum Water Flow Rate [m3/s], 3.79577E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Design Coil Load [W], 1747.20339
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, U-Factor Times Area Value [W/K], 71.84518
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 5,2490.44
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Air Flow Rate [m3/s], 0.10178
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow Fraction during Reheat [], 0.59355
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Reheat Water Flow Rate [m3/s], 4.31978E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.85478E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Maximum Water Flow Rate [m3/s], 4.31978E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Design Coil Load [W], 1988.40929
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, U-Factor Times Area Value [W/K], 72.39370
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 9,2657.31
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Air Flow Rate [m3/s], 3.83975E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 8.04180E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Reheat Water Flow Rate [m3/s], 2.83305E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 3.83975E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Maximum Water Flow Rate [m3/s], 2.83305E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Design Coil Load [W], 1304.05945
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, U-Factor Times Area Value [W/K], 27.31154
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 11,1235.29
+ Component Sizing Information, Branch, BRANCH {7852CA18-9E25-4295-91AE-8515A76B1CDF}, Maximum Flow Rate [m3/s], 0.90077
+ Component Sizing Information, AirLoopHVAC, AIR LOOP HVAC 1, Design Supply Air Flow Rate [m3/s], 0.90077
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Maximum Outdoor Air Flow Rate [m3/s], 0.90077
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Minimum Outdoor Air Flow Rate [m3/s], 0.00000
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Air Flow Rate [m3/s], 0.90077
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Total Cooling Capacity (gross) [W], 14910.95780
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Sensible Heat Ratio, 0.79866
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Air Flow Rate [m3/s], 0.30023
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Total Cooling Capacity (gross) [W], 4969.82224
+! <VAV DX Cooling Coil Standard Rating Information>, DX Coil Type, DX Coil Name, Fan Type, Fan Name, Standard Net Cooling Capacity {W}, Standard Net Cooling Capacity {Btu/h}, IEER {Btu/W-h}, COP 100% Capacity {W/W}, COP 75% Capacity {W/W}, COP 50% Capacity {W/W}, COP 25% Capacity {W/W}, EER 100% Capacity {Btu/W-h}, EER 75% Capacity {Btu/W-h}, EER 50% Capacity {Btu/W-h}, EER 25% Capacity {Btu/W-h}, Supply Air Flow 100% {kg/s}, Supply Air Flow 75% {kg/s},Supply Air Flow 50% {kg/s},Supply Air Flow 25% {kg/s}
+ VAV DX Cooling Coil Standard Rating Information, Coil:Cooling:DX:TwoSpeed,COIL COOLING DX TWO SPEED 1,N/A,N/A,14239.64,48587.68,22.01,4.21,5.41,7.46,10.04,14.35,18.45,25.46,34.24,1.0416,0.8004,0.5315,0.2837,
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Maximum Water Flow Rate [m3/s], 6.39255E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Design Coil Load [W], 2942.50996
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, U-Factor Times Area Value [W/K], 44.75649
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 1,2630.83
+ Component Sizing Information, Fan:VariableVolume, FAN VARIABLE VOLUME 1, Maximum Flow Rate [m3/s], 0.90077
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Maximum Actuated Flow [m3/s], 6.39255E-005
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Controller Convergence Tolerance, 1.00000E-003
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Nominal Capacity [W], 29479.49445
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Design Water Flow Rate [m3/s], 6.37967E-004
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Maximum Loop Flow Rate [m3/s], 6.37967E-004
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Plant Loop Volume [m3], 0.71771
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Flow Rate [m3/s], 6.37967E-004
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Power Consumption [W], 162.99242
+! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values
+! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
+! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
+! <Environment:WarmupDays>, NumberofWarmupDays
+Environment,SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+! <Environment:Design Day Data>, Max Dry-Bulb Temp {C}, Temp Range {dC}, Temp Range Ind Type, Hum Ind Value at Max Temp, Hum Ind Type,Pressure {Pa}, Wind Direction {deg CW from N}, Wind Speed {m/s}, Clearness, Rain, Snow
+! <Environment:Design_Day_Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
+Environment:Design Day Data,22.40,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+! <Tabular Report>,Style
+Tabular Report,HTML
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3986870720E-002,0.1266581428,Pass,Pass,0.1850715390,0.5268907710,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3801734332E-002,0.1251233776,Pass,Pass,0.2040633956,0.4280715756,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.4019209051E-002,0.1794423068,Pass,Pass,0.2254427449,0.8414026066,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,4.0752059203E-002,1.9440990447E-002,Pass,Pass,9.0804503260E-003,2.0197497411E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,1.8159198959E-002,3.2290765121E-002,Pass,Pass,0.1810961709,0.4137188385,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,4.2160256581E-002,2.0212094412E-002,Pass,Pass,1.1296505182E-002,3.3070750945E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3638876753E-002,9.8938366589E-002,Pass,Pass,0.3192626517,1.5773047671,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,1.0890865615E-003,1.0003163232E-003,Pass,Pass,0.6881633170,4.7938930397,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3722842193E-002,0.1109444365,Pass,Pass,1.0687861493,9.0920739687,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.4032950427E-002,0.1369936273,Pass,Pass,0.2101212886,0.8698060074,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3837698696E-002,0.1254125310,Pass,Pass,0.2681899550,0.8719489425,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,1.7269691973E-002,2.9819953360E-002,Pass,Pass,0.3475471694,1.8108987715,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3770308911E-002,0.1037127229,Pass,Pass,0.2895718666,1.2781362776,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3684268486E-002,0.1042939476,Pass,Pass,0.2948781050,1.4194970338,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS ENTH=>MDB,4.9579545075E-004,4.8033902787E-004,Pass,Pass,0.1886213192,0.5129378353,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,19.20,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,7.6882984615E-002,0.1173339431,Pass,Pass,0.2501605506,1.0637373387,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3971006786E-002,0.1309372270,Pass,Pass,0.2216750746,0.4928794125,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,8.4284009229E-002,0.1834318652,Pass,Pass,0.2066288328,0.7207688245,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,2.7406180559E-002,2.3138660720E-002,Pass,Pass,0.1463379676,0.3874723918,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,2.0263117205E-003,5.7904718935E-003,Pass,Pass,0.2893190052,1.1121085331,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,3.2621468789E-002,2.4602013953E-002,Pass,Pass,0.2167815421,0.9514842180,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3692009857E-002,9.5222324472E-002,Pass,Pass,0.1765343564,0.4487780036,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,1.1143824579E-003,1.1651554669E-003,Pass,Pass,6.1559611650E-002,5.6440732253E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3794867378E-002,0.1044294305,Pass,Pass,0.2065278477,0.6694669038,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,7.8497941307E-002,0.1300677166,Pass,Pass,0.1820403375,0.5841157271,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3960540632E-002,0.1313618995,Pass,Pass,0.4714441464,2.7882438918,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,7.0349994130E-004,7.2805086947E-004,Pass,Pass,0.2680951205,0.8096806511,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3902309919E-002,0.1033117594,Pass,Pass,0.2006707152,0.5835496777,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,7.6312261384E-002,9.5877064836E-002,Pass,Pass,0.1736070762,0.4598428054,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DP=>MDB,1.6970263513E-003,3.5254852548E-003,Pass,Pass,4.9753739923E-002,3.7549896913E-002,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,12.10,0.00,DefaultMultipliers,101301,150,12.9,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.6743146182E-005,1.2608587752E-005,Pass,Pass,2.3626999350E-005,1.6530115584E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.7796239397E-003,1.2311882165E-005,Pass,Pass,4.3105297144E-003,2.4875675838E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.5730638502E-003,1.7267682729E-003,Pass,Pass,2.4469383902E-003,2.2350757495E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,9.3487048913E-004,6.5768448304E-006,Pass,Pass,6.7710151228E-003,3.6993221106E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.1862956238E-005,9.3155484099E-006,Pass,Pass,2.3840966516E-005,1.6760077179E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,5.3314994783E-004,4.7984713800E-006,Pass,Pass,4.9227318665E-003,3.2151398211E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.0925578397E-005,8.6352906421E-006,Pass,Pass,1.9378965113E-005,1.3531149953E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.6733057877E-005,1.2597820325E-005,Pass,Pass,2.3606847150E-005,1.6516384249E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.7374817636E-003,1.6646871683E-003,Pass,Pass,2.0977629270E-003,2.6771921029E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.6630641620E-005,1.2597012595E-005,Pass,Pass,2.3564337758E-005,1.6585032407E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.2394171888E-003,7.6862719253E-004,Pass,Pass,6.9943641003E-003,1.7861675792E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.6285809404E-003,1.7078886070E-003,Pass,Pass,3.5539146833E-003,2.9450268896E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.0316353971E-005,8.3453809036E-006,Pass,Pass,2.0371132697E-005,1.4221455166E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.2469306093E-003,1.5148762720E-003,Pass,Pass,1.3044815354E-003,2.0699024947E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,8.3900370528E-006,6.3879831888E-006,Pass,Pass,2.5315215613E-005,1.7620648862E-005,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,12.20,0.00,DefaultMultipliers,101301,150,11.6,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.7072290829E-003,1.2448160033E-005,Pass,Pass,4.6353922465E-003,1.7538170845E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,6.9944945071E-004,1.3480796175E-003,Pass,Pass,1.1739965712E-003,2.5748085625E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.7536683566E-003,1.1735312318E-005,Pass,Pass,4.7144385374E-003,1.6970352142E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,3.3634230093E-006,2.3711150090E-006,Pass,Pass,1.1856422061E-005,9.5058514879E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,6.9619632383E-006,5.7447517276E-006,Pass,Pass,1.0941302339E-005,9.0817236238E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,5.3606658391E-004,3.1599795742E-006,Pass,Pass,4.9767207257E-003,1.9776467144E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,3.0084915525E-003,1.3798095986E-003,Pass,Pass,4.0297130624E-003,2.6200875960E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,3.0868099942E-003,1.1126351941E-003,Pass,Pass,3.2007619678E-003,1.8041815363E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.6450156972E-003,1.1365133325E-003,Pass,Pass,3.7391016618E-003,2.6383702608E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.7072713637E-003,1.2579280814E-005,Pass,Pass,4.6353866595E-003,1.7511179947E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,3.4265193928E-003,8.0048525936E-006,Pass,Pass,7.6799155790E-003,3.1714842142E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,3.3606007821E-003,1.2497134488E-003,Pass,Pass,4.5211513679E-003,2.6357713061E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.8111107360E-003,1.2172262878E-003,Pass,Pass,3.9728150322E-003,2.7871913384E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.8914892341E-003,1.6193268406E-003,Pass,Pass,2.2283994265E-003,2.5055043394E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,4.5942459992E-006,3.9714757271E-006,Pass,Pass,1.1881939506E-005,9.5741832484E-006,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,19.90,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,7.9325285789E-002,0.1185717438,Pass,Pass,0.2845823653,1.2831393510,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3927181006E-002,0.1293814464,Pass,Pass,0.2751509807,0.8385338884,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,8.4170062923E-002,0.1828259368,Pass,Pass,0.2374216525,1.0849641201,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,3.0069302669E-002,2.3098398278E-002,Pass,Pass,7.0139756799E-002,0.1189157731,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,5.7896489041E-003,1.5418455163E-002,Pass,Pass,0.6962895749,3.7723725702,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,3.4544191108E-002,2.4275123901E-002,Pass,Pass,0.2666318026,1.2868468813,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3843831299E-002,9.7411530810E-002,Pass,Pass,0.6743967948,5.0826267540,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,9.5215717633E-004,9.1580937329E-004,Pass,Pass,7.3585423770E-002,7.0742777076E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3784791526E-002,0.1067003121,Pass,Pass,5.3075262449,48.1048861998,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,8.0805080799E-002,0.1314370010,Pass,Pass,0.1736394336,0.5274492014,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3840507540E-002,0.1302170297,Pass,Pass,0.2609205537,0.7144929114,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,2.6052146692E-003,8.6441706634E-003,Pass,Pass,0.5374679806,3.3807343445,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3721665166E-002,0.1028633925,Pass,Pass,0.1807017653,0.4757294375,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,7.9575804739E-002,9.8355552461E-002,Pass,Pass,0.3395077932,1.9697238392,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DP=>MDB,1.2639749794E-003,2.5632640733E-003,Pass,Pass,5.5591431229E-002,4.4174782558E-002,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,18.70,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,7.4852850279E-002,0.1166638268,Pass,Pass,0.4700778289,3.1853390431,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3961120949E-002,0.1318119369,Pass,Pass,0.2154460372,0.4573565522,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,8.4176841570E-002,0.1834147377,Pass,Pass,0.4606902821,2.3604437783,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,2.5472736187E-002,2.2951456701E-002,Pass,Pass,0.1574141876,0.4165297618,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,5.2934530247E-004,5.2621976512E-004,Pass,Pass,0.3267251705,1.3981663639,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,3.1286683352E-002,2.4805892043E-002,Pass,Pass,0.4647762775,3.2320870486,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,8.1114042140E-002,9.4985277956E-002,Pass,Pass,0.2178592356,0.7086192419,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,1.1571799161E-003,1.1482106549E-003,Pass,Pass,5.6311621320E-002,5.1348515876E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3669518551E-002,0.1022030106,Pass,Pass,1.7204300165,15.4007918041,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,7.6906009164E-002,0.1291589615,Pass,Pass,0.2509042505,1.0438719155,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,8.4055351488E-002,0.1322554232,Pass,Pass,0.2164074970,0.4605424373,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,6.4556405051E-004,7.1331313783E-004,Pass,Pass,0.2698621359,0.8921168400,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3852881641E-002,0.1025829646,Pass,Pass,0.1694102443,0.4149161154,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,7.4004010656E-002,9.4719379343E-002,Pass,Pass,0.2258107949,0.9000525749,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DP=>MDB,2.0230447503E-003,3.9428752043E-003,Pass,Pass,4.6349358625E-002,3.4503061573E-002,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,4.90,0.00,DefaultMultipliers,101301,150,2.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.2627942023E-005,1.6441799686E-005,Pass,Pass,2.4199522003E-005,1.8238662161E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,1.9009332916E-005,1.4023204851E-005,Pass,Pass,2.0782463508E-005,1.5548303214E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.5632992141E-005,1.8566427690E-005,Pass,Pass,2.2941260314E-005,1.7349480142E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,7.9155388003E-006,5.8312710054E-006,Pass,Pass,2.6237794276E-005,1.9653851682E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,1.8841073554E-005,1.3598898042E-005,Pass,Pass,2.4468710982E-005,1.8414228370E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,5.7402773684E-006,4.1975292768E-006,Pass,Pass,2.6465635034E-005,1.9868580508E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.2169745731E-003,2.6403069913E-005,Pass,Pass,3.1424122258E-003,2.6740831791E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.2653982247E-005,1.6412578812E-005,Pass,Pass,2.4049892840E-005,1.8124750056E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.5051511298E-003,1.0230143235E-003,Pass,Pass,2.3489845635E-003,1.5261883591E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.2623406339E-005,1.6427304539E-005,Pass,Pass,2.4074172261E-005,1.8146186841E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.8185934395E-003,1.8022788333E-003,Pass,Pass,2.1805066267E-003,2.0161976202E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.1164808768E-005,1.5427151188E-005,Pass,Pass,2.4249382929E-005,1.8232882556E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,2.6776238490E-003,1.5439632917E-003,Pass,Pass,3.8484724283E-003,1.7153080696E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,3.0067886984E-003,1.8383417240E-003,Pass,Pass,4.0302333043E-003,1.4235710824E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99% CONDNS DB,9.6258801204E-006,7.1501390723E-006,Pass,Pass,2.5545404848E-005,1.9185880346E-005,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,25.70,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3827292990E-002,0.1307418416,Pass,Pass,0.2269819510,0.7456428517,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3778589429E-002,0.1211484451,Pass,Pass,8.3373793146E-002,7.9869944894E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3925642351E-002,0.1760941313,Pass,Pass,0.7527178157,5.2382131023,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,4.3045923263E-002,1.7473095668E-002,Pass,Pass,3.3680608463E-003,1.3704099090E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,3.4603537341E-002,3.7888823897E-002,Pass,Pass,0.2102082188,0.4924772220,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,4.4332884245E-002,1.7428284528E-002,Pass,Pass,3.5269220875E-003,1.3215722528E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3497775008E-002,0.1002967338,Pass,Pass,7.6425786868E-002,8.7737226025E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,7.2026786723E-004,7.8685021897E-004,Pass,Pass,0.3375369076,1.6527427595,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3538293638E-002,0.1180265215,Pass,Pass,0.1604938360,0.5038838727,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3776430174E-002,0.1401478467,Pass,Pass,0.7677471807,5.9769771949,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3651249089E-002,0.1199068795,Pass,Pass,6.9201694903E-002,5.9313496487E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,3.6776899564E-002,3.5519028855E-002,Pass,Pass,0.4472189564,2.8976901942,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3584446365E-002,0.1043167657,Pass,Pass,1.7345419795,14.1658322791,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,8.3571708254E-002,0.1127853960,Pass,Pass,0.6614035652,5.5260020401,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS DB=>MWB,4.5091133293E-004,5.4520872748E-004,Pass,Pass,0.6848915700,5.0185172087,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,28.30,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3776480175E-002,0.1315700223,Pass,Pass,0.4578179045,2.9541625599,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3539484553E-002,0.1179239929,Pass,Pass,5.0209943545E-002,4.6355046127E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3837513400E-002,0.1710339665,Pass,Pass,0.2534416481,0.6144201667,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,4.2573447997E-002,1.8510280791E-002,Pass,Pass,3.1970664730E-003,1.3669629010E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,4.8707096265E-002,3.7991585346E-002,Pass,Pass,5.6556933175E-002,0.1059174156,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,4.4140531495E-002,1.7510213411E-002,Pass,Pass,3.4123713523E-003,1.2210454780E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3398345306E-002,9.9469131069E-002,Pass,Pass,4.0553265520E-002,3.9692946824E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,6.8856071578E-004,6.2675122809E-004,Pass,Pass,1.0796111363,8.6980104046,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3475275811E-002,0.1222724737,Pass,Pass,5.5391008807E-002,6.7748364595E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3715846997E-002,0.1422031627,Pass,Pass,0.3849873850,2.3662269251,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3569345395E-002,0.1151696169,Pass,Pass,4.4286748999E-002,4.3289837508E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,5.3586428043E-002,3.3386444242E-002,Pass,Pass,2.5643526717E-002,4.3635034127E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3509875075E-002,0.1035382360,Pass,Pass,4.9752172378E-002,4.7707764874E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,8.3455446185E-002,0.1189002046,Pass,Pass,4.2215509137E-002,5.3521471802E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS DB=>MWB,4.2331405736E-004,4.3180835547E-004,Pass,Pass,0.1776203159,0.3610877415,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,22.40,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3809573835E-002,0.1262645310,Pass,Pass,0.1810813384,0.5030018256,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3740811460E-002,0.1252948246,Pass,Pass,0.1919026980,0.3755379694,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.4166190230E-002,0.1796940673,Pass,Pass,0.2074739931,0.6404705859,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,4.0164915265E-002,1.9764859758E-002,Pass,Pass,9.8007530368E-003,2.6315624233E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,1.7396817875E-002,3.1588310373E-002,Pass,Pass,0.2494743822,0.9313505591,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,4.1748934657E-002,2.0444117842E-002,Pass,Pass,1.4402605672E-002,4.3692592055E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3681171676E-002,9.8558001743E-002,Pass,Pass,0.1964204567,0.5833544343,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,9.0284245504E-004,1.0220969848E-003,Pass,Pass,0.3252770228,1.0971527583,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3666429774E-002,0.1106976862,Pass,Pass,0.1710362379,0.4765084341,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3942201878E-002,0.1370069064,Pass,Pass,0.4041411840,2.7179053590,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3927565141E-002,0.1257383625,Pass,Pass,0.5118308486,3.1961442494,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,1.6362533646E-002,2.9589297413E-002,Pass,Pass,0.2295689566,0.7254364787,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3735348124E-002,0.1034218943,Pass,Pass,0.1857211947,0.4930836489,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3685341113E-002,0.1042646277,Pass,Pass,0.1786344950,0.5103559522,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS WB=>MDB,5.1383330222E-004,5.5374261852E-004,Pass,Pass,0.1759249712,0.5165917238,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,25.80,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3820891667E-002,0.1316230781,Pass,Pass,0.2700220653,1.0690228075,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3588893195E-002,0.1210413421,Pass,Pass,7.5592693182E-002,6.7515389332E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3878609879E-002,0.1752745119,Pass,Pass,0.3141971716,1.2670947695,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,4.3164374870E-002,1.7659207833E-002,Pass,Pass,3.3757000777E-003,1.3326229973E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,3.6680196902E-002,3.8476630499E-002,Pass,Pass,0.8257722334,5.9574410366,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,4.4458292095E-002,1.7393285097E-002,Pass,Pass,3.5461800364E-003,1.3074221373E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3518841428E-002,0.1005817134,Pass,Pass,6.5972592192E-002,6.9522175818E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,7.6378156367E-004,7.1844344604E-004,Pass,Pass,0.2080044260,0.5962985158,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3522431950E-002,0.1178818347,Pass,Pass,0.1727167075,0.5664783821,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3923875657E-002,0.1391027991,Pass,Pass,0.6082191787,3.5702931585,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3665541560E-002,0.1193132369,Pass,Pass,6.4218553427E-002,5.4071880454E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,3.9171007315E-002,3.5783112589E-002,Pass,Pass,0.1421595840,0.3511077159,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3561398122E-002,0.1045869352,Pass,Pass,0.1192504530,0.2092931376,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3501251137E-002,0.1124964177,Pass,Pass,0.1328847518,0.4755823447,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS ENTH=>MDB,4.3132872344E-004,4.9723152944E-004,Pass,Pass,0.1731497442,0.3748599026,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,23.60,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3912481663E-002,0.1278799040,Pass,Pass,0.2324334859,0.8987187700,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3802894702E-002,0.1236673404,Pass,Pass,0.4738324616,2.8953805588,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.4135101116E-002,0.1779193783,Pass,Pass,0.2087891078,0.5853743187,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,4.2735572428E-002,1.6987155668E-002,Pass,Pass,3.4639415563E-003,1.2996567415E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,2.3356804861E-002,3.5081203507E-002,Pass,Pass,0.1799896412,0.4232276859,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,4.4175871673E-002,1.7404320418E-002,Pass,Pass,3.5980210943E-003,1.3049538923E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3629705860E-002,9.9776964590E-002,Pass,Pass,0.3943096290,2.4906274601,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,7.9347559632E-004,8.4314014928E-004,Pass,Pass,0.1930217576,0.4492813304,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3673413791E-002,0.1132452143,Pass,Pass,0.1701840267,0.4656194960,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3851327045E-002,0.1390077380,Pass,Pass,0.2585434635,1.2015771421,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3780650834E-002,0.1235208483,Pass,Pass,0.2451021201,0.7940750693,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,2.3313537208E-002,3.2833461077E-002,Pass,Pass,0.2223978348,0.6599652532,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3604387379E-002,0.1038724058,Pass,Pass,0.3219795161,1.7476450735,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3619468064E-002,0.1077476198,Pass,Pass,0.3279636238,2.0607040623,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 2% CONDNS DB=>MWB,5.6017355216E-004,5.7348132084E-004,Pass,Pass,0.1947975816,0.5088188688,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,3.80,0.00,DefaultMultipliers,101301,150,2.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,4.0905287813E-005,3.1357442186E-005,Pass,Pass,5.3814588627E-005,3.9775461854E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,3.5669389429E-005,2.7264155709E-005,Pass,Pass,4.6543308555E-005,3.4409777217E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,4.7770069572E-003,1.2886511289E-003,Pass,Pass,4.7661217902E-003,1.6756797340E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,1.2521052385E-005,9.7686470519E-006,Pass,Pass,5.7936547107E-005,4.2839897375E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,3.3869634758E-005,2.5872858511E-005,Pass,Pass,5.3922315757E-005,3.9854793211E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,8.1764639080E-006,6.2574513333E-006,Pass,Pass,5.8726164423E-005,4.3396131843E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,4.3678180607E-003,4.3484833419E-005,Pass,Pass,5.8743865263E-003,5.0423439092E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,4.0907813903E-005,3.1357323296E-005,Pass,Pass,5.3403825488E-005,3.9471659313E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,2.1474741024E-003,3.9581734182E-005,Pass,Pass,3.1251219871E-003,4.6908550146E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,4.0936426466E-005,3.1306235916E-005,Pass,Pass,5.3490184394E-005,3.9541172234E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,3.8965466357E-003,2.3544690779E-003,Pass,Pass,4.1063186327E-003,2.7273547694E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,3.8013594985E-005,2.9176398196E-005,Pass,Pass,5.3317323302E-005,3.9429025445E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,3.5431422258E-005,2.7083765944E-005,Pass,Pass,4.6158429521E-005,3.4136925299E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,4.5738909494E-003,1.4487476269E-003,Pass,Pass,4.6117882182E-003,2.0363000434E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN HTG 99.6% CONDNS DB,1.7218149567E-005,1.3244648538E-005,Pass,Pass,5.6923635561E-005,4.2058650552E-005,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,23.90,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3856733099E-002,0.1287588096,Pass,Pass,0.3703232468,2.0951944946,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3727750724E-002,0.1232660904,Pass,Pass,0.5579222707,3.7625799159,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3993650281E-002,0.1775413315,Pass,Pass,0.6020230278,3.1295309340,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,4.2835328673E-002,1.7104580399E-002,Pass,Pass,3.4451974255E-003,1.3337013241E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,2.5294802970E-002,3.5730536759E-002,Pass,Pass,0.2879196820,1.3231328871,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,4.4251733115E-002,1.7455638148E-002,Pass,Pass,3.5872528036E-003,1.2778934786E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3629575540E-002,0.1000275373,Pass,Pass,0.2930904381,1.6325454765,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,9.2696085551E-004,7.7139728603E-004,Pass,Pass,0.1722703354,0.3920393880,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3716144430E-002,0.1134245005,Pass,Pass,0.1496648577,0.3642261857,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3873804743E-002,0.1387662754,Pass,Pass,0.1759521000,0.5707050341,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3788988516E-002,0.1224795397,Pass,Pass,0.2075350750,0.5358509438,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,2.5647790687E-002,3.3783742162E-002,Pass,Pass,0.1917684161,0.4746363522,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3631345297E-002,0.1045042504,Pass,Pass,0.4110500741,2.6189790918,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3650382130E-002,0.1078684373,Pass,Pass,0.1418442479,0.3744370228,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS WB=>MDB,4.7230198315E-004,3.9694229454E-004,Pass,Pass,2.0471702839,16.5963175127,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,25.70,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3852132436E-002,0.1310598738,Pass,Pass,0.3631643068,1.8770617076,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3688678488E-002,0.1211970743,Pass,Pass,8.0991695219E-002,7.4518113426E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3865892232E-002,0.1760251853,Pass,Pass,0.3189724913,1.0966986990,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,4.3099356908E-002,1.7482570568E-002,Pass,Pass,3.3259956284E-003,1.3845058695E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,3.5099851029E-002,3.8060109734E-002,Pass,Pass,0.4429035317,1.9277370856,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,4.4361405417E-002,1.7443496930E-002,Pass,Pass,3.4692673581E-003,1.3475110110E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3534434711E-002,0.1003706013,Pass,Pass,7.2364626108E-002,8.0331765998E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,7.3344295358E-004,7.4626200082E-004,Pass,Pass,0.2968320244,1.2744386538,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3579689624E-002,0.1179899798,Pass,Pass,0.1966114900,0.6503701420,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3846444415E-002,0.1401475780,Pass,Pass,0.5435607219,3.8846021811,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3739187752E-002,0.1198071024,Pass,Pass,6.7838277087E-002,5.8087961922E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,3.7312693955E-002,3.5768504092E-002,Pass,Pass,0.3511096016,1.8123277710,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3525197502E-002,0.1043805559,Pass,Pass,0.2663929386,0.9603713708,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3546159470E-002,0.1127733924,Pass,Pass,0.1138775156,0.3052393170,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG .4% CONDNS WB=>MDB,5.2958482924E-004,6.2479867986E-004,Pass,Pass,0.2397538644,0.9163937862,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,08/21,08/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,23.80,8.50,DefaultMultipliers,101301,310,5.9,0.00,No ,No 
+Environment:Design_Day_Misc,233,1106.3,0.2000,0.1216,1.0,-3.33,12.4,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3960726408E-002,0.1286093672,Pass,Pass,2.4405728607,22.2133628533,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3809363112E-002,0.1233033139,Pass,Pass,0.2081195614,0.5280777127,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.4036571537E-002,0.1774853734,Pass,Pass,0.4977959896,2.3782390223,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,4.2956610732E-002,1.7114008244E-002,Pass,Pass,3.4258614405E-003,1.3341443553E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,2.5665755823E-002,3.5887430078E-002,Pass,Pass,0.4955979955,3.2336921993,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,4.4352972464E-002,1.7454164841E-002,Pass,Pass,3.5532585324E-003,1.3370686795E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3610604492E-002,0.1000774840,Pass,Pass,0.2704146475,1.3907548109,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,9.6115502792E-004,9.3862712179E-004,Pass,Pass,0.1702696011,0.3942699298,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3745263938E-002,0.1134081510,Pass,Pass,0.1502800583,0.3705704348,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3834941711E-002,0.1390757242,Pass,Pass,0.1746435948,0.5625667733,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3870091632E-002,0.1224049988,Pass,Pass,0.2036040661,0.5491492486,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,2.6045624023E-002,3.3905592618E-002,Pass,Pass,0.1982282589,0.5177541503,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3636020337E-002,0.1044765704,Pass,Pass,0.3950080328,2.4935966479,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3654154997E-002,0.1078729386,Pass,Pass,0.1428374735,0.3762054021,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN CLG 1% CONDNS ENTH=>MDB,5.2383122287E-004,4.8304825230E-004,Pass,Pass,0.2603350612,0.9406170277,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,11.20,0.00,DefaultMultipliers,101301,150,2.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.1512210157E-005,1.6251731492E-005,Pass,Pass,2.5551182713E-005,1.9647310758E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.4360635912E-003,1.5637024141E-003,Pass,Pass,4.7824966396E-003,2.1487448694E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.7092057409E-003,1.8397774549E-003,Pass,Pass,1.4287111777E-003,1.9398239786E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,9.6723858589E-004,4.1173529621E-004,Pass,Pass,3.5614318530E-003,2.0927941682E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.3854399661E-003,1.8711333473E-005,Pass,Pass,5.2727382857E-003,3.2230941964E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,4.6217083999E-006,3.6815308942E-006,Pass,Pass,2.6975948846E-005,2.0559839628E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.7278091099E-003,1.4778344890E-003,Pass,Pass,3.1739599731E-003,2.3666696664E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.1479052960E-005,1.6230188313E-005,Pass,Pass,2.5505855327E-005,1.9615571337E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.2795692390E-005,9.4199750783E-006,Pass,Pass,1.9960510197E-005,1.5115330829E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.1500636746E-005,1.6238955429E-005,Pass,Pass,2.5614433238E-005,1.9631392812E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.1081807657E-003,1.2518447347E-003,Pass,Pass,3.9611486474E-003,1.3481095351E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,3.0826496666E-003,1.0982671813E-003,Pass,Pass,3.8379769188E-003,2.0646534534E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.3627207594E-003,1.6436117244E-005,Pass,Pass,5.2229645329E-003,2.8506120440E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.4882462343E-005,1.0740640585E-005,Pass,Pass,2.0410490309E-005,1.5467920510E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,9.9837102218E-006,6.9952470354E-006,Pass,Pass,2.5666847025E-005,1.9608775229E-005,Pass,Pass
+Environment,SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,10.70,0.00,DefaultMultipliers,101301,150,2.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.5756917286E-005,1.1294005823E-005,Pass,Pass,2.0364991090E-005,1.3578772579E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,9.7974618388E-006,6.7618022043E-006,Pass,Pass,1.6126174612E-005,1.0760679842E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.6664412184E-003,1.5525700616E-005,Pass,Pass,4.1615529533E-003,1.9170474508E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,5.3659576465E-006,3.8305641803E-006,Pass,Pass,2.1408430201E-005,1.4446680300E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.1683110398E-005,8.5206869634E-006,Pass,Pass,2.0070940727E-005,1.3399663043E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,3.7040611777E-006,2.5169002113E-006,Pass,Pass,2.1693312757E-005,1.4439464654E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.6226112345E-003,1.7895800611E-003,Pass,Pass,1.5481387568E-003,2.2017930433E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.5770513996E-005,1.1306167523E-005,Pass,Pass,2.0372568773E-005,1.3584158864E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.7673731695E-003,1.1747460626E-003,Pass,Pass,3.8967369200E-003,2.1797838053E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.5729356863E-005,1.1298714536E-005,Pass,Pass,2.0349840998E-005,1.3569616144E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.6737627445E-003,2.8211648772E-004,Pass,Pass,3.0345740551E-003,5.2952858245E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.4551059136E-003,1.4994000029E-003,Pass,Pass,2.9187090881E-003,2.2423715239E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.0437629371E-005,7.3458804425E-006,Pass,Pass,1.7211642262E-005,1.1468702064E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.1732996393E-005,8.0278254587E-006,Pass,Pass,1.6500563029E-005,1.1019386792E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SAN FRANCISCO INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,6.8488362098E-006,4.6999156678E-006,Pass,Pass,2.0648963139E-005,1.3758280267E-005,Pass,Pass
+Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01,12/31,Thursday,365,Use RunPeriod Specified Day,Yes,Yes,No ,Yes,Yes
+Environment:Daylight Saving,Yes,InputFile,03/08,11/01
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 12,RunPeriod: RUN PERIOD 1,9.1384854446E-002,0.1525534953,Pass,Pass,0.1753592252,0.5270000776,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,RunPeriod: RUN PERIOD 1,3.0548890374E-003,9.3941577204E-003,Pass,Pass,0.1876564442,0.4083178834,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,RunPeriod: RUN PERIOD 1,8.4025295446E-003,2.7802693728E-002,Pass,Pass,0.2221860804,0.8842395628,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,RunPeriod: RUN PERIOD 1,4.3377228974E-004,3.1805634381E-004,Pass,Pass,0.6408170946,3.8128386113,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,RunPeriod: RUN PERIOD 1,4.9936376591E-003,1.0051160540E-002,Pass,Pass,2.5907332085E-002,2.2512971754E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,RunPeriod: RUN PERIOD 1,3.3886858059E-003,9.3351974456E-003,Pass,Pass,0.2009880322,0.4408912394,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,RunPeriod: RUN PERIOD 1,8.3986276469E-002,0.1154334952,Pass,Pass,0.2149300702,0.5996491562,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,RunPeriod: RUN PERIOD 1,1.3302333244E-002,2.0780076495E-002,Pass,Pass,1.5856037788E-002,1.7993335998E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,RunPeriod: RUN PERIOD 1,1.3439169968E-003,1.0168996105E-003,Pass,Pass,0.2252134114,0.7282576001,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,RunPeriod: RUN PERIOD 1,1.1741258029E-002,3.1980323084E-002,Pass,Pass,0.1876980966,0.5928908818,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,RunPeriod: RUN PERIOD 1,1.6627619436E-003,1.2032409643E-003,Pass,Pass,0.2801764934,0.9643598146,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,RunPeriod: RUN PERIOD 1,3.7690682345E-003,6.7354515314E-003,Pass,Pass,2.3657027500E-002,1.8466766045E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,RunPeriod: RUN PERIOD 1,8.3990841679E-002,0.1183237364,Pass,Pass,0.2553490317,0.9484684834,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,RunPeriod: RUN PERIOD 1,1.2299492323E-003,1.2047934078E-003,Pass,Pass,0.3486527125,1.5462181318,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,RunPeriod: RUN PERIOD 1,9.9160009381E-003,1.4786628657E-002,Pass,Pass,1.9362049168E-002,2.1981074306E-002,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, Yes,1, Not Set, Not Set, 1, 1, 102, N/A
+End of Data

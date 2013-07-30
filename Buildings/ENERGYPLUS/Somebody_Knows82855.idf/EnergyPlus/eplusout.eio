@@ -1,0 +1,603 @@
+Program Version,EnergyPlus-Linux-OMP-32 7.2.0.006, YMD=2013.07.01 21:38
+! <Version>, Version ID
+ Version, 7.2
+! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
+ Timesteps per Hour,  4, 15
+! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
+ System Convergence Limits, 1, 20, 2, 8
+! <Simulation Control>, Do Zone Sizing, Do System Sizing, Do Plant Sizing, Do Design Days, Do Weather Simulation
+ Simulation Control, Yes, Yes, Yes, Yes, Yes
+! <Output Reporting Tolerances>, Tolerance for Time Heating Setpoint Not Met, Tolerance for Time Cooling Setpoint Not Met
+ Output Reporting Tolerances, 0.200, 0.200, 
+! <Site:GroundTemperature:BuildingSurface>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:BuildingSurface,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00
+! <Site:GroundTemperature:FCfactorMethod>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:FCfactorMethod,   9.15,   8.29,   9.81,  12.18,  18.39,  23.18,  26.41,  27.39,  25.72,  22.00,  17.03,  12.42
+! <Site:GroundTemperature:Shallow>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
+! <Site:GroundTemperature:Deep>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
+! <Site:GroundReflectance>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:SnowModifier>, Normal, Daylighting {dimensionless}
+ Site:GroundReflectance:SnowModifier,   1.000,   1.000
+! <Site:GroundReflectance:Snow>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:Snow:Daylighting>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow:Daylighting,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Environment:Weather Station>,Wind Sensor Height Above Ground {m},Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Sensor Height Above Ground {m},Wind Speed Modifier Coefficient [Internal],Temperature Modifier Coefficient [Internal]
+Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
+! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
+Site:Location,El Paso TX USA TMY--23044 WMO#=722700,31.80,-106.40,-7.00,1194.00,87780,1.0433
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information,Building 1,0.000,Suburbs,4.00000E-002,0.40000,FullExterior,25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,DOE-2
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Carbon Dioxide Balance Simulation, No,N/A
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Generic Contaminant Concentration
+ Zone Air Generic Contaminant Balance Simulation, No,N/A
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
+! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,RelativeCoordinateSystem,RelativeCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,10,68,8
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, THERMAL ZONE 9,0.0,3.00,16.36,0.00,9.68,18.04,2.00,1,1,1,0.00,19.36,16.36,19.36,0.00,4.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+ Zone Information, THERMAL ZONE 3,0.0,0.00,0.00,4.00,9.68,1.33,6.00,1,1,1,0.00,19.36,0.00,3.00,4.00,8.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+ Zone Information, THERMAL ZONE 10,0.0,3.00,3.00,4.00,9.68,9.68,6.00,1,1,1,3.00,16.36,3.00,16.36,4.00,8.00,4.00,714.48,TARP,DOE-2,178.62,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 7,0.0,16.36,3.00,4.00,18.04,9.68,6.00,1,1,1,16.36,19.36,0.00,19.36,4.00,8.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+ Zone Information, THERMAL ZONE 5,0.0,3.00,16.36,4.00,9.68,18.04,6.00,1,1,1,0.00,19.36,16.36,19.36,4.00,8.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+ Zone Information, THERMAL ZONE 1,0.0,3.00,3.00,0.00,9.68,9.68,2.00,1,1,1,3.00,16.36,3.00,16.36,0.00,4.00,4.00,714.48,TARP,DOE-2,178.62,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 6,0.0,0.00,0.00,4.00,1.33,9.68,6.00,1,1,1,0.00,3.00,0.00,19.36,4.00,8.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+ Zone Information, THERMAL ZONE 4,0.0,16.36,3.00,0.00,18.04,9.68,2.00,1,1,1,16.36,19.36,0.00,19.36,0.00,4.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+ Zone Information, THERMAL ZONE 8,0.0,0.00,0.00,0.00,9.68,1.33,2.00,1,1,1,0.00,19.36,0.00,3.00,0.00,4.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+ Zone Information, THERMAL ZONE 2,0.0,0.00,0.00,0.00,1.33,9.68,2.00,1,1,1,0.00,3.00,0.00,19.36,0.00,4.00,4.00,196.38,TARP,DOE-2,49.09,77.46,59.64,17.82,6,1,0,Yes
+! <Zone Internal Gains/Equipment Information - Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
+ Zone Internal Gains, THERMAL ZONE 9,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 3,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 10,178.62,9.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 7,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 5,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 1,178.62,9.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 6,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 4,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 8,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 2,49.09,2.6,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+! <People Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Number of People {},People/Floor Area {person/m2},Floor Area per person {m2/person},Fraction Radiant,Fraction Convected,Sensible Fraction Calculation,Activity level,ASHRAE 55 Warnings,Carbon Dioxide Generation Rate 
+ People Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 1,178.62,9.6,9.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 10,178.62,9.6,9.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 2,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 3,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 4,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 5,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 6,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 7,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 8,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 9,49.09,2.6,2.6,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+! <Lights Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Lighting Level {W},Lights/Floor Area {W/m2},Lights per person {W/person},Fraction Return Air,Fraction Radiant,Fraction Short Wave,Fraction Convected,Fraction Replaceable,EndUse Category
+ Lights Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 1,178.62,9.6,1922.660,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 10,178.62,9.6,1922.660,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 2,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 3,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 4,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 5,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 6,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 7,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 8,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 9,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+! <ElectricEquipment Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Equipment Level {W},Equipment/Floor Area {W/m2},Equipment per person {W/person},Fraction Latent,Fraction Radiant,Fraction Lost,Fraction Convected,EndUse SubCategory
+ ElectricEquipment Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 1,178.62,9.6,1922.660,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 10,178.62,9.6,1922.660,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 2,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 3,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 4,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 5,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 6,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 7,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 8,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 9,49.09,2.6,528.451,10.764,200.000,0.000,0.000,0.000,1.000,General
+! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}, Polygon Clipping Algorithm, Sky Diffuse Modeling Algorithm
+Shadowing/Sun Position Calculations,20,15000,SutherlandHodgman,SimpleSkyDiffuseModeling
+! <Infiltration Airflow Stats - Nominal>,Name,Schedule Name,Zone Name, Zone Floor Area {m2}, # Zone Occupants,Design Volume Flow Rate {m3/s},Volume Flow Rate/Floor Area {m3/s/m2},Volume Flow Rate/Exterior Surface Area {m3/s/m2},ACH - Air Changes per Hour,Equation A - Constant Term Coefficient {},Equation B - Temperature Term Coefficient {1/C},Equation C - Velocity Term Coefficient {s/m}, Equation D - Velocity Squared Term Coefficient {s2/m2}
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 1,178.62,9.6,0.000,0.000,N/A,0.000,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 10,178.62,9.6,5.399E-002,3.023E-004,3.023E-004,0.272,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 2,49.09,2.6,2.341E-002,4.769E-004,3.023E-004,0.429,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 3,49.09,2.6,3.825E-002,7.792E-004,3.023E-004,0.701,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 4,49.09,2.6,2.341E-002,4.769E-004,3.023E-004,0.429,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 5,49.09,2.6,3.825E-002,7.792E-004,3.023E-004,0.701,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 6,49.09,2.6,3.825E-002,7.792E-004,3.023E-004,0.701,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 7,49.09,2.6,3.825E-002,7.792E-004,3.023E-004,0.701,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 8,49.09,2.6,2.341E-002,4.769E-004,3.023E-004,0.429,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 9,49.09,2.6,2.341E-002,4.769E-004,3.023E-004,0.429,1.000,0.000,0.000,0.000
+! <AirFlow Model>, Simple
+ AirFlow Model, Simple
+! <RoomAir Model>, Zone Name, Mixing/Mundt/UCSDDV/UCSDCV/UCSDUFI/UCSDUFE/User Defined
+RoomAir Model,THERMAL ZONE 9,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 3,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 10,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 7,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 5,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 1,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 6,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 4,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 8,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 2,Mixing/Well-Stirred
+! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
+AirflowNetwork Model:Control,NoMultizoneOrDistribution
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier, Generic Contaminant Capacity Multiplier
+Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
+! <Load Timesteps in Zone Design Calculation Averaging Window>, Value
+ Load Timesteps in Zone Design Calculation Averaging Window,    4
+! <Heating Sizing Factor Information>, Sizing Factor ID, Value
+ Heating Sizing Factor Information, Global,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 9,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 3,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 10,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 7,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 5,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 1,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 6,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 4,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 8,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 2,   1.2500    
+! <Cooling Sizing Factor Information>, Sizing Factor ID, Value
+ Cooling Sizing Factor Information, Global,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 9,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 3,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 10,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 7,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 5,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 1,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 6,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 4,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 8,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 2,   1.1500    
+! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}
+ Zone Sizing Information, THERMAL ZONE 9, Cooling, 1387.25575, 1595.34411, 9.30704E-002, 0.10703, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 17:30:00, 35.63000, 6.83847E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 9, Heating, 2672.65822, 3340.82278, 0.15697, 0.19622, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 3, Cooling, 2942.75801, 3384.17171, 0.19742, 0.22703, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 14:30:00, 38.10000, 6.83847E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 3, Heating, 3157.99490, 3947.49362, 0.18546, 0.23182, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 10, Cooling, 4992.70781, 5741.61398, 0.33497, 0.38522, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 18:30:00, 34.00500, 6.83847E-003, 178.62100, 9.61330, 9.07395E-002
+ Zone Sizing Information, THERMAL ZONE 10, Heating, 3564.74738, 4455.93422, 0.20938, 0.26172, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 178.62100, 9.61330, 9.07395E-002
+ Zone Sizing Information, THERMAL ZONE 7, Cooling, 3592.61257, 4131.50445, 0.24101, 0.27717, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 11:15:00, 35.43500, 6.83848E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 7, Heating, 3157.95960, 3947.44950, 0.18545, 0.23182, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 5, Cooling, 2465.67460, 2835.52579, 0.16541, 0.19023, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 17:45:00, 35.30500, 6.83848E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 5, Heating, 3157.95960, 3947.44950, 0.18545, 0.23182, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 1, Cooling, 2461.63306, 2830.87802, 0.16516, 0.18993, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 16:45:00, 36.54000, 6.83847E-003, 178.62100, 9.61330, 9.07395E-002
+ Zone Sizing Information, THERMAL ZONE 1, Heating, 2033.67093, 2542.08866, 0.11947, 0.14934, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 07:00:00, -5.20000, 2.81113E-003, 178.62100, 9.61330, 9.07395E-002
+ Zone Sizing Information, THERMAL ZONE 6, Cooling, 4177.75411, 4804.41723, 0.28027, 0.32231, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 17:15:00, 35.95500, 6.83847E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 6, Heating, 3157.99490, 3947.49362, 0.18546, 0.23182, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 4, Cooling, 2500.07745, 2875.08907, 0.16773, 0.19288, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 10:30:00, 34.13500, 6.83847E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 4, Heating, 2672.65822, 3340.82278, 0.15697, 0.19622, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 8, Cooling, 1858.97403, 2137.82013, 0.12472, 0.14342, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 14:00:00, 38.10000, 6.83847E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 8, Heating, 2675.61468, 3344.51835, 0.15715, 0.19643, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 2, Cooling, 2953.80670, 3396.87770, 0.19816, 0.22789, EL PASO ANN CLG .4% CONDNS DB=>MWB, 7/21 16:45:00, 36.54000, 6.83847E-003, 49.09475, 2.64226, 2.49401E-002
+ Zone Sizing Information, THERMAL ZONE 2, Heating, 2675.61468, 3344.51835, 0.15715, 0.19643, EL PASO ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -5.20000, 2.81113E-003, 49.09475, 2.64226, 2.49401E-002
+! <System Sizing Information>, System Name, Field Description, Value
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Cooling Design Air Flow Rate [m3/s], 2.26311
+ System Sizing Information, AIR LOOP HVAC 1, User Cooling Design Air Flow Rate [m3/s], 2.26311
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Heating Design Air Flow Rate [m3/s], 2.12365
+ System Sizing Information, AIR LOOP HVAC 1, User Heating Design Air Flow Rate [m3/s], 2.12365
+! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Air Flow Rate [m3/s], 0.19622
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow Fraction during Reheat [], 0.50842
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Reheat Water Flow Rate [m3/s], 1.25450E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19622
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Maximum Water Flow Rate [m3/s], 1.25450E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Design Coil Load [W], 5774.48176
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, U-Factor Times Area Value [W/K], 120.93774
+! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 9,5471.93
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Air Flow Rate [m3/s], 0.23182
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow Fraction during Reheat [], 0.43034
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Reheat Water Flow Rate [m3/s], 1.48212E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.23182
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Maximum Water Flow Rate [m3/s], 1.48212E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Design Coil Load [W], 6822.23820
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, U-Factor Times Area Value [W/K], 142.88141
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 12,6464.79
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Air Flow Rate [m3/s], 0.38522
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow Fraction during Reheat [], 0.94221
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Reheat Water Flow Rate [m3/s], 1.67331E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.26172
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Maximum Water Flow Rate [m3/s], 1.67331E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Design Coil Load [W], 7702.27470
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, U-Factor Times Area Value [W/K], 237.42717
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 5,9364.50
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Air Flow Rate [m3/s], 0.27717
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow Fraction during Reheat [], 0.35993
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Reheat Water Flow Rate [m3/s], 1.48210E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.23182
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Maximum Water Flow Rate [m3/s], 1.48210E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Design Coil Load [W], 6822.16193
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, U-Factor Times Area Value [W/K], 170.83009
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 11,7287.98
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Air Flow Rate [m3/s], 0.23182
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow Fraction during Reheat [], 0.43034
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Reheat Water Flow Rate [m3/s], 1.48210E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.23182
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Maximum Water Flow Rate [m3/s], 1.48210E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Design Coil Load [W], 6822.16193
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, U-Factor Times Area Value [W/K], 142.87981
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 3,6464.72
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Air Flow Rate [m3/s], 0.18993
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.06333E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Reheat Water Flow Rate [m3/s], 9.54794E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.14934
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Maximum Water Flow Rate [m3/s], 9.54794E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Design Coil Load [W], 4394.94500
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, U-Factor Times Area Value [W/K], 117.06435
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 6,4884.80
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Air Flow Rate [m3/s], 0.32231
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow Fraction during Reheat [], 0.30952
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Reheat Water Flow Rate [m3/s], 1.48212E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.23182
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Maximum Water Flow Rate [m3/s], 1.48212E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Design Coil Load [W], 6822.23820
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, U-Factor Times Area Value [W/K], 198.65327
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 8,8014.68
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Air Flow Rate [m3/s], 0.19622
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow Fraction during Reheat [], 0.50842
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Reheat Water Flow Rate [m3/s], 1.25450E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19622
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Maximum Water Flow Rate [m3/s], 1.25450E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Design Coil Load [W], 5774.48176
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, U-Factor Times Area Value [W/K], 120.93774
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 10,5471.93
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Air Flow Rate [m3/s], 0.19643
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow Fraction during Reheat [], 0.50786
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Reheat Water Flow Rate [m3/s], 1.25588E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19643
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Maximum Water Flow Rate [m3/s], 1.25588E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Design Coil Load [W], 5780.86938
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, U-Factor Times Area Value [W/K], 121.07152
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 4,5477.98
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Air Flow Rate [m3/s], 0.22789
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow Fraction during Reheat [], 0.43776
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Reheat Water Flow Rate [m3/s], 1.25588E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.19643
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Maximum Water Flow Rate [m3/s], 1.25588E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Design Coil Load [W], 5780.86938
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, U-Factor Times Area Value [W/K], 140.45753
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 7,6055.24
+ Component Sizing Information, Branch, BRANCH {4CDCC6A5-C963-467B-8F20-B4D7F41E5739}, Maximum Flow Rate [m3/s], 2.26311
+ Component Sizing Information, AirLoopHVAC, AIR LOOP HVAC 1, Design Supply Air Flow Rate [m3/s], 2.26311
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Maximum Outdoor Air Flow Rate [m3/s], 2.26311
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Minimum Outdoor Air Flow Rate [m3/s], 0.38100
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Air Flow Rate [m3/s], 2.26311
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Total Cooling Capacity (gross) [W], 44652.12800
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Sensible Heat Ratio, 0.73946
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Air Flow Rate [m3/s], 0.75429
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Total Cooling Capacity (gross) [W], 14882.55426
+! <VAV DX Cooling Coil Standard Rating Information>, DX Coil Type, DX Coil Name, Fan Type, Fan Name, Standard Net Cooling Capacity {W}, Standard Net Cooling Capacity {Btu/h}, IEER {Btu/W-h}, COP 100% Capacity {W/W}, COP 75% Capacity {W/W}, COP 50% Capacity {W/W}, COP 25% Capacity {W/W}, EER 100% Capacity {Btu/W-h}, EER 75% Capacity {Btu/W-h}, EER 50% Capacity {Btu/W-h}, EER 25% Capacity {Btu/W-h}, Supply Air Flow 100% {kg/s}, Supply Air Flow 75% {kg/s},Supply Air Flow 50% {kg/s},Supply Air Flow 25% {kg/s}
+ VAV DX Cooling Coil Standard Rating Information, Coil:Cooling:DX:TwoSpeed,COIL COOLING DX TWO SPEED 1,N/A,N/A,42977.68,146645.94,24.92,4.38,6.01,8.45,11.98,14.96,20.50,28.84,40.88,2.2677,1.7808,1.2075,0.6427,
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Maximum Water Flow Rate [m3/s], 2.78340E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Design Coil Load [W], 12812.07534
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, U-Factor Times Area Value [W/K], 182.40513
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 1,10513.47
+ Component Sizing Information, Fan:VariableVolume, FAN VARIABLE VOLUME 1, Maximum Flow Rate [m3/s], 2.26311
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Maximum Actuated Flow [m3/s], 2.78340E-004
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Controller Convergence Tolerance, 1.00000E-003
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Nominal Capacity [W], 75600.31550
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Design Water Flow Rate [m3/s], 1.63607E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Maximum Loop Flow Rate [m3/s], 1.63607E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Plant Loop Volume [m3], 1.84058
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Flow Rate [m3/s], 1.63607E-003
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Power Consumption [W], 417.99490
+! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values
+! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
+! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
+! <Environment:WarmupDays>, NumberofWarmupDays
+Environment,EL PASO ANN CLG 2% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+! <Environment:Design Day Data>, Max Dry-Bulb Temp {C}, Temp Range {dC}, Temp Range Ind Type, Hum Ind Value at Max Temp, Hum Ind Type,Pressure {Pa}, Wind Direction {deg CW from N}, Wind Speed {m/s}, Clearness, Rain, Snow
+! <Environment:Design_Day_Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
+Environment:Design Day Data,35.50,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+! <Tabular Report>,Style
+Tabular Report,HTML
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,7.2362636930E-002,7.0574870063E-002,Pass,Pass,1.1528191587E-002,1.3093107171E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,2.9188250422E-002,5.1365314708E-002,Pass,Pass,1.9692312968E-002,1.8312718805E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,1.6990084382E-004,3.8586040552E-004,Pass,Pass,6.6950071151E-003,1.6385734057E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,3.9838130764E-002,8.1657651837E-002,Pass,Pass,2.0591275928E-002,2.3664224503E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,2.9066968529E-002,6.0108201199E-002,Pass,Pass,1.6459437761E-002,1.5532961507E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,2.8448627324E-003,1.2050943278E-002,Pass,Pass,2.0954948674E-002,3.3647191712E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,4.6057153005E-002,4.6785341108E-002,Pass,Pass,2.2029505711E-002,2.3294855646E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,7.2492141805E-002,0.1239526224,Pass,Pass,2.2418651659E-002,2.7573988244E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,7.2300037469E-002,7.5332085742E-002,Pass,Pass,1.6915864515E-002,1.8264413636E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 2% CONDNS DB=>MWB,7.8672739926E-002,6.7310188297E-002,Pass,Pass,2.5283035502E-002,3.4945225224E-002,Pass,Pass
+Environment,EL PASO ANN CLG 1% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,22.80,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,6.2314664869E-002,7.0235785610E-002,Pass,Pass,0.2025043971,0.8043603997,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,8.3615770764E-002,9.8716588923E-002,Pass,Pass,3.0038624182E-002,6.8833845699E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,5.7228778562E-003,2.6486867028E-002,Pass,Pass,1.7505753284E-002,4.2301405755E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,8.3720993040E-002,0.1225744414,Pass,Pass,3.5104333807E-002,6.4242634566E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,8.1407352822E-002,8.2883800008E-002,Pass,Pass,2.7083854736E-002,6.8256431743E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,1.7692094650E-002,2.7299887625E-002,Pass,Pass,1.7078300650E-002,4.2772115380E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,8.3727701392E-002,0.1116023400,Pass,Pass,3.8593943001E-002,6.5749221173E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,8.3657397210E-002,0.1282849644,Pass,Pass,0.4159835992,2.9481387663,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,8.3743876607E-002,9.4381952517E-002,Pass,Pass,0.1871847222,0.8842198859,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 1% CONDNS DP=>MDB,8.3833932263E-002,0.1279477244,Pass,Pass,0.1296384373,0.2989452557,Pass,Pass
+Environment,EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,10.70,0.00,DefaultMultipliers,87780,20,11.0,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,2.6744952273E-003,1.3986155273E-003,Pass,Pass,6.8679623215E-003,2.6290213459E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,1.2248050328E-003,1.2187585772E-003,Pass,Pass,9.0512303692E-003,4.8930509624E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,1.3919246098E-003,1.0096429703E-003,Pass,Pass,1.2837015258E-002,6.3628644879E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,1.9027831908E-003,1.8761077848E-003,Pass,Pass,1.0046366503E-002,4.8385359620E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,2.4127968506E-003,2.3822120023E-003,Pass,Pass,1.0984531546E-002,4.9004910623E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,1.2197303903E-004,4.4975343658E-004,Pass,Pass,1.7407535844E-004,7.6335529564E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,7.5070037456E-004,1.4210233803E-003,Pass,Pass,7.7291211525E-003,4.9254800039E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,2.8124530908E-003,1.3355550890E-003,Pass,Pass,7.0484592831E-003,2.6590303257E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,6.7870273600E-005,2.6039593026E-004,Pass,Pass,3.8988628017E-003,2.6656202610E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN HTG WIND 99% CONDNS WS=>MCDB,3.4324970546E-003,1.0595465686E-003,Pass,Pass,8.2115935973E-003,2.5650765429E-002,Pass,Pass
+Environment,EL PASO ANN CLG 2% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,29.00,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,8.3542487083E-002,7.4548017428E-002,Pass,Pass,2.0181431357E-002,3.8095929714E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,7.1695146702E-002,9.3992060387E-002,Pass,Pass,1.7245726581E-002,1.4734071063E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,2.0676118836E-004,4.4420340152E-004,Pass,Pass,1.1097856461E-002,3.0843477634E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,7.9823185828E-002,0.1259916503,Pass,Pass,1.8844199442E-002,1.9951037494E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,7.1764296965E-002,9.4943563634E-002,Pass,Pass,1.3853042753E-002,1.1908101607E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,1.1498017752E-002,2.3580085724E-002,Pass,Pass,1.8862113386E-002,3.3569749124E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,8.3438639679E-002,8.6017355506E-002,Pass,Pass,2.1966345656E-002,2.3856135636E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,8.3608150708E-002,0.1376990000,Pass,Pass,3.2236286536E-002,3.7026832769E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,8.3618923954E-002,9.4014433293E-002,Pass,Pass,2.5532448149E-002,4.4438034843E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 2% CONDNS ENTH=>MDB,8.3604115921E-002,0.1031771701,Pass,Pass,3.6391226487E-002,5.1208841271E-002,Pass,Pass
+Environment,EL PASO ANN CLG 2% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,29.20,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,8.3490745314E-002,7.4130089122E-002,Pass,Pass,1.9502408838E-002,3.6631960866E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,7.0721169160E-002,9.3022082860E-002,Pass,Pass,1.7206026759E-002,1.4910619822E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,1.4623264298E-004,3.7616283286E-004,Pass,Pass,1.0987219559E-002,3.0354411478E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,7.8967646794E-002,0.1251342928,Pass,Pass,1.8844248865E-002,2.0202037787E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,7.0762952007E-002,9.4061266389E-002,Pass,Pass,1.3792333447E-002,1.1569473542E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,1.1433938238E-002,2.3549093201E-002,Pass,Pass,1.8849156784E-002,3.3770866871E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,8.3348744114E-002,8.5520271248E-002,Pass,Pass,2.1694559912E-002,2.3418351898E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,8.3571926843E-002,0.1375273877,Pass,Pass,3.1659076821E-002,3.6096069728E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,8.3577353008E-002,9.3178144106E-002,Pass,Pass,2.4915051483E-002,4.3873980844E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 2% CONDNS WB=>MDB,8.3550958591E-002,0.1023097171,Pass,Pass,3.5712388813E-002,5.0016574062E-002,Pass,Pass
+Environment,EL PASO ANN CLG 1% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,29.20,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,8.3560405481E-002,7.4640442154E-002,Pass,Pass,1.9491951251E-002,3.6166225654E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,7.0318373675E-002,9.2664962018E-002,Pass,Pass,1.7343921456E-002,1.5113540572E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,2.1049763556E-004,4.8331816283E-004,Pass,Pass,1.0903274098E-002,3.0260070403E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,7.8510666618E-002,0.1250756659,Pass,Pass,1.8919383680E-002,1.9736019959E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,7.0362950400E-002,9.4285225229E-002,Pass,Pass,1.3957315795E-002,1.1515962429E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,1.1272256056E-002,2.3423180879E-002,Pass,Pass,1.8907074840E-002,3.3407426314E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,8.3375107576E-002,8.5763516809E-002,Pass,Pass,2.1565348378E-002,2.3019489765E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,8.3610685018E-002,0.1377889601,Pass,Pass,3.1591838976E-002,3.5606619008E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,8.3596921255E-002,9.3442867224E-002,Pass,Pass,2.4961807017E-002,4.3658760960E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 1% CONDNS ENTH=>MDB,8.3605726023E-002,0.1022761350,Pass,Pass,3.5793561628E-002,4.9926689847E-002,Pass,Pass
+Environment,EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,7.80,0.00,DefaultMultipliers,87780,20,2.2,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,1.0086860963E-003,2.1459818478E-003,Pass,Pass,4.8977309893E-003,2.8785692622E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,1.7418935031E-004,6.3579035499E-004,Pass,Pass,7.0023486305E-003,4.8118150209E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,1.4899936038E-003,1.2434216329E-003,Pass,Pass,1.1919105364E-002,6.0304796456E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,3.9092075592E-003,2.2945914157E-003,Pass,Pass,1.0261372155E-002,4.7619648402E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,1.7418790029E-004,6.3426263253E-004,Pass,Pass,7.0023488413E-003,4.8118354277E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,6.9687155937E-005,2.4674326892E-004,Pass,Pass,1.0340871870E-004,3.9738157596E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,5.2870578597E-003,2.7819088981E-003,Pass,Pass,1.2577399972E-002,4.6710146004E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,1.0112673748E-003,2.1428214738E-003,Pass,Pass,4.8953313774E-003,2.8785776753E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,1.4671966674E-004,5.1343180762E-004,Pass,Pass,4.1745900931E-003,2.8297902934E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN HUM_N 99% CONDNS DP=>MCDB,1.6767507108E-003,2.1427922899E-003,Pass,Pass,5.4972594731E-003,2.8292356703E-002,Pass,Pass
+Environment,EL PASO ANN CLG .4% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,30.00,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,8.3569149636E-002,7.4598000731E-002,Pass,Pass,1.7447101832E-002,2.7870462046E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,6.4827418949E-002,8.7597634496E-002,Pass,Pass,1.7713654243E-002,1.5911025485E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,2.0959444090E-004,4.6376853536E-004,Pass,Pass,1.0152889807E-002,2.8083719044E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,7.3289102742E-002,0.1213739823,Pass,Pass,1.9159147232E-002,1.9625195119E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,6.4805905300E-002,9.3573186861E-002,Pass,Pass,1.4366956176E-002,1.1315088792E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,1.0344962780E-002,2.3957757680E-002,Pass,Pass,1.9103387637E-002,3.2279989491E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,7.8689478521E-002,8.4080901920E-002,Pass,Pass,2.1432951915E-002,2.2370768887E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,8.3580209618E-002,0.1385823959,Pass,Pass,2.9285771695E-002,3.1735694874E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,8.3622605540E-002,9.0489938892E-002,Pass,Pass,2.2926040135E-002,3.5667982393E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG .4% CONDNS ENTH=>MDB,8.3572897254E-002,9.7739863263E-002,Pass,Pass,3.3547308481E-002,4.7298944121E-002,Pass,Pass
+Environment,EL PASO ANN HTG 99% CONDNS DB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-3.10,0.00,DefaultMultipliers,87780,20,2.2,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,2.2028672349E-002,7.4654866887E-002,Pass,Pass,2.9104346441E-003,1.1493381282E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,2.3599110568E-002,9.7010156527E-002,Pass,Pass,6.2561913437E-003,2.7157388724E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,1.6778611044E-003,1.4187280301E-003,Pass,Pass,1.2220060323E-002,6.9098106516E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,2.7223071546E-003,2.6693872491E-003,Pass,Pass,8.7282292190E-003,5.2191668490E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,2.3599205235E-002,9.7010857756E-002,Pass,Pass,6.2563004950E-003,2.7157989203E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,1.5459348936E-003,1.0320299565E-003,Pass,Pass,3.3879749592E-003,3.1670673758E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,2.1033263854E-003,2.4605723263E-003,Pass,Pass,8.6036169624E-003,5.2794960280E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,2.2068203911E-002,7.4571754478E-002,Pass,Pass,3.2629480441E-003,1.1483056890E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,2.2033515934E-002,7.5080790562E-002,Pass,Pass,2.8371049104E-003,1.1218232623E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN HTG 99% CONDNS DB,1.6772538221E-003,2.3133781323E-003,Pass,Pass,5.9128511518E-003,3.4727312357E-002,Pass,Pass
+Environment,EL PASO ANN CLG 1% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,36.80,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,6.5991985547E-002,6.7601949237E-002,Pass,Pass,1.2047197459E-002,1.4422045882E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,2.1087130581E-002,4.3914867369E-002,Pass,Pass,2.0052011464E-002,1.5479095039E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,1.9268112778E-004,4.9508235408E-004,Pass,Pass,6.2841510030E-003,1.4238922200E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,3.2106139478E-002,7.2272539208E-002,Pass,Pass,2.0798137740E-002,2.2007138486E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,2.1043517056E-002,5.2364402884E-002,Pass,Pass,1.6811037372E-002,1.2995521781E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,1.0813370082E-003,5.1879822407E-003,Pass,Pass,2.1012023486E-002,3.8297517787E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,3.8563094389E-002,4.3764413796E-002,Pass,Pass,2.2182740170E-002,2.1107170000E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,6.6114228102E-002,0.1171174452,Pass,Pass,2.2672548701E-002,2.8525007674E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,6.5948163507E-002,6.9812365659E-002,Pass,Pass,1.7283983784E-002,1.8086196608E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 1% CONDNS DB=>MWB,7.2369450352E-002,6.2139072844E-002,Pass,Pass,2.5342272171E-002,3.6173109698E-002,Pass,Pass
+Environment,EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,5.60,0.00,DefaultMultipliers,87780,20,2.2,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,8.4118793781E-005,2.2548272679E-004,Pass,Pass,4.3747812281E-003,2.9845724781E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,1.1511617343E-003,2.5360290084E-003,Pass,Pass,7.8916991178E-003,4.9288971570E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,6.9733970742E-004,8.1003158486E-004,Pass,Pass,9.9050865238E-003,6.2470983208E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,1.6983857151E-003,1.6539281071E-003,Pass,Pass,8.8763740973E-003,4.8945051499E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,1.1534964920E-003,2.3968323298E-003,Pass,Pass,7.8225987322E-003,4.9211265491E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,1.5228405496E-003,1.0567426621E-003,Pass,Pass,2.9695361151E-003,2.2598496012E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,9.5421440744E-004,1.7576427782E-003,Pass,Pass,7.5109452338E-003,4.8400313026E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,8.5333035699E-005,2.2511629756E-004,Pass,Pass,4.3747708269E-003,2.9845662473E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,1.9901212512E-004,7.2153112954E-004,Pass,Pass,4.4440949176E-003,3.0059676364E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN HUM_N 99.6% CONDNS DP=>MCDB,1.9461768184E-003,1.9694906359E-003,Pass,Pass,6.0829809253E-003,2.9612801473E-002,Pass,Pass
+Environment,EL PASO ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,38.10,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,5.9759051217E-002,6.4235610857E-002,Pass,Pass,1.2528291703E-002,1.4883884051E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,1.3320268697E-002,3.5897323433E-002,Pass,Pass,2.0389989941E-002,1.3204480927E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,1.9568708533E-004,5.5806189434E-004,Pass,Pass,6.0042814346E-003,1.2188978707E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,2.4663558095E-002,6.2620921525E-002,Pass,Pass,2.1008441059E-002,2.1128733145E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,1.3393455619E-002,4.2614460219E-002,Pass,Pass,1.7146407781E-002,1.1932634545E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,1.0526140467E-004,2.2507797020E-004,Pass,Pass,1.9707672545E-002,3.4763982689E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,3.1326360353E-002,3.9660668911E-002,Pass,Pass,2.2316581095E-002,1.9510602893E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,5.9851492458E-002,0.1094950117,Pass,Pass,2.2854443798E-002,2.7937488472E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,5.9727905167E-002,6.4464515736E-002,Pass,Pass,1.7626972277E-002,1.8192669766E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG .4% CONDNS DB=>MWB,6.6240471973E-002,5.4981174435E-002,Pass,Pass,2.5384539751E-002,3.4234689427E-002,Pass,Pass
+Environment,EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,12.20,0.00,DefaultMultipliers,87780,20,12.8,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.7144999471E-003,1.6802868999E-003,Pass,Pass,6.2469534682E-003,2.4874360260E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.4734594177E-004,5.4788628530E-004,Pass,Pass,7.0791655989E-003,4.8625969282E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,8.9939316702E-004,5.7597900376E-004,Pass,Pass,1.2523987275E-002,6.1216320852E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.6611778364E-003,2.0006075664E-003,Pass,Pass,8.3656547247E-003,4.8053901383E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.4768665823E-004,5.5121075694E-004,Pass,Pass,7.0793745331E-003,4.8627015656E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,5.0871568858E-004,8.2397030292E-004,Pass,Pass,7.5817816476E-004,1.4876788451E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.2675390410E-003,2.2338678710E-003,Pass,Pass,1.0045994783E-002,4.7728457167E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.8130002512E-003,1.7459609227E-003,Pass,Pass,6.3691294635E-003,2.5498354061E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.7755111531E-003,1.6876208700E-003,Pass,Pass,6.2936768163E-003,2.5263866094E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.3072726139E-003,2.3025676216E-003,Pass,Pass,6.6200579660E-003,2.4641457874E-002,Pass,Pass
+Environment,EL PASO ANN CLG .4% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,22.80,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,6.2330555360E-002,7.0332032072E-002,Pass,Pass,0.2095390393,0.8778782128,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,8.3652725153E-002,9.8665802549E-002,Pass,Pass,3.0044353177E-002,6.8881714873E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,5.7416499027E-003,2.6408005065E-002,Pass,Pass,1.7501435809E-002,4.2284385788E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,8.3728794573E-002,0.1225552220,Pass,Pass,3.5105669029E-002,6.4233965928E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,8.1444745569E-002,8.2908324694E-002,Pass,Pass,2.7083675723E-002,6.8068960209E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,1.7693233486E-002,2.7295462911E-002,Pass,Pass,1.7085702359E-002,4.2728073635E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,8.3785808847E-002,0.1116235868,Pass,Pass,3.8581286741E-002,6.5374797219E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,8.3718117052E-002,0.1282890118,Pass,Pass,0.2017061650,0.8885198707,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,8.3783654439E-002,9.4400097268E-002,Pass,Pass,0.2963298558,1.9087463289,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG .4% CONDNS DP=>MDB,8.3913199133E-002,0.1279697907,Pass,Pass,0.1307089185,0.3105481894,Pass,Pass
+Environment,EL PASO ANN CLG 2% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,23.30,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,6.4079546608E-002,7.1867542456E-002,Pass,Pass,0.1509028669,0.4366702592,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,8.3623380532E-002,9.7227366325E-002,Pass,Pass,2.7743413202E-002,6.1607389230E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,4.0684473574E-003,1.8816912256E-002,Pass,Pass,1.6979299559E-002,4.0872749259E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,8.3619178264E-002,0.1216024179,Pass,Pass,3.2793887649E-002,5.8303975284E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,8.3569131261E-002,8.1857676747E-002,Pass,Pass,2.3997989384E-002,6.0489846586E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,1.7249801864E-002,2.6993869567E-002,Pass,Pass,1.7250131314E-002,4.1484759570E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,8.3723818737E-002,0.1094569675,Pass,Pass,3.6569577452E-002,6.1637983839E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,8.3634907838E-002,0.1295709668,Pass,Pass,0.1923596226,0.7348379912,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,8.3712206798E-002,9.5279066720E-002,Pass,Pass,0.1395222072,0.4556827220,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 2% CONDNS DP=>MDB,8.3820624112E-002,0.1267622099,Pass,Pass,0.1325047023,0.3026439495,Pass,Pass
+Environment,EL PASO ANN HTG 99.6% CONDNS DB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-5.20,0.00,DefaultMultipliers,87780,20,2.2,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,2.7267474365E-002,8.2604863677E-002,Pass,Pass,2.4829862454E-003,9.5953407449E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,3.4082923917E-002,0.1166034154,Pass,Pass,4.9384499794E-003,1.9114519624E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,2.8223321289E-003,6.8920457464E-003,Pass,Pass,1.2802474734E-002,6.4808354721E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,7.5193031426E-003,2.7862544774E-002,Pass,Pass,8.4189168491E-003,4.5044086584E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,3.4082828974E-002,0.1166042237,Pass,Pass,4.9385619308E-003,1.9115056027E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,3.8081094679E-003,4.9671919602E-003,Pass,Pass,2.9213404245E-003,5.1284748702E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,5.5133505746E-003,1.4622535086E-002,Pass,Pass,8.7825101932E-003,4.8522640290E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,2.6950374625E-002,8.2837552308E-002,Pass,Pass,2.4673854920E-003,9.6651050200E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,2.7251978437E-002,8.2585293218E-002,Pass,Pass,2.4801473448E-003,9.5877662198E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN HTG 99.6% CONDNS DB,9.2182717045E-003,3.7143188376E-002,Pass,Pass,5.9118764504E-003,2.5964042243E-002,Pass,Pass
+Environment,EL PASO ANN CLG 1% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,29.60,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,8.3508616440E-002,7.4289622753E-002,Pass,Pass,1.8213374155E-002,3.2592156309E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,6.7967849643E-002,9.0095039293E-002,Pass,Pass,1.7401697753E-002,1.5426991881E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,1.5907714285E-004,3.8020005378E-004,Pass,Pass,1.0602559541E-002,2.9257968565E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,7.6351656222E-002,0.1229656381,Pass,Pass,1.9000271819E-002,1.9371830345E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,6.7974259814E-002,9.2762637737E-002,Pass,Pass,1.4005552194E-002,1.1341768354E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,1.0978321479E-002,2.3251016337E-002,Pass,Pass,1.8929781802E-002,3.3052206269E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,8.1567568413E-002,8.4169600720E-002,Pass,Pass,2.1299413255E-002,2.2833771501E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,8.3587119498E-002,0.1378672092,Pass,Pass,3.0406598438E-002,3.3506501429E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,8.3523981097E-002,9.2080575463E-002,Pass,Pass,2.3872015757E-002,4.0494463261E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG 1% CONDNS WB=>MDB,8.3635519964E-002,0.1003001813,Pass,Pass,3.4525810586E-002,4.8487277167E-002,Pass,Pass
+Environment,EL PASO ANN CLG .4% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,30.10,13.00,DefaultMultipliers,87780,280,3.9,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,8.3454171378E-002,7.4423605676E-002,Pass,Pass,1.7030402200E-002,2.7638070418E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,6.4522629713E-002,8.7446111243E-002,Pass,Pass,1.7632570767E-002,1.5880683526E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,1.6743953743E-004,3.7473507870E-004,Pass,Pass,1.0139095891E-002,2.7908821441E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,7.3079165663E-002,0.1208940190,Pass,Pass,1.9126491787E-002,1.9580909429E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,6.4486348289E-002,9.3380100465E-002,Pass,Pass,1.4259622203E-002,1.1323637841E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,1.0383564886E-002,2.3963952323E-002,Pass,Pass,1.9061310882E-002,3.2309056639E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,7.8410230280E-002,8.3686688520E-002,Pass,Pass,2.1357609835E-002,2.2404927416E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,8.3484424158E-002,0.1385848999,Pass,Pass,2.9043766382E-002,3.1632563695E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,8.3511700762E-002,9.0098591721E-002,Pass,Pass,2.2623963866E-002,3.5081976174E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: EL PASO ANN CLG .4% CONDNS WB=>MDB,8.3557993656E-002,9.7435746938E-002,Pass,Pass,3.3245630420E-002,4.7003270426E-002,Pass,Pass
+Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01,12/31,Thursday,365,Use RunPeriod Specified Day,Yes,Yes,No ,Yes,Yes
+Environment:Daylight Saving,Yes,InputFile,03/08,11/01
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 9,RunPeriod: RUN PERIOD 1,1.6440561416E-003,1.4788653354E-003,Pass,Pass,0.1951963735,0.5593958586,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,RunPeriod: RUN PERIOD 1,8.4097929264E-002,0.1329312959,Pass,Pass,0.3315176598,1.9559736037,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,RunPeriod: RUN PERIOD 1,7.8957265799E-002,0.1302876984,Pass,Pass,0.3728418373,1.9474165401,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,RunPeriod: RUN PERIOD 1,3.2547721636E-002,6.0767971173E-002,Pass,Pass,0.1015378948,0.2137286063,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,RunPeriod: RUN PERIOD 1,1.6081490083E-003,1.5721016991E-003,Pass,Pass,0.2850862927,1.2353232061,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,RunPeriod: RUN PERIOD 1,7.7948422210E-002,0.1347029732,Pass,Pass,6.0027103128E-002,0.1959549991,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,RunPeriod: RUN PERIOD 1,2.3006931428E-002,6.0613383115E-002,Pass,Pass,0.2194242798,0.6561121305,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,RunPeriod: RUN PERIOD 1,5.7099989291E-002,0.1111724991,Pass,Pass,0.1728728887,0.5836980802,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,RunPeriod: RUN PERIOD 1,8.4477938739E-002,0.1698733223,Pass,Pass,0.1821211457,0.5579747808,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,RunPeriod: RUN PERIOD 1,4.6972049002E-002,0.1103207144,Pass,Pass,0.1793837858,0.3452800867,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, Yes,1, Not Set, Not Set, 1, 1, 68, N/A
+End of Data

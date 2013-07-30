@@ -1,0 +1,798 @@
+Program Version,EnergyPlus-Linux-OMP-32 7.2.0.006, YMD=2013.06.18 19:10
+! <Version>, Version ID
+ Version, 7.2
+! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
+ Timesteps per Hour,  4, 15
+! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
+ System Convergence Limits, 1, 20, 2, 8
+! <Simulation Control>, Do Zone Sizing, Do System Sizing, Do Plant Sizing, Do Design Days, Do Weather Simulation
+ Simulation Control, Yes, Yes, Yes, Yes, Yes
+! <Output Reporting Tolerances>, Tolerance for Time Heating Setpoint Not Met, Tolerance for Time Cooling Setpoint Not Met
+ Output Reporting Tolerances, 0.200, 0.200, 
+! <Site:GroundTemperature:BuildingSurface>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:BuildingSurface,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00
+! <Site:GroundTemperature:FCfactorMethod>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:FCfactorMethod,   8.30,   9.66,  12.31,  14.82,  19.56,  22.05,  22.74,  21.48,  18.55,  14.91,  11.32,   8.95
+! <Site:GroundTemperature:Shallow>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
+! <Site:GroundTemperature:Deep>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
+! <Site:GroundReflectance>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:SnowModifier>, Normal, Daylighting {dimensionless}
+ Site:GroundReflectance:SnowModifier,   1.000,   1.000
+! <Site:GroundReflectance:Snow>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:Snow:Daylighting>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow:Daylighting,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Environment:Weather Station>,Wind Sensor Height Above Ground {m},Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Sensor Height Above Ground {m},Wind Speed Modifier Coefficient [Internal],Temperature Modifier Coefficient [Internal]
+Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
+! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
+Site:Location,Sacramento Executive Arpt CA USA TMY3 WMO#=724830,38.50,-121.50,-8.00,5.00,101265,1.2036
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information,Building 1,0.000,Suburbs,4.00000E-002,0.40000,FullExterior,25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,DOE-2
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Carbon Dioxide Balance Simulation, No,N/A
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Generic Contaminant Concentration
+ Zone Air Generic Contaminant Balance Simulation, No,N/A
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
+! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,RelativeCoordinateSystem,RelativeCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,15,102,12
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, THERMAL ZONE 4,0.0,8.18,3.00,4.00,9.98,5.59,6.00,1,1,1,8.18,11.18,0.00,11.18,4.00,8.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 5,0.0,0.00,0.00,0.00,1.20,5.59,2.00,1,1,1,0.00,3.00,0.00,11.18,0.00,4.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 2,0.0,0.00,0.00,8.00,5.59,1.20,10.00,1,1,1,0.00,11.18,0.00,3.00,8.00,12.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 1,0.0,0.00,0.00,4.00,5.59,1.20,6.00,1,1,1,0.00,11.18,0.00,3.00,4.00,8.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 6,0.0,3.00,8.18,8.00,5.59,9.98,10.00,1,1,1,0.00,11.18,8.18,11.18,8.00,12.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 10,0.0,0.00,0.00,4.00,1.20,5.59,6.00,1,1,1,0.00,3.00,0.00,11.18,4.00,8.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 11,0.0,3.00,3.00,4.00,5.59,5.59,6.00,1,1,1,3.00,8.18,3.00,8.18,4.00,8.00,4.00,107.34,TARP,DOE-2,26.84,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 12,0.0,0.00,0.00,0.00,5.59,1.20,2.00,1,1,1,0.00,11.18,0.00,3.00,0.00,4.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 7,0.0,3.00,8.18,4.00,5.59,9.98,6.00,1,1,1,0.00,11.18,8.18,11.18,4.00,8.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 9,0.0,3.00,3.00,8.00,5.59,5.59,10.00,1,1,1,3.00,8.18,3.00,8.18,8.00,12.00,4.00,107.34,TARP,DOE-2,26.84,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 14,0.0,3.00,3.00,0.00,5.59,5.59,2.00,1,1,1,3.00,8.18,3.00,8.18,0.00,4.00,4.00,107.34,TARP,DOE-2,26.84,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 8,0.0,0.00,0.00,8.00,1.20,5.59,10.00,1,1,1,0.00,3.00,0.00,11.18,8.00,12.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 13,0.0,8.18,3.00,8.00,9.98,5.59,10.00,1,1,1,8.18,11.18,0.00,11.18,8.00,12.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 15,0.0,3.00,8.18,0.00,5.59,9.98,2.00,1,1,1,0.00,11.18,8.18,11.18,0.00,4.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+ Zone Information, THERMAL ZONE 3,0.0,8.18,3.00,0.00,9.98,5.59,2.00,1,1,1,8.18,11.18,0.00,11.18,0.00,4.00,4.00,98.16,TARP,DOE-2,24.54,44.72,29.07,15.65,6,1,0,Yes
+! <Zone Internal Gains/Equipment Information - Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
+ Zone Internal Gains, THERMAL ZONE 4,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 5,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 2,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 1,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 6,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 10,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 11,26.84,1.4,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 12,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 7,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 9,26.84,1.4,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 14,26.84,1.4,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 8,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 13,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 15,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 3,24.54,1.3,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+! <People Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Number of People {},People/Floor Area {person/m2},Floor Area per person {m2/person},Fraction Radiant,Fraction Convected,Sensible Fraction Calculation,Activity level,ASHRAE 55 Warnings,Carbon Dioxide Generation Rate 
+ People Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 1,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 10,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 11,26.84,1.4,1.4,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 12,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 13,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 14,26.84,1.4,1.4,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 15,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 2,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 3,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 4,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 5,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 6,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 7,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 8,24.54,1.3,1.3,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING PEOPLE,SMALL OFFICE_BLDG_OCC,THERMAL ZONE 9,26.84,1.4,1.4,5.382E-002,18.581,0.300,0.700,AutoCalculate,SMALL OFFICE_ACTIVITY,No,3.8200E-008
+! <Lights Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Lighting Level {W},Lights/Floor Area {W/m2},Lights per person {W/person},Fraction Return Air,Fraction Radiant,Fraction Short Wave,Fraction Convected,Fraction Replaceable,EndUse Category
+ Lights Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 1,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 10,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 11,26.84,1.4,288.859,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 12,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 13,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 14,26.84,1.4,288.859,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 15,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 2,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 3,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 4,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 5,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 6,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 7,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 8,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING LIGHTS,SMALL OFFICE_BLDG_LIGHT,THERMAL ZONE 9,26.84,1.4,288.859,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+! <ElectricEquipment Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Equipment Level {W},Equipment/Floor Area {W/m2},Equipment per person {W/person},Fraction Latent,Fraction Radiant,Fraction Lost,Fraction Convected,EndUse SubCategory
+ ElectricEquipment Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 1,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 10,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 11,26.84,1.4,288.859,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 12,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 13,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 14,26.84,1.4,288.859,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 15,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 2,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 3,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 4,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 5,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 6,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 7,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 8,24.54,1.3,264.157,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,SMALL OFFICE_BLDG_EQUIP,THERMAL ZONE 9,26.84,1.4,288.859,10.764,200.000,0.000,0.000,0.000,1.000,General
+! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}, Polygon Clipping Algorithm, Sky Diffuse Modeling Algorithm
+Shadowing/Sun Position Calculations,20,15000,SutherlandHodgman,SimpleSkyDiffuseModeling
+! <Infiltration Airflow Stats - Nominal>,Name,Schedule Name,Zone Name, Zone Floor Area {m2}, # Zone Occupants,Design Volume Flow Rate {m3/s},Volume Flow Rate/Floor Area {m3/s/m2},Volume Flow Rate/Exterior Surface Area {m3/s/m2},ACH - Air Changes per Hour,Equation A - Constant Term Coefficient {},Equation B - Temperature Term Coefficient {1/C},Equation C - Velocity Term Coefficient {s/m}, Equation D - Velocity Squared Term Coefficient {s2/m2}
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 1,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 10,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 11,26.84,1.4,0.000,0.000,N/A,0.000,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 12,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 13,24.54,1.3,2.094E-002,8.531E-004,3.023E-004,0.768,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 14,26.84,1.4,0.000,0.000,N/A,0.000,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 15,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 2,24.54,1.3,2.094E-002,8.531E-004,3.023E-004,0.768,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 3,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 4,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 5,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 6,24.54,1.3,2.094E-002,8.531E-004,3.023E-004,0.768,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 7,24.54,1.3,1.352E-002,5.508E-004,3.023E-004,0.496,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 8,24.54,1.3,2.094E-002,8.531E-004,3.023E-004,0.768,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 SMALLOFFICE WHOLEBUILDING INFILTRATION,SMALL OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 9,26.84,1.4,8.111E-003,3.023E-004,3.023E-004,0.272,1.000,0.000,0.000,0.000
+! <AirFlow Model>, Simple
+ AirFlow Model, Simple
+! <RoomAir Model>, Zone Name, Mixing/Mundt/UCSDDV/UCSDCV/UCSDUFI/UCSDUFE/User Defined
+RoomAir Model,THERMAL ZONE 4,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 5,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 2,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 1,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 6,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 10,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 11,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 12,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 7,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 9,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 14,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 8,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 13,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 15,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 3,Mixing/Well-Stirred
+! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
+AirflowNetwork Model:Control,NoMultizoneOrDistribution
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier, Generic Contaminant Capacity Multiplier
+Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
+! <Load Timesteps in Zone Design Calculation Averaging Window>, Value
+ Load Timesteps in Zone Design Calculation Averaging Window,    4
+! <Heating Sizing Factor Information>, Sizing Factor ID, Value
+ Heating Sizing Factor Information, Global,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 4,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 5,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 2,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 1,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 6,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 10,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 11,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 12,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 7,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 9,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 14,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 8,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 13,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 15,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 3,   1.2500    
+! <Cooling Sizing Factor Information>, Sizing Factor ID, Value
+ Cooling Sizing Factor Information, Global,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 4,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 5,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 2,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 1,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 6,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 10,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 11,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 12,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 7,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 9,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 14,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 8,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 13,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 15,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 3,   1.1500    
+! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}
+ Zone Sizing Information, THERMAL ZONE 4, Cooling, 2921.81231, 3360.08416, 0.16991, 0.19540, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 11:00:00, 33.73700, 9.07726E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 4, Heating, 1426.41689, 1783.02111, 7.26226E-002, 9.07783E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 5, Cooling, 2926.76016, 3365.77418, 0.17020, 0.19573, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 17:15:00, 34.91350, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 5, Heating, 1552.94518, 1941.18148, 7.90646E-002, 9.88308E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 2, Cooling, 2581.14344, 2968.31495, 0.15010, 0.17262, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 14:30:00, 37.90000, 9.07726E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 2, Heating, 1785.12051, 2231.40063, 9.08763E-002, 0.11360, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 1, Cooling, 2550.55922, 2933.14310, 0.14832, 0.17057, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 14:30:00, 37.90000, 9.07726E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 1, Heating, 1426.41689, 1783.02111, 7.26226E-002, 9.07783E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 6, Cooling, 1678.85337, 1930.68137, 9.76321E-002, 0.11228, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 18:30:00, 32.19850, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 6, Heating, 1781.23821, 2226.54776, 9.06787E-002, 0.11335, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 10, Cooling, 3498.12902, 4022.84837, 0.20343, 0.23394, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 17:45:00, 34.00850, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 10, Heating, 1422.38151, 1777.97689, 7.24172E-002, 9.05215E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 11, Cooling, 962.41416, 1106.77628, 5.59696E-002, 6.43650E-002, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 17:30:00, 34.46100, 9.07726E-003, 26.83592, 1.44430, 1.36326E-002
+ Zone Sizing Information, THERMAL ZONE 11, Heating, 248.67046, 310.83808, 1.26633E-002, 1.58291E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 07:00:00, -0.40000, 3.65329E-003, 26.83592, 1.44430, 1.36326E-002
+ Zone Sizing Information, THERMAL ZONE 12, Cooling, 1960.38871, 2254.44702, 0.11400, 0.13110, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 13:45:00, 37.67375, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 12, Heating, 1556.55832, 1945.69790, 7.92486E-002, 9.90607E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 7, Cooling, 1582.15378, 1819.47685, 9.20087E-002, 0.10581, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 18:30:00, 32.19850, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 7, Heating, 1422.38151, 1777.97689, 7.24172E-002, 9.05215E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 9, Cooling, 1063.19516, 1222.67443, 6.18302E-002, 7.11048E-002, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 18:15:00, 32.87725, 9.07725E-003, 26.83592, 1.44430, 1.36326E-002
+ Zone Sizing Information, THERMAL ZONE 9, Heating, 630.01268, 787.51585, 3.20783E-002, 4.00979E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 26.83592, 1.44430, 1.36326E-002
+ Zone Sizing Information, THERMAL ZONE 14, Cooling, 558.67032, 642.47087, 3.24908E-002, 3.73644E-002, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 16:45:00, 35.72800, 9.07726E-003, 26.83592, 1.44430, 1.36326E-002
+ Zone Sizing Information, THERMAL ZONE 14, Heating, 431.95881, 539.94851, 2.19971E-002, 2.74963E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:45:00, -0.40000, 3.65329E-003, 26.83592, 1.44430, 1.36326E-002
+ Zone Sizing Information, THERMAL ZONE 8, Cooling, 3541.20856, 4072.38985, 0.20593, 0.23682, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 17:45:00, 34.00850, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 8, Heating, 1781.23821, 2226.54776, 9.06787E-002, 0.11335, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 13, Cooling, 2901.53854, 3336.76933, 0.16873, 0.19404, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 10:45:00, 33.05825, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 13, Heating, 1785.12051, 2231.40063, 9.08763E-002, 0.11360, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 15, Cooling, 1073.07248, 1234.03335, 6.24049E-002, 7.17656E-002, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 18:30:00, 32.19850, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 15, Heating, 1552.94518, 1941.18148, 7.90646E-002, 9.88308E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 3, Cooling, 2311.52365, 2658.25219, 0.13442, 0.15459, SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB, 7/21 10:00:00, 31.02200, 9.07725E-003, 24.54102, 1.32079, 1.24668E-002
+ Zone Sizing Information, THERMAL ZONE 3, Heating, 1556.55832, 1945.69790, 7.92486E-002, 9.90607E-002, SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, -0.40000, 3.65329E-003, 24.54102, 1.32079, 1.24668E-002
+! <System Sizing Information>, System Name, Field Description, Value
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Cooling Design Air Flow Rate [m3/s], 2.14750
+ System Sizing Information, AIR LOOP HVAC 1, User Cooling Design Air Flow Rate [m3/s], 2.14750
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Heating Design Air Flow Rate [m3/s], 1.29569
+ System Sizing Information, AIR LOOP HVAC 1, User Heating Design Air Flow Rate [m3/s], 1.29569
+! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Air Flow Rate [m3/s], 0.19540
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.38864E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Reheat Water Flow Rate [m3/s], 6.69543E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.07783E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Maximum Water Flow Rate [m3/s], 6.69543E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Design Coil Load [W], 3081.92780
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, U-Factor Times Area Value [W/K], 138.93504
+! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 16,4598.73
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Air Flow Rate [m3/s], 0.19573
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.39269E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Reheat Water Flow Rate [m3/s], 7.28935E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.88308E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Maximum Water Flow Rate [m3/s], 7.28935E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Design Coil Load [W], 3355.30942
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, U-Factor Times Area Value [W/K], 139.17042
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 10,4803.81
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Air Flow Rate [m3/s], 0.17262
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.11015E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Reheat Water Flow Rate [m3/s], 8.37833E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11360
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Maximum Water Flow Rate [m3/s], 8.37833E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Design Coil Load [W], 3856.56910
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, U-Factor Times Area Value [W/K], 122.73653
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 8,4775.65
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Air Flow Rate [m3/s], 0.17057
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.08514E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Reheat Water Flow Rate [m3/s], 6.69543E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.07783E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Maximum Water Flow Rate [m3/s], 6.69543E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Design Coil Load [W], 3081.92780
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, U-Factor Times Area Value [W/K], 121.28200
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 9,4294.07
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Air Flow Rate [m3/s], 0.11335
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow Fraction during Reheat [], 0.43995
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Reheat Water Flow Rate [m3/s], 8.36011E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11335
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Maximum Water Flow Rate [m3/s], 8.36011E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Design Coil Load [W], 3848.18195
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, U-Factor Times Area Value [W/K], 80.59432
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 3,3645.26
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Air Flow Rate [m3/s], 0.23394
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.85979E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Reheat Water Flow Rate [m3/s], 6.67649E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.05215E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Maximum Water Flow Rate [m3/s], 6.67649E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Design Coil Load [W], 3073.20899
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, U-Factor Times Area Value [W/K], 166.33898
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 6,4984.39
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Air Flow Rate [m3/s], 6.43650E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow Fraction during Reheat [], 0.84721
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Reheat Water Flow Rate [m3/s], 1.42419E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 1.93095E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Maximum Water Flow Rate [m3/s], 1.42419E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Design Coil Load [W], 655.55902
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, U-Factor Times Area Value [W/K], 45.76562
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 12,1173.67
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Air Flow Rate [m3/s], 0.13110
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow Fraction during Reheat [], 0.38036
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Reheat Water Flow Rate [m3/s], 7.30631E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.90607E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Maximum Water Flow Rate [m3/s], 7.30631E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Design Coil Load [W], 3363.11593
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, U-Factor Times Area Value [W/K], 93.21937
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 5,3830.95
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Air Flow Rate [m3/s], 0.10581
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow Fraction during Reheat [], 0.47129
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Reheat Water Flow Rate [m3/s], 6.67649E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.05215E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Maximum Water Flow Rate [m3/s], 6.67649E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Design Coil Load [W], 3073.20899
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, U-Factor Times Area Value [W/K], 75.23433
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 14,3233.70
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Air Flow Rate [m3/s], 7.11048E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow Fraction during Reheat [], 0.76691
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Reheat Water Flow Rate [m3/s], 2.95745E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 4.00979E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Maximum Water Flow Rate [m3/s], 2.95745E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Design Coil Load [W], 1361.32435
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, U-Factor Times Area Value [W/K], 50.55777
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 4,1839.07
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Air Flow Rate [m3/s], 3.73644E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.39233E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Reheat Water Flow Rate [m3/s], 2.02802E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 2.74963E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Maximum Water Flow Rate [m3/s], 2.02802E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Design Coil Load [W], 933.50167
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, U-Factor Times Area Value [W/K], 26.56731
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 11,1080.89
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Air Flow Rate [m3/s], 0.23682
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.89501E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Reheat Water Flow Rate [m3/s], 8.36011E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11335
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Maximum Water Flow Rate [m3/s], 8.36011E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Design Coil Load [W], 3848.18195
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, U-Factor Times Area Value [W/K], 168.38777
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 17,5659.17
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Air Flow Rate [m3/s], 0.19404
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.37208E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Reheat Water Flow Rate [m3/s], 8.37833E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11360
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Maximum Water Flow Rate [m3/s], 8.37833E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Design Coil Load [W], 3856.56910
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, U-Factor Times Area Value [W/K], 137.97143
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 15,5104.51
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Air Flow Rate [m3/s], 9.88308E-002
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow Fraction during Reheat [], 0.50457
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Reheat Water Flow Rate [m3/s], 7.28935E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.88308E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Maximum Water Flow Rate [m3/s], 7.28935E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Design Coil Load [W], 3355.30942
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, U-Factor Times Area Value [W/K], 70.27185
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 7,3178.38
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Air Flow Rate [m3/s], 0.15459
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow Fraction during Reheat [], 0.32259
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Reheat Water Flow Rate [m3/s], 7.30631E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.90607E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Maximum Water Flow Rate [m3/s], 7.30631E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Design Coil Load [W], 3363.11593
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, U-Factor Times Area Value [W/K], 109.91601
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 13,4229.53
+ Component Sizing Information, Branch, BRANCH {16198269-743A-44A6-BBF4-9904B3D06126}, Maximum Flow Rate [m3/s], 2.14750
+ Component Sizing Information, AirLoopHVAC, AIR LOOP HVAC 1, Design Supply Air Flow Rate [m3/s], 2.14750
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Maximum Outdoor Air Flow Rate [m3/s], 2.14750
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Minimum Outdoor Air Flow Rate [m3/s], 0.19050
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Air Flow Rate [m3/s], 2.14750
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Total Cooling Capacity (gross) [W], 53327.57450
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Sensible Heat Ratio, 0.67608
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Air Flow Rate [m3/s], 0.71576
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Total Cooling Capacity (gross) [W], 17774.08058
+! <VAV DX Cooling Coil Standard Rating Information>, DX Coil Type, DX Coil Name, Fan Type, Fan Name, Standard Net Cooling Capacity {W}, Standard Net Cooling Capacity {Btu/h}, IEER {Btu/W-h}, COP 100% Capacity {W/W}, COP 75% Capacity {W/W}, COP 50% Capacity {W/W}, COP 25% Capacity {W/W}, EER 100% Capacity {Btu/W-h}, EER 75% Capacity {Btu/W-h}, EER 50% Capacity {Btu/W-h}, EER 25% Capacity {Btu/W-h}, Supply Air Flow 100% {kg/s}, Supply Air Flow 75% {kg/s},Supply Air Flow 50% {kg/s},Supply Air Flow 25% {kg/s}
+ VAV DX Cooling Coil Standard Rating Information, Coil:Cooling:DX:TwoSpeed,COIL COOLING DX TWO SPEED 1,N/A,N/A,51757.22,176602.97,25.64,4.59,6.13,8.63,12.67,15.66,20.93,29.44,43.24,2.4824,1.9850,1.3660,0.6979,
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Maximum Water Flow Rate [m3/s], 2.23445E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Design Coil Load [W], 10285.22896
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, U-Factor Times Area Value [W/K], 152.39095
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 1,8868.76
+ Component Sizing Information, Fan:VariableVolume, FAN VARIABLE VOLUME 1, Maximum Flow Rate [m3/s], 2.14750
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Maximum Actuated Flow [m3/s], 2.23445E-004
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Controller Convergence Tolerance, 1.00000E-003
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Nominal Capacity [W], 54602.79097
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Design Water Flow Rate [m3/s], 1.18166E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Maximum Loop Flow Rate [m3/s], 1.18166E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Plant Loop Volume [m3], 1.32937
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Flow Rate [m3/s], 1.18166E-003
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Power Consumption [W], 301.89937
+! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values
+! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
+! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
+! <Environment:WarmupDays>, NumberofWarmupDays
+Environment,SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+! <Environment:Design Day Data>, Max Dry-Bulb Temp {C}, Temp Range {dC}, Temp Range Ind Type, Hum Ind Value at Max Temp, Hum Ind Type,Pressure {Pa}, Wind Direction {deg CW from N}, Wind Speed {m/s}, Clearness, Rain, Snow
+! <Environment:Design_Day_Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
+Environment:Design Day Data,10.80,0.00,DefaultMultipliers,101265,320,0.9,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+! <Tabular Report>,Style
+Tabular Report,HTML
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,1.5936441048E-003,1.6007296743E-003,Pass,Pass,6.5392821561E-003,3.2826460461E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,4.0681860163E-003,1.2871907000E-003,Pass,Pass,8.4420971710E-003,2.6037452595E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,3.9025516829E-003,1.8289260935E-003,Pass,Pass,9.3056214673E-003,4.2419360189E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,3.7614460462E-004,1.0188067699E-003,Pass,Pass,4.9791970483E-003,3.2788005059E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,1.0587254370E-004,3.5136048769E-004,Pass,Pass,6.1386015060E-003,4.2228242156E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,2.1292389324E-004,7.9367596248E-004,Pass,Pass,4.7630794089E-003,3.2349763758E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,8.6002765444E-005,3.2423418639E-004,Pass,Pass,2.0194482615E-004,9.9223173534E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,1.6570913742E-004,7.0787982107E-004,Pass,Pass,3.8452721945E-003,2.6078744359E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,3.9618369057E-003,1.4029941943E-003,Pass,Pass,1.0199014919E-002,3.1959003057E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,1.0094051209E-003,1.0728810529E-003,Pass,Pass,9.1363322993E-003,4.4344498741E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,1.0358909313E-003,1.4047963913E-003,Pass,Pass,2.2631297558E-003,3.4516629943E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,5.3952339984E-003,1.6383128544E-003,Pass,Pass,1.2002036288E-002,4.0409397185E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,2.3441460223E-003,2.6328841220E-003,Pass,Pass,8.4978031682E-003,4.2485356485E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,1.0632441926E-004,3.7849511313E-004,Pass,Pass,3.8606292019E-003,2.6291686392E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99.6% CONDNS DP=>MCDB,1.8536038408E-004,6.7945574123E-004,Pass,Pass,3.9167416175E-003,2.6722249363E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,37.90,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3446456070E-002,0.1495301663,Pass,Pass,2.6584308555E-002,2.5073805421E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3896833782E-002,0.1369014127,Pass,Pass,4.9358913827E-002,5.1196342097E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,7.7436096788E-002,9.9322857437E-002,Pass,Pass,2.4506032145E-002,2.1494419067E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,7.9539221947E-002,9.8962114656E-002,Pass,Pass,2.4593528353E-002,2.1543927993E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,4.9312429130E-002,9.0079405900E-002,Pass,Pass,2.3998961299E-002,2.3817113542E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3476354457E-002,9.2961412392E-002,Pass,Pass,2.9298352124E-002,3.1712264686E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,1.3916718684E-004,2.4279446442E-004,Pass,Pass,1.4192088960E-002,1.2040377093E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3695238518E-002,0.1317784670,Pass,Pass,4.0759911474E-002,3.7754662998E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,4.7882755035E-002,8.6467336289E-002,Pass,Pass,2.4042959637E-002,2.3118675796E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,1.2721438157E-004,2.2870215885E-004,Pass,Pass,1.7231281480E-002,2.0797697931E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,3.8582270938E-002,4.6359391662E-002,Pass,Pass,2.2880997714E-002,3.6613607899E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3445011182E-002,8.9642130108E-002,Pass,Pass,2.9137414360E-002,3.1121638813E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3155090319E-002,0.1495598263,Pass,Pass,2.4774242061E-002,2.3785739848E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3482084854E-002,0.1092786484,Pass,Pass,3.0330235646E-002,3.6815744991E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DB=>MWB,8.3606316959E-002,0.1843170698,Pass,Pass,4.2421430027E-002,4.6068764040E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,32.50,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3644863607E-002,0.1557896333,Pass,Pass,3.7124355359E-002,3.5441094772E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3980543444E-002,0.1603460503,Pass,Pass,0.1648280073,0.4621995566,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3718503134E-002,0.1220787652,Pass,Pass,3.7350067093E-002,4.6593859695E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3671838393E-002,0.1189475127,Pass,Pass,3.4572481452E-002,3.6987449403E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3578051039E-002,0.1140686794,Pass,Pass,2.6761849817E-002,2.3847528494E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3921293916E-002,0.1192812299,Pass,Pass,3.9294065932E-002,3.9717238507E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,1.5323559191E-004,2.8478507317E-004,Pass,Pass,1.7987414105E-002,1.4942755509E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3891444434E-002,0.1467597207,Pass,Pass,0.1746255434,0.4597822754,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.2034496096E-002,0.1037161560,Pass,Pass,2.2949489888E-002,2.0565030079E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,1.4560919034E-002,4.3013374314E-002,Pass,Pass,1.8744224578E-002,1.9635905065E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,4.7198265591E-002,4.9421555242E-002,Pass,Pass,2.2006638247E-002,3.1356772682E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3844957619E-002,0.1213362689,Pass,Pass,4.2504247052E-002,4.7167770312E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3626868908E-002,0.1608870187,Pass,Pass,3.9159013952E-002,3.8786377801E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3640752860E-002,0.1031460742,Pass,Pass,0.1423974052,0.4862298386,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS ENTH=>MDB,8.3971139319E-002,0.1821801619,Pass,Pass,0.1437613898,0.4273670878,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.40,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3589309584E-002,0.1534810450,Pass,Pass,3.0949072115E-002,2.9240211539E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3951586716E-002,0.1511829232,Pass,Pass,5.9984357386E-002,5.9970767808E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3613025057E-002,0.1083091294,Pass,Pass,2.8498117015E-002,2.8136921220E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3602681079E-002,0.1078382745,Pass,Pass,2.8108654079E-002,2.6587731950E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,6.6911078491E-002,0.1009969708,Pass,Pass,2.3866113351E-002,2.9717908344E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3670917972E-002,0.1067045568,Pass,Pass,3.3320584394E-002,3.3297679290E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,1.2472522215E-004,2.5178915666E-004,Pass,Pass,1.5824355582E-002,1.3208406847E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3737090771E-002,0.1401664332,Pass,Pass,5.3447958822E-002,5.3427228394E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,6.3066776595E-002,9.5335420204E-002,Pass,Pass,2.3805796976E-002,2.8386280897E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,3.0379731123E-003,1.4397856536E-002,Pass,Pass,1.9049780568E-002,2.2914868090E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,4.2441706806E-002,4.7943793728E-002,Pass,Pass,2.2764266053E-002,3.9953981581E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3667548942E-002,0.1062230236,Pass,Pass,3.4199871556E-002,3.5430414604E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3591788221E-002,0.1571158995,Pass,Pass,3.0526842579E-002,2.9029401245E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3682898898E-002,0.1116179454,Pass,Pass,4.1215716958E-002,5.0255264371E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS ENTH=>MDB,8.3740588221E-002,0.1868636629,Pass,Pass,5.3865182242E-002,5.8842322693E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,34.00,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3512953068E-002,0.1576266564,Pass,Pass,3.3816665591E-002,3.2444982256E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.4030818569E-002,0.1564863751,Pass,Pass,7.3244190919E-002,7.3950983412E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3474455739E-002,0.1153425024,Pass,Pass,3.2334894386E-002,3.7867769243E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3473501157E-002,0.1132963102,Pass,Pass,3.0971186684E-002,3.1924335108E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,7.8142883678E-002,0.1095178551,Pass,Pass,2.3253127501E-002,2.2846117862E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3632239668E-002,0.1122842672,Pass,Pass,3.6029110898E-002,3.5600428390E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,1.3639474786E-004,2.4441078079E-004,Pass,Pass,1.6907859507E-002,1.4166965680E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3758720719E-002,0.1438617692,Pass,Pass,7.4773518120E-002,8.4253798691E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,7.2713668210E-002,0.1017957617,Pass,Pass,2.3121943729E-002,2.2351163275E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.8512928350E-003,3.4850735920E-002,Pass,Pass,2.1292464883E-002,2.9016773311E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,4.5059882487E-002,4.8708948043E-002,Pass,Pass,2.2257209614E-002,3.6337744467E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3645955389E-002,0.1129987036,Pass,Pass,3.7954037237E-002,4.0223506957E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3566300016E-002,0.1620010131,Pass,Pass,3.4529533120E-002,3.3932060050E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3555876073E-002,0.1065820554,Pass,Pass,5.6523908860E-002,7.5940098633E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS WB=>MDB,8.3777989113E-002,0.1824629751,Pass,Pass,7.4865561294E-002,9.3969612035E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-0.40,0.00,DefaultMultipliers,101265,320,0.9,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,2.9247162265E-003,2.5926595097E-003,Pass,Pass,7.6784714349E-003,3.7163466600E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,2.4993407889E-003,2.3202612838E-003,Pass,Pass,6.2399200231E-003,3.3157352101E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,5.1107162797E-003,2.9203179499E-003,Pass,Pass,1.0443436192E-002,4.8585843944E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,4.4970913112E-003,1.4863062330E-003,Pass,Pass,8.7958991995E-003,3.6641176790E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,3.0643656023E-002,0.1061481594,Pass,Pass,4.3149456655E-003,1.7181845939E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,2.4047419565E-003,2.5382028836E-003,Pass,Pass,7.0483183071E-003,3.7012599553E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,8.6895128798E-004,6.5888391266E-004,Pass,Pass,2.5337398883E-003,2.7774543816E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,2.1276089098E-003,2.8169164171E-003,Pass,Pass,6.3023926074E-003,3.3685572800E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,6.4166588985E-003,2.4400423484E-002,Pass,Pass,6.0962422479E-003,2.9545236250E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,1.9504054287E-003,1.6196618618E-003,Pass,Pass,1.0047812696E-002,5.2721141715E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,1.2763752435E-003,1.2190298783E-003,Pass,Pass,2.1846720434E-003,2.8455702776E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,2.8957877951E-003,2.6150228652E-003,Pass,Pass,8.0196212099E-003,4.7759327695E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,3.0641567936E-003,3.2456753993E-003,Pass,Pass,8.2395533048E-003,4.7261516057E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,2.2910342900E-002,7.6987463854E-002,Pass,Pass,2.2557487794E-003,9.9868740445E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99.6% CONDNS DB,3.9546588335E-003,2.8354898949E-003,Pass,Pass,7.4034881872E-003,3.3775658375E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,11.70,0.00,DefaultMultipliers,101265,320,11.6,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.4317434394E-003,2.3673763116E-003,Pass,Pass,7.4601368068E-003,3.2433232526E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.3198654306E-003,1.4298642823E-003,Pass,Pass,6.4041974656E-003,2.5796594387E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.6534920194E-003,2.6644094104E-003,Pass,Pass,7.4676428959E-003,4.4542755873E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.4333350641E-003,2.3915254907E-003,Pass,Pass,8.0917764291E-003,3.2910672572E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.1622753303E-003,1.6435450413E-003,Pass,Pass,8.7576320214E-003,4.4355669230E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.6931660398E-003,1.0155852478E-003,Pass,Pass,1.0271889344E-002,3.2558358170E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.5178133044E-003,8.4456719515E-004,Pass,Pass,6.0418312603E-003,4.3968654517E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.2024967673E-003,2.6291382400E-003,Pass,Pass,6.1811377962E-003,2.5747689785E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.3634894081E-003,2.3596022887E-003,Pass,Pass,5.8777356925E-003,3.2559704256E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,9.4843606664E-004,1.1539061735E-003,Pass,Pass,9.9221977134E-003,4.9826599173E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.5724651534E-003,1.4183763749E-004,Pass,Pass,4.7255290061E-003,4.1907130715E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.3367844850E-004,1.1166624996E-003,Pass,Pass,6.4783631772E-003,4.4200025233E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.5290967142E-003,1.8769046854E-003,Pass,Pass,7.5520712536E-003,4.4951131151E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.8326806503E-003,2.1088770069E-003,Pass,Pass,8.0811375203E-003,2.6387847852E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.1769326456E-003,1.1473425074E-003,Pass,Pass,5.3387250120E-003,2.6494667746E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,34.30,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3575023872E-002,0.1565316153,Pass,Pass,3.3422886409E-002,3.2063326894E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.4110523000E-002,0.1558344811,Pass,Pass,7.0432501151E-002,7.0675006249E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3488556148E-002,0.1140683264,Pass,Pass,3.1628040379E-002,3.6760371104E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3471052719E-002,0.1123501186,Pass,Pass,3.0468225778E-002,3.1293062513E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,7.6324865751E-002,0.1076368873,Pass,Pass,2.3315005506E-002,2.3379640500E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3656842472E-002,0.1110090543,Pass,Pass,3.5601237331E-002,3.4884630420E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,1.3881074419E-004,2.3898177769E-004,Pass,Pass,1.6751318732E-002,1.4049103367E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3801031510E-002,0.1433464260,Pass,Pass,6.9839677181E-002,7.5736010193E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,7.1188392077E-002,0.1003558314,Pass,Pass,2.3195488662E-002,2.3171440672E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,7.8917016376E-003,3.2114709804E-002,Pass,Pass,2.1720720167E-002,3.2063238588E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,4.4757864065E-002,4.8600011679E-002,Pass,Pass,2.2314776513E-002,3.7158978696E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3607237796E-002,0.1117639961,Pass,Pass,3.7303048582E-002,3.9456811014E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3541996724E-002,0.1613302685,Pass,Pass,3.3867596173E-002,3.3852516111E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3596947038E-002,0.1067512123,Pass,Pass,5.2923859747E-002,6.8430241263E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DB=>MWB,8.3750534526E-002,0.1845894483,Pass,Pass,6.8474425401E-002,7.8135061830E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,25.40,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3869977527E-002,0.1470927540,Pass,Pass,0.1522091869,0.3965977200,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.4233476619E-002,0.1843288083,Pass,Pass,0.4067707015,2.0281757824,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3924694246E-002,0.1393286109,Pass,Pass,0.1290980118,0.3041550389,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3827937847E-002,0.1343740281,Pass,Pass,0.1659077276,0.5732062291,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3683408358E-002,0.1089880045,Pass,Pass,0.2619466642,1.2668487020,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3928100159E-002,0.1461899796,Pass,Pass,7.5463833213E-002,9.5470196283E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,1.3702395096E-002,2.4490989440E-002,Pass,Pass,1.6564662969E-002,1.4206927487E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3983174447E-002,0.1427187352,Pass,Pass,0.4906851941,2.4257027754,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3662820074E-002,9.7184497342E-002,Pass,Pass,0.1672996957,0.5795472153,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,4.2481684118E-002,6.1828345802E-002,Pass,Pass,1.7420533426E-002,3.9458726031E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,5.6973812390E-002,5.3414673624E-002,Pass,Pass,1.9302624148E-002,2.8724232770E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.4187467880E-002,0.1565155590,Pass,Pass,0.1413773987,0.3447392811,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.4016300259E-002,0.1482122589,Pass,Pass,0.1695865259,0.4182141410,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3933723787E-002,0.1062113153,Pass,Pass,0.4950220695,3.6748029001,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS DP=>MDB,8.3918994873E-002,0.1559542007,Pass,Pass,0.1735601938,0.4573910204,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,26.90,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3777552459E-002,0.1495369557,Pass,Pass,6.8446296822E-002,8.0716164918E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.4254295442E-002,0.1806196333,Pass,Pass,0.2584520170,0.8202336052,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3979922734E-002,0.1368578252,Pass,Pass,0.1250726829,0.2947607759,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3770713488E-002,0.1317933497,Pass,Pass,6.3798906501E-002,8.6689668582E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3650734404E-002,0.1054356312,Pass,Pass,0.1785154404,0.5685924340,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3807600774E-002,0.1442226496,Pass,Pass,5.9727081852E-002,7.0700540694E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,1.0641440333E-002,2.2263905953E-002,Pass,Pass,1.6880778466E-002,1.3473206382E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.4027924966E-002,0.1417574926,Pass,Pass,0.2923236988,1.2370137894,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3572350675E-002,9.8955719375E-002,Pass,Pass,5.1652694357E-002,7.1814690097E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,3.6452019551E-002,5.8756862967E-002,Pass,Pass,1.7725827134E-002,3.4238757796E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,5.5040838195E-002,5.3501985424E-002,Pass,Pass,2.0015812731E-002,2.7657779172E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.4149086704E-002,0.1506148081,Pass,Pass,0.1929591742,0.7027115406,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3918079741E-002,0.1507198406,Pass,Pass,0.1240158934,0.2520457241,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.4432299383E-002,0.1074382366,Pass,Pass,0.3036564558,1.5125868269,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DP=>MDB,8.3926297839E-002,0.1570449719,Pass,Pass,0.1922585921,0.5711507422,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.50,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3509897313E-002,0.1560004344,Pass,Pass,3.0899047200E-002,2.8202794372E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.4033726213E-002,0.1513794981,Pass,Pass,5.9564070060E-002,5.9393305421E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3446298873E-002,0.1079818391,Pass,Pass,2.8320338193E-002,2.7953650692E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3483020151E-002,0.1072782131,Pass,Pass,2.7916896981E-002,2.6346400539E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,6.6742063335E-002,0.1008977854,Pass,Pass,2.3653494019E-002,2.8930911324E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3548350486E-002,0.1064871368,Pass,Pass,3.3129561709E-002,3.3088857582E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,1.3574038476E-004,2.6956465897E-004,Pass,Pass,1.5805672274E-002,1.3261715914E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3745540219E-002,0.1396517639,Pass,Pass,5.3284046010E-002,5.3023056519E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,6.2892657640E-002,9.5226930797E-002,Pass,Pass,2.3588535069E-002,2.7708381111E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,3.1399468474E-003,1.5144816610E-002,Pass,Pass,1.8971539650E-002,2.2365713421E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,4.2560750711E-002,4.7662409970E-002,Pass,Pass,2.2650006290E-002,3.9819250899E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3517089312E-002,0.1062062287,Pass,Pass,3.4087904240E-002,3.5480672725E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3519671783E-002,0.1594989822,Pass,Pass,3.0517753379E-002,2.8232105770E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3602819369E-002,0.1117051639,Pass,Pass,4.0534543330E-002,4.9802235783E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS WB=>MDB,8.3693593502E-002,0.1865354730,Pass,Pass,5.3470285299E-002,5.5698093223E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,29.10,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3766287092E-002,0.1532707885,Pass,Pass,4.7932195257E-002,4.7808903352E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.4104274814E-002,0.1726844201,Pass,Pass,0.1518279384,0.3218363104,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3887614461E-002,0.1319510371,Pass,Pass,5.9987291606E-002,8.5047973406E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3733320272E-002,0.1279139200,Pass,Pass,4.5644308922E-002,5.6700647138E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3561113011E-002,0.1069124183,Pass,Pass,4.9404594018E-002,6.6891939654E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3879892605E-002,0.1353013438,Pass,Pass,4.9308888937E-002,5.3971673012E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,6.3568145930E-003,1.8287864340E-002,Pass,Pass,1.7320766122E-002,1.2354346113E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3945528535E-002,0.1435248468,Pass,Pass,0.1629752509,0.4365425215,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3503392339E-002,0.1077409330,Pass,Pass,3.4876640938E-002,3.8233794501E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,2.7818951316E-002,5.3771898927E-002,Pass,Pass,1.8128233890E-002,2.7746693124E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,5.2097244370E-002,5.3029394856E-002,Pass,Pass,2.0954071082E-002,3.0607435484E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3875445333E-002,0.1404725587,Pass,Pass,6.0266022542E-002,7.5400349349E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3758161038E-002,0.1533970363,Pass,Pass,6.1576065361E-002,6.9329186322E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3921967528E-002,0.1046444692,Pass,Pass,0.1549872807,0.4145129421,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG .4% CONDNS DP=>MDB,8.3900795076E-002,0.1652880350,Pass,Pass,0.2386640993,1.1221894045,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,1.00,0.00,DefaultMultipliers,101265,320,0.9,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,1.8803232007E-003,2.6393262148E-003,Pass,Pass,6.7649239465E-003,3.6584113050E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.9342000477E-003,2.4810404244E-003,Pass,Pass,6.5905128952E-003,3.2657997651E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,3.2589618033E-004,9.0589435624E-004,Pass,Pass,6.9678365124E-003,4.8016655173E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.3287149243E-003,2.1761182766E-003,Pass,Pass,7.0600597410E-003,3.6519774224E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.3747833235E-002,9.6925615413E-002,Pass,Pass,4.5717014565E-003,1.9815401837E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.7072581559E-003,2.9020895623E-003,Pass,Pass,7.9737994855E-003,3.7407028706E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,5.3548519912E-004,6.6562940940E-004,Pass,Pass,1.4951403135E-003,2.3952492527E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.5548354079E-003,2.6052075967E-003,Pass,Pass,6.6635410020E-003,3.2375364497E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,3.0664009817E-003,2.5317715160E-003,Pass,Pass,7.3320821579E-003,3.6398020877E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,1.7029059129E-003,1.3256491700E-003,Pass,Pass,1.0017771039E-002,5.2092304610E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,1.3319305285E-003,1.0144510374E-003,Pass,Pass,2.1901444741E-003,2.6059015023E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.7244148765E-003,2.6536902870E-003,Pass,Pass,8.3477598635E-003,4.7249768698E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.1914541219E-003,2.5065546256E-003,Pass,Pass,7.7949484172E-003,4.7360361535E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.0652054924E-002,7.5051810998E-002,Pass,Pass,2.2781880405E-003,9.8335077642E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG 99% CONDNS DB,2.7452452401E-003,2.9317730248E-003,Pass,Pass,6.3835877750E-003,3.2767461906E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,34.00,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3627312068E-002,0.1571296571,Pass,Pass,3.3738100866E-002,3.2401411369E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3977927490E-002,0.1562794704,Pass,Pass,7.2339572171E-002,7.3435918513E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3634137159E-002,0.1151948811,Pass,Pass,3.2242078772E-002,3.7573637823E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3575515401E-002,0.1132751029,Pass,Pass,3.0982348295E-002,3.1518763987E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,7.7568905326E-002,0.1087851089,Pass,Pass,2.3492361803E-002,2.3842813805E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3784835217E-002,0.1115742800,Pass,Pass,3.5972369347E-002,3.5284764016E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,1.2742105133E-004,2.3572439454E-004,Pass,Pass,1.6849387086E-002,1.4052368049E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3823717657E-002,0.1441774857,Pass,Pass,7.2756185545E-002,8.3070607609E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,7.2250488859E-002,0.1013312128,Pass,Pass,2.3385068798E-002,2.3567617432E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3545894584E-003,3.3332942958E-002,Pass,Pass,2.2185837319E-002,3.4298725101E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,4.4790149728E-002,4.8715664927E-002,Pass,Pass,2.2410260652E-002,3.8182825238E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3731239266E-002,0.1124859779,Pass,Pass,3.7840194683E-002,4.0035319777E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3725129444E-002,0.1614785881,Pass,Pass,3.4342564190E-002,3.3840879655E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3640106216E-002,0.1067992194,Pass,Pass,5.5742685880E-002,7.2782102890E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS ENTH=>MDB,8.3735793061E-002,0.1850245276,Pass,Pass,7.2799545738E-002,8.8262217173E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,36.20,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3546466535E-002,0.1508457080,Pass,Pass,2.9741577254E-002,2.7681274335E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3876817355E-002,0.1447205465,Pass,Pass,5.6089095460E-002,5.5902065409E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3443420334E-002,0.1052554409,Pass,Pass,2.6701983252E-002,2.4054124642E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3439309879E-002,0.1043535748,Pass,Pass,2.6712177152E-002,2.3842673838E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,6.2020554323E-002,9.5923541411E-002,Pass,Pass,2.3806889109E-002,2.9637356556E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3553087941E-002,0.1014159976,Pass,Pass,3.1998547351E-002,3.2637452407E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,1.3070357849E-004,2.3411526439E-004,Pass,Pass,1.5389783447E-002,1.2936513344E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3754079335E-002,0.1386630164,Pass,Pass,4.9091492077E-002,4.8260384058E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,5.8882046752E-002,9.0615132853E-002,Pass,Pass,2.3768944932E-002,2.7483410118E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,1.1074963989E-003,5.6948749401E-003,Pass,Pass,1.9030082265E-002,2.4344545751E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,4.1653744161E-002,4.7885818688E-002,Pass,Pass,2.2780110129E-002,4.0204835416E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3488641165E-002,9.9550015287E-002,Pass,Pass,3.2652354488E-002,3.3874351528E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3492647995E-002,0.1536726754,Pass,Pass,2.9030719802E-002,2.7649400282E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3544943188E-002,0.1112802235,Pass,Pass,3.7152626109E-002,4.5252636337E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 1% CONDNS DB=>MWB,8.3699909041E-002,0.1863362958,Pass,Pass,4.9848952091E-002,5.3610438218E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,10.50,0.00,DefaultMultipliers,101265,320,0.9,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,1.4893016849E-003,1.4460468672E-003,Pass,Pass,6.5984008040E-003,3.2908367512E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,4.0830388788E-003,2.8437117813E-003,Pass,Pass,7.7164687550E-003,2.6165624311E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,2.2809253040E-003,2.2102476059E-003,Pass,Pass,8.4652302764E-003,4.2659362403E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,5.3745578841E-003,1.5021583151E-003,Pass,Pass,1.0860939436E-002,3.2538294252E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,1.1531834469E-004,3.4631319807E-004,Pass,Pass,6.2155711209E-003,4.2769653305E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,2.2957172582E-003,1.8866858688E-003,Pass,Pass,7.6184829072E-003,3.2305596423E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,1.0940386182E-003,7.5181118277E-004,Pass,Pass,4.0591340086E-003,3.2527797994E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,1.4170745740E-004,5.7977972894E-004,Pass,Pass,3.9660216910E-003,2.7040848049E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,1.9303834267E-004,8.4296817401E-004,Pass,Pass,4.7727646302E-003,3.2501919040E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,1.7188896580E-003,1.1759758198E-003,Pass,Pass,1.0435891095E-002,4.5297095493E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,9.1499630470E-005,3.1243835877E-004,Pass,Pass,1.0245042642E-004,4.8590768474E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,2.8402182094E-003,3.2313938899E-003,Pass,Pass,8.7635471455E-003,4.1897938464E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,2.4056999565E-004,7.9007840167E-004,Pass,Pass,6.1746750699E-003,4.2391115986E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,1.2112375742E-003,1.6744372641E-003,Pass,Pass,4.8988604138E-003,2.6479264506E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HUM_N 99% CONDNS DP=>MCDB,4.0210826700E-003,1.8631157438E-003,Pass,Pass,7.5714905541E-003,2.6293259249E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,11.40,0.00,DefaultMultipliers,101265,320,10.6,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,2.0492678602E-003,1.9803557894E-003,Pass,Pass,8.1498170730E-003,3.3108292319E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,9.8211569783E-004,1.5949949717E-003,Pass,Pass,4.7476418906E-003,2.6483307248E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,1.2864510704E-003,1.7389708605E-003,Pass,Pass,7.5844750321E-003,4.4713212762E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,1.7988606894E-003,1.9317411418E-003,Pass,Pass,6.7557249513E-003,3.3502149121E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,2.1600780185E-003,2.1032454022E-003,Pass,Pass,9.5771220173E-003,4.4350718032E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,2.7954236874E-003,2.6975904542E-003,Pass,Pass,9.1292730479E-003,3.2774702034E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,4.4789309213E-004,5.0768389045E-004,Pass,Pass,1.6618252090E-003,2.2458725939E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,1.6680611603E-003,1.6779147011E-003,Pass,Pass,5.8950141157E-003,2.6358366787E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,7.9903589560E-004,1.7082092334E-003,Pass,Pass,5.6412394619E-003,3.3444503160E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,6.5705521885E-004,7.1293751672E-004,Pass,Pass,8.6586258091E-003,4.9874878084E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,1.1115780479E-003,1.1286313298E-003,Pass,Pass,1.7050383587E-003,2.2187871212E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,1.7333924413E-003,2.1241745065E-003,Pass,Pass,7.8161637024E-003,4.4471214437E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,1.5526553885E-004,5.2789030834E-004,Pass,Pass,6.5493274689E-003,4.5256060579E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,3.9411383975E-004,1.2401549577E-003,Pass,Pass,4.0716518489E-003,2.6302016472E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN HTG WIND 99% CONDNS WS=>MCDB,2.4514262747E-003,2.6354380520E-003,Pass,Pass,5.3596674226E-003,2.5994950261E-002,Pass,Pass
+Environment,SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,32.50,18.10,DefaultMultipliers,101265,220,3.4,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3643932134E-002,0.1554550272,Pass,Pass,3.7151572814E-002,3.5361133196E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.4049199104E-002,0.1608363271,Pass,Pass,0.1410776218,0.2894207260,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3565131111E-002,0.1218776866,Pass,Pass,3.7467982842E-002,4.6738800045E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3554524491E-002,0.1187778337,Pass,Pass,3.4653054510E-002,3.7039042664E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3418666137E-002,0.1150516501,Pass,Pass,2.6972186558E-002,2.4784206945E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3701355022E-002,0.1203994603,Pass,Pass,3.9386663570E-002,3.9192472415E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,3.5090729342E-004,1.2955117543E-003,Pass,Pass,1.7904044918E-002,1.4545058923E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3752378047E-002,0.1463612700,Pass,Pass,0.1714593936,0.4214820898,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.2438309663E-002,0.1043847279,Pass,Pass,2.2701470696E-002,2.0647315634E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,1.5035627625E-002,4.3550469332E-002,Pass,Pass,1.8643557485E-002,1.9783826183E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,4.7413152872E-002,4.9717005191E-002,Pass,Pass,2.1855232225E-002,3.0409574634E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3710555710E-002,0.1221940208,Pass,Pass,4.2569843276E-002,4.7545330650E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3572243777E-002,0.1608551736,Pass,Pass,3.9492245839E-002,3.9314772690E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3636577479E-002,0.1025425218,Pass,Pass,0.3762068885,2.7011375816,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: SACRAMENTO EXECUTIVE ARPT ANN CLG 2% CONDNS WB=>MDB,8.3862007557E-002,0.1815728506,Pass,Pass,0.1355650092,0.3439404332,Pass,Pass
+Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01,12/31,Thursday,365,Use RunPeriod Specified Day,Yes,Yes,No ,Yes,Yes
+Environment:Daylight Saving,Yes,InputFile,03/08,11/01
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 4,RunPeriod: RUN PERIOD 1,2.1063988442E-003,1.7723139200E-003,Pass,Pass,0.8447512700,6.0922305410,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,RunPeriod: RUN PERIOD 1,2.5019036528E-003,1.9330717236E-003,Pass,Pass,6.2542930912E-002,0.1008527756,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,RunPeriod: RUN PERIOD 1,3.0450631334E-003,2.7007380879E-003,Pass,Pass,0.4965081025,2.4894055190,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,RunPeriod: RUN PERIOD 1,2.2095995145E-003,1.8806435895E-003,Pass,Pass,0.1696657428,0.4187138979,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,RunPeriod: RUN PERIOD 1,1.7381091204E-002,6.7409348354E-002,Pass,Pass,5.1662170987E-002,9.4789215842E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,RunPeriod: RUN PERIOD 1,2.9577332321E-003,2.2007893227E-003,Pass,Pass,0.1578441363,0.3312202053,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,RunPeriod: RUN PERIOD 1,3.3179689390E-002,9.1502400406E-002,Pass,Pass,0.7380776866,5.5894319059,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,RunPeriod: RUN PERIOD 1,2.4247287881E-003,2.3274389128E-003,Pass,Pass,0.1893134831,0.4167419298,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,RunPeriod: RUN PERIOD 1,2.0808282773E-003,1.6927291363E-003,Pass,Pass,0.1098260789,0.1878693084,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,RunPeriod: RUN PERIOD 1,1.0340272564E-002,3.9274589478E-002,Pass,Pass,0.1040330887,0.3455473082,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,RunPeriod: RUN PERIOD 1,2.3617293850E-002,7.0453623080E-002,Pass,Pass,6.4263651463E-002,0.2573500009,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,RunPeriod: RUN PERIOD 1,2.8083341167E-003,2.2786056247E-003,Pass,Pass,6.0696434570E-002,0.1077906503,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,RunPeriod: RUN PERIOD 1,2.9638070778E-003,2.7800730471E-003,Pass,Pass,7.1534801559E-002,0.1337996863,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,RunPeriod: RUN PERIOD 1,1.9266217112E-002,6.5203363080E-002,Pass,Pass,4.9841260115E-002,9.0159361229E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,RunPeriod: RUN PERIOD 1,2.6327008617E-003,2.3078917816E-003,Pass,Pass,0.1002465485,0.2399161992,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, Yes,1, Not Set, Not Set, 1, 1, 102, N/A
+End of Data

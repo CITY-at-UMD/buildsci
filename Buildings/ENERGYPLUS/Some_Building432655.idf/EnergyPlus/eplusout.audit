@@ -1,0 +1,2335 @@
+  Processing Data Dictionary (Energy+.idd) File -- Complete
+  Maximum number of Alpha Args=        4500
+  Maximum number of Numeric Args=       21040
+  Number of Object Definitions=         681
+  Number of Section Definitions=           2
+  Processing Input Data File (in.idf) -- Start
+      1 
+      2 Version,
+      3   7.2;                                    !- Version Identifier
+      4 
+      5 SimulationControl,
+      6   No,                                     !- Do Zone Sizing Calculation
+      7   Yes,                                    !- Do System Sizing Calculation
+      8   Yes,                                    !- Do Plant Sizing Calculation
+      9   Yes,                                    !- Run Simulation for Sizing Periods
+     10   Yes;                                    !- Run Simulation for Weather File Run Periods
+     11 
+     12 ProgramControl,
+     13   1;                                      !- Number of Threads Allowed
+     14 
+     15 Sizing:Parameters,
+     16   1.25,                                   !- Heating Sizing Factor
+     17   1.15;                                   !- Cooling Sizing Factor
+     18 
+     19 RunPeriod,
+     20   Run Period 1,                           !- Name
+     21   1,                                      !- Begin Month
+     22   1,                                      !- Begin Day of Month
+     23   12,                                     !- End Month
+     24   31,                                     !- End Day of Month
+     25   Thursday,                               !- Day of Week for Start Day
+     26   Yes,                                    !- Use Weather File Holidays and Special Days
+     27   Yes,                                    !- Use Weather File Daylight Saving Period
+     28   No,                                     !- Apply Weekend Holiday Rule
+     29   Yes,                                    !- Use Weather File Rain Indicators
+     30   Yes,                                    !- Use Weather File Snow Indicators
+     31   1;                                      !- Number of Times Runperiod to be Repeated
+     32 
+     33 GlobalGeometryRules,
+     34   UpperLeftCorner,                        !- Starting Vertex Position
+     35   Counterclockwise,                       !- Vertex Entry Direction
+     36   Relative,                               !- Coordinate System
+     37   Relative,                               !- Daylighting Reference Point Coordinate System
+     38   Relative;                               !- Rectangular Surface Coordinate System
+     39 
+     40 ScheduleTypeLimits,
+     41   Temperature 1,                          !- Name
+     42   ,                                       !- Lower Limit Value {BasedOnField A3}
+     43   ,                                       !- Upper Limit Value {BasedOnField A3}
+     44   Continuous,                             !- Numeric Type
+     45   temperature;                            !- Unit Type
+     46 
+     47 ScheduleTypeLimits,
+     48   OnOff,                                  !- Name
+     49   0,                                      !- Lower Limit Value {BasedOnField A3}
+     50   1,                                      !- Upper Limit Value {BasedOnField A3}
+     51   Discrete,                               !- Numeric Type
+     52   availability;                           !- Unit Type
+     53 
+     54 ScheduleTypeLimits,
+     55   Temperature 2,                          !- Name
+     56   ,                                       !- Lower Limit Value {BasedOnField A3}
+     57   ,                                       !- Upper Limit Value {BasedOnField A3}
+     58   Continuous,                             !- Numeric Type
+     59   temperature;                            !- Unit Type
+     60 
+     61 ScheduleTypeLimits,
+     62   ActivityLevel 12,                       !- Name
+     63   0,                                      !- Lower Limit Value {BasedOnField A3}
+     64   ,                                       !- Upper Limit Value {BasedOnField A3}
+     65   Continuous,                             !- Numeric Type
+     66   activitylevel;                          !- Unit Type
+     67 
+     68 ScheduleTypeLimits,
+     69   Temperature,                            !- Name
+     70   ,                                       !- Lower Limit Value {BasedOnField A3}
+     71   ,                                       !- Upper Limit Value {BasedOnField A3}
+     72   Continuous,                             !- Numeric Type
+     73   temperature;                            !- Unit Type
+     74 
+     75 ScheduleTypeLimits,
+     76   Temperature 3,                          !- Name
+     77   ,                                       !- Lower Limit Value {BasedOnField A3}
+     78   ,                                       !- Upper Limit Value {BasedOnField A3}
+     79   Continuous,                             !- Numeric Type
+     80   temperature;                            !- Unit Type
+     81 
+     82 ScheduleTypeLimits,
+     83   Fractional,                             !- Name
+     84   0,                                      !- Lower Limit Value {BasedOnField A3}
+     85   1,                                      !- Upper Limit Value {BasedOnField A3}
+     86   Continuous;                             !- Numeric Type
+     87 
+     88 Schedule:Day:Interval,
+     89   Small Office_Infil_Quarter_On Rule 2 Day Schedule, !- Name
+     90   Fractional,                             !- Schedule Type Limits Name
+     91   No,                                     !- Interpolate to Timestep
+     92   06:00,                                  !- Time 1 {hh:mm}
+     93   1,                                      !- Value Until Time 1
+     94   18:00,                                  !- Time 2 {hh:mm}
+     95   0.25,                                   !- Value Until Time 2
+     96   24:00,                                  !- Time 3 {hh:mm}
+     97   1;                                      !- Value Until Time 3
+     98 
+     99 Schedule:Day:Interval,
+    100   Small Office_Activity Default Schedule, !- Name
+    101   ActivityLevel 12,                       !- Schedule Type Limits Name
+    102   No,                                     !- Interpolate to Timestep
+    103   24:00,                                  !- Time 1 {hh:mm}
+    104   120;                                    !- Value Until Time 1
+    105 
+    106 Schedule:Day:Interval,
+    107   Small Office_Infil_Quarter_On Winter Design Day, !- Name
+    108   Fractional,                             !- Schedule Type Limits Name
+    109   No,                                     !- Interpolate to Timestep
+    110   06:00,                                  !- Time 1 {hh:mm}
+    111   1,                                      !- Value Until Time 1
+    112   18:00,                                  !- Time 2 {hh:mm}
+    113   0.25,                                   !- Value Until Time 2
+    114   24:00,                                  !- Time 3 {hh:mm}
+    115   1;                                      !- Value Until Time 3
+    116 
+    117 Schedule:Day:Interval,
+    118   Small Office_Bldg_Equip Rule 1 Day Schedule, !- Name
+    119   Fractional,                             !- Schedule Type Limits Name
+    120   No,                                     !- Interpolate to Timestep
+    121   24:00,                                  !- Time 1 {hh:mm}
+    122   0.3;                                    !- Value Until Time 1
+    123 
+    124 Schedule:Day:Interval,
+    125   Deck_Temperature_Default,               !- Name
+    126   Temperature,                            !- Schedule Type Limits Name
+    127   No,                                     !- Interpolate to Timestep
+    128   24:00,                                  !- Time 1 {hh:mm}
+    129   12.8;                                   !- Value Until Time 1
+    130 
+    131 Schedule:Day:Interval,
+    132   Small Office_Bldg_Occ Rule 1 Day Schedule, !- Name
+    133   Fractional,                             !- Schedule Type Limits Name
+    134   No,                                     !- Interpolate to Timestep
+    135   24:00,                                  !- Time 1 {hh:mm}
+    136   0;                                      !- Value Until Time 1
+    137 
+    138 Schedule:Day:Interval,
+    139   Small Office_Bldg_Equip Rule 2 Day Schedule, !- Name
+    140   Fractional,                             !- Schedule Type Limits Name
+    141   No,                                     !- Interpolate to Timestep
+    142   06:00,                                  !- Time 1 {hh:mm}
+    143   0.3,                                    !- Value Until Time 1
+    144   08:00,                                  !- Time 2 {hh:mm}
+    145   0.4,                                    !- Value Until Time 2
+    146   12:00,                                  !- Time 3 {hh:mm}
+    147   0.5,                                    !- Value Until Time 3
+    148   17:00,                                  !- Time 4 {hh:mm}
+    149   0.35,                                   !- Value Until Time 4
+    150   24:00,                                  !- Time 5 {hh:mm}
+    151   0.3;                                    !- Value Until Time 5
+    152 
+    153 Schedule:Day:Interval,
+    154   Chilled_Water_Temperature_Default,      !- Name
+    155   ,                                       !- Schedule Type Limits Name
+    156   No,                                     !- Interpolate to Timestep
+    157   24:00,                                  !- Time 1 {hh:mm}
+    158   6.7;                                    !- Value Until Time 1
+    159 
+    160 Schedule:Day:Interval,
+    161   Hot_Water_Temperature_Summer_Design_Day, !- Name
+    162   Temperature 1,                          !- Schedule Type Limits Name
+    163   No,                                     !- Interpolate to Timestep
+    164   24:00,                                  !- Time 1 {hh:mm}
+    165   67;                                     !- Value Until Time 1
+    166 
+    167 Schedule:Day:Interval,
+    168   Always_On_Summer_Design_Day,            !- Name
+    169   OnOff,                                  !- Schedule Type Limits Name
+    170   No,                                     !- Interpolate to Timestep
+    171   24:00,                                  !- Time 1 {hh:mm}
+    172   1;                                      !- Value Until Time 1
+    173 
+    174 Schedule:Day:Interval,
+    175   Small Office_Infil_Quarter_On Summer Design Day, !- Name
+    176   Fractional,                             !- Schedule Type Limits Name
+    177   No,                                     !- Interpolate to Timestep
+    178   06:00,                                  !- Time 1 {hh:mm}
+    179   1,                                      !- Value Until Time 1
+    180   22:00,                                  !- Time 2 {hh:mm}
+    181   0.25,                                   !- Value Until Time 2
+    182   24:00,                                  !- Time 3 {hh:mm}
+    183   1;                                      !- Value Until Time 3
+    184 
+    185 Schedule:Day:Interval,
+    186   Small Office_Bldg_Light Rule 2 Day Schedule, !- Name
+    187   Fractional,                             !- Schedule Type Limits Name
+    188   No,                                     !- Interpolate to Timestep
+    189   06:00,                                  !- Time 1 {hh:mm}
+    190   0.05,                                   !- Value Until Time 1
+    191   08:00,                                  !- Time 2 {hh:mm}
+    192   0.1,                                    !- Value Until Time 2
+    193   12:00,                                  !- Time 3 {hh:mm}
+    194   0.3,                                    !- Value Until Time 3
+    195   17:00,                                  !- Time 4 {hh:mm}
+    196   0.15,                                   !- Value Until Time 4
+    197   24:00,                                  !- Time 5 {hh:mm}
+    198   0.05;                                   !- Value Until Time 5
+    199 
+    200 Schedule:Day:Interval,
+    201   Small Office_Bldg_Light Winter Design Day, !- Name
+    202   Fractional,                             !- Schedule Type Limits Name
+    203   No,                                     !- Interpolate to Timestep
+    204   24:00,                                  !- Time 1 {hh:mm}
+    205   0;                                      !- Value Until Time 1
+    206 
+    207 Schedule:Day:Interval,
+    208   Always_On_Winter_Design_Day,            !- Name
+    209   OnOff,                                  !- Schedule Type Limits Name
+    210   No,                                     !- Interpolate to Timestep
+    211   24:00,                                  !- Time 1 {hh:mm}
+    212   1;                                      !- Value Until Time 1
+    213 
+    214 Schedule:Day:Interval,
+    215   Small Office_Bldg_Light Rule 1 Day Schedule, !- Name
+    216   Fractional,                             !- Schedule Type Limits Name
+    217   No,                                     !- Interpolate to Timestep
+    218   24:00,                                  !- Time 1 {hh:mm}
+    219   0.05;                                   !- Value Until Time 1
+    220 
+    221 Schedule:Day:Interval,
+    222   Small Office_Bldg_Light Default Schedule, !- Name
+    223   Fractional,                             !- Schedule Type Limits Name
+    224   No,                                     !- Interpolate to Timestep
+    225   05:00,                                  !- Time 1 {hh:mm}
+    226   0.05,                                   !- Value Until Time 1
+    227   07:00,                                  !- Time 2 {hh:mm}
+    228   0.1,                                    !- Value Until Time 2
+    229   08:00,                                  !- Time 3 {hh:mm}
+    230   0.3,                                    !- Value Until Time 3
+    231   17:00,                                  !- Time 4 {hh:mm}
+    232   0.9,                                    !- Value Until Time 4
+    233   18:00,                                  !- Time 5 {hh:mm}
+    234   0.5,                                    !- Value Until Time 5
+    235   20:00,                                  !- Time 6 {hh:mm}
+    236   0.3,                                    !- Value Until Time 6
+    237   22:00,                                  !- Time 7 {hh:mm}
+    238   0.2,                                    !- Value Until Time 7
+    239   23:00,                                  !- Time 8 {hh:mm}
+    240   0.1,                                    !- Value Until Time 8
+    241   24:00,                                  !- Time 9 {hh:mm}
+    242   0.05;                                   !- Value Until Time 9
+    243 
+    244 Schedule:Day:Interval,
+    245   Small Office_Bldg_Occ Winter Design Day, !- Name
+    246   Fractional,                             !- Schedule Type Limits Name
+    247   No,                                     !- Interpolate to Timestep
+    248   24:00,                                  !- Time 1 {hh:mm}
+    249   0;                                      !- Value Until Time 1
+    250 
+    251 Schedule:Day:Interval,
+    252   Chilled_Water_Temperature_Summer_Design_Day, !- Name
+    253   ,                                       !- Schedule Type Limits Name
+    254   No,                                     !- Interpolate to Timestep
+    255   24:00,                                  !- Time 1 {hh:mm}
+    256   6.7;                                    !- Value Until Time 1
+    257 
+    258 Schedule:Day:Interval,
+    259   Small Office_Bldg_Occ Default Schedule, !- Name
+    260   Fractional,                             !- Schedule Type Limits Name
+    261   No,                                     !- Interpolate to Timestep
+    262   06:00,                                  !- Time 1 {hh:mm}
+    263   0,                                      !- Value Until Time 1
+    264   07:00,                                  !- Time 2 {hh:mm}
+    265   0.1,                                    !- Value Until Time 2
+    266   08:00,                                  !- Time 3 {hh:mm}
+    267   0.2,                                    !- Value Until Time 3
+    268   12:00,                                  !- Time 4 {hh:mm}
+    269   0.95,                                   !- Value Until Time 4
+    270   13:00,                                  !- Time 5 {hh:mm}
+    271   0.5,                                    !- Value Until Time 5
+    272   17:00,                                  !- Time 6 {hh:mm}
+    273   0.95,                                   !- Value Until Time 6
+    274   18:00,                                  !- Time 7 {hh:mm}
+    275   0.3,                                    !- Value Until Time 7
+    276   20:00,                                  !- Time 8 {hh:mm}
+    277   0.1,                                    !- Value Until Time 8
+    278   24:00,                                  !- Time 9 {hh:mm}
+    279   0.05;                                   !- Value Until Time 9
+    280 
+    281 Schedule:Day:Interval,
+    282   Small Office_Bldg_Equip Winter Design Day, !- Name
+    283   Fractional,                             !- Schedule Type Limits Name
+    284   No,                                     !- Interpolate to Timestep
+    285   24:00,                                  !- Time 1 {hh:mm}
+    286   0;                                      !- Value Until Time 1
+    287 
+    288 Schedule:Day:Interval,
+    289   Small Office_Bldg_Occ Summer Design Day, !- Name
+    290   Fractional,                             !- Schedule Type Limits Name
+    291   No,                                     !- Interpolate to Timestep
+    292   06:00,                                  !- Time 1 {hh:mm}
+    293   0,                                      !- Value Until Time 1
+    294   22:00,                                  !- Time 2 {hh:mm}
+    295   1,                                      !- Value Until Time 2
+    296   24:00,                                  !- Time 3 {hh:mm}
+    297   0.05;                                   !- Value Until Time 3
+    298 
+    299 Schedule:Day:Interval,
+    300   Hot_Water_Temperature_Winter_Design_Day, !- Name
+    301   Temperature 1,                          !- Schedule Type Limits Name
+    302   No,                                     !- Interpolate to Timestep
+    303   24:00,                                  !- Time 1 {hh:mm}
+    304   67;                                     !- Value Until Time 1
+    305 
+    306 Schedule:Day:Interval,
+    307   Small Office_Bldg_Equip Summer Design Day, !- Name
+    308   Fractional,                             !- Schedule Type Limits Name
+    309   No,                                     !- Interpolate to Timestep
+    310   24:00,                                  !- Time 1 {hh:mm}
+    311   1;                                      !- Value Until Time 1
+    312 
+    313 Schedule:Day:Interval,
+    314   Small Office_Bldg_Light Summer Design Day, !- Name
+    315   Fractional,                             !- Schedule Type Limits Name
+    316   No,                                     !- Interpolate to Timestep
+    317   24:00,                                  !- Time 1 {hh:mm}
+    318   1;                                      !- Value Until Time 1
+    319 
+    320 Schedule:Day:Interval,
+    321   Cooling Sch Default,                    !- Name
+    322   Temperature 3,                          !- Schedule Type Limits Name
+    323   No,                                     !- Interpolate to Timestep
+    324   24:00,                                  !- Time 1 {hh:mm}
+    325   28;                                     !- Value Until Time 1
+    326 
+    327 Schedule:Day:Interval,
+    328   Small Office_Activity Winter Design Day, !- Name
+    329   ActivityLevel 12,                       !- Schedule Type Limits Name
+    330   No,                                     !- Interpolate to Timestep
+    331   24:00,                                  !- Time 1 {hh:mm}
+    332   120;                                    !- Value Until Time 1
+    333 
+    334 Schedule:Day:Interval,
+    335   Hot_Water_Temperature_Default,          !- Name
+    336   Temperature 1,                          !- Schedule Type Limits Name
+    337   No,                                     !- Interpolate to Timestep
+    338   24:00,                                  !- Time 1 {hh:mm}
+    339   67;                                     !- Value Until Time 1
+    340 
+    341 Schedule:Day:Interval,
+    342   Chilled_Water_Temperature_Winter_Design_Day, !- Name
+    343   ,                                       !- Schedule Type Limits Name
+    344   No,                                     !- Interpolate to Timestep
+    345   24:00,                                  !- Time 1 {hh:mm}
+    346   6.7;                                    !- Value Until Time 1
+    347 
+    348 Schedule:Day:Interval,
+    349   Small Office_Activity Summer Design Day, !- Name
+    350   ActivityLevel 12,                       !- Schedule Type Limits Name
+    351   No,                                     !- Interpolate to Timestep
+    352   24:00,                                  !- Time 1 {hh:mm}
+    353   120;                                    !- Value Until Time 1
+    354 
+    355 Schedule:Day:Interval,
+    356   Small Office_Infil_Quarter_On Default Schedule, !- Name
+    357   Fractional,                             !- Schedule Type Limits Name
+    358   No,                                     !- Interpolate to Timestep
+    359   06:00,                                  !- Time 1 {hh:mm}
+    360   1,                                      !- Value Until Time 1
+    361   22:00,                                  !- Time 2 {hh:mm}
+    362   0.25,                                   !- Value Until Time 2
+    363   24:00,                                  !- Time 3 {hh:mm}
+    364   1;                                      !- Value Until Time 3
+    365 
+    366 Schedule:Day:Interval,
+    367   Small Office_Bldg_Equip Default Schedule, !- Name
+    368   Fractional,                             !- Schedule Type Limits Name
+    369   No,                                     !- Interpolate to Timestep
+    370   08:00,                                  !- Time 1 {hh:mm}
+    371   0.4,                                    !- Value Until Time 1
+    372   12:00,                                  !- Time 2 {hh:mm}
+    373   0.9,                                    !- Value Until Time 2
+    374   13:00,                                  !- Time 3 {hh:mm}
+    375   0.8,                                    !- Value Until Time 3
+    376   17:00,                                  !- Time 4 {hh:mm}
+    377   0.9,                                    !- Value Until Time 4
+    378   18:00,                                  !- Time 5 {hh:mm}
+    379   0.5,                                    !- Value Until Time 5
+    380   24:00,                                  !- Time 6 {hh:mm}
+    381   0.4;                                    !- Value Until Time 6
+    382 
+    383 Schedule:Day:Interval,
+    384   Small Office_Infil_Quarter_On Rule 1 Day Schedule, !- Name
+    385   Fractional,                             !- Schedule Type Limits Name
+    386   No,                                     !- Interpolate to Timestep
+    387   24:00,                                  !- Time 1 {hh:mm}
+    388   1;                                      !- Value Until Time 1
+    389 
+    390 Schedule:Day:Interval,
+    391   Deck_Temperature_Winter_Design_Day,     !- Name
+    392   Temperature,                            !- Schedule Type Limits Name
+    393   No,                                     !- Interpolate to Timestep
+    394   24:00,                                  !- Time 1 {hh:mm}
+    395   12.8;                                   !- Value Until Time 1
+    396 
+    397 Schedule:Day:Interval,
+    398   Always_On_Default,                      !- Name
+    399   OnOff,                                  !- Schedule Type Limits Name
+    400   No,                                     !- Interpolate to Timestep
+    401   24:00,                                  !- Time 1 {hh:mm}
+    402   1;                                      !- Value Until Time 1
+    403 
+    404 Schedule:Day:Interval,
+    405   Deck_Temperature_Summer_Design_Day,     !- Name
+    406   Temperature,                            !- Schedule Type Limits Name
+    407   No,                                     !- Interpolate to Timestep
+    408   24:00,                                  !- Time 1 {hh:mm}
+    409   12.8;                                   !- Value Until Time 1
+    410 
+    411 Schedule:Day:Interval,
+    412   Small Office_Bldg_Occ Rule 2 Day Schedule, !- Name
+    413   Fractional,                             !- Schedule Type Limits Name
+    414   No,                                     !- Interpolate to Timestep
+    415   06:00,                                  !- Time 1 {hh:mm}
+    416   0,                                      !- Value Until Time 1
+    417   08:00,                                  !- Time 2 {hh:mm}
+    418   0.1,                                    !- Value Until Time 2
+    419   12:00,                                  !- Time 3 {hh:mm}
+    420   0.3,                                    !- Value Until Time 3
+    421   17:00,                                  !- Time 4 {hh:mm}
+    422   0.1,                                    !- Value Until Time 4
+    423   24:00,                                  !- Time 5 {hh:mm}
+    424   0;                                      !- Value Until Time 5
+    425 
+    426 Schedule:Day:Interval,
+    427   Heating Sch Default,                    !- Name
+    428   Temperature 2,                          !- Schedule Type Limits Name
+    429   No,                                     !- Interpolate to Timestep
+    430   24:00,                                  !- Time 1 {hh:mm}
+    431   24;                                     !- Value Until Time 1
+    432 
+    433 Schedule:Week:Daily,
+    434   Schedule:Week:Daily {5d108e94-5121-4f9a-ba67-12100db563ca}, !- Name
+    435   Chilled_Water_Temperature_Default,      !- Sunday Schedule:Day Name
+    436   Chilled_Water_Temperature_Default,      !- Monday Schedule:Day Name
+    437   Chilled_Water_Temperature_Default,      !- Tuesday Schedule:Day Name
+    438   Chilled_Water_Temperature_Default,      !- Wednesday Schedule:Day Name
+    439   Chilled_Water_Temperature_Default,      !- Thursday Schedule:Day Name
+    440   Chilled_Water_Temperature_Default,      !- Friday Schedule:Day Name
+    441   Chilled_Water_Temperature_Default,      !- Saturday Schedule:Day Name
+    442   Chilled_Water_Temperature_Default,      !- Holiday Schedule:Day Name
+    443   Chilled_Water_Temperature_Summer_Design_Day, !- SummerDesignDay Schedule:Day Name
+    444   Chilled_Water_Temperature_Winter_Design_Day, !- WinterDesignDay Schedule:Day Name
+    445   Chilled_Water_Temperature_Default,      !- CustomDay1 Schedule:Day Name
+    446   Chilled_Water_Temperature_Default;      !- CustomDay2 Schedule:Day Name
+    447 
+    448 Schedule:Year,
+    449   Chilled_Water_Temperature,              !- Name
+    450   ,                                       !- Schedule Type Limits Name
+    451   Schedule:Week:Daily {5d108e94-5121-4f9a-ba67-12100db563ca}, !- Schedule:Week Name 1
+    452   1,                                      !- Start Month 1
+    453   1,                                      !- Start Day 1
+    454   12,                                     !- End Month 1
+    455   31;                                     !- End Day 1
+    456 
+    457 Schedule:Week:Daily,
+    458   Schedule:Week:Daily {272f550f-c99f-481f-a2af-5922a090bffa}, !- Name
+    459   Small Office_Activity Default Schedule, !- Sunday Schedule:Day Name
+    460   Small Office_Activity Default Schedule, !- Monday Schedule:Day Name
+    461   Small Office_Activity Default Schedule, !- Tuesday Schedule:Day Name
+    462   Small Office_Activity Default Schedule, !- Wednesday Schedule:Day Name
+    463   Small Office_Activity Default Schedule, !- Thursday Schedule:Day Name
+    464   Small Office_Activity Default Schedule, !- Friday Schedule:Day Name
+    465   Small Office_Activity Default Schedule, !- Saturday Schedule:Day Name
+    466   Small Office_Activity Default Schedule, !- Holiday Schedule:Day Name
+    467   Small Office_Activity Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    468   Small Office_Activity Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    469   Small Office_Activity Default Schedule, !- CustomDay1 Schedule:Day Name
+    470   Small Office_Activity Default Schedule; !- CustomDay2 Schedule:Day Name
+    471 
+    472 Schedule:Year,
+    473   Small Office_Activity,                  !- Name
+    474   ActivityLevel 12,                       !- Schedule Type Limits Name
+    475   Schedule:Week:Daily {272f550f-c99f-481f-a2af-5922a090bffa}, !- Schedule:Week Name 1
+    476   1,                                      !- Start Month 1
+    477   1,                                      !- Start Day 1
+    478   12,                                     !- End Month 1
+    479   31;                                     !- End Day 1
+    480 
+    481 Schedule:Week:Daily,
+    482   Schedule:Week:Daily {bced95e8-d1d4-49ac-a126-0b5cfae17ce1}, !- Name
+    483   Hot_Water_Temperature_Default,          !- Sunday Schedule:Day Name
+    484   Hot_Water_Temperature_Default,          !- Monday Schedule:Day Name
+    485   Hot_Water_Temperature_Default,          !- Tuesday Schedule:Day Name
+    486   Hot_Water_Temperature_Default,          !- Wednesday Schedule:Day Name
+    487   Hot_Water_Temperature_Default,          !- Thursday Schedule:Day Name
+    488   Hot_Water_Temperature_Default,          !- Friday Schedule:Day Name
+    489   Hot_Water_Temperature_Default,          !- Saturday Schedule:Day Name
+    490   Hot_Water_Temperature_Default,          !- Holiday Schedule:Day Name
+    491   Hot_Water_Temperature_Summer_Design_Day, !- SummerDesignDay Schedule:Day Name
+    492   Hot_Water_Temperature_Winter_Design_Day, !- WinterDesignDay Schedule:Day Name
+    493   Hot_Water_Temperature_Default,          !- CustomDay1 Schedule:Day Name
+    494   Hot_Water_Temperature_Default;          !- CustomDay2 Schedule:Day Name
+    495 
+    496 Schedule:Year,
+    497   Hot_Water_Temperature,                  !- Name
+    498   Temperature 1,                          !- Schedule Type Limits Name
+    499   Schedule:Week:Daily {bced95e8-d1d4-49ac-a126-0b5cfae17ce1}, !- Schedule:Week Name 1
+    500   1,                                      !- Start Month 1
+    501   1,                                      !- Start Day 1
+    502   12,                                     !- End Month 1
+    503   31;                                     !- End Day 1
+    504 
+    505 Schedule:Week:Daily,
+    506   Schedule:Week:Daily {a7101ba5-a895-4df7-ace3-24f11bf317ae}, !- Name
+    507   Small Office_Infil_Quarter_On Default Schedule, !- Sunday Schedule:Day Name
+    508   Small Office_Infil_Quarter_On Default Schedule, !- Monday Schedule:Day Name
+    509   Small Office_Infil_Quarter_On Default Schedule, !- Tuesday Schedule:Day Name
+    510   Small Office_Infil_Quarter_On Default Schedule, !- Wednesday Schedule:Day Name
+    511   Small Office_Infil_Quarter_On Default Schedule, !- Thursday Schedule:Day Name
+    512   Small Office_Infil_Quarter_On Default Schedule, !- Friday Schedule:Day Name
+    513   Small Office_Infil_Quarter_On Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    514   Small Office_Infil_Quarter_On Default Schedule, !- Holiday Schedule:Day Name
+    515   Small Office_Infil_Quarter_On Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    516   Small Office_Infil_Quarter_On Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    517   Small Office_Infil_Quarter_On Default Schedule, !- CustomDay1 Schedule:Day Name
+    518   Small Office_Infil_Quarter_On Default Schedule; !- CustomDay2 Schedule:Day Name
+    519 
+    520 Schedule:Week:Daily,
+    521   Schedule:Week:Daily {3e601d78-4aa2-4146-91ae-26df398257f5}, !- Name
+    522   Small Office_Infil_Quarter_On Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+    523   Small Office_Infil_Quarter_On Default Schedule, !- Monday Schedule:Day Name
+    524   Small Office_Infil_Quarter_On Default Schedule, !- Tuesday Schedule:Day Name
+    525   Small Office_Infil_Quarter_On Default Schedule, !- Wednesday Schedule:Day Name
+    526   Small Office_Infil_Quarter_On Default Schedule, !- Thursday Schedule:Day Name
+    527   Small Office_Infil_Quarter_On Default Schedule, !- Friday Schedule:Day Name
+    528   Small Office_Infil_Quarter_On Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    529   Small Office_Infil_Quarter_On Default Schedule, !- Holiday Schedule:Day Name
+    530   Small Office_Infil_Quarter_On Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    531   Small Office_Infil_Quarter_On Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    532   Small Office_Infil_Quarter_On Default Schedule, !- CustomDay1 Schedule:Day Name
+    533   Small Office_Infil_Quarter_On Default Schedule; !- CustomDay2 Schedule:Day Name
+    534 
+    535 Schedule:Year,
+    536   Small Office_Infil_Quarter_On,          !- Name
+    537   Fractional,                             !- Schedule Type Limits Name
+    538   Schedule:Week:Daily {a7101ba5-a895-4df7-ace3-24f11bf317ae}, !- Schedule:Week Name 1
+    539   1,                                      !- Start Month 1
+    540   1,                                      !- Start Day 1
+    541   1,                                      !- End Month 1
+    542   3,                                      !- End Day 1
+    543   Schedule:Week:Daily {3e601d78-4aa2-4146-91ae-26df398257f5}, !- Schedule:Week Name 2
+    544   1,                                      !- Start Month 2
+    545   4,                                      !- Start Day 2
+    546   12,                                     !- End Month 2
+    547   31;                                     !- End Day 2
+    548 
+    549 Schedule:Week:Daily,
+    550   Schedule:Week:Daily {aced826c-3ddb-4568-902d-21b5ab1feeff}, !- Name
+    551   Deck_Temperature_Default,               !- Sunday Schedule:Day Name
+    552   Deck_Temperature_Default,               !- Monday Schedule:Day Name
+    553   Deck_Temperature_Default,               !- Tuesday Schedule:Day Name
+    554   Deck_Temperature_Default,               !- Wednesday Schedule:Day Name
+    555   Deck_Temperature_Default,               !- Thursday Schedule:Day Name
+    556   Deck_Temperature_Default,               !- Friday Schedule:Day Name
+    557   Deck_Temperature_Default,               !- Saturday Schedule:Day Name
+    558   Deck_Temperature_Default,               !- Holiday Schedule:Day Name
+    559   Deck_Temperature_Summer_Design_Day,     !- SummerDesignDay Schedule:Day Name
+    560   Deck_Temperature_Winter_Design_Day,     !- WinterDesignDay Schedule:Day Name
+    561   Deck_Temperature_Default,               !- CustomDay1 Schedule:Day Name
+    562   Deck_Temperature_Default;               !- CustomDay2 Schedule:Day Name
+    563 
+    564 Schedule:Year,
+    565   Deck_Temperature,                       !- Name
+    566   Temperature,                            !- Schedule Type Limits Name
+    567   Schedule:Week:Daily {aced826c-3ddb-4568-902d-21b5ab1feeff}, !- Schedule:Week Name 1
+    568   1,                                      !- Start Month 1
+    569   1,                                      !- Start Day 1
+    570   12,                                     !- End Month 1
+    571   31;                                     !- End Day 1
+    572 
+    573 Schedule:Week:Daily,
+    574   Schedule:Week:Daily {f51b3c79-fa91-43e7-92ee-8953f344c86a}, !- Name
+    575   Small Office_Bldg_Light Default Schedule, !- Sunday Schedule:Day Name
+    576   Small Office_Bldg_Light Default Schedule, !- Monday Schedule:Day Name
+    577   Small Office_Bldg_Light Default Schedule, !- Tuesday Schedule:Day Name
+    578   Small Office_Bldg_Light Default Schedule, !- Wednesday Schedule:Day Name
+    579   Small Office_Bldg_Light Default Schedule, !- Thursday Schedule:Day Name
+    580   Small Office_Bldg_Light Default Schedule, !- Friday Schedule:Day Name
+    581   Small Office_Bldg_Light Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    582   Small Office_Bldg_Light Default Schedule, !- Holiday Schedule:Day Name
+    583   Small Office_Bldg_Light Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    584   Small Office_Bldg_Light Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    585   Small Office_Bldg_Light Default Schedule, !- CustomDay1 Schedule:Day Name
+    586   Small Office_Bldg_Light Default Schedule; !- CustomDay2 Schedule:Day Name
+    587 
+    588 Schedule:Week:Daily,
+    589   Schedule:Week:Daily {a2693d2f-fb7b-4db8-abee-6b4a9695aea1}, !- Name
+    590   Small Office_Bldg_Light Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+    591   Small Office_Bldg_Light Default Schedule, !- Monday Schedule:Day Name
+    592   Small Office_Bldg_Light Default Schedule, !- Tuesday Schedule:Day Name
+    593   Small Office_Bldg_Light Default Schedule, !- Wednesday Schedule:Day Name
+    594   Small Office_Bldg_Light Default Schedule, !- Thursday Schedule:Day Name
+    595   Small Office_Bldg_Light Default Schedule, !- Friday Schedule:Day Name
+    596   Small Office_Bldg_Light Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    597   Small Office_Bldg_Light Default Schedule, !- Holiday Schedule:Day Name
+    598   Small Office_Bldg_Light Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    599   Small Office_Bldg_Light Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    600   Small Office_Bldg_Light Default Schedule, !- CustomDay1 Schedule:Day Name
+    601   Small Office_Bldg_Light Default Schedule; !- CustomDay2 Schedule:Day Name
+    602 
+    603 Schedule:Year,
+    604   Small Office_Bldg_Light,                !- Name
+    605   Fractional,                             !- Schedule Type Limits Name
+    606   Schedule:Week:Daily {f51b3c79-fa91-43e7-92ee-8953f344c86a}, !- Schedule:Week Name 1
+    607   1,                                      !- Start Month 1
+    608   1,                                      !- Start Day 1
+    609   1,                                      !- End Month 1
+    610   3,                                      !- End Day 1
+    611   Schedule:Week:Daily {a2693d2f-fb7b-4db8-abee-6b4a9695aea1}, !- Schedule:Week Name 2
+    612   1,                                      !- Start Month 2
+    613   4,                                      !- Start Day 2
+    614   12,                                     !- End Month 2
+    615   31;                                     !- End Day 2
+    616 
+    617 Schedule:Week:Daily,
+    618   Schedule:Week:Daily {e93fa865-558a-4166-94e3-166d717a294c}, !- Name
+    619   Heating Sch Default,                    !- Sunday Schedule:Day Name
+    620   Heating Sch Default,                    !- Monday Schedule:Day Name
+    621   Heating Sch Default,                    !- Tuesday Schedule:Day Name
+    622   Heating Sch Default,                    !- Wednesday Schedule:Day Name
+    623   Heating Sch Default,                    !- Thursday Schedule:Day Name
+    624   Heating Sch Default,                    !- Friday Schedule:Day Name
+    625   Heating Sch Default,                    !- Saturday Schedule:Day Name
+    626   Heating Sch Default,                    !- Holiday Schedule:Day Name
+    627   Heating Sch Default,                    !- SummerDesignDay Schedule:Day Name
+    628   Heating Sch Default,                    !- WinterDesignDay Schedule:Day Name
+    629   Heating Sch Default,                    !- CustomDay1 Schedule:Day Name
+    630   Heating Sch Default;                    !- CustomDay2 Schedule:Day Name
+    631 
+    632 Schedule:Year,
+    633   Heating Sch,                            !- Name
+    634   Temperature 2,                          !- Schedule Type Limits Name
+    635   Schedule:Week:Daily {e93fa865-558a-4166-94e3-166d717a294c}, !- Schedule:Week Name 1
+    636   1,                                      !- Start Month 1
+    637   1,                                      !- Start Day 1
+    638   12,                                     !- End Month 1
+    639   31;                                     !- End Day 1
+    640 
+    641 Schedule:Week:Daily,
+    642   Schedule:Week:Daily {5d700dbb-1f68-4c2d-9db0-ffcd78574909}, !- Name
+    643   Small Office_Bldg_Occ Default Schedule, !- Sunday Schedule:Day Name
+    644   Small Office_Bldg_Occ Default Schedule, !- Monday Schedule:Day Name
+    645   Small Office_Bldg_Occ Default Schedule, !- Tuesday Schedule:Day Name
+    646   Small Office_Bldg_Occ Default Schedule, !- Wednesday Schedule:Day Name
+    647   Small Office_Bldg_Occ Default Schedule, !- Thursday Schedule:Day Name
+    648   Small Office_Bldg_Occ Default Schedule, !- Friday Schedule:Day Name
+    649   Small Office_Bldg_Occ Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    650   Small Office_Bldg_Occ Default Schedule, !- Holiday Schedule:Day Name
+    651   Small Office_Bldg_Occ Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    652   Small Office_Bldg_Occ Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    653   Small Office_Bldg_Occ Default Schedule, !- CustomDay1 Schedule:Day Name
+    654   Small Office_Bldg_Occ Default Schedule; !- CustomDay2 Schedule:Day Name
+    655 
+    656 Schedule:Week:Daily,
+    657   Schedule:Week:Daily {95dd06a5-2661-4578-b75e-2058c9f6e16f}, !- Name
+    658   Small Office_Bldg_Occ Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+    659   Small Office_Bldg_Occ Default Schedule, !- Monday Schedule:Day Name
+    660   Small Office_Bldg_Occ Default Schedule, !- Tuesday Schedule:Day Name
+    661   Small Office_Bldg_Occ Default Schedule, !- Wednesday Schedule:Day Name
+    662   Small Office_Bldg_Occ Default Schedule, !- Thursday Schedule:Day Name
+    663   Small Office_Bldg_Occ Default Schedule, !- Friday Schedule:Day Name
+    664   Small Office_Bldg_Occ Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    665   Small Office_Bldg_Occ Default Schedule, !- Holiday Schedule:Day Name
+    666   Small Office_Bldg_Occ Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    667   Small Office_Bldg_Occ Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    668   Small Office_Bldg_Occ Default Schedule, !- CustomDay1 Schedule:Day Name
+    669   Small Office_Bldg_Occ Default Schedule; !- CustomDay2 Schedule:Day Name
+    670 
+    671 Schedule:Year,
+    672   Small Office_Bldg_Occ,                  !- Name
+    673   Fractional,                             !- Schedule Type Limits Name
+    674   Schedule:Week:Daily {5d700dbb-1f68-4c2d-9db0-ffcd78574909}, !- Schedule:Week Name 1
+    675   1,                                      !- Start Month 1
+    676   1,                                      !- Start Day 1
+    677   1,                                      !- End Month 1
+    678   3,                                      !- End Day 1
+    679   Schedule:Week:Daily {95dd06a5-2661-4578-b75e-2058c9f6e16f}, !- Schedule:Week Name 2
+    680   1,                                      !- Start Month 2
+    681   4,                                      !- Start Day 2
+    682   12,                                     !- End Month 2
+    683   31;                                     !- End Day 2
+    684 
+    685 Schedule:Week:Daily,
+    686   Schedule:Week:Daily {dcd35eef-08be-4750-94d7-cb2c545ae17e}, !- Name
+    687   Small Office_Bldg_Equip Default Schedule, !- Sunday Schedule:Day Name
+    688   Small Office_Bldg_Equip Default Schedule, !- Monday Schedule:Day Name
+    689   Small Office_Bldg_Equip Default Schedule, !- Tuesday Schedule:Day Name
+    690   Small Office_Bldg_Equip Default Schedule, !- Wednesday Schedule:Day Name
+    691   Small Office_Bldg_Equip Default Schedule, !- Thursday Schedule:Day Name
+    692   Small Office_Bldg_Equip Default Schedule, !- Friday Schedule:Day Name
+    693   Small Office_Bldg_Equip Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    694   Small Office_Bldg_Equip Default Schedule, !- Holiday Schedule:Day Name
+    695   Small Office_Bldg_Equip Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    696   Small Office_Bldg_Equip Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    697   Small Office_Bldg_Equip Default Schedule, !- CustomDay1 Schedule:Day Name
+    698   Small Office_Bldg_Equip Default Schedule; !- CustomDay2 Schedule:Day Name
+    699 
+    700 Schedule:Week:Daily,
+    701   Schedule:Week:Daily {09e8a248-2ce4-4617-9ecf-c520a67750ba}, !- Name
+    702   Small Office_Bldg_Equip Rule 1 Day Schedule, !- Sunday Schedule:Day Name
+    703   Small Office_Bldg_Equip Default Schedule, !- Monday Schedule:Day Name
+    704   Small Office_Bldg_Equip Default Schedule, !- Tuesday Schedule:Day Name
+    705   Small Office_Bldg_Equip Default Schedule, !- Wednesday Schedule:Day Name
+    706   Small Office_Bldg_Equip Default Schedule, !- Thursday Schedule:Day Name
+    707   Small Office_Bldg_Equip Default Schedule, !- Friday Schedule:Day Name
+    708   Small Office_Bldg_Equip Rule 2 Day Schedule, !- Saturday Schedule:Day Name
+    709   Small Office_Bldg_Equip Default Schedule, !- Holiday Schedule:Day Name
+    710   Small Office_Bldg_Equip Summer Design Day, !- SummerDesignDay Schedule:Day Name
+    711   Small Office_Bldg_Equip Winter Design Day, !- WinterDesignDay Schedule:Day Name
+    712   Small Office_Bldg_Equip Default Schedule, !- CustomDay1 Schedule:Day Name
+    713   Small Office_Bldg_Equip Default Schedule; !- CustomDay2 Schedule:Day Name
+    714 
+    715 Schedule:Year,
+    716   Small Office_Bldg_Equip,                !- Name
+    717   Fractional,                             !- Schedule Type Limits Name
+    718   Schedule:Week:Daily {dcd35eef-08be-4750-94d7-cb2c545ae17e}, !- Schedule:Week Name 1
+    719   1,                                      !- Start Month 1
+    720   1,                                      !- Start Day 1
+    721   1,                                      !- End Month 1
+    722   3,                                      !- End Day 1
+    723   Schedule:Week:Daily {09e8a248-2ce4-4617-9ecf-c520a67750ba}, !- Schedule:Week Name 2
+    724   1,                                      !- Start Month 2
+    725   4,                                      !- Start Day 2
+    726   12,                                     !- End Month 2
+    727   31;                                     !- End Day 2
+    728 
+    729 Schedule:Week:Daily,
+    730   Schedule:Week:Daily {449262be-c74c-4f51-a9e9-3e1628ccc0c4}, !- Name
+    731   Cooling Sch Default,                    !- Sunday Schedule:Day Name
+    732   Cooling Sch Default,                    !- Monday Schedule:Day Name
+    733   Cooling Sch Default,                    !- Tuesday Schedule:Day Name
+    734   Cooling Sch Default,                    !- Wednesday Schedule:Day Name
+    735   Cooling Sch Default,                    !- Thursday Schedule:Day Name
+    736   Cooling Sch Default,                    !- Friday Schedule:Day Name
+    737   Cooling Sch Default,                    !- Saturday Schedule:Day Name
+    738   Cooling Sch Default,                    !- Holiday Schedule:Day Name
+    739   Cooling Sch Default,                    !- SummerDesignDay Schedule:Day Name
+    740   Cooling Sch Default,                    !- WinterDesignDay Schedule:Day Name
+    741   Cooling Sch Default,                    !- CustomDay1 Schedule:Day Name
+    742   Cooling Sch Default;                    !- CustomDay2 Schedule:Day Name
+    743 
+    744 Schedule:Year,
+    745   Cooling Sch,                            !- Name
+    746   Temperature 3,                          !- Schedule Type Limits Name
+    747   Schedule:Week:Daily {449262be-c74c-4f51-a9e9-3e1628ccc0c4}, !- Schedule:Week Name 1
+    748   1,                                      !- Start Month 1
+    749   1,                                      !- Start Day 1
+    750   12,                                     !- End Month 1
+    751   31;                                     !- End Day 1
+    752 
+    753 Schedule:Week:Daily,
+    754   Schedule:Week:Daily {4e77a8c2-f054-4214-9138-e5880eda6565}, !- Name
+    755   Always_On_Default,                      !- Sunday Schedule:Day Name
+    756   Always_On_Default,                      !- Monday Schedule:Day Name
+    757   Always_On_Default,                      !- Tuesday Schedule:Day Name
+    758   Always_On_Default,                      !- Wednesday Schedule:Day Name
+    759   Always_On_Default,                      !- Thursday Schedule:Day Name
+    760   Always_On_Default,                      !- Friday Schedule:Day Name
+    761   Always_On_Default,                      !- Saturday Schedule:Day Name
+    762   Always_On_Default,                      !- Holiday Schedule:Day Name
+    763   Always_On_Summer_Design_Day,            !- SummerDesignDay Schedule:Day Name
+    764   Always_On_Winter_Design_Day,            !- WinterDesignDay Schedule:Day Name
+    765   Always_On_Default,                      !- CustomDay1 Schedule:Day Name
+    766   Always_On_Default;                      !- CustomDay2 Schedule:Day Name
+    767 
+    768 Schedule:Year,
+    769   Always_On,                              !- Name
+    770   OnOff,                                  !- Schedule Type Limits Name
+    771   Schedule:Week:Daily {4e77a8c2-f054-4214-9138-e5880eda6565}, !- Schedule:Week Name 1
+    772   1,                                      !- Start Month 1
+    773   1,                                      !- Start Day 1
+    774   12,                                     !- End Month 1
+    775   31;                                     !- End Day 1
+    776 
+    777 AirLoopHVAC,
+    778   Air Loop HVAC 1,                        !- Name
+    779   Air Loop HVAC 1 Controllers,            !- Controller List Name
+    780   AvailabilityManagerAssignmentList {a678bc89-6301-4aa0-aebc-fa29df06dea7}, !- Availability Manager List Name
+    781   AutoSize,                               !- Design Supply Air Flow Rate {m3/s}
+    782   BranchList {edbfa733-a288-4554-a2a5-1fae6c263960}, !- Branch List Name
+    783   ,                                       !- Connector List Name
+    784   Node 1,                                 !- Supply Side Inlet Node Name
+    785   Node 4,                                 !- Demand Side Outlet Node Name
+    786   Node 3,                                 !- Demand Side Inlet Node Names
+    787   Node 2;                                 !- Supply Side Outlet Node Names
+    788 
+    789 Sizing:System,
+    790   Air Loop HVAC 1,                        !- AirLoop Name
+    791   Sensible,                               !- Type of Load to Size On
+    792   Autosize,                               !- Design Outdoor Air Flow Rate {m3/s}
+    793   0.3,                                    !- Minimum System Air Flow Ratio
+    794   7,                                      !- Preheat Design Temperature {C}
+    795   0.008,                                  !- Preheat Design Humidity Ratio {kgWater/kgDryAir}
+    796   12.8,                                   !- Precool Design Temperature {C}
+    797   0.008,                                  !- Precool Design Humidity Ratio {kgWater/kgDryAir}
+    798   12.8,                                   !- Central Cooling Design Supply Air Temperature {C}
+    799   12.8,                                   !- Central Heating Design Supply Air Temperature {C}
+    800   NonCoincident,                          !- Sizing Option
+    801   Yes,                                    !- 100% Outdoor Air in Cooling
+    802   Yes,                                    !- 100% Outdoor Air in Heating
+    803   0.0085,                                 !- Central Cooling Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    804   0.008,                                  !- Central Heating Design Supply Air Humidity Ratio {kgWater/kgDryAir}
+    805   DesignDay,                              !- Cooling Design Air Flow Method
+    806   0,                                      !- Cooling Design Air Flow Rate {m3/s}
+    807   DesignDay,                              !- Heating Design Air Flow Method
+    808   0,                                      !- Heating Design Air Flow Rate {m3/s}
+    809   ZoneSum;                                !- System Outdoor Air Method
+    810 
+    811 AirLoopHVAC:ControllerList,
+    812   Air Loop HVAC 1 Controllers,            !- Name
+    813   Controller:WaterCoil,                   !- Controller Object Type 1
+    814   Controller Water Coil 1;                !- Controller Name 1
+    815 
+    816 Controller:WaterCoil,
+    817   Controller Water Coil 1,                !- Name
+    818   Temperature,                            !- Control Variable
+    819   Normal,                                 !- Action
+    820   Flow,                                   !- Actuator Variable
+    821   Node 10,                                !- Sensor Node Name
+    822   Node 16,                                !- Actuator Node Name
+    823   Autosize,                               !- Controller Convergence Tolerance {deltaC}
+    824   Autosize,                               !- Maximum Actuated Flow {m3/s}
+    825   1e-07;                                  !- Minimum Actuated Flow {m3/s}
+    826 
+    827 AvailabilityManagerAssignmentList,
+    828   AvailabilityManagerAssignmentList {a678bc89-6301-4aa0-aebc-fa29df06dea7}, !- Name
+    829   AvailabilityManager:Scheduled,          !- Availability Manager Object Type 1
+    830   AvailabilityManager:Scheduled {8fccdd51-5ddf-417a-8575-ad1f6975f86e}; !- Availability Manager Name 1
+    831 
+    832 AvailabilityManager:Scheduled,
+    833   AvailabilityManager:Scheduled {8fccdd51-5ddf-417a-8575-ad1f6975f86e}, !- Name
+    834   Schedule:Compact {bc633f07-e4e0-4b52-b5b3-0e3297a5c078}; !- Schedule Name
+    835 
+    836 Schedule:Compact,
+    837   Schedule:Compact {bc633f07-e4e0-4b52-b5b3-0e3297a5c078}, !- Name
+    838   ,                                       !- Schedule Type Limits Name
+    839   Through: 12/31,                         !- Field 1
+    840   For: AllDays,                           !- Field 2
+    841   Until: 24:00,                           !- Field 3
+    842   1.0;                                    !- Field 4
+    843 
+    844 BranchList,
+    845   BranchList {edbfa733-a288-4554-a2a5-1fae6c263960}, !- Name
+    846   Branch {bd9df24e-d974-480c-937a-39f6c233c19e}; !- Branch Name 1
+    847 
+    848 Branch,
+    849   Branch {bd9df24e-d974-480c-937a-39f6c233c19e}, !- Name
+    850   AutoSize,                               !- Maximum Flow Rate {m3/s}
+    851   ,                                       !- Pressure Drop Curve Name
+    852   AirLoopHVAC:OutdoorAirSystem,           !- Component Object Type 1
+    853   Air Loop HVAC Outdoor Air System 1,     !- Component Name 1
+    854   Node 1,                                 !- Component Inlet Node Name 1
+    855   Node 8,                                 !- Component Outlet Node Name 1
+    856   Passive,                                !- Component Branch Control Type 1
+    857   CoilSystem:Cooling:DX,                  !- Component Object Type 2
+    858   Coil Cooling DX Two Speed 1 CoilSystem, !- Component Name 2
+    859   Node 8,                                 !- Component Inlet Node Name 2
+    860   Node 9,                                 !- Component Outlet Node Name 2
+    861   Passive,                                !- Component Branch Control Type 2
+    862   Coil:Heating:Water,                     !- Component Object Type 3
+    863   Coil Heating Water 1,                   !- Component Name 3
+    864   Node 9,                                 !- Component Inlet Node Name 3
+    865   Node 10,                                !- Component Outlet Node Name 3
+    866   Passive,                                !- Component Branch Control Type 3
+    867   Fan:VariableVolume,                     !- Component Object Type 4
+    868   Fan Variable Volume 1,                  !- Component Name 4
+    869   Node 10,                                !- Component Inlet Node Name 4
+    870   Node 2,                                 !- Component Outlet Node Name 4
+    871   Passive;                                !- Component Branch Control Type 4
+    872 
+    873 AirLoopHVAC:OutdoorAirSystem,
+    874   Air Loop HVAC Outdoor Air System 1,     !- Name
+    875   AirLoopHVAC:ControllerList {c2114780-7064-4cee-affa-cf6133795488}, !- Controller List Name
+    876   AirLoopHVAC:OutdoorAirSystem:EquipmentList {13b343e7-6d10-4bfe-9308-4f4e5edc9655}, !- Outdoor Air Equipment List Name
+    877   AvailabilityManagerAssignmentList {704c77cb-c93a-4b9c-aed2-b8afa7bc8958}; !- Availability Manager List Name
+    878 
+    879 AirLoopHVAC:ControllerList,
+    880   AirLoopHVAC:ControllerList {c2114780-7064-4cee-affa-cf6133795488}, !- Name
+    881   Controller:OutdoorAir,                  !- Controller Object Type 1
+    882   Controller Outdoor Air 1;               !- Controller Name 1
+    883 
+    884 Controller:OutdoorAir,
+    885   Controller Outdoor Air 1,               !- Name
+    886   Node 7,                                 !- Relief Air Outlet Node Name
+    887   Node 1,                                 !- Return Air Node Name
+    888   Node 8,                                 !- Mixed Air Node Name
+    889   Node 6,                                 !- Actuator Node Name
+    890   Autosize,                               !- Minimum Outdoor Air Flow Rate {m3/s}
+    891   Autosize,                               !- Maximum Outdoor Air Flow Rate {m3/s}
+    892   FixedDryBulb,                           !- Economizer Control Type
+    893   ModulateFlow,                           !- Economizer Control Action Type
+    894   30,                                     !- Economizer Maximum Limit Dry-Bulb Temperature {C}
+    895   64000,                                  !- Economizer Maximum Limit Enthalpy {J/kg}
+    896   ,                                       !- Economizer Maximum Limit Dewpoint Temperature {C}
+    897   ,                                       !- Electronic Enthalpy Limit Curve Name
+    898   -100,                                   !- Economizer Minimum Limit Dry-Bulb Temperature {C}
+    899   NoLockout,                              !- Lockout Type
+    900   FixedMinimum,                           !- Minimum Limit Type
+    901   ,                                       !- Minimum Outdoor Air Schedule Name
+    902   ,                                       !- Minimum Fraction of Outdoor Air Schedule Name
+    903   ,                                       !- Maximum Fraction of Outdoor Air Schedule Name
+    904   ,                                       !- Mechanical Ventilation Controller Name
+    905   ,                                       !- Time of Day Economizer Control Schedule Name
+    906   No,                                     !- High Humidity Control
+    907   ,                                       !- Humidistat Control Zone Name
+    908   ,                                       !- High Humidity Outdoor Air Flow Ratio
+    909   Yes,                                    !- Control High Indoor Humidity Based on Outdoor Humidity Ratio
+    910   BypassWhenOAFlowGreaterThanMinimum;     !- Heat Recovery Bypass Control Type
+    911 
+    912 AvailabilityManagerAssignmentList,
+    913   AvailabilityManagerAssignmentList {704c77cb-c93a-4b9c-aed2-b8afa7bc8958}, !- Name
+    914   AvailabilityManager:Scheduled,          !- Availability Manager Object Type 1
+    915   AvailabilityManager:Scheduled {a246bde5-2d6c-4aea-8ea3-110df8fca9f4}; !- Availability Manager Name 1
+    916 
+    917 AvailabilityManager:Scheduled,
+    918   AvailabilityManager:Scheduled {a246bde5-2d6c-4aea-8ea3-110df8fca9f4}, !- Name
+    919   Schedule:Compact {535f4243-c6a2-422e-bf85-fb1fb9879041}; !- Schedule Name
+    920 
+    921 Schedule:Compact,
+    922   Schedule:Compact {535f4243-c6a2-422e-bf85-fb1fb9879041}, !- Name
+    923   ,                                       !- Schedule Type Limits Name
+    924   Through: 12/31,                         !- Field 1
+    925   For: AllDays,                           !- Field 2
+    926   Until: 24:00,                           !- Field 3
+    927   1.0;                                    !- Field 4
+    928 
+    929 OutdoorAir:NodeList,
+    930   Node 6;                                 !- Node or NodeList Name 1
+    931 
+    932 AirLoopHVAC:OutdoorAirSystem:EquipmentList,
+    933   AirLoopHVAC:OutdoorAirSystem:EquipmentList {13b343e7-6d10-4bfe-9308-4f4e5edc9655}, !- Name
+    934   OutdoorAir:Mixer,                       !- Component Object Type 1
+    935   OutdoorAir:Mixer {0f88f935-94e0-4462-a0e2-816ea6068b9f}; !- Component Name 1
+    936 
+    937 OutdoorAir:Mixer,
+    938   OutdoorAir:Mixer {0f88f935-94e0-4462-a0e2-816ea6068b9f}, !- Name
+    939   Node 8,                                 !- Mixed Air Node Name
+    940   Node 6,                                 !- Outdoor Air Stream Node Name
+    941   Node 7,                                 !- Relief Air Stream Node Name
+    942   Node 1;                                 !- Return Air Stream Node Name
+    943 
+    944 SetpointManager:MixedAir,
+    945   Setpoint Manager Mixed Air 3,           !- Name
+    946   Temperature,                            !- Control Variable
+    947   Node 2,                                 !- Reference Setpoint Node Name
+    948   Node 10,                                !- Fan Inlet Node Name
+    949   Node 2,                                 !- Fan Outlet Node Name
+    950   Node 8;                                 !- Setpoint Node or NodeList Name
+    951 
+    952 CoilSystem:Cooling:DX,
+    953   Coil Cooling DX Two Speed 1 CoilSystem, !- Name
+    954   Always_On,                              !- Availability Schedule Name
+    955   Node 8,                                 !- DX Cooling Coil System Inlet Node Name
+    956   Node 9,                                 !- DX Cooling Coil System Outlet Node Name
+    957   Node 9,                                 !- DX Cooling Coil System Sensor Node Name
+    958   Coil:Cooling:DX:TwoSpeed,               !- Cooling Coil Object Type
+    959   Coil Cooling DX Two Speed 1;            !- Cooling Coil Name
+    960 
+    961 Coil:Cooling:DX:TwoSpeed,
+    962   Coil Cooling DX Two Speed 1,            !- Name
+    963   Always_On,                              !- Availability Schedule Name
+    964   Autosize,                               !- Rated High Speed Total Cooling Capacity {W}
+    965   Autosize,                               !- Rated High Speed Sensible Heat Ratio
+    966   5.5,                                    !- Rated High Speed COP {W/W}
+    967   Autosize,                               !- Rated High Speed Air Flow Rate {m3/s}
+    968   ,                                       !- Unit Internal Static Air Pressure {Pa}
+    969   Node 8,                                 !- Air Inlet Node Name
+    970   Node 9,                                 !- Air Outlet Node Name
+    971   Curve Biquadratic 1,                    !- Total Cooling Capacity Function of Temperature Curve Name
+    972   Curve Quadratic 1,                      !- Total Cooling Capacity Function of Flow Fraction Curve Name
+    973   Curve Biquadratic 2,                    !- Energy Input Ratio Function of Temperature Curve Name
+    974   Curve Quadratic 2,                      !- Energy Input Ratio Function of Flow Fraction Curve Name
+    975   Curve Quadratic 3,                      !- Part Load Fraction Correlation Curve Name
+    976   Autosize,                               !- Rated Low Speed Total Cooling Capacity {W}
+    977   0.69,                                   !- Rated Low Speed Sensible Heat Ratio
+    978   6.6,                                    !- Rated Low Speed COP {W/W}
+    979   Autosize,                               !- Rated Low Speed Air Flow Rate {m3/s}
+    980   Curve Biquadratic 3,                    !- Low Speed Total Cooling Capacity Function of Temperature Curve Name
+    981   Curve Biquadratic 4,                    !- Low Speed Energy Input Ratio Function of Temperature Curve Name
+    982   ,                                       !- Condenser Air Inlet Node Name
+    983   AirCooled,                              !- Condenser Type
+    984   0,                                      !- High Speed Evaporative Condenser Effectiveness {dimensionless}
+    985   ,                                       !- High Speed Evaporative Condenser Air Flow Rate {m3/s}
+    986   ,                                       !- High Speed Evaporative Condenser Pump Rated Power Consumption {W}
+    987   0,                                      !- Low Speed Evaporative Condenser Effectiveness {dimensionless}
+    988   ,                                       !- Low Speed Evaporative Condenser Air Flow Rate {m3/s}
+    989   ,                                       !- Low Speed Evaporative Condenser Pump Rated Power Consumption {W}
+    990   ,                                       !- Supply Water Storage Tank Name
+    991   ,                                       !- Condensate Collection Water Storage Tank Name
+    992   10,                                     !- Basin Heater Capacity {W/K}
+    993   2;                                      !- Basin Heater Setpoint Temperature {C}
+    994 
+    995 SetpointManager:MixedAir,
+    996   Setpoint Manager Mixed Air 2,           !- Name
+    997   Temperature,                            !- Control Variable
+    998   Node 2,                                 !- Reference Setpoint Node Name
+    999   Node 10,                                !- Fan Inlet Node Name
+   1000   Node 2,                                 !- Fan Outlet Node Name
+   1001   Node 9;                                 !- Setpoint Node or NodeList Name
+   1002 
+   1003 Curve:Biquadratic,
+   1004   Curve Biquadratic 1,                    !- Name
+   1005   0.42415,                                !- Coefficient1 Constant
+   1006   0.04426,                                !- Coefficient2 x
+   1007   -0.00042,                               !- Coefficient3 x**2
+   1008   0.00333,                                !- Coefficient4 y
+   1009   -8e-05,                                 !- Coefficient5 y**2
+   1010   -0.00021,                               !- Coefficient6 x*y
+   1011   17,                                     !- Minimum Value of x {BasedOnField A2}
+   1012   22,                                     !- Maximum Value of x {BasedOnField A2}
+   1013   13,                                     !- Minimum Value of y {BasedOnField A3}
+   1014   46;                                     !- Maximum Value of y {BasedOnField A3}
+   1015 
+   1016 Curve:Quadratic,
+   1017   Curve Quadratic 1,                      !- Name
+   1018   0.77136,                                !- Coefficient1 Constant
+   1019   0.34053,                                !- Coefficient2 x
+   1020   -0.11088,                               !- Coefficient3 x**2
+   1021   0.75918,                                !- Minimum Value of x {BasedOnField A2}
+   1022   1.13877;                                !- Maximum Value of x {BasedOnField A2}
+   1023 
+   1024 Curve:Biquadratic,
+   1025   Curve Biquadratic 2,                    !- Name
+   1026   1.23649,                                !- Coefficient1 Constant
+   1027   -0.02431,                               !- Coefficient2 x
+   1028   0.00057,                                !- Coefficient3 x**2
+   1029   -0.01434,                               !- Coefficient4 y
+   1030   0.00063,                                !- Coefficient5 y**2
+   1031   -0.00038,                               !- Coefficient6 x*y
+   1032   17,                                     !- Minimum Value of x {BasedOnField A2}
+   1033   22,                                     !- Maximum Value of x {BasedOnField A2}
+   1034   13,                                     !- Minimum Value of y {BasedOnField A3}
+   1035   46;                                     !- Maximum Value of y {BasedOnField A3}
+   1036 
+   1037 Curve:Quadratic,
+   1038   Curve Quadratic 2,                      !- Name
+   1039   1.2055,                                 !- Coefficient1 Constant
+   1040   -0.32953,                               !- Coefficient2 x
+   1041   0.12308,                                !- Coefficient3 x**2
+   1042   0.75918,                                !- Minimum Value of x {BasedOnField A2}
+   1043   1.13877;                                !- Maximum Value of x {BasedOnField A2}
+   1044 
+   1045 Curve:Quadratic,
+   1046   Curve Quadratic 3,                      !- Name
+   1047   0.771,                                  !- Coefficient1 Constant
+   1048   0.229,                                  !- Coefficient2 x
+   1049   0,                                      !- Coefficient3 x**2
+   1050   0,                                      !- Minimum Value of x {BasedOnField A2}
+   1051   1;                                      !- Maximum Value of x {BasedOnField A2}
+   1052 
+   1053 Curve:Biquadratic,
+   1054   Curve Biquadratic 3,                    !- Name
+   1055   0,                                      !- Coefficient1 Constant
+   1056   0,                                      !- Coefficient2 x
+   1057   0,                                      !- Coefficient3 x**2
+   1058   0,                                      !- Coefficient4 y
+   1059   0,                                      !- Coefficient5 y**2
+   1060   0,                                      !- Coefficient6 x*y
+   1061   0,                                      !- Minimum Value of x {BasedOnField A2}
+   1062   1,                                      !- Maximum Value of x {BasedOnField A2}
+   1063   0,                                      !- Minimum Value of y {BasedOnField A3}
+   1064   1;                                      !- Maximum Value of y {BasedOnField A3}
+   1065 
+   1066 Curve:Biquadratic,
+   1067   Curve Biquadratic 4,                    !- Name
+   1068   0,                                      !- Coefficient1 Constant
+   1069   0,                                      !- Coefficient2 x
+   1070   0,                                      !- Coefficient3 x**2
+   1071   0,                                      !- Coefficient4 y
+   1072   0,                                      !- Coefficient5 y**2
+   1073   0,                                      !- Coefficient6 x*y
+   1074   0,                                      !- Minimum Value of x {BasedOnField A2}
+   1075   1,                                      !- Maximum Value of x {BasedOnField A2}
+   1076   0,                                      !- Minimum Value of y {BasedOnField A3}
+   1077   1;                                      !- Maximum Value of y {BasedOnField A3}
+   1078 
+   1079 Coil:Heating:Water,
+   1080   Coil Heating Water 1,                   !- Name
+   1081   Always_On,                              !- Availability Schedule Name
+   1082   Autosize,                               !- U-Factor Times Area Value {W/K}
+   1083   Autosize,                               !- Maximum Water Flow Rate {m3/s}
+   1084   Node 16,                                !- Water Inlet Node Name
+   1085   Node 22,                                !- Water Outlet Node Name
+   1086   Node 9,                                 !- Air Inlet Node Name
+   1087   Node 10,                                !- Air Outlet Node Name
+   1088   UFactorTimesAreaAndDesignWaterFlowRate, !- Performance Input Method
+   1089   Autosize,                               !- Rated Capacity {W}
+   1090   82.2,                                   !- Rated Inlet Water Temperature {C}
+   1091   16.6,                                   !- Rated Inlet Air Temperature {C}
+   1092   71.1,                                   !- Rated Outlet Water Temperature {C}
+   1093   32.2,                                   !- Rated Outlet Air Temperature {C}
+   1094   0.5;                                    !- Rated Ratio for Air and Water Convection
+   1095 
+   1096 SetpointManager:MixedAir,
+   1097   Setpoint Manager Mixed Air 1,           !- Name
+   1098   Temperature,                            !- Control Variable
+   1099   Node 2,                                 !- Reference Setpoint Node Name
+   1100   Node 10,                                !- Fan Inlet Node Name
+   1101   Node 2,                                 !- Fan Outlet Node Name
+   1102   Node 10;                                !- Setpoint Node or NodeList Name
+   1103 
+   1104 Fan:VariableVolume,
+   1105   Fan Variable Volume 1,                  !- Name
+   1106   Always_On,                              !- Availability Schedule Name
+   1107   0.5,                                    !- Fan Efficiency
+   1108   500,                                    !- Pressure Rise {Pa}
+   1109   AutoSize,                               !- Maximum Flow Rate {m3/s}
+   1110   FixedFlowRate,                          !- Fan Power Minimum Flow Rate Input Method
+   1111   0,                                      !- Fan Power Minimum Flow Fraction
+   1112   0,                                      !- Fan Power Minimum Air Flow Rate {m3/s}
+   1113   0.93,                                   !- Motor Efficiency
+   1114   1,                                      !- Motor In Airstream Fraction
+   1115   0.040759894,                            !- Fan Power Coefficient 1
+   1116   0.08804497,                             !- Fan Power Coefficient 2
+   1117   -0.07292612,                            !- Fan Power Coefficient 3
+   1118   0.943739823,                            !- Fan Power Coefficient 4
+   1119   0,                                      !- Fan Power Coefficient 5
+   1120   Node 10,                                !- Air Inlet Node Name
+   1121   Node 2;                                 !- Air Outlet Node Name
+   1122 
+   1123 SetpointManager:Scheduled,
+   1124   Setpoint Manager Scheduled 1,           !- Name
+   1125   Temperature,                            !- Control Variable
+   1126   Deck_Temperature,                       !- Schedule Name
+   1127   Node 2;                                 !- Setpoint Node or NodeList Name
+   1128 
+   1129 AirLoopHVAC:SupplyPath,
+   1130   AirLoopHVAC:SupplyPath {3703104a-4be0-436e-a42a-20491eae5e4f}, !- Name
+   1131   Node 3,                                 !- Supply Air Path Inlet Node Name
+   1132   AirLoopHVAC:ZoneSplitter,               !- Component Object Type 1
+   1133   Air Loop HVAC Zone Splitter 1;          !- Component Name 1
+   1134 
+   1135 AirLoopHVAC:ZoneSplitter,
+   1136   Air Loop HVAC Zone Splitter 1,          !- Name
+   1137   Node 3,                                 !- Inlet Node Name
+   1138   Node 23;                                !- Outlet Node Name 1
+   1139 
+   1140 AirLoopHVAC:ReturnPath,
+   1141   AirLoopHVAC:ReturnPath {3c3c76f5-1b22-4cb9-baff-d8b6bb5b4288}, !- Name
+   1142   Node 4,                                 !- Return Air Path Outlet Node Name
+   1143   AirLoopHVAC:ZoneMixer,                  !- Component Object Type 1
+   1144   Air Loop HVAC Zone Mixer 1;             !- Component Name 1
+   1145 
+   1146 AirLoopHVAC:ZoneMixer,
+   1147   Air Loop HVAC Zone Mixer 1,             !- Name
+   1148   Node 4,                                 !- Outlet Node Name
+   1149   Node 5;                                 !- Inlet Node Name 1
+   1150 
+   1151 ZoneHVAC:AirDistributionUnit,
+   1152   ZoneHVAC:AirDistributionUnit {98b97ece-87e8-4385-9bab-bfd632492edd}, !- Name
+   1153   Node 5,                                 !- Air Distribution Unit Outlet Node Name
+   1154   AirTerminal:SingleDuct:VAV:Reheat,      !- Air Terminal Object Type
+   1155   Air Terminal Single Duct VAV Reheat 1;  !- Air Terminal Name
+   1156 
+   1157 AirTerminal:SingleDuct:VAV:Reheat,
+   1158   Air Terminal Single Duct VAV Reheat 1,  !- Name
+   1159   Always_On,                              !- Availability Schedule Name
+   1160   Air Terminal Single Duct VAV Reheat 1 Damper Outlet, !- Damper Air Outlet Node Name
+   1161   Node 23,                                !- Air Inlet Node Name
+   1162   Autosize,                               !- Maximum Air Flow Rate {m3/s}
+   1163   Constant,                               !- Zone Minimum Air Flow Input Method
+   1164   0.3,                                    !- Constant Minimum Air Flow Fraction
+   1165   0.3,                                    !- Fixed Minimum Air Flow Rate {m3/s}
+   1166   ,                                       !- Minimum Air Flow Fraction Schedule Name
+   1167   Coil:Heating:Water,                     !- Reheat Coil Object Type
+   1168   Coil Heating Water 2,                   !- Reheat Coil Name
+   1169   Autosize,                               !- Maximum Hot Water or Steam Flow Rate {m3/s}
+   1170   0,                                      !- Minimum Hot Water or Steam Flow Rate {m3/s}
+   1171   Node 5,                                 !- Air Outlet Node Name
+   1172   0.001,                                  !- Convergence Tolerance
+   1173   Normal,                                 !- Damper Heating Action
+   1174   Autocalculate,                          !- Maximum Flow per Zone Floor Area During Reheat {m3/s-m2}
+   1175   Autocalculate,                          !- Maximum Flow Fraction During Reheat
+   1176   35;                                     !- Maximum Reheat Air Temperature {C}
+   1177 
+   1178 Coil:Heating:Water,
+   1179   Coil Heating Water 2,                   !- Name
+   1180   Always_On,                              !- Availability Schedule Name
+   1181   Autosize,                               !- U-Factor Times Area Value {W/K}
+   1182   Autosize,                               !- Maximum Water Flow Rate {m3/s}
+   1183   Node 24,                                !- Water Inlet Node Name
+   1184   Node 25,                                !- Water Outlet Node Name
+   1185   Air Terminal Single Duct VAV Reheat 1 Damper Outlet, !- Air Inlet Node Name
+   1186   Node 5,                                 !- Air Outlet Node Name
+   1187   UFactorTimesAreaAndDesignWaterFlowRate, !- Performance Input Method
+   1188   Autosize,                               !- Rated Capacity {W}
+   1189   82.2,                                   !- Rated Inlet Water Temperature {C}
+   1190   16.6,                                   !- Rated Inlet Air Temperature {C}
+   1191   71.1,                                   !- Rated Outlet Water Temperature {C}
+   1192   32.2,                                   !- Rated Outlet Air Temperature {C}
+   1193   0.5;                                    !- Rated Ratio for Air and Water Convection
+   1194 
+   1195 PlantLoop,
+   1196   Plant Loop 1,                           !- Name
+   1197   Water,                                  !- Fluid Type
+   1198   ,                                       !- User Defined Fluid Type
+   1199   Plant Loop 1 Operation Scheme List,     !- Plant Equipment Operation Scheme Name
+   1200   Node 12,                                !- Loop Temperature Setpoint Node Name
+   1201   100,                                    !- Maximum Loop Temperature {C}
+   1202   0,                                      !- Minimum Loop Temperature {C}
+   1203   Autosize,                               !- Maximum Loop Flow Rate {m3/s}
+   1204   0,                                      !- Minimum Loop Flow Rate {m3/s}
+   1205   Autocalculate,                          !- Plant Loop Volume {m3}
+   1206   Node 11,                                !- Plant Side Inlet Node Name
+   1207   Node 12,                                !- Plant Side Outlet Node Name
+   1208   Plant Loop 1 Supply Branches,           !- Plant Side Branch List Name
+   1209   Plant Loop 1 Supply Connector List,     !- Plant Side Connector List Name
+   1210   Node 14,                                !- Demand Side Inlet Node Name
+   1211   Node 15,                                !- Demand Side Outlet Node Name
+   1212   Plant Loop 1 Demand Branches,           !- Demand Side Branch List Name
+   1213   Plant Loop 1 Demand Connector List,     !- Demand Side Connector List Name
+   1214   Optimal;                                !- Load Distribution Scheme
+   1215 
+   1216 PlantEquipmentOperationSchemes,
+   1217   Plant Loop 1 Operation Scheme List,     !- Name
+   1218   PlantEquipmentOperation:HeatingLoad,    !- Control Scheme Object Type 1
+   1219   Plant Loop 1 Heating Operation Scheme,  !- Control Scheme Name 1
+   1220   Plant Loop 1 On Schedule;               !- Control Scheme Schedule Name 1
+   1221 
+   1222 Schedule:Compact,
+   1223   Plant Loop 1 On Schedule,               !- Name
+   1224   ,                                       !- Schedule Type Limits Name
+   1225   Through: 12/31,                         !- Field 1
+   1226   For: AllDays,                           !- Field 2
+   1227   Until: 24:00,                           !- Field 3
+   1228   1.0;                                    !- Field 4
+   1229 
+   1230 PlantEquipmentOperation:HeatingLoad,
+   1231   Plant Loop 1 Heating Operation Scheme,  !- Name
+   1232   0,                                      !- Load Range Lower Limit 1 {W}
+   1233   1000000000,                             !- Load Range Upper Limit 1 {W}
+   1234   Plant Loop 1 Heating Equipment List;    !- Range Equipment List Name 1
+   1235 
+   1236 PlantEquipmentList,
+   1237   Plant Loop 1 Heating Equipment List,    !- Name
+   1238   Boiler:HotWater,                        !- Equipment Object Type 1
+   1239   Boiler Hot Water 1;                     !- Equipment Name 1
+   1240 
+   1241 Sizing:Plant,
+   1242   Plant Loop 1,                           !- Plant or Condenser Loop Name
+   1243   Heating,                                !- Loop Type
+   1244   82,                                     !- Design Loop Exit Temperature {C}
+   1245   11;                                     !- Loop Design Temperature Difference {deltaC}
+   1246 
+   1247 BranchList,
+   1248   Plant Loop 1 Supply Branches,           !- Name
+   1249   Plant Loop 1 Supply Inlet Branch,       !- Branch Name 1
+   1250   Plant Loop 1 Supply Branch 1,           !- Branch Name 2
+   1251   Plant Loop 1 Supply Branch 2,           !- Branch Name 3
+   1252   Plant Loop 1 Supply Outlet Branch;      !- Branch Name 4
+   1253 
+   1254 ConnectorList,
+   1255   Plant Loop 1 Supply Connector List,     !- Name
+   1256   Connector:Splitter,                     !- Connector Object Type 1
+   1257   Plant Loop 1 Supply Splitter,           !- Connector Name 1
+   1258   Connector:Mixer,                        !- Connector Object Type 2
+   1259   Plant Loop 1 Supply Mixer;              !- Connector Name 2
+   1260 
+   1261 Connector:Splitter,
+   1262   Plant Loop 1 Supply Splitter,           !- Name
+   1263   Plant Loop 1 Supply Inlet Branch,       !- Inlet Branch Name
+   1264   Plant Loop 1 Supply Branch 1,           !- Outlet Branch Name 1
+   1265   Plant Loop 1 Supply Branch 2;           !- Outlet Branch Name 2
+   1266 
+   1267 Connector:Mixer,
+   1268   Plant Loop 1 Supply Mixer,              !- Name
+   1269   Plant Loop 1 Supply Outlet Branch,      !- Outlet Branch Name
+   1270   Plant Loop 1 Supply Branch 1,           !- Inlet Branch Name 1
+   1271   Plant Loop 1 Supply Branch 2;           !- Inlet Branch Name 2
+   1272 
+   1273 Branch,
+   1274   Plant Loop 1 Supply Inlet Branch,       !- Name
+   1275   ,                                       !- Maximum Flow Rate {m3/s}
+   1276   ,                                       !- Pressure Drop Curve Name
+   1277   Pump:VariableSpeed,                     !- Component Object Type 1
+   1278   Pump Variable Speed 1,                  !- Component Name 1
+   1279   Node 11,                                !- Component Inlet Node Name 1
+   1280   Node 17,                                !- Component Outlet Node Name 1
+   1281   Passive;                                !- Component Branch Control Type 1
+   1282 
+   1283 Pump:VariableSpeed,
+   1284   Pump Variable Speed 1,                  !- Name
+   1285   Node 11,                                !- Inlet Node Name
+   1286   Node 17,                                !- Outlet Node Name
+   1287   Autosize,                               !- Rated Flow Rate {m3/s}
+   1288   179352,                                 !- Rated Pump Head {Pa}
+   1289   Autosize,                               !- Rated Power Consumption {W}
+   1290   0.9,                                    !- Motor Efficiency
+   1291   0,                                      !- Fraction of Motor Inefficiencies to Fluid Stream
+   1292   0,                                      !- Coefficient 1 of the Part Load Performance Curve
+   1293   1,                                      !- Coefficient 2 of the Part Load Performance Curve
+   1294   0,                                      !- Coefficient 3 of the Part Load Performance Curve
+   1295   0,                                      !- Coefficient 4 of the Part Load Performance Curve
+   1296   0,                                      !- Minimum Flow Rate {m3/s}
+   1297   Intermittent;                           !- Pump Control Type
+   1298 
+   1299 Branch,
+   1300   Plant Loop 1 Supply Branch 1,           !- Name
+   1301   ,                                       !- Maximum Flow Rate {m3/s}
+   1302   ,                                       !- Pressure Drop Curve Name
+   1303   Boiler:HotWater,                        !- Component Object Type 1
+   1304   Boiler Hot Water 1,                     !- Component Name 1
+   1305   Node 13,                                !- Component Inlet Node Name 1
+   1306   Node 18,                                !- Component Outlet Node Name 1
+   1307   Passive;                                !- Component Branch Control Type 1
+   1308 
+   1309 Boiler:HotWater,
+   1310   Boiler Hot Water 1,                     !- Name
+   1311   NaturalGas,                             !- Fuel Type
+   1312   Autosize,                               !- Nominal Capacity {W}
+   1313   0.66,                                   !- Nominal Thermal Efficiency
+   1314   ,                                       !- Efficiency Curve Temperature Evaluation Variable
+   1315   ,                                       !- Normalized Boiler Efficiency Curve Name
+   1316   82,                                     !- Design Water Outlet Temperature {C}
+   1317   Autosize,                               !- Design Water Flow Rate {m3/s}
+   1318   0,                                      !- Minimum Part Load Ratio
+   1319   1,                                      !- Maximum Part Load Ratio
+   1320   1,                                      !- Optimum Part Load Ratio
+   1321   Node 13,                                !- Boiler Water Inlet Node Name
+   1322   Node 18,                                !- Boiler Water Outlet Node Name
+   1323   99,                                     !- Water Outlet Upper Temperature Limit {C}
+   1324   ConstantFlow,                           !- Boiler Flow Mode
+   1325   0,                                      !- Parasitic Electric Load {W}
+   1326   1;                                      !- Sizing Factor
+   1327 
+   1328 Branch,
+   1329   Plant Loop 1 Supply Branch 2,           !- Name
+   1330   ,                                       !- Maximum Flow Rate {m3/s}
+   1331   ,                                       !- Pressure Drop Curve Name
+   1332   Pipe:Adiabatic,                         !- Component Object Type 1
+   1333   Pipe Adiabatic 1,                       !- Component Name 1
+   1334   Node 19,                                !- Component Inlet Node Name 1
+   1335   Node 20,                                !- Component Outlet Node Name 1
+   1336   Passive;                                !- Component Branch Control Type 1
+   1337 
+   1338 Pipe:Adiabatic,
+   1339   Pipe Adiabatic 1,                       !- Name
+   1340   Node 19,                                !- Inlet Node Name
+   1341   Node 20;                                !- Outlet Node Name
+   1342 
+   1343 Branch,
+   1344   Plant Loop 1 Supply Outlet Branch,      !- Name
+   1345   ,                                       !- Maximum Flow Rate {m3/s}
+   1346   ,                                       !- Pressure Drop Curve Name
+   1347   Pipe:Adiabatic,                         !- Component Object Type 1
+   1348   Pipe Adiabatic 2,                       !- Component Name 1
+   1349   Node 21,                                !- Component Inlet Node Name 1
+   1350   Node 12,                                !- Component Outlet Node Name 1
+   1351   Passive;                                !- Component Branch Control Type 1
+   1352 
+   1353 Pipe:Adiabatic,
+   1354   Pipe Adiabatic 2,                       !- Name
+   1355   Node 21,                                !- Inlet Node Name
+   1356   Node 12;                                !- Outlet Node Name
+   1357 
+   1358 BranchList,
+   1359   Plant Loop 1 Demand Branches,           !- Name
+   1360   Plant Loop 1 Demand Inlet Branch,       !- Branch Name 1
+   1361   Plant Loop 1 Demand Branch 1,           !- Branch Name 2
+   1362   Plant Loop 1 Demand Branch 2,           !- Branch Name 3
+   1363   Plant Loop 1 Demand Bypass Branch,      !- Branch Name 4
+   1364   Plant Loop 1 Demand Outlet Branch;      !- Branch Name 5
+   1365 
+   1366 ConnectorList,
+   1367   Plant Loop 1 Demand Connector List,     !- Name
+   1368   Connector:Splitter,                     !- Connector Object Type 1
+   1369   Plant Loop 1 Demand Splitter,           !- Connector Name 1
+   1370   Connector:Mixer,                        !- Connector Object Type 2
+   1371   Plant Loop 1 Demand Mixer;              !- Connector Name 2
+   1372 
+   1373 Connector:Splitter,
+   1374   Plant Loop 1 Demand Splitter,           !- Name
+   1375   Plant Loop 1 Demand Inlet Branch,       !- Inlet Branch Name
+   1376   Plant Loop 1 Demand Branch 1,           !- Outlet Branch Name 1
+   1377   Plant Loop 1 Demand Branch 2,           !- Outlet Branch Name 2
+   1378   Plant Loop 1 Demand Bypass Branch;      !- Outlet Branch Name 3
+   1379 
+   1380 Connector:Mixer,
+   1381   Plant Loop 1 Demand Mixer,              !- Name
+   1382   Plant Loop 1 Demand Outlet Branch,      !- Outlet Branch Name
+   1383   Plant Loop 1 Demand Branch 1,           !- Inlet Branch Name 1
+   1384   Plant Loop 1 Demand Branch 2,           !- Inlet Branch Name 2
+   1385   Plant Loop 1 Demand Bypass Branch;      !- Inlet Branch Name 3
+   1386 
+   1387 Branch,
+   1388   Plant Loop 1 Demand Inlet Branch,       !- Name
+   1389   ,                                       !- Maximum Flow Rate {m3/s}
+   1390   ,                                       !- Pressure Drop Curve Name
+   1391   Pipe:Adiabatic,                         !- Component Object Type 1
+   1392   Plant Loop 1 Demand Inlet Pipe,         !- Component Name 1
+   1393   Node 14,                                !- Component Inlet Node Name 1
+   1394   Plant Loop 1 Demand Inlet Pipe Node,    !- Component Outlet Node Name 1
+   1395   Passive;                                !- Component Branch Control Type 1
+   1396 
+   1397 Pipe:Adiabatic,
+   1398   Plant Loop 1 Demand Inlet Pipe,         !- Name
+   1399   Node 14,                                !- Inlet Node Name
+   1400   Plant Loop 1 Demand Inlet Pipe Node;    !- Outlet Node Name
+   1401 
+   1402 Branch,
+   1403   Plant Loop 1 Demand Branch 1,           !- Name
+   1404   ,                                       !- Maximum Flow Rate {m3/s}
+   1405   ,                                       !- Pressure Drop Curve Name
+   1406   Coil:Heating:Water,                     !- Component Object Type 1
+   1407   Coil Heating Water 1,                   !- Component Name 1
+   1408   Node 16,                                !- Component Inlet Node Name 1
+   1409   Node 22,                                !- Component Outlet Node Name 1
+   1410   Passive;                                !- Component Branch Control Type 1
+   1411 
+   1412 Branch,
+   1413   Plant Loop 1 Demand Branch 2,           !- Name
+   1414   ,                                       !- Maximum Flow Rate {m3/s}
+   1415   ,                                       !- Pressure Drop Curve Name
+   1416   Coil:Heating:Water,                     !- Component Object Type 1
+   1417   Coil Heating Water 2,                   !- Component Name 1
+   1418   Node 24,                                !- Component Inlet Node Name 1
+   1419   Node 25,                                !- Component Outlet Node Name 1
+   1420   Passive;                                !- Component Branch Control Type 1
+   1421 
+   1422 Branch,
+   1423   Plant Loop 1 Demand Bypass Branch,      !- Name
+   1424   ,                                       !- Maximum Flow Rate {m3/s}
+   1425   ,                                       !- Pressure Drop Curve Name
+   1426   Pipe:Adiabatic,                         !- Component Object Type 1
+   1427   Plant Loop 1 Demand Bypass Pipe,        !- Component Name 1
+   1428   Plant Loop 1 Demand Bypass Pipe Inlet Node, !- Component Inlet Node Name 1
+   1429   Plant Loop 1 Demand Bypass Pipe Outlet Node, !- Component Outlet Node Name 1
+   1430   Bypass;                                 !- Component Branch Control Type 1
+   1431 
+   1432 Pipe:Adiabatic,
+   1433   Plant Loop 1 Demand Bypass Pipe,        !- Name
+   1434   Plant Loop 1 Demand Bypass Pipe Inlet Node, !- Inlet Node Name
+   1435   Plant Loop 1 Demand Bypass Pipe Outlet Node; !- Outlet Node Name
+   1436 
+   1437 Branch,
+   1438   Plant Loop 1 Demand Outlet Branch,      !- Name
+   1439   ,                                       !- Maximum Flow Rate {m3/s}
+   1440   ,                                       !- Pressure Drop Curve Name
+   1441   Pipe:Adiabatic,                         !- Component Object Type 1
+   1442   Plant Loop 1 Demand Outlet Pipe,        !- Component Name 1
+   1443   Plant Loop 1 Demand Outlet Pipe Node,   !- Component Inlet Node Name 1
+   1444   Node 15,                                !- Component Outlet Node Name 1
+   1445   Passive;                                !- Component Branch Control Type 1
+   1446 
+   1447 Pipe:Adiabatic,
+   1448   Plant Loop 1 Demand Outlet Pipe,        !- Name
+   1449   Plant Loop 1 Demand Outlet Pipe Node,   !- Inlet Node Name
+   1450   Node 15;                                !- Outlet Node Name
+   1451 
+   1452 RunPeriodControl:DaylightSavingTime,
+   1453   2nd Sunday in March,                    !- Start Date
+   1454   1st Sunday in November;                 !- End Date
+   1455 
+   1456 Site:Location,
+   1457   STERLING_VA_USA Design_Conditions,      !- Name
+   1458   38.95,                                  !- Latitude {deg}
+   1459   -77.45,                                 !- Longitude {deg}
+   1460   -5,                                     !- Time Zone {hr}
+   1461   82;                                     !- Elevation {m}
+   1462 
+   1463 SizingPeriod:DesignDay,
+   1464   STERLING Ann Clg 2% Condns DP=>MDB,     !- Name
+   1465   7,                                      !- Month
+   1466   21,                                     !- Day of Month
+   1467   SummerDesignDay,                        !- Day Type
+   1468   26.6,                                   !- Maximum Dry-Bulb Temperature {C}
+   1469   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1470   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1471   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1472   Dewpoint,                               !- Humidity Condition Type
+   1473   22.5,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1474   ,                                       !- Humidity Condition Day Schedule Name
+   1475   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1476   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1477   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1478   100344,                                 !- Barometric Pressure {Pa}
+   1479   4,                                      !- Wind Speed {m/s}
+   1480   290,                                    !- Wind Direction {deg}
+   1481   No,                                     !- Rain Indicator
+   1482   No,                                     !- Snow Indicator
+   1483   No,                                     !- Daylight Saving Time Indicator
+   1484   ASHRAETau,                              !- Solar Model Indicator
+   1485   ,                                       !- Beam Solar Day Schedule Name
+   1486   ,                                       !- Diffuse Solar Day Schedule Name
+   1487   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1488   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1489 
+   1490 SizingPeriod:DesignDay,
+   1491   STERLING Ann Clg 1% Condns Enth=>MDB,   !- Name
+   1492   7,                                      !- Month
+   1493   21,                                     !- Day of Month
+   1494   SummerDesignDay,                        !- Day Type
+   1495   30.6,                                   !- Maximum Dry-Bulb Temperature {C}
+   1496   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1497   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1498   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1499   Enthalpy,                               !- Humidity Condition Type
+   1500   ,                                       !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1501   ,                                       !- Humidity Condition Day Schedule Name
+   1502   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1503   75200,                                  !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1504   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1505   100344,                                 !- Barometric Pressure {Pa}
+   1506   4,                                      !- Wind Speed {m/s}
+   1507   290,                                    !- Wind Direction {deg}
+   1508   No,                                     !- Rain Indicator
+   1509   No,                                     !- Snow Indicator
+   1510   No,                                     !- Daylight Saving Time Indicator
+   1511   ASHRAETau,                              !- Solar Model Indicator
+   1512   ,                                       !- Beam Solar Day Schedule Name
+   1513   ,                                       !- Diffuse Solar Day Schedule Name
+   1514   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1515   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1516 
+   1517 SizingPeriod:DesignDay,
+   1518   STERLING Ann Clg .4% Condns Enth=>MDB,  !- Name
+   1519   7,                                      !- Month
+   1520   21,                                     !- Day of Month
+   1521   SummerDesignDay,                        !- Day Type
+   1522   31.6,                                   !- Maximum Dry-Bulb Temperature {C}
+   1523   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1524   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1525   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1526   Enthalpy,                               !- Humidity Condition Type
+   1527   ,                                       !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1528   ,                                       !- Humidity Condition Day Schedule Name
+   1529   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1530   78000,                                  !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1531   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1532   100344,                                 !- Barometric Pressure {Pa}
+   1533   4,                                      !- Wind Speed {m/s}
+   1534   290,                                    !- Wind Direction {deg}
+   1535   No,                                     !- Rain Indicator
+   1536   No,                                     !- Snow Indicator
+   1537   No,                                     !- Daylight Saving Time Indicator
+   1538   ASHRAETau,                              !- Solar Model Indicator
+   1539   ,                                       !- Beam Solar Day Schedule Name
+   1540   ,                                       !- Diffuse Solar Day Schedule Name
+   1541   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1542   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1543 
+   1544 SizingPeriod:DesignDay,
+   1545   STERLING Ann Clg .4% Condns DB=>MWB,    !- Name
+   1546   7,                                      !- Month
+   1547   21,                                     !- Day of Month
+   1548   SummerDesignDay,                        !- Day Type
+   1549   34.1,                                   !- Maximum Dry-Bulb Temperature {C}
+   1550   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1551   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1552   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1553   Wetbulb,                                !- Humidity Condition Type
+   1554   23.9,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1555   ,                                       !- Humidity Condition Day Schedule Name
+   1556   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1557   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1558   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1559   100344,                                 !- Barometric Pressure {Pa}
+   1560   4,                                      !- Wind Speed {m/s}
+   1561   290,                                    !- Wind Direction {deg}
+   1562   No,                                     !- Rain Indicator
+   1563   No,                                     !- Snow Indicator
+   1564   No,                                     !- Daylight Saving Time Indicator
+   1565   ASHRAETau,                              !- Solar Model Indicator
+   1566   ,                                       !- Beam Solar Day Schedule Name
+   1567   ,                                       !- Diffuse Solar Day Schedule Name
+   1568   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1569   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1570 
+   1571 SizingPeriod:DesignDay,
+   1572   STERLING Ann Htg 99.6% Condns DB,       !- Name
+   1573   1,                                      !- Month
+   1574   21,                                     !- Day of Month
+   1575   WinterDesignDay,                        !- Day Type
+   1576   -11.8,                                  !- Maximum Dry-Bulb Temperature {C}
+   1577   0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+   1578   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1579   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1580   Wetbulb,                                !- Humidity Condition Type
+   1581   -11.8,                                  !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1582   ,                                       !- Humidity Condition Day Schedule Name
+   1583   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1584   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1585   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1586   100344,                                 !- Barometric Pressure {Pa}
+   1587   2.7,                                    !- Wind Speed {m/s}
+   1588   310,                                    !- Wind Direction {deg}
+   1589   No,                                     !- Rain Indicator
+   1590   No,                                     !- Snow Indicator
+   1591   No,                                     !- Daylight Saving Time Indicator
+   1592   ASHRAEClearSky,                         !- Solar Model Indicator
+   1593   ,                                       !- Beam Solar Day Schedule Name
+   1594   ,                                       !- Diffuse Solar Day Schedule Name
+   1595   ,                                       !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1596   ,                                       !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1597   0;                                      !- Sky Clearness
+   1598 
+   1599 SizingPeriod:DesignDay,
+   1600   STERLING Ann Htg Wind 99.6% Condns WS=>MCDB, !- Name
+   1601   1,                                      !- Month
+   1602   21,                                     !- Day of Month
+   1603   WinterDesignDay,                        !- Day Type
+   1604   0.8,                                    !- Maximum Dry-Bulb Temperature {C}
+   1605   0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+   1606   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1607   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1608   Wetbulb,                                !- Humidity Condition Type
+   1609   0.8,                                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1610   ,                                       !- Humidity Condition Day Schedule Name
+   1611   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1612   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1613   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1614   100344,                                 !- Barometric Pressure {Pa}
+   1615   11.2,                                   !- Wind Speed {m/s}
+   1616   310,                                    !- Wind Direction {deg}
+   1617   No,                                     !- Rain Indicator
+   1618   No,                                     !- Snow Indicator
+   1619   No,                                     !- Daylight Saving Time Indicator
+   1620   ASHRAEClearSky,                         !- Solar Model Indicator
+   1621   ,                                       !- Beam Solar Day Schedule Name
+   1622   ,                                       !- Diffuse Solar Day Schedule Name
+   1623   ,                                       !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1624   ,                                       !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1625   0;                                      !- Sky Clearness
+   1626 
+   1627 SizingPeriod:DesignDay,
+   1628   STERLING Ann Clg 2% Condns DB=>MWB,     !- Name
+   1629   7,                                      !- Month
+   1630   21,                                     !- Day of Month
+   1631   SummerDesignDay,                        !- Day Type
+   1632   31.2,                                   !- Maximum Dry-Bulb Temperature {C}
+   1633   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1634   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1635   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1636   Wetbulb,                                !- Humidity Condition Type
+   1637   22.8,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1638   ,                                       !- Humidity Condition Day Schedule Name
+   1639   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1640   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1641   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1642   100344,                                 !- Barometric Pressure {Pa}
+   1643   4,                                      !- Wind Speed {m/s}
+   1644   290,                                    !- Wind Direction {deg}
+   1645   No,                                     !- Rain Indicator
+   1646   No,                                     !- Snow Indicator
+   1647   No,                                     !- Daylight Saving Time Indicator
+   1648   ASHRAETau,                              !- Solar Model Indicator
+   1649   ,                                       !- Beam Solar Day Schedule Name
+   1650   ,                                       !- Diffuse Solar Day Schedule Name
+   1651   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1652   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1653 
+   1654 SizingPeriod:DesignDay,
+   1655   STERLING Ann Clg .4% Condns DP=>MDB,    !- Name
+   1656   7,                                      !- Month
+   1657   21,                                     !- Day of Month
+   1658   SummerDesignDay,                        !- Day Type
+   1659   27.8,                                   !- Maximum Dry-Bulb Temperature {C}
+   1660   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1661   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1662   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1663   Dewpoint,                               !- Humidity Condition Type
+   1664   23.6,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1665   ,                                       !- Humidity Condition Day Schedule Name
+   1666   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1667   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1668   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1669   100344,                                 !- Barometric Pressure {Pa}
+   1670   4,                                      !- Wind Speed {m/s}
+   1671   290,                                    !- Wind Direction {deg}
+   1672   No,                                     !- Rain Indicator
+   1673   No,                                     !- Snow Indicator
+   1674   No,                                     !- Daylight Saving Time Indicator
+   1675   ASHRAETau,                              !- Solar Model Indicator
+   1676   ,                                       !- Beam Solar Day Schedule Name
+   1677   ,                                       !- Diffuse Solar Day Schedule Name
+   1678   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1679   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1680 
+   1681 SizingPeriod:DesignDay,
+   1682   STERLING Ann Htg 99% Condns DB,         !- Name
+   1683   1,                                      !- Month
+   1684   21,                                     !- Day of Month
+   1685   WinterDesignDay,                        !- Day Type
+   1686   -9,                                     !- Maximum Dry-Bulb Temperature {C}
+   1687   0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+   1688   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1689   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1690   Wetbulb,                                !- Humidity Condition Type
+   1691   -9,                                     !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1692   ,                                       !- Humidity Condition Day Schedule Name
+   1693   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1694   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1695   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1696   100344,                                 !- Barometric Pressure {Pa}
+   1697   2.7,                                    !- Wind Speed {m/s}
+   1698   310,                                    !- Wind Direction {deg}
+   1699   No,                                     !- Rain Indicator
+   1700   No,                                     !- Snow Indicator
+   1701   No,                                     !- Daylight Saving Time Indicator
+   1702   ASHRAEClearSky,                         !- Solar Model Indicator
+   1703   ,                                       !- Beam Solar Day Schedule Name
+   1704   ,                                       !- Diffuse Solar Day Schedule Name
+   1705   ,                                       !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1706   ,                                       !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1707   0;                                      !- Sky Clearness
+   1708 
+   1709 SizingPeriod:DesignDay,
+   1710   STERLING Ann Clg 2% Condns WB=>MDB,     !- Name
+   1711   7,                                      !- Month
+   1712   21,                                     !- Day of Month
+   1713   SummerDesignDay,                        !- Day Type
+   1714   29.1,                                   !- Maximum Dry-Bulb Temperature {C}
+   1715   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1716   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1717   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1718   Wetbulb,                                !- Humidity Condition Type
+   1719   24.1,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1720   ,                                       !- Humidity Condition Day Schedule Name
+   1721   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1722   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1723   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1724   100344,                                 !- Barometric Pressure {Pa}
+   1725   4,                                      !- Wind Speed {m/s}
+   1726   290,                                    !- Wind Direction {deg}
+   1727   No,                                     !- Rain Indicator
+   1728   No,                                     !- Snow Indicator
+   1729   No,                                     !- Daylight Saving Time Indicator
+   1730   ASHRAETau,                              !- Solar Model Indicator
+   1731   ,                                       !- Beam Solar Day Schedule Name
+   1732   ,                                       !- Diffuse Solar Day Schedule Name
+   1733   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1734   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1735 
+   1736 SizingPeriod:DesignDay,
+   1737   STERLING Ann Clg 1% Condns DP=>MDB,     !- Name
+   1738   7,                                      !- Month
+   1739   21,                                     !- Day of Month
+   1740   SummerDesignDay,                        !- Day Type
+   1741   27.1,                                   !- Maximum Dry-Bulb Temperature {C}
+   1742   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1743   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1744   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1745   Dewpoint,                               !- Humidity Condition Type
+   1746   23,                                     !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1747   ,                                       !- Humidity Condition Day Schedule Name
+   1748   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1749   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1750   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1751   100344,                                 !- Barometric Pressure {Pa}
+   1752   4,                                      !- Wind Speed {m/s}
+   1753   290,                                    !- Wind Direction {deg}
+   1754   No,                                     !- Rain Indicator
+   1755   No,                                     !- Snow Indicator
+   1756   No,                                     !- Daylight Saving Time Indicator
+   1757   ASHRAETau,                              !- Solar Model Indicator
+   1758   ,                                       !- Beam Solar Day Schedule Name
+   1759   ,                                       !- Diffuse Solar Day Schedule Name
+   1760   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1761   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1762 
+   1763 SizingPeriod:DesignDay,
+   1764   STERLING Ann Htg Wind 99% Condns WS=>MCDB, !- Name
+   1765   1,                                      !- Month
+   1766   21,                                     !- Day of Month
+   1767   WinterDesignDay,                        !- Day Type
+   1768   0.6,                                    !- Maximum Dry-Bulb Temperature {C}
+   1769   0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+   1770   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1771   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1772   Wetbulb,                                !- Humidity Condition Type
+   1773   0.6,                                    !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1774   ,                                       !- Humidity Condition Day Schedule Name
+   1775   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1776   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1777   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1778   100344,                                 !- Barometric Pressure {Pa}
+   1779   10.3,                                   !- Wind Speed {m/s}
+   1780   310,                                    !- Wind Direction {deg}
+   1781   No,                                     !- Rain Indicator
+   1782   No,                                     !- Snow Indicator
+   1783   No,                                     !- Daylight Saving Time Indicator
+   1784   ASHRAEClearSky,                         !- Solar Model Indicator
+   1785   ,                                       !- Beam Solar Day Schedule Name
+   1786   ,                                       !- Diffuse Solar Day Schedule Name
+   1787   ,                                       !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1788   ,                                       !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1789   0;                                      !- Sky Clearness
+   1790 
+   1791 SizingPeriod:DesignDay,
+   1792   STERLING Ann Hum_n 99.6% Condns DP=>MCDB, !- Name
+   1793   1,                                      !- Month
+   1794   21,                                     !- Day of Month
+   1795   WinterDesignDay,                        !- Day Type
+   1796   -9,                                     !- Maximum Dry-Bulb Temperature {C}
+   1797   0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+   1798   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1799   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1800   Dewpoint,                               !- Humidity Condition Type
+   1801   -19.5,                                  !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1802   ,                                       !- Humidity Condition Day Schedule Name
+   1803   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1804   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1805   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1806   100344,                                 !- Barometric Pressure {Pa}
+   1807   2.7,                                    !- Wind Speed {m/s}
+   1808   310,                                    !- Wind Direction {deg}
+   1809   No,                                     !- Rain Indicator
+   1810   No,                                     !- Snow Indicator
+   1811   No,                                     !- Daylight Saving Time Indicator
+   1812   ASHRAEClearSky,                         !- Solar Model Indicator
+   1813   ,                                       !- Beam Solar Day Schedule Name
+   1814   ,                                       !- Diffuse Solar Day Schedule Name
+   1815   ,                                       !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1816   ,                                       !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1817   0;                                      !- Sky Clearness
+   1818 
+   1819 SizingPeriod:DesignDay,
+   1820   STERLING Ann Clg 1% Condns WB=>MDB,     !- Name
+   1821   7,                                      !- Month
+   1822   21,                                     !- Day of Month
+   1823   SummerDesignDay,                        !- Day Type
+   1824   30.3,                                   !- Maximum Dry-Bulb Temperature {C}
+   1825   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1826   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1827   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1828   Wetbulb,                                !- Humidity Condition Type
+   1829   24.7,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1830   ,                                       !- Humidity Condition Day Schedule Name
+   1831   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1832   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1833   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1834   100344,                                 !- Barometric Pressure {Pa}
+   1835   4,                                      !- Wind Speed {m/s}
+   1836   290,                                    !- Wind Direction {deg}
+   1837   No,                                     !- Rain Indicator
+   1838   No,                                     !- Snow Indicator
+   1839   No,                                     !- Daylight Saving Time Indicator
+   1840   ASHRAETau,                              !- Solar Model Indicator
+   1841   ,                                       !- Beam Solar Day Schedule Name
+   1842   ,                                       !- Diffuse Solar Day Schedule Name
+   1843   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1844   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1845 
+   1846 SizingPeriod:DesignDay,
+   1847   STERLING Ann Clg 2% Condns Enth=>MDB,   !- Name
+   1848   7,                                      !- Month
+   1849   21,                                     !- Day of Month
+   1850   SummerDesignDay,                        !- Day Type
+   1851   29.2,                                   !- Maximum Dry-Bulb Temperature {C}
+   1852   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1853   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1854   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1855   Enthalpy,                               !- Humidity Condition Type
+   1856   ,                                       !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1857   ,                                       !- Humidity Condition Day Schedule Name
+   1858   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1859   72500,                                  !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1860   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1861   100344,                                 !- Barometric Pressure {Pa}
+   1862   4,                                      !- Wind Speed {m/s}
+   1863   290,                                    !- Wind Direction {deg}
+   1864   No,                                     !- Rain Indicator
+   1865   No,                                     !- Snow Indicator
+   1866   No,                                     !- Daylight Saving Time Indicator
+   1867   ASHRAETau,                              !- Solar Model Indicator
+   1868   ,                                       !- Beam Solar Day Schedule Name
+   1869   ,                                       !- Diffuse Solar Day Schedule Name
+   1870   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1871   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1872 
+   1873 SizingPeriod:DesignDay,
+   1874   STERLING Ann Clg .4% Condns WB=>MDB,    !- Name
+   1875   7,                                      !- Month
+   1876   21,                                     !- Day of Month
+   1877   SummerDesignDay,                        !- Day Type
+   1878   31.6,                                   !- Maximum Dry-Bulb Temperature {C}
+   1879   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1880   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1881   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1882   Wetbulb,                                !- Humidity Condition Type
+   1883   25.4,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1884   ,                                       !- Humidity Condition Day Schedule Name
+   1885   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1886   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1887   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1888   100344,                                 !- Barometric Pressure {Pa}
+   1889   4,                                      !- Wind Speed {m/s}
+   1890   290,                                    !- Wind Direction {deg}
+   1891   No,                                     !- Rain Indicator
+   1892   No,                                     !- Snow Indicator
+   1893   No,                                     !- Daylight Saving Time Indicator
+   1894   ASHRAETau,                              !- Solar Model Indicator
+   1895   ,                                       !- Beam Solar Day Schedule Name
+   1896   ,                                       !- Diffuse Solar Day Schedule Name
+   1897   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1898   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1899 
+   1900 SizingPeriod:DesignDay,
+   1901   STERLING Ann Hum_n 99% Condns DP=>MCDB, !- Name
+   1902   1,                                      !- Month
+   1903   21,                                     !- Day of Month
+   1904   WinterDesignDay,                        !- Day Type
+   1905   -6.5,                                   !- Maximum Dry-Bulb Temperature {C}
+   1906   0,                                      !- Daily Dry-Bulb Temperature Range {deltaC}
+   1907   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1908   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1909   Dewpoint,                               !- Humidity Condition Type
+   1910   -16.7,                                  !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1911   ,                                       !- Humidity Condition Day Schedule Name
+   1912   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1913   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1914   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1915   100344,                                 !- Barometric Pressure {Pa}
+   1916   2.7,                                    !- Wind Speed {m/s}
+   1917   310,                                    !- Wind Direction {deg}
+   1918   No,                                     !- Rain Indicator
+   1919   No,                                     !- Snow Indicator
+   1920   No,                                     !- Daylight Saving Time Indicator
+   1921   ASHRAEClearSky,                         !- Solar Model Indicator
+   1922   ,                                       !- Beam Solar Day Schedule Name
+   1923   ,                                       !- Diffuse Solar Day Schedule Name
+   1924   ,                                       !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1925   ,                                       !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1926   0;                                      !- Sky Clearness
+   1927 
+   1928 SizingPeriod:DesignDay,
+   1929   STERLING Ann Clg 1% Condns DB=>MWB,     !- Name
+   1930   7,                                      !- Month
+   1931   21,                                     !- Day of Month
+   1932   SummerDesignDay,                        !- Day Type
+   1933   32.7,                                   !- Maximum Dry-Bulb Temperature {C}
+   1934   11.4,                                   !- Daily Dry-Bulb Temperature Range {deltaC}
+   1935   DefaultMultipliers,                     !- Dry-Bulb Temperature Range Modifier Type
+   1936   ,                                       !- Dry-Bulb Temperature Range Modifier Schedule Name
+   1937   Wetbulb,                                !- Humidity Condition Type
+   1938   23.5,                                   !- Wetbulb or DewPoint at Maximum Dry-Bulb {C}
+   1939   ,                                       !- Humidity Condition Day Schedule Name
+   1940   ,                                       !- Humidity Ratio at Maximum Dry-Bulb {kgWater/kgDryAir}
+   1941   ,                                       !- Enthalpy at Maximum Dry-Bulb {J/kg}
+   1942   ,                                       !- Daily Wet-Bulb Temperature Range {deltaC}
+   1943   100344,                                 !- Barometric Pressure {Pa}
+   1944   4,                                      !- Wind Speed {m/s}
+   1945   290,                                    !- Wind Direction {deg}
+   1946   No,                                     !- Rain Indicator
+   1947   No,                                     !- Snow Indicator
+   1948   No,                                     !- Daylight Saving Time Indicator
+   1949   ASHRAETau,                              !- Solar Model Indicator
+   1950   ,                                       !- Beam Solar Day Schedule Name
+   1951   ,                                       !- Diffuse Solar Day Schedule Name
+   1952   0.544,                                  !- ASHRAE Clear Sky Optical Depth for Beam Irradiance (taub) {dimensionless}
+   1953   1.787;                                  !- ASHRAE Clear Sky Optical Depth for Diffuse Irradiance (taud) {dimensionless}
+   1954 
+   1955 Material,
+   1956   1/2IN Gypsum,                           !- Name
+   1957   Smooth,                                 !- Roughness
+   1958   0.0127,                                 !- Thickness {m}
+   1959   0.16,                                   !- Conductivity {W/m-K}
+   1960   784.9,                                  !- Density {kg/m3}
+   1961   830,                                    !- Specific Heat {J/kg-K}
+   1962   0.9,                                    !- Thermal Absorptance
+   1963   0.92,                                   !- Solar Absorptance
+   1964   0.92;                                   !- Visible Absorptance
+   1965 
+   1966 Material,
+   1967   000_F16 Acoustic tile,                  !- Name
+   1968   MediumSmooth,                           !- Roughness
+   1969   0.0191,                                 !- Thickness {m}
+   1970   0.06,                                   !- Conductivity {W/m-K}
+   1971   368,                                    !- Density {kg/m3}
+   1972   590,                                    !- Specific Heat {J/kg-K}
+   1973   0.9,                                    !- Thermal Absorptance
+   1974   0.7,                                    !- Solar Absorptance
+   1975   0.7;                                    !- Visible Absorptance
+   1976 
+   1977 Material,
+   1978   000_I01 25mm insulation board,          !- Name
+   1979   MediumRough,                            !- Roughness
+   1980   0.0254,                                 !- Thickness {m}
+   1981   0.03,                                   !- Conductivity {W/m-K}
+   1982   43,                                     !- Density {kg/m3}
+   1983   1210,                                   !- Specific Heat {J/kg-K}
+   1984   0.9,                                    !- Thermal Absorptance
+   1985   0.7,                                    !- Solar Absorptance
+   1986   0.7;                                    !- Visible Absorptance
+   1987 
+   1988 Material,
+   1989   000_M11 100mm lightweight concrete,     !- Name
+   1990   MediumRough,                            !- Roughness
+   1991   0.1016,                                 !- Thickness {m}
+   1992   0.53,                                   !- Conductivity {W/m-K}
+   1993   1280,                                   !- Density {kg/m3}
+   1994   840,                                    !- Specific Heat {J/kg-K}
+   1995   0.9,                                    !- Thermal Absorptance
+   1996   0.7,                                    !- Solar Absorptance
+   1997   0.7;                                    !- Visible Absorptance
+   1998 
+   1999 Material,
+   2000   000_G05 25mm wood,                      !- Name
+   2001   MediumSmooth,                           !- Roughness
+   2002   0.0254,                                 !- Thickness {m}
+   2003   0.15,                                   !- Conductivity {W/m-K}
+   2004   608,                                    !- Density {kg/m3}
+   2005   1630,                                   !- Specific Heat {J/kg-K}
+   2006   0.9,                                    !- Thermal Absorptance
+   2007   0.7,                                    !- Solar Absorptance
+   2008   0.7;                                    !- Visible Absorptance
+   2009 
+   2010 Material,
+   2011   MAT-CC05 4 HW CONCRETE,                 !- Name
+   2012   Rough,                                  !- Roughness
+   2013   0.1016,                                 !- Thickness {m}
+   2014   1.311,                                  !- Conductivity {W/m-K}
+   2015   2240,                                   !- Density {kg/m3}
+   2016   836.8,                                  !- Specific Heat {J/kg-K}
+   2017   0.9,                                    !- Thermal Absorptance
+   2018   0.7,                                    !- Solar Absorptance
+   2019   0.7;                                    !- Visible Absorptance
+   2020 
+   2021 Material,
+   2022   Metal Decking,                          !- Name
+   2023   MediumSmooth,                           !- Roughness
+   2024   0.0015,                                 !- Thickness {m}
+   2025   45.006,                                 !- Conductivity {W/m-K}
+   2026   7680,                                   !- Density {kg/m3}
+   2027   418.4,                                  !- Specific Heat {J/kg-K}
+   2028   0.9,                                    !- Thermal Absorptance
+   2029   0.7,                                    !- Solar Absorptance
+   2030   0.3;                                    !- Visible Absorptance
+   2031 
+   2032 Material,
+   2033   Roof Membrane,                          !- Name
+   2034   VeryRough,                              !- Roughness
+   2035   0.0095,                                 !- Thickness {m}
+   2036   0.16,                                   !- Conductivity {W/m-K}
+   2037   1121.29,                                !- Density {kg/m3}
+   2038   1460,                                   !- Specific Heat {J/kg-K}
+   2039   0.9,                                    !- Thermal Absorptance
+   2040   0.7,                                    !- Solar Absorptance
+   2041   0.7;                                    !- Visible Absorptance
+   2042 
+   2043 Material,
+   2044   Roof Insulation [21],                   !- Name
+   2045   MediumRough,                            !- Roughness
+   2046   0.2105,                                 !- Thickness {m}
+   2047   0.049,                                  !- Conductivity {W/m-K}
+   2048   265,                                    !- Density {kg/m3}
+   2049   836.8,                                  !- Specific Heat {J/kg-K}
+   2050   0.9,                                    !- Thermal Absorptance
+   2051   0.7,                                    !- Solar Absorptance
+   2052   0.7;                                    !- Visible Absorptance
+   2053 
+   2054 Material,
+   2055   000_G01a 19mm gypsum board,             !- Name
+   2056   MediumSmooth,                           !- Roughness
+   2057   0.019,                                  !- Thickness {m}
+   2058   0.16,                                   !- Conductivity {W/m-K}
+   2059   800,                                    !- Density {kg/m3}
+   2060   1090,                                   !- Specific Heat {J/kg-K}
+   2061   0.9,                                    !- Thermal Absorptance
+   2062   0.7,                                    !- Solar Absorptance
+   2063   0.7;                                    !- Visible Absorptance
+   2064 
+   2065 Material,
+   2066   000_F08 Metal surface,                  !- Name
+   2067   Smooth,                                 !- Roughness
+   2068   0.0008,                                 !- Thickness {m}
+   2069   45.28,                                  !- Conductivity {W/m-K}
+   2070   7824,                                   !- Density {kg/m3}
+   2071   500,                                    !- Specific Heat {J/kg-K}
+   2072   0.9,                                    !- Thermal Absorptance
+   2073   0.7,                                    !- Solar Absorptance
+   2074   0.7;                                    !- Visible Absorptance
+   2075 
+   2076 Material,
+   2077   Wall Insulation [39],                   !- Name
+   2078   MediumRough,                            !- Roughness
+   2079   0.1184,                                 !- Thickness {m}
+   2080   0.045,                                  !- Conductivity {W/m-K}
+   2081   265,                                    !- Density {kg/m3}
+   2082   836.8,                                  !- Specific Heat {J/kg-K}
+   2083   0.9,                                    !- Thermal Absorptance
+   2084   0.7,                                    !- Solar Absorptance
+   2085   0.7;                                    !- Visible Absorptance
+   2086 
+   2087 Material:AirGap,
+   2088   000_F05 Ceiling air space resistance,   !- Name
+   2089   0.18;                                   !- Thermal Resistance {m2-K/W}
+   2090 
+   2091 Material:AirGap,
+   2092   000_F04 Wall air space resistance,      !- Name
+   2093   0.15;                                   !- Thermal Resistance {m2-K/W}
+   2094 
+   2095 Material,
+   2096   OS:Material:AirWall 1,                  !- Name
+   2097   MediumSmooth,                           !- Roughness
+   2098   0.01,                                   !- Thickness {m}
+   2099   0.6,                                    !- Conductivity {W/m-K}
+   2100   800,                                    !- Density {kg/m3}
+   2101   1000,                                   !- Specific Heat {J/kg-K}
+   2102   0.95,                                   !- Thermal Absorptance
+   2103   0.7,                                    !- Solar Absorptance
+   2104   0.7;                                    !- Visible Absorptance
+   2105 
+   2106 Material:NoMass,
+   2107   CP02 CARPET PAD,                        !- Name
+   2108   VeryRough,                              !- Roughness
+   2109   0.2165,                                 !- Thermal Resistance {m2-K/W}
+   2110   0.9,                                    !- Thermal Absorptance
+   2111   0.7,                                    !- Solar Absorptance
+   2112   0.8;                                    !- Visible Absorptance
+   2113 
+   2114 Material:NoMass,
+   2115   MAT-SHEATH,                             !- Name
+   2116   Rough,                                  !- Roughness
+   2117   0.3626,                                 !- Thermal Resistance {m2-K/W}
+   2118   0.9,                                    !- Thermal Absorptance
+   2119   0.7,                                    !- Solar Absorptance
+   2120   0.7;                                    !- Visible Absorptance
+   2121 
+   2122 WindowMaterial:Gas,
+   2123   000_Air 13mm,                           !- Name
+   2124   Air,                                    !- Gas Type
+   2125   0.0127;                                 !- Thickness {m}
+   2126 
+   2127 WindowMaterial:Glazing,
+   2128   Theoretical Glass [207],                !- Name
+   2129   SpectralAverage,                        !- Optical Data Type
+   2130   ,                                       !- Window Glass Spectral Data Set Name
+   2131   0.003,                                  !- Thickness {m}
+   2132   0.3311,                                 !- Solar Transmittance at Normal Incidence
+   2133   0.6189,                                 !- Front Side Solar Reflectance at Normal Incidence
+   2134   0.6189,                                 !- Back Side Solar Reflectance at Normal Incidence
+   2135   0.44,                                   !- Visible Transmittance at Normal Incidence
+   2136   0.51,                                   !- Front Side Visible Reflectance at Normal Incidence
+   2137   0.51,                                   !- Back Side Visible Reflectance at Normal Incidence
+   2138   0,                                      !- Infrared Transmittance at Normal Incidence
+   2139   0.9,                                    !- Front Side Infrared Hemispherical Emissivity
+   2140   0.9,                                    !- Back Side Infrared Hemispherical Emissivity
+   2141   0.0133,                                 !- Conductivity {W/m-K}
+   2142   1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+   2143   No;                                     !- Solar Diffusing
+   2144 
+   2145 WindowMaterial:Glazing,
+   2146   000_Clear 3mm,                          !- Name
+   2147   SpectralAverage,                        !- Optical Data Type
+   2148   ,                                       !- Window Glass Spectral Data Set Name
+   2149   0.003,                                  !- Thickness {m}
+   2150   0.837,                                  !- Solar Transmittance at Normal Incidence
+   2151   0.075,                                  !- Front Side Solar Reflectance at Normal Incidence
+   2152   0.075,                                  !- Back Side Solar Reflectance at Normal Incidence
+   2153   0.898,                                  !- Visible Transmittance at Normal Incidence
+   2154   0.081,                                  !- Front Side Visible Reflectance at Normal Incidence
+   2155   0.081,                                  !- Back Side Visible Reflectance at Normal Incidence
+   2156   0,                                      !- Infrared Transmittance at Normal Incidence
+   2157   0.84,                                   !- Front Side Infrared Hemispherical Emissivity
+   2158   0.84,                                   !- Back Side Infrared Hemispherical Emissivity
+   2159   0.9;                                    !- Conductivity {W/m-K}
+   2160 
+   2161 Construction,
+   2162   000_Interior Floor,                     !- Name
+   2163   000_F16 Acoustic tile,                  !- Layer 1
+   2164   000_F05 Ceiling air space resistance,   !- Layer 2
+   2165   000_M11 100mm lightweight concrete;     !- Layer 3
+   2166 
+   2167 Construction,
+   2168   000_Exterior Window,                    !- Name
+   2169   000_Clear 3mm,                          !- Layer 1
+   2170   000_Air 13mm,                           !- Layer 2
+   2171   000_Clear 3mm;                          !- Layer 3
+   2172 
+   2173 Construction,
+   2174   ASHRAE_189.1-2009_ExtWall_SteelFrame_ClimateZone 4-8, !- Name
+   2175   MAT-SHEATH,                             !- Layer 1
+   2176   Wall Insulation [39],                   !- Layer 2
+   2177   1/2IN Gypsum;                           !- Layer 3
+   2178 
+   2179 Construction,
+   2180   Air_Wall,                               !- Name
+   2181   OS:Material:AirWall 1;                  !- Layer 1
+   2182 
+   2183 Construction,
+   2184   000_Interior Door,                      !- Name
+   2185   000_G05 25mm wood;                      !- Layer 1
+   2186 
+   2187 Construction,
+   2188   ASHRAE_189.1-2009_ExtRoof_IEAD_ClimateZone 2-5, !- Name
+   2189   Roof Membrane,                          !- Layer 1
+   2190   Roof Insulation [21],                   !- Layer 2
+   2191   Metal Decking;                          !- Layer 3
+   2192 
+   2193 Construction,
+   2194   000_Exterior Door,                      !- Name
+   2195   000_F08 Metal surface,                  !- Layer 1
+   2196   000_I01 25mm insulation board;          !- Layer 2
+   2197 
+   2198 Construction,
+   2199   000_Interior Window,                    !- Name
+   2200   000_Clear 3mm;                          !- Layer 1
+   2201 
+   2202 Construction,
+   2203   000_Interior Wall,                      !- Name
+   2204   000_G01a 19mm gypsum board,             !- Layer 1
+   2205   000_F04 Wall air space resistance,      !- Layer 2
+   2206   000_G01a 19mm gypsum board;             !- Layer 3
+   2207 
+   2208 Construction,
+   2209   000_ExtSlabCarpet_4in_ClimateZone 1-8,  !- Name
+   2210   MAT-CC05 4 HW CONCRETE,                 !- Layer 1
+   2211   CP02 CARPET PAD;                        !- Layer 2
+   2212 
+   2213 Construction,
+   2214   ASHRAE_189.1-2009_ExtWindow_ClimateZone 4-5, !- Name
+   2215   Theoretical Glass [207];                !- Layer 1
+   2216 
+   2217 Construction,
+   2218   000_Interior Ceiling,                   !- Name
+   2219   000_M11 100mm lightweight concrete,     !- Layer 1
+   2220   000_F05 Ceiling air space resistance,   !- Layer 2
+   2221   000_F16 Acoustic tile;                  !- Layer 3
+   2222 
+   2223 Construction,
+   2224   000_Interior Partition,                 !- Name
+   2225   000_G05 25mm wood;                      !- Layer 1
+   2226 
+   2227 Building,
+   2228   Building 1,                             !- Name
+   2229   ,                                       !- North Axis {deg}
+   2230   ,                                       !- Terrain
+   2231   ,                                       !- Loads Convergence Tolerance Value
+   2232   ,                                       !- Temperature Convergence Tolerance Value {deltaC}
+   2233   ,                                       !- Solar Distribution
+   2234   ,                                       !- Maximum Number of Warmup Days
+   2235   ;                                       !- Minimum Number of Warmup Days
+   2236 
+   2237 SetpointManager:Scheduled,
+   2238   Setpoint Manager Scheduled 2,           !- Name
+   2239   Temperature,                            !- Control Variable
+   2240   Hot_Water_Temperature,                  !- Schedule Name
+   2241   Node 12;                                !- Setpoint Node or NodeList Name
+   2242 
+   2243 ThermostatSetpoint:DualSetpoint,
+   2244   Thermostat Setpoint Dual Setpoint 1,    !- Name
+   2245   Heating Sch,                            !- Heating Setpoint Temperature Schedule Name
+   2246   Cooling Sch;                            !- Cooling Setpoint Temperature Schedule Name
+   2247 
+   2248 OutputControl:Table:Style,
+   2249   HTML;                                   !- Column Separator
+   2250 
+   2251 Output:Table:SummaryReports,
+   2252   AllSummary;                             !- Report Name 1
+   2253 
+   2254 Output:VariableDictionary,
+   2255   IDF,                                    !- Key Field
+   2256   Unsorted;                               !- Sort Option
+   2257 
+   2258 Output:SQLite,
+   2259   SimpleAndTabular;                       !- Option Type
+   2260 
+   2261 Output:Table:Monthly,
+   2262   Building Monthly Cooling Load Report,   ! Name
+   2263   3,                                      ! Digits After Decimal
+   2264   Zone/Sys Sensible Cooling Energy,       ! Variable or Meter 1 Name
+   2265   SumOrAverage,                           ! Aggregation Type for Variable or Meter 1
+   2266   Zone/Sys Sensible Cooling Energy,       ! Variable or Meter 2 Name
+   2267   Maximum,                                ! Aggregation Type for Variable or Meter 2
+   2268   Outdoor Dry Bulb,                       ! Variable or Meter 3 Name
+   2269   ValueWhenMaxMin;
+   2270 Output:Table:Monthly,
+   2271   End Use Energy Consumption Fuel Gasoline Monthly,   ! Name
+   2272   3,                                      ! Digits After Decimal
+   2273   Heating:Gasoline,                       ! Variable or Meter 1 Name
+   2274   SumOrAverage;                           ! Aggregation Type for Variable or Meter 1
+   2275 
+   2276 Output:Table:Monthly,
+   2277   End Use Energy Consumption Electricity Monthly,   ! Name
+   2278   3,                                      ! Digits After Decimal
+   2279   InteriorLights:Electricity,             ! Variable or Meter 1 Name
+   2280   SumOrAverage,                           ! Aggregation Type for Variable or Meter 1
+   2281   InteriorEquipment:Electricity,          ! Variable or Meter 2 Name
+   2282   SumOrAverage,                           ! Aggregation Type for Variable or Meter 2
+   2283   Cooling:Electricity,
+   2284   SumOrAverage,
+   2285   Fans:Electricity,
+   2286   SumOrAverage,
+   2287   Pumps:Electricity,
+   2288   SumOrAverage;
+   2289 
+   2290 Output:Table:Monthly,
+   2291   End Use Energy Consumption Electricity Monthly,   ! Name
+   2292   3,                                      ! Digits After Decimal
+   2293   InteriorLights:Electricity,             ! Variable or Meter 1 Name
+   2294   SumOrAverage,                           ! Aggregation Type for Variable or Meter 1
+   2295   InteriorEquipment:Electricity,          ! Variable or Meter 2 Name
+   2296   SumOrAverage;                           ! Aggregation Type for Variable or Meter 2
+   2297 
+   2298 Output:Table:Monthly,
+   2299   End Use Energy Consumption Natural Gas Monthly,   ! Name
+   2300   3,                                                ! Digits After Decimal
+   2301   Cooling:Gas,                              ! Variable or Meter 1 Name
+   2302   SumOrAverage,                                     ! Aggregation Type for Variable or Meter 1
+   2303   InteriorLights:Gas,
+   2304   SumOrAverage,
+   2305   Heating:Gas,
+   2306   SumOrAverage;
+  Processing Input Data File (in.idf) -- Complete
+  Number of IDF "Lines"=         211
+  Maximum number of Alpha IDF Args=          22
+  Maximum number of Numeric IDF Args=          17
+  Number of IDF "Lines"=         211
+  Number of Defaulted Fields=          29
+  Number of Fields with Defaults=         389
+  Number of Autosized Fields=          26
+  Number of Autosizable Fields =          40
+  Number of Autocalculated Fields=           3
+  Number of Autocalculatable Fields =           3
+ Getting object=OUTPUT:SQLITE
+ Getting object=PROGRAMCONTROL
+ Getting object=VERSION
+ Getting object=SIMULATIONCONTROL
+ Getting object=OUTPUT:VARIABLEDICTIONARY
+ Getting object=BRANCH
+ Getting object=CURVE:BIQUADRATIC
+ Getting object=CURVE:QUADRATIC
+ Getting object=BRANCHLIST
+ Getting object=SIZING:PARAMETERS
+ Getting object=SIZING:SYSTEM
+ Getting object=SIZING:PLANT

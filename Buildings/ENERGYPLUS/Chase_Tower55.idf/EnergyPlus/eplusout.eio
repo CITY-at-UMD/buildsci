@@ -1,0 +1,798 @@
+Program Version,EnergyPlus-Linux-OMP-32 7.2.0.006, YMD=2013.06.21 15:33
+! <Version>, Version ID
+ Version, 7.2
+! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
+ Timesteps per Hour,  4, 15
+! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
+ System Convergence Limits, 1, 20, 2, 8
+! <Simulation Control>, Do Zone Sizing, Do System Sizing, Do Plant Sizing, Do Design Days, Do Weather Simulation
+ Simulation Control, Yes, Yes, Yes, Yes, Yes
+! <Output Reporting Tolerances>, Tolerance for Time Heating Setpoint Not Met, Tolerance for Time Cooling Setpoint Not Met
+ Output Reporting Tolerances, 0.200, 0.200, 
+! <Site:GroundTemperature:BuildingSurface>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:BuildingSurface,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00
+! <Site:GroundTemperature:FCfactorMethod>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:FCfactorMethod,  13.01,  15.04,  18.98,  22.72,  29.80,  33.52,  34.55,  32.66,  28.30,  22.86,  17.51,  13.97
+! <Site:GroundTemperature:Shallow>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
+! <Site:GroundTemperature:Deep>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
+! <Site:GroundReflectance>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:SnowModifier>, Normal, Daylighting {dimensionless}
+ Site:GroundReflectance:SnowModifier,   1.000,   1.000
+! <Site:GroundReflectance:Snow>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:Snow:Daylighting>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow:Daylighting,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Environment:Weather Station>,Wind Sensor Height Above Ground {m},Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Sensor Height Above Ground {m},Wind Speed Modifier Coefficient [Internal],Temperature Modifier Coefficient [Internal]
+Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
+! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
+Site:Location,Phoenix Sky Harbor Intl Ap AZ USA TMY3 WMO#=722780,33.45,-111.98,-7.00,337.00,97342,1.1570
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information,Building 1,0.000,Suburbs,4.00000E-002,0.40000,FullExterior,25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,DOE-2
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Carbon Dioxide Balance Simulation, No,N/A
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Generic Contaminant Concentration
+ Zone Air Generic Contaminant Balance Simulation, No,N/A
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
+! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,RelativeCoordinateSystem,RelativeCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,15,102,12
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, THERMAL ZONE 2,0.0,3.00,3.00,0.00,7.91,7.91,2.00,1,1,1,3.00,12.81,3.00,12.81,0.00,4.00,4.00,385.05,TARP,DOE-2,96.26,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 7,0.0,0.00,0.00,4.00,1.29,7.91,6.00,1,1,1,0.00,3.00,0.00,15.81,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 9,0.0,12.81,3.00,0.00,14.52,7.91,2.00,1,1,1,12.81,15.81,0.00,15.81,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 6,0.0,3.00,3.00,8.00,7.91,7.91,10.00,1,1,1,3.00,12.81,3.00,12.81,8.00,12.00,4.00,385.05,TARP,DOE-2,96.26,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 11,0.0,12.81,3.00,8.00,14.52,7.91,10.00,1,1,1,12.81,15.81,0.00,15.81,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 14,0.0,0.00,0.00,8.00,1.29,7.91,10.00,1,1,1,0.00,3.00,0.00,15.81,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 5,0.0,0.00,0.00,0.00,7.91,1.29,2.00,1,1,1,0.00,15.81,0.00,3.00,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 3,0.0,3.00,3.00,4.00,7.91,7.91,6.00,1,1,1,3.00,12.81,3.00,12.81,4.00,8.00,4.00,385.05,TARP,DOE-2,96.26,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 13,0.0,0.00,0.00,8.00,7.91,1.29,10.00,1,1,1,0.00,15.81,0.00,3.00,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 15,0.0,3.00,12.81,0.00,7.91,14.52,2.00,1,1,1,0.00,15.81,12.81,15.81,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 1,0.0,12.81,3.00,4.00,14.52,7.91,6.00,1,1,1,12.81,15.81,0.00,15.81,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 12,0.0,3.00,12.81,8.00,7.91,14.52,10.00,1,1,1,0.00,15.81,12.81,15.81,8.00,12.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 8,0.0,3.00,12.81,4.00,7.91,14.52,6.00,1,1,1,0.00,15.81,12.81,15.81,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 4,0.0,0.00,0.00,0.00,1.29,7.91,2.00,1,1,1,0.00,3.00,0.00,15.81,0.00,4.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+ Zone Information, THERMAL ZONE 10,0.0,0.00,0.00,4.00,7.91,1.29,6.00,1,1,1,0.00,15.81,0.00,3.00,4.00,8.00,4.00,153.74,TARP,DOE-2,38.43,63.25,44.27,18.97,6,1,0,Yes
+! <Zone Internal Gains/Equipment Information - Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
+ Zone Internal Gains, THERMAL ZONE 2,96.26,5.2,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 7,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 9,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 6,96.26,5.2,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 11,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 14,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 5,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 3,96.26,5.2,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 13,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 15,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 1,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 12,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 8,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 4,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+ Zone Internal Gains, THERMAL ZONE 10,38.43,2.1,18.581,5.382E-002,10.764,10.764,0.000,0.000,0.000,0.000,21.528,No
+! <People Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Number of People {},People/Floor Area {person/m2},Floor Area per person {m2/person},Fraction Radiant,Fraction Convected,Sensible Fraction Calculation,Activity level,ASHRAE 55 Warnings,Carbon Dioxide Generation Rate 
+ People Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 1,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 10,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 11,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 12,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 13,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 14,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 15,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 2,96.26,5.2,5.2,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 3,96.26,5.2,5.2,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 4,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 5,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 6,96.26,5.2,5.2,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 7,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 8,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+ People Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING PEOPLE,MEDIUM OFFICE_BLDG_OCC,THERMAL ZONE 9,38.43,2.1,2.1,5.382E-002,18.581,0.300,0.700,AutoCalculate,MEDIUM OFFICE_ACTIVITY,No,3.8200E-008
+! <Lights Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Lighting Level {W},Lights/Floor Area {W/m2},Lights per person {W/person},Fraction Return Air,Fraction Radiant,Fraction Short Wave,Fraction Convected,Fraction Replaceable,EndUse Category
+ Lights Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 1,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 10,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 11,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 12,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 13,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 14,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 15,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 2,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 3,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 4,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 5,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 6,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 7,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 8,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+ Lights Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING LIGHTS,MEDIUM OFFICE_BLDG_LIGHT,THERMAL ZONE 9,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,1.000,General
+! <ElectricEquipment Internal Gains - Nominal>,Name,Schedule Name,Zone Name,Zone Floor Area {m2},# Zone Occupants,Equipment Level {W},Equipment/Floor Area {W/m2},Equipment per person {W/person},Fraction Latent,Fraction Radiant,Fraction Lost,Fraction Convected,EndUse SubCategory
+ ElectricEquipment Internal Gains, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 1,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 10,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 11,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 12,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 13,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 14,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 15,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 2,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 3,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 4,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 5,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 6,96.26,5.2,1036.170,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 7,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 8,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+ ElectricEquipment Internal Gains, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING ELECTRIC EQUIPMENT,MEDIUM OFFICE_BLDG_EQUIP,THERMAL ZONE 9,38.43,2.1,413.702,10.764,200.000,0.000,0.000,0.000,1.000,General
+! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}, Polygon Clipping Algorithm, Sky Diffuse Modeling Algorithm
+Shadowing/Sun Position Calculations,20,15000,SutherlandHodgman,SimpleSkyDiffuseModeling
+! <Infiltration Airflow Stats - Nominal>,Name,Schedule Name,Zone Name, Zone Floor Area {m2}, # Zone Occupants,Design Volume Flow Rate {m3/s},Volume Flow Rate/Floor Area {m3/s/m2},Volume Flow Rate/Exterior Surface Area {m3/s/m2},ACH - Air Changes per Hour,Equation A - Constant Term Coefficient {},Equation B - Temperature Term Coefficient {1/C},Equation C - Velocity Term Coefficient {s/m}, Equation D - Velocity Squared Term Coefficient {s2/m2}
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 1 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 1,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 10 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 10,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 11 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 11,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 12 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 12,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 13 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 13,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 14 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 14,38.43,2.1,3.073E-002,7.996E-004,3.023E-004,0.720,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 15 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 15,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 2 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 2,96.26,5.2,0.000,0.000,N/A,0.000,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 3 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 3,96.26,5.2,0.000,0.000,N/A,0.000,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 4 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 4,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 5 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 5,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 6 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 6,96.26,5.2,2.910E-002,3.023E-004,3.023E-004,0.272,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 7 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 7,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 8 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 8,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+ ZoneInfiltration Airflow Stats, THERMAL ZONE 9 ASHRAE_90.1-2004 CLIMATEZONE 1-8 MEDIUMOFFICE WHOLEBUILDING INFILTRATION,MEDIUM OFFICE_INFIL_QUARTER_ON,THERMAL ZONE 9,38.43,2.1,1.912E-002,4.974E-004,3.023E-004,0.448,1.000,0.000,0.000,0.000
+! <AirFlow Model>, Simple
+ AirFlow Model, Simple
+! <RoomAir Model>, Zone Name, Mixing/Mundt/UCSDDV/UCSDCV/UCSDUFI/UCSDUFE/User Defined
+RoomAir Model,THERMAL ZONE 2,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 7,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 9,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 6,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 11,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 14,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 5,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 3,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 13,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 15,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 1,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 12,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 8,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 4,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 10,Mixing/Well-Stirred
+! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
+AirflowNetwork Model:Control,NoMultizoneOrDistribution
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier, Generic Contaminant Capacity Multiplier
+Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
+! <Load Timesteps in Zone Design Calculation Averaging Window>, Value
+ Load Timesteps in Zone Design Calculation Averaging Window,    4
+! <Heating Sizing Factor Information>, Sizing Factor ID, Value
+ Heating Sizing Factor Information, Global,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 2,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 7,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 9,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 6,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 11,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 14,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 5,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 3,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 13,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 15,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 1,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 12,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 8,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 4,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 10,   1.2500    
+! <Cooling Sizing Factor Information>, Sizing Factor ID, Value
+ Cooling Sizing Factor Information, Global,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 2,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 7,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 9,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 6,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 11,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 14,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 5,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 3,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 13,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 15,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 1,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 12,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 8,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 4,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 10,   1.1500    
+! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}
+ Zone Sizing Information, THERMAL ZONE 2, Cooling, 1601.34552, 1841.54734, 9.68851E-002, 0.11142, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 16:45:00, 41.96000, 7.19791E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 2, Heating, 1107.88374, 1384.85467, 5.86918E-002, 7.33648E-002, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:45:00, 3.70000, 5.13120E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 7, Cooling, 4337.12438, 4987.69304, 0.26238, 0.30174, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:30:00, 41.12000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 7, Heating, 1565.42348, 1956.77935, 8.29196E-002, 0.10365, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 9, Cooling, 2979.36829, 3426.27353, 0.18024, 0.20728, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 10:45:00, 40.19000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 9, Heating, 1806.63187, 2258.28984, 9.56963E-002, 0.11962, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 6, Cooling, 3369.24122, 3874.62740, 0.20384, 0.23441, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:30:00, 39.62000, 7.19791E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 6, Heating, 1506.81120, 1883.51400, 7.98180E-002, 9.97725E-002, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 11, Cooling, 4046.36969, 4653.32515, 0.24479, 0.28151, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 11:15:00, 40.94000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 11, Heating, 2005.95409, 2507.44261, 0.10625, 0.13281, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 14, Cooling, 4541.00033, 5222.15038, 0.27471, 0.31592, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:30:00, 41.12000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 14, Heating, 2006.80180, 2508.50225, 0.10629, 0.13287, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 5, Cooling, 2310.01668, 2656.51918, 0.13975, 0.16071, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:00:00, 43.40000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 5, Heating, 1806.68492, 2258.35615, 9.56991E-002, 0.11962, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 3, Cooling, 2844.24870, 3270.88601, 0.17208, 0.19789, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:45:00, 40.82000, 7.19791E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 3, Heating, 475.65554, 594.56943, 2.51986E-002, 4.89018E-002, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 07:15:00, 3.70000, 5.13120E-003, 96.26334, 5.18085, 4.89018E-002
+ Zone Sizing Information, THERMAL ZONE 13, Cooling, 3413.32617, 3925.32510, 0.20649, 0.23747, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:30:00, 43.40000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 13, Heating, 2005.97727, 2507.47159, 0.10625, 0.13281, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 15, Cooling, 1553.75264, 1786.81554, 9.39990E-002, 0.10810, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:00:00, 40.52000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 15, Heating, 1806.68492, 2258.35615, 9.56991E-002, 0.11962, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 1, Cooling, 3910.28951, 4496.83294, 0.23656, 0.27204, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 11:15:00, 40.94000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 1, Heating, 1563.91225, 1954.89031, 8.28395E-002, 0.10355, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 12, Cooling, 2656.49312, 3054.96708, 0.16071, 0.18481, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:15:00, 40.07000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 12, Heating, 2005.97727, 2507.47159, 0.10625, 0.13281, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 8, Cooling, 2421.58867, 2784.82697, 0.14650, 0.16847, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:15:00, 40.07000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 8, Heating, 1563.95280, 1954.94100, 8.28417E-002, 0.10355, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 4, Cooling, 3398.89868, 3908.73349, 0.20562, 0.23646, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:00:00, 41.72000, 7.19790E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 4, Heating, 1808.90158, 2261.12697, 9.58165E-002, 0.11977, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 10, Cooling, 3231.94018, 3716.73121, 0.19552, 0.22485, PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:30:00, 43.40000, 7.19791E-003, 38.43416, 2.06851, 1.95246E-002
+ Zone Sizing Information, THERMAL ZONE 10, Heating, 1563.95280, 1954.94100, 8.28417E-002, 0.10355, PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB, 12/21 06:00:00, 3.70000, 5.13120E-003, 38.43416, 2.06851, 1.95246E-002
+! <System Sizing Information>, System Name, Field Description, Value
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Cooling Design Air Flow Rate [m3/s], 3.24308
+ System Sizing Information, AIR LOOP HVAC 1, User Cooling Design Air Flow Rate [m3/s], 3.24308
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Heating Design Air Flow Rate [m3/s], 1.64628
+ System Sizing Information, AIR LOOP HVAC 1, User Heating Design Air Flow Rate [m3/s], 1.64628
+! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Air Flow Rate [m3/s], 0.11142
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.15743E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Reheat Water Flow Rate [m3/s], 5.20143E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 7.33648E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Maximum Water Flow Rate [m3/s], 5.20143E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Design Coil Load [W], 2394.23597
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, U-Factor Times Area Value [W/K], 76.15226
+! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 3,2964.18
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Air Flow Rate [m3/s], 0.30174
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.35522E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Reheat Water Flow Rate [m3/s], 7.34857E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.10365
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Maximum Water Flow Rate [m3/s], 7.34857E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Design Coil Load [W], 3382.56725
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, U-Factor Times Area Value [W/K], 206.23183
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 8,5761.25
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Air Flow Rate [m3/s], 0.20728
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow Fraction during Reheat [], 0.37678
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Reheat Water Flow Rate [m3/s], 8.48087E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11962
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Maximum Water Flow Rate [m3/s], 8.48087E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Design Coil Load [W], 3903.77161
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, U-Factor Times Area Value [W/K], 141.67141
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 16,5208.57
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Air Flow Rate [m3/s], 0.23441
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow Fraction during Reheat [], 0.83445
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Reheat Water Flow Rate [m3/s], 7.07369E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 9.97725E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Maximum Water Flow Rate [m3/s], 7.07369E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Design Coil Load [W], 3256.04294
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, U-Factor Times Area Value [W/K], 160.21817
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 17,5063.85
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Air Flow Rate [m3/s], 0.28151
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.19731E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Reheat Water Flow Rate [m3/s], 9.41595E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.13281
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Maximum Water Flow Rate [m3/s], 9.41595E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Design Coil Load [W], 4334.18965
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, U-Factor Times Area Value [W/K], 192.40469
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 11,6420.18
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Air Flow Rate [m3/s], 0.31592
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.46590E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Reheat Water Flow Rate [m3/s], 9.41993E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.13287
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Maximum Water Flow Rate [m3/s], 9.41993E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Design Coil Load [W], 4336.02123
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, U-Factor Times Area Value [W/K], 215.92386
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 9,6780.23
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Air Flow Rate [m3/s], 0.16071
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow Fraction during Reheat [], 0.48595
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Reheat Water Flow Rate [m3/s], 8.48112E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11962
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Maximum Water Flow Rate [m3/s], 8.48112E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Design Coil Load [W], 3903.88624
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, U-Factor Times Area Value [W/K], 109.84385
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 12,4489.09
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Air Flow Rate [m3/s], 0.19789
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow Fraction during Reheat [], 0.98844
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Reheat Water Flow Rate [m3/s], 4.20910E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 5.93682E-002
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Maximum Water Flow Rate [m3/s], 4.20910E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Design Coil Load [W], 1937.46094
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, U-Factor Times Area Value [W/K], 135.25724
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 15,3469.48
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Air Flow Rate [m3/s], 0.23747
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow Fraction during Reheat [], 0.32888
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Reheat Water Flow Rate [m3/s], 9.41606E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.13281
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Maximum Water Flow Rate [m3/s], 9.41606E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Design Coil Load [W], 4334.23974
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, U-Factor Times Area Value [W/K], 162.30395
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 10,5882.41
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Air Flow Rate [m3/s], 0.11962
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow Fraction during Reheat [], 0.65287
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Reheat Water Flow Rate [m3/s], 8.48112E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11962
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Maximum Water Flow Rate [m3/s], 8.48112E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Design Coil Load [W], 3903.88624
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, U-Factor Times Area Value [W/K], 81.76096
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 13,3698.37
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Air Flow Rate [m3/s], 0.27204
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.12344E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow Fraction during Reheat [], 0.30000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Reheat Water Flow Rate [m3/s], 7.34147E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.10355
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Maximum Water Flow Rate [m3/s], 7.34147E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Design Coil Load [W], 3379.30181
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, U-Factor Times Area Value [W/K], 185.93620
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 5,5520.33
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Air Flow Rate [m3/s], 0.18481
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow Fraction during Reheat [], 0.42258
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Reheat Water Flow Rate [m3/s], 9.41606E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.13281
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Maximum Water Flow Rate [m3/s], 9.41606E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Design Coil Load [W], 4334.23974
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, U-Factor Times Area Value [W/K], 126.31697
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 7,5092.77
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Air Flow Rate [m3/s], 0.16847
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow Fraction during Reheat [], 0.46356
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Reheat Water Flow Rate [m3/s], 7.34166E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.10355
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Maximum Water Flow Rate [m3/s], 7.34166E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Design Coil Load [W], 3379.38944
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, U-Factor Times Area Value [W/K], 115.14875
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 6,4353.20
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Air Flow Rate [m3/s], 0.23646
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow Fraction during Reheat [], 0.33027
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Reheat Water Flow Rate [m3/s], 8.49153E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.11977
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Maximum Water Flow Rate [m3/s], 8.49153E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Design Coil Load [W], 3908.67594
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, U-Factor Times Area Value [W/K], 161.61981
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 14,5588.11
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Air Flow Rate [m3/s], 0.22485
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow Fraction during Reheat [], 0.34734
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Reheat Water Flow Rate [m3/s], 7.34166E-005
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.10355
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Maximum Water Flow Rate [m3/s], 7.34166E-005
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Design Coil Load [W], 3379.38944
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, U-Factor Times Area Value [W/K], 153.68087
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 4,5064.75
+ Component Sizing Information, Branch, BRANCH {47BCC46E-AF4B-4C17-9D6D-D698D87B7469}, Maximum Flow Rate [m3/s], 3.24308
+ Component Sizing Information, AirLoopHVAC, AIR LOOP HVAC 1, Design Supply Air Flow Rate [m3/s], 3.24308
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Maximum Outdoor Air Flow Rate [m3/s], 3.24308
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Minimum Outdoor Air Flow Rate [m3/s], 0.38100
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Air Flow Rate [m3/s], 3.24308
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Total Cooling Capacity (gross) [W], 80533.43912
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Sensible Heat Ratio, 0.67608
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Air Flow Rate [m3/s], 1.08092
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Total Cooling Capacity (gross) [W], 26841.79526
+! <VAV DX Cooling Coil Standard Rating Information>, DX Coil Type, DX Coil Name, Fan Type, Fan Name, Standard Net Cooling Capacity {W}, Standard Net Cooling Capacity {Btu/h}, IEER {Btu/W-h}, COP 100% Capacity {W/W}, COP 75% Capacity {W/W}, COP 50% Capacity {W/W}, COP 25% Capacity {W/W}, EER 100% Capacity {Btu/W-h}, EER 75% Capacity {Btu/W-h}, EER 50% Capacity {Btu/W-h}, EER 25% Capacity {Btu/W-h}, Supply Air Flow 100% {kg/s}, Supply Air Flow 75% {kg/s},Supply Air Flow 50% {kg/s},Supply Air Flow 25% {kg/s}
+ VAV DX Cooling Coil Standard Rating Information, Coil:Cooling:DX:TwoSpeed,COIL COOLING DX TWO SPEED 1,N/A,N/A,78161.95,266699.63,25.99,4.59,6.21,8.76,12.89,15.66,21.17,29.87,43.99,3.6036,2.8863,1.9877,1.0225,
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Maximum Water Flow Rate [m3/s], 2.23615E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Design Coil Load [W], 10293.06586
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, U-Factor Times Area Value [W/K], 156.50509
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 1,9197.14
+ Component Sizing Information, Fan:VariableVolume, FAN VARIABLE VOLUME 1, Maximum Flow Rate [m3/s], 3.24308
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Maximum Actuated Flow [m3/s], 2.23615E-004
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Controller Convergence Tolerance, 1.00000E-003
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Nominal Capacity [W], 64609.50094
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Design Water Flow Rate [m3/s], 1.39822E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Maximum Loop Flow Rate [m3/s], 1.39822E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Plant Loop Volume [m3], 1.57299
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Flow Rate [m3/s], 1.39822E-003
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Power Consumption [W], 357.22657
+! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values
+! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
+! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
+! <Environment:WarmupDays>, NumberofWarmupDays
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+! <Environment:Design Day Data>, Max Dry-Bulb Temp {C}, Temp Range {dC}, Temp Range Ind Type, Hum Ind Value at Max Temp, Hum Ind Type,Pressure {Pa}, Wind Direction {deg CW from N}, Wind Speed {m/s}, Clearness, Rain, Snow
+! <Environment:Design_Day_Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
+Environment:Design Day Data,29.10,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+! <Tabular Report>,Style
+Tabular Report,HTML
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,2.4840147794E-002,3.2428123984E-002,Pass,Pass,1.9129517837E-002,4.0492378258E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3490625250E-002,9.2165181962E-002,Pass,Pass,2.5855221210E-002,3.0055179508E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3820024294E-002,0.1442843617,Pass,Pass,4.2456064359E-002,5.3299878966E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,2.0663165935E-004,4.1544360598E-004,Pass,Pass,1.2872732732E-002,2.9073531632E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3518429781E-002,0.1230593855,Pass,Pass,2.4417498921E-002,3.1881213011E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3511093858E-002,9.5879523661E-002,Pass,Pass,2.7300875433E-002,3.3566828707E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3628815107E-002,0.1133817727,Pass,Pass,3.7071733307E-002,5.0194736072E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,1.6667456016E-004,3.2254922461E-004,Pass,Pass,8.3611013710E-003,1.2267374095E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3408118277E-002,8.8156101137E-002,Pass,Pass,1.9819460945E-002,2.2151457389E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3501603152E-002,8.9555220028E-002,Pass,Pass,2.7512162697E-002,4.6793437983E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3463012109E-002,0.1223789375,Pass,Pass,2.3904462073E-002,2.7231547934E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,7.4818833469E-002,9.3071881669E-002,Pass,Pass,1.5725050385E-002,1.3887700377E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,6.7818162329E-002,8.6544612660E-002,Pass,Pass,1.5834104712E-002,1.4068393497E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3753196240E-002,0.1347340651,Pass,Pass,4.6635455725E-002,5.2072000318E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DP=>MDB,8.3376851343E-002,8.3779600880E-002,Pass,Pass,1.8476792137E-002,1.7030455486E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.40,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,1.5130100258E-002,2.5608158316E-002,Pass,Pass,1.9930148123E-002,3.1699921491E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,6.4924795338E-002,5.6077236560E-002,Pass,Pass,2.1720386149E-002,2.4878899473E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3507027829E-002,0.1415016404,Pass,Pass,2.6260532911E-002,2.8977876217E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,1.2998125837E-004,3.5488909606E-004,Pass,Pass,8.7454075814E-003,1.4501586530E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,5.9429700771E-002,0.1003293435,Pass,Pass,1.9802120525E-002,2.0958810995E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,6.2753081307E-002,5.3145445472E-002,Pass,Pass,2.1401776992E-002,2.4100909172E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,8.0485770394E-002,8.7431991399E-002,Pass,Pass,2.1312588204E-002,2.2728553535E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,1.3658980685E-004,2.9677252608E-004,Pass,Pass,6.4218561782E-003,1.1116709464E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,4.7091306794E-002,5.6786262688E-002,Pass,Pass,1.8800100224E-002,1.7677490612E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,6.4846280927E-002,8.1338180041E-002,Pass,Pass,1.8410090864E-002,2.2416616687E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,6.3911793294E-002,0.1048792826,Pass,Pass,2.0334425851E-002,2.1369955184E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,2.9463569928E-002,5.7642296588E-002,Pass,Pass,1.7791138224E-002,1.5659653856E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,2.8917296796E-002,5.6517293052E-002,Pass,Pass,1.8036886235E-002,1.6290363059E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,8.3566520413E-002,9.5776474990E-002,Pass,Pass,3.0325473510E-002,3.7671578737E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS WB=>MDB,4.9557870764E-002,5.9535187938E-002,Pass,Pass,1.9123554440E-002,1.7179632095E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,43.40,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,1.1336277780E-003,5.6498682016E-003,Pass,Pass,2.0507141441E-002,2.5882091479E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,2.7534210623E-002,3.6884198972E-002,Pass,Pass,2.2226622225E-002,2.0486848822E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,5.7586161594E-002,0.1111292017,Pass,Pass,2.3355416642E-002,2.9977117190E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,5.7382316584E-005,7.5241161349E-005,Pass,Pass,5.6182570052E-003,3.4347517876E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,1.4288505532E-002,3.9697788929E-002,Pass,Pass,2.1499508293E-002,2.1141014029E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,1.9878219388E-002,3.1544268882E-002,Pass,Pass,2.2329931512E-002,1.8862423952E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,3.8635779397E-002,5.1007857145E-002,Pass,Pass,2.2581547008E-002,2.3162296985E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,6.6695895428E-005,8.5341453371E-005,Pass,Pass,5.9192560242E-003,1.0573300705E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,1.1446372245E-003,4.5291413085E-003,Pass,Pass,2.1179630825E-002,1.1589158645E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,2.1635655797E-002,4.8981071974E-002,Pass,Pass,2.1114379094E-002,2.2316261945E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,2.5173918947E-002,6.0194031353E-002,Pass,Pass,2.1315507552E-002,2.1824825860E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,4.3479607938E-005,6.4687342793E-005,Pass,Pass,1.6786704454E-002,1.1140193231E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,4.6980306454E-005,6.1920992808E-005,Pass,Pass,1.7607606791E-002,1.2319607637E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,6.5078883591E-002,5.4070611515E-002,Pass,Pass,2.5476332780E-002,3.6492538983E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DB=>MWB,9.0983088146E-003,1.9939706505E-002,Pass,Pass,2.0833830278E-002,1.3998953863E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,30.20,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,2.3463897461E-002,3.1261242264E-002,Pass,Pass,1.9292716052E-002,3.7509293716E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3383380920E-002,8.4855253675E-002,Pass,Pass,2.4171032246E-002,2.8452550440E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3709714147E-002,0.1496756066,Pass,Pass,3.7654637664E-002,4.6770589711E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,1.8979879853E-004,4.1307784395E-004,Pass,Pass,1.1930136133E-002,2.5955590554E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3439079078E-002,0.1208544255,Pass,Pass,2.2317580547E-002,2.4467450015E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3461075158E-002,8.7867067032E-002,Pass,Pass,2.5090084895E-002,3.0517307561E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3608160188E-002,0.1095176795,Pass,Pass,3.2342388975E-002,4.1010782841E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,1.6114216102E-004,3.2550731479E-004,Pass,Pass,7.9608903360E-003,1.2047715373E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.2681321019E-002,8.7762459788E-002,Pass,Pass,1.7417968104E-002,1.6313351338E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3442505649E-002,8.9737959887E-002,Pass,Pass,2.3340537884E-002,3.3616312335E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3457614294E-002,0.1211824162,Pass,Pass,2.2292672497E-002,2.2476992813E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,6.6766305474E-002,8.8376632623E-002,Pass,Pass,1.6127484952E-002,1.3381232028E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,6.0944715905E-002,8.2037962629E-002,Pass,Pass,1.6251943260E-002,1.3879453320E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,8.3732274310E-002,0.1278774442,Pass,Pass,4.2073980764E-002,4.6833952622E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DP=>MDB,7.9563854920E-002,8.1900889324E-002,Pass,Pass,1.7751058892E-002,1.6185353264E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,15.40,0.00,DefaultMultipliers,97342,100,1.7,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.7245158430E-003,1.1309616987E-003,Pass,Pass,3.0871927761E-003,2.7223447635E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,6.2115609147E-005,1.8600143500E-004,Pass,Pass,4.3239705276E-003,2.9697102845E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.2080365521E-003,2.5751930397E-003,Pass,Pass,4.9774792473E-003,2.1004713736E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,6.2984890407E-004,7.5399474420E-004,Pass,Pass,9.3517492258E-003,4.8886540768E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,9.0017022851E-005,2.4441204478E-004,Pass,Pass,5.7781926138E-003,3.9904076029E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,4.3732367814E-003,1.8903643518E-003,Pass,Pass,1.2117133249E-002,3.8091967023E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.3567979624E-003,1.2886491443E-003,Pass,Pass,4.7381285967E-003,2.0073823595E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.4611700516E-003,2.0300542752E-004,Pass,Pass,1.6025771193E-002,2.6407983813E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,6.3830719270E-004,1.3033979996E-003,Pass,Pass,6.3001068810E-003,3.9967542159E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,3.5350507911E-003,1.0187332305E-003,Pass,Pass,8.3722400540E-003,2.0101465947E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,3.7422686044E-005,1.3922949329E-004,Pass,Pass,4.3488539837E-003,2.9866537532E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,9.1738025025E-004,1.1995880217E-003,Pass,Pass,6.8009756165E-003,3.9863055042E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.1887672474E-003,1.2796955431E-003,Pass,Pass,5.9884263862E-003,2.9633741818E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.1524725771E-004,3.4668566655E-004,Pass,Pass,3.0736921250E-003,2.1068996770E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,2.9835395737E-003,1.1756586590E-003,Pass,Pass,9.1752078370E-003,2.8831915472E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,3.70,0.00,DefaultMultipliers,97342,100,1.7,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,1.0988169892E-003,9.8410027225E-004,Pass,Pass,2.5995914278E-003,2.8799964921E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,1.8387309278E-003,1.7480846261E-003,Pass,Pass,7.1377382975E-003,3.7688604448E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,3.3621256236E-003,2.6960373668E-003,Pass,Pass,7.1740915203E-003,3.1509511936E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,5.2840096550E-004,7.6418199079E-004,Pass,Pass,1.0479055994E-002,6.8413881240E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,3.7349906308E-003,2.8698557900E-003,Pass,Pass,9.7883657931E-003,5.0078998897E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,2.6808607846E-003,2.5922036772E-003,Pass,Pass,8.6402761528E-003,5.0133881263E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,1.3929398591E-003,2.1768348100E-003,Pass,Pass,5.7002093744E-003,3.2376365676E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,8.4720921856E-004,7.6181128604E-004,Pass,Pass,4.6665065410E-003,4.4017457128E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,6.0950266451E-003,1.8888191475E-003,Pass,Pass,1.1702815713E-002,4.9387492078E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,1.9688579368E-002,6.6098587023E-002,Pass,Pass,1.8941105122E-003,7.4562527785E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,2.2200359864E-003,2.3759967453E-003,Pass,Pass,6.8774446089E-003,3.8284451814E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,4.3393980647E-004,1.0948068408E-003,Pass,Pass,7.3202218712E-003,4.9907380692E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,1.8480774986E-003,2.1435506862E-003,Pass,Pass,6.9385947726E-003,3.7581690158E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,1.6532333816E-003,2.1699832795E-003,Pass,Pass,5.6150941073E-003,3.1748444833E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99.6% CONDNS DB,1.7518368671E-004,5.1093609198E-004,Pass,Pass,5.4809702187E-003,3.7818027171E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,5.20,0.00,DefaultMultipliers,97342,100,1.7,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,1.4029760265E-003,8.2413925287E-004,Pass,Pass,3.3467470254E-003,2.6295657887E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,3.1470998239E-004,1.0839347832E-003,Pass,Pass,5.6159715874E-003,3.7409560477E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,3.2911463459E-003,2.7714543842E-003,Pass,Pass,7.1691876496E-003,3.0934416387E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,8.2665246322E-004,9.1998568600E-004,Pass,Pass,1.1404711874E-002,6.7701239008E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,4.2783310641E-003,1.5153202544E-003,Pass,Pass,1.1418246138E-002,4.8751734906E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,4.9569873637E-003,2.5398130036E-003,Pass,Pass,1.1352785543E-002,4.9871647263E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,1.6353589343E-003,2.0487607880E-003,Pass,Pass,5.6398960699E-003,3.0859578083E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,4.6695655140E-004,6.5495603263E-004,Pass,Pass,2.0096540449E-003,3.3131684253E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,2.2156165930E-003,2.8049749430E-003,Pass,Pass,8.7591789752E-003,5.0077064413E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,1.7366905072E-002,5.9997459340E-002,Pass,Pass,1.9534580933E-003,7.7376129857E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,3.0803024656E-003,2.2291206657E-003,Pass,Pass,8.4341437254E-003,3.6917608417E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,1.4432913539E-004,4.4008571931E-004,Pass,Pass,7.1934785780E-003,4.9956931686E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,3.1735879329E-003,2.1567791929E-003,Pass,Pass,8.4560311932E-003,3.6602355981E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,2.1076147215E-003,2.1727989467E-003,Pass,Pass,5.8639335938E-003,3.0921963486E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG 99% CONDNS DB,2.5911483457E-003,2.2932990576E-003,Pass,Pass,8.3164599008E-003,3.7160869759E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,17.00,0.00,DefaultMultipliers,97342,100,1.7,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.6809481971E-003,8.5993572542E-004,Pass,Pass,3.7953677432E-003,2.6251772190E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.6438900479E-003,2.5147448207E-003,Pass,Pass,1.1044474918E-002,2.8016149474E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.1438539662E-004,2.4513188593E-004,Pass,Pass,2.6750298629E-003,1.8326736664E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.2365837410E-003,4.3765185257E-004,Pass,Pass,1.4293243416E-002,4.5927089708E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,4.4461405702E-003,1.2281704882E-003,Pass,Pass,1.3207994697E-002,3.7463692792E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.5281970602E-003,1.8982371095E-003,Pass,Pass,8.2833650309E-003,3.7718292366E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.5077494696E-003,1.6294277959E-003,Pass,Pass,4.2083312704E-003,1.8188297243E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,7.6010410162E-004,1.6808395773E-005,Pass,Pass,9.1765362458E-003,9.2903062155E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.3607748908E-003,1.3101697322E-003,Pass,Pass,7.9365448518E-003,3.7794665671E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.5652320179E-003,6.7618305188E-004,Pass,Pass,6.6280680939E-003,1.7714820523E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.1892265025E-003,1.4596589861E-003,Pass,Pass,5.9076632654E-003,2.8133192747E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.9528640721E-003,2.4832974959E-004,Pass,Pass,9.6390346750E-003,3.7250719972E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.0962518011E-004,7.0628367589E-004,Pass,Pass,4.3383943162E-003,2.8093699866E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,2.4925306732E-003,3.7162742958E-004,Pass,Pass,6.9001511167E-003,1.8421796609E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.2495561381E-003,1.3604384087E-003,Pass,Pass,5.9367306220E-003,2.7251258273E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,15.10,0.00,DefaultMultipliers,97342,100,7.3,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.4833747328E-003,2.4860290818E-005,Pass,Pass,5.5580454692E-003,4.3729940340E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.4089033199E-003,2.4123670809E-003,Pass,Pass,1.0755481045E-002,3.3902154016E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.2376183821E-003,1.9164034961E-003,Pass,Pass,6.5043730128E-003,2.2011667776E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,8.3320663276E-004,9.3178375844E-004,Pass,Pass,1.1845910348E-002,6.3015723941E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.1017646575E-003,1.5427383255E-003,Pass,Pass,7.8803992317E-003,4.5864992371E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.2135838679E-003,1.3291376257E-003,Pass,Pass,9.1497286822E-003,4.6155524026E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.2722229783E-003,1.2361300287E-003,Pass,Pass,5.1797133930E-003,2.2553866436E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,9.4088970291E-004,6.1118281872E-004,Pass,Pass,1.0829984698E-002,3.5091931395E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.8666462750E-003,2.0649672065E-003,Pass,Pass,9.4318050577E-003,4.5870988317E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.3247800546E-003,2.2519632974E-003,Pass,Pass,6.7603367432E-003,2.2730181335E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.8903925086E-005,6.6120488469E-005,Pass,Pass,4.8681811424E-003,3.3495663037E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.7491386015E-003,2.1230906523E-003,Pass,Pass,8.4368808295E-003,4.6643667379E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.3433084440E-004,7.7741155187E-004,Pass,Pass,5.1758749386E-003,3.3913961028E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.3038870262E-003,1.2624961496E-003,Pass,Pass,5.4965742835E-003,2.2422063192E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.4817671704E-003,1.4482440500E-003,Pass,Pass,7.8192277244E-003,3.3022047403E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,28.10,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,2.6033119310E-002,3.2370376616E-002,Pass,Pass,1.8787429307E-002,3.8650782225E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3471050320E-002,9.6680216691E-002,Pass,Pass,2.7481717282E-002,3.1755471059E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3835637903E-002,0.1428286438,Pass,Pass,4.7635451494E-002,5.9270670857E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,2.0619793736E-004,4.1653848200E-004,Pass,Pass,1.3803325101E-002,3.2144357914E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3623465914E-002,0.1255928522,Pass,Pass,2.6476557918E-002,3.7471352537E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3606337759E-002,0.1019514368,Pass,Pass,2.9565256239E-002,3.6230964845E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3612248112E-002,0.1161615904,Pass,Pass,4.3049956733E-002,6.0113893871E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,1.6316021532E-004,3.2246311493E-004,Pass,Pass,8.7323046928E-003,1.2509235230E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3509836473E-002,9.1263918203E-002,Pass,Pass,2.1967213309E-002,3.1179776053E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3502868619E-002,9.1597735645E-002,Pass,Pass,3.2610829143E-002,6.0545812095E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3544720791E-002,0.1248232834,Pass,Pass,2.5336117782E-002,3.2647687056E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.2216591416E-002,9.6557001963E-002,Pass,Pass,1.5332240297E-002,1.4343264175E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,7.4103903341E-002,8.9032707976E-002,Pass,Pass,1.5454329651E-002,1.4275608266E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3866858032E-002,0.1396802815,Pass,Pass,5.2141842837E-002,5.9058974108E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS DP=>MDB,8.3398867970E-002,8.5617423159E-002,Pass,Pass,2.0165265574E-002,2.2755230128E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.20,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,1.5231949633E-002,2.6066651028E-002,Pass,Pass,1.9961059955E-002,3.1514415431E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,6.5638556519E-002,5.6748309135E-002,Pass,Pass,2.1767398177E-002,2.4872422125E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3537741084E-002,0.1390052195,Pass,Pass,2.6422512470E-002,3.0819785501E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,2.3024605226E-004,5.0026928774E-004,Pass,Pass,8.8276265531E-003,1.4783107321E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,6.0230528067E-002,0.1010915036,Pass,Pass,1.9857323591E-002,2.2876991536E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,6.3606944382E-002,5.3948197516E-002,Pass,Pass,2.1439905432E-002,2.4105756189E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.1344278346E-002,8.8621086148E-002,Pass,Pass,2.1405088942E-002,2.2684642045E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,1.2589665151E-004,2.7256798672E-004,Pass,Pass,6.4558621257E-003,1.1108754924E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,4.8000749124E-002,5.7842805572E-002,Pass,Pass,1.8836370542E-002,1.7725934171E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,6.5675042743E-002,8.2824360619E-002,Pass,Pass,1.8514158465E-002,2.2487140632E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,6.4570687042E-002,0.1039528611,Pass,Pass,2.0372894730E-002,2.1248217144E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,3.0485362818E-002,5.9115739790E-002,Pass,Pass,1.7844316749E-002,1.6172533061E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,2.9794528120E-002,5.8179325531E-002,Pass,Pass,1.8099386408E-002,1.6726679322E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3715780534E-002,9.6258521423E-002,Pass,Pass,3.0658899981E-002,3.7957282090E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS ENTH=>MDB,5.0329164901E-002,6.0475422516E-002,Pass,Pass,1.9165266337E-002,1.7267477394E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.80,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,1.4387483122E-002,2.4767510287E-002,Pass,Pass,1.9950978511E-002,3.0880699057E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,6.2912271855E-002,5.3493173469E-002,Pass,Pass,2.1719559000E-002,2.5028696919E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3511347042E-002,0.1383345077,Pass,Pass,2.5637081790E-002,2.9939649186E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,1.3178277801E-004,3.3677527996E-004,Pass,Pass,8.5892737435E-003,1.3816395465E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,5.6914900306E-002,9.8453215045E-002,Pass,Pass,1.9892874904E-002,2.1225561275E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,6.0355982832E-002,5.0415555462E-002,Pass,Pass,2.1442917471E-002,2.4223387295E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,7.8256966452E-002,8.5977593017E-002,Pass,Pass,2.1398031470E-002,2.1838510435E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,1.3635093836E-004,2.7608455737E-004,Pass,Pass,6.3406702914E-003,1.1070321756E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,4.4428566437E-002,5.4927202071E-002,Pass,Pass,1.8887194062E-002,1.8189145806E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,6.2532585259E-002,8.0104482195E-002,Pass,Pass,1.8541102528E-002,2.1900049854E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,6.1791906832E-002,0.1024090453,Pass,Pass,2.0424504848E-002,2.2799389710E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,2.6758038179E-002,5.5416797763E-002,Pass,Pass,1.7885087968E-002,1.5359898717E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,2.6560328807E-002,5.4764100715E-002,Pass,Pass,1.8144592801E-002,1.6051102541E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,8.3524333929E-002,9.3569140013E-002,Pass,Pass,2.9838576862E-002,3.7803300346E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS WB=>MDB,4.7289851795E-002,5.6973258659E-002,Pass,Pass,1.9219024288E-002,1.7649234994E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.30,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,1.5047717536E-002,2.5828987967E-002,Pass,Pass,1.9965450440E-002,3.1006500013E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,6.5134639598E-002,5.6005220047E-002,Pass,Pass,2.1767170350E-002,2.4912260183E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3503534592E-002,0.1388184298,Pass,Pass,2.6312043123E-002,3.0529637115E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,2.3135969158E-004,5.0064292992E-004,Pass,Pass,8.7892733941E-003,1.4616296402E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,5.9601969175E-002,0.1008315574,Pass,Pass,1.9866915968E-002,2.3243731608E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,6.3005568412E-002,5.3113631884E-002,Pass,Pass,2.1451529315E-002,2.3992468454E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.0789642254E-002,8.8271778494E-002,Pass,Pass,2.1426778791E-002,2.2686645299E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,1.2561269284E-004,2.7334006798E-004,Pass,Pass,6.4349344158E-003,1.1096548558E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,4.7335575867E-002,5.7177316852E-002,Pass,Pass,1.8852649494E-002,1.7919103227E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,6.5100844611E-002,8.2425361718E-002,Pass,Pass,1.8537181770E-002,2.2344318944E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,6.4041033381E-002,0.1037029503,Pass,Pass,2.0390733983E-002,2.1519403138E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,2.9806733228E-002,5.8485809375E-002,Pass,Pass,1.7863114926E-002,1.6058026150E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,2.9204925705E-002,5.7589678720E-002,Pass,Pass,1.8122198741E-002,1.6525445879E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3638315262E-002,9.5686181037E-002,Pass,Pass,3.0482006684E-002,3.7809340052E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG .4% CONDNS ENTH=>MDB,4.9762688222E-002,5.9850793126E-002,Pass,Pass,1.9197026442E-002,1.7287217099E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.10,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,1.5697431981E-002,2.6742410355E-002,Pass,Pass,1.9928881940E-002,3.3715710242E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,6.6469413298E-002,5.8797345346E-002,Pass,Pass,2.1723214366E-002,2.4696158527E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3537432547E-002,0.1390693976,Pass,Pass,2.6703655357E-002,3.1245142156E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,1.3072287600E-004,3.1784041361E-004,Pass,Pass,8.8742556253E-003,1.5062320679E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,6.1357189420E-002,0.1011880306,Pass,Pass,1.9812769019E-002,2.1608903650E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,6.4592625924E-002,5.5555806241E-002,Pass,Pass,2.1383295222E-002,2.4380758122E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,8.2179197791E-002,8.8686501728E-002,Pass,Pass,2.1246914193E-002,2.1733342330E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,1.3646067448E-004,2.8270192069E-004,Pass,Pass,6.4878873981E-003,1.1160972047E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,4.9121655488E-002,5.9448828165E-002,Pass,Pass,1.8741986451E-002,1.7171234241E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,6.6609663271E-002,8.3266107980E-002,Pass,Pass,1.8329391117E-002,2.2788996662E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,6.5537336787E-002,0.1043151088,Pass,Pass,2.0307409064E-002,2.0919122256E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,3.1540346390E-002,5.9917915682E-002,Pass,Pass,1.7728792736E-002,1.6897048937E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,3.0729206910E-002,5.8972597782E-002,Pass,Pass,1.7958146070E-002,1.6855388192E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,8.3592709652E-002,9.8538457048E-002,Pass,Pass,3.0823020062E-002,3.7574259199E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS WB=>MDB,5.1295911541E-002,6.1668458368E-002,Pass,Pass,1.9035407498E-002,1.7598972798E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,41.20,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,4.6855105296E-003,1.4913359740E-002,Pass,Pass,2.0336704801E-002,2.4837394702E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,3.7470975527E-002,4.1117544860E-002,Pass,Pass,2.2105552810E-002,2.1756326430E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,6.8413692077E-002,0.1254365149,Pass,Pass,2.3235152168E-002,2.9671638792E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,7.5079452676E-005,8.4780816031E-005,Pass,Pass,6.3905157316E-003,5.7383978453E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,2.6003524082E-002,6.0411302121E-002,Pass,Pass,2.0667135141E-002,2.1676756845E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,3.0331088806E-002,3.8496724970E-002,Pass,Pass,2.1682493335E-002,2.0565041038E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,4.9759852526E-002,6.0528298730E-002,Pass,Pass,2.2252555105E-002,2.4938203609E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,8.3472995788E-005,9.4423896151E-005,Pass,Pass,5.9814053378E-003,1.0723466035E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,1.2217830643E-002,2.4370555322E-002,Pass,Pass,2.0197888325E-002,1.4169236913E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,3.3219799870E-002,6.2744971027E-002,Pass,Pass,2.0057301024E-002,2.2339479461E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,3.5496310688E-002,7.1924336805E-002,Pass,Pass,2.1005977347E-002,2.2390907261E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,6.2155783756E-005,7.9373116245E-005,Pass,Pass,1.8302619086E-002,1.2169435321E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,6.5286349445E-005,7.4614101234E-005,Pass,Pass,1.9141322609E-002,1.3636842024E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,7.5534651886E-002,5.8781086372E-002,Pass,Pass,2.5528459309E-002,3.7251975524E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 2% CONDNS DB=>MWB,1.9586000928E-002,3.2057203706E-002,Pass,Pass,2.0315247101E-002,1.5965764408E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,SizingPeriod:DesignDay,12/21,12/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,14.80,0.00,DefaultMultipliers,97342,100,8.2,0.00,No ,No 
+Environment:Design_Day_Misc,355,1232.8,0.1424,5.7719E-002,1.0,2.45,-23.5,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.5387210887E-003,1.2291611911E-003,Pass,Pass,2.5567688883E-003,2.7312013617E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.1618072021E-003,1.6951879574E-003,Pass,Pass,1.1788078017E-002,3.3891722170E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.1331069722E-003,1.1345980728E-003,Pass,Pass,5.4830677712E-003,2.3401687739E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,5.8679223752E-005,1.0103926238E-004,Pass,Pass,9.0715371019E-003,6.3418983448E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.6998676664E-003,1.5236206664E-003,Pass,Pass,9.3952617312E-003,4.6084862932E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.7571994809E-003,1.7882298354E-003,Pass,Pass,1.3428642809E-002,4.6403630260E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.6372336333E-003,5.4206491700E-004,Pass,Pass,7.2176526634E-003,2.2518631177E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.3922764675E-003,3.8439366291E-004,Pass,Pass,1.5668247925E-002,5.2494984470E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.2404749702E-003,2.2519884158E-003,Pass,Pass,1.0372941575E-002,4.7013103381E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.7954226202E-004,1.1035255789E-003,Pass,Pass,3.6908881611E-003,2.3731821268E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.9186420861E-003,1.2312539523E-003,Pass,Pass,1.0930501484E-002,3.2066362126E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.0287683298E-003,1.0976043533E-003,Pass,Pass,8.6730776240E-003,4.6703136637E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,1.8621469465E-003,7.4341453941E-004,Pass,Pass,8.2181877313E-003,3.3534077256E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.2017996252E-003,1.8729126155E-003,Pass,Pass,7.6619584609E-003,2.2444430083E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,8.9303098004E-004,1.5674236615E-003,Pass,Pass,5.6896852606E-003,3.3212810811E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,42.30,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,2.8091038576E-003,1.2472127612E-002,Pass,Pass,2.1686119826E-002,3.1430516236E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,3.2454163373E-002,3.9241739988E-002,Pass,Pass,2.2168952863E-002,2.1062562829E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,6.2996555361E-002,0.1139025578,Pass,Pass,2.3306439834E-002,2.9005389879E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,6.0779089418E-005,6.9610697381E-005,Pass,Pass,5.9855631555E-003,4.4862499873E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,2.0040841719E-002,5.0386308022E-002,Pass,Pass,2.1088428500E-002,2.1349103476E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,2.4942486426E-002,3.5192773115E-002,Pass,Pass,2.2015812272E-002,1.9635917472E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,4.4108899894E-002,5.5919327250E-002,Pass,Pass,2.2415571072E-002,2.4445289617E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,6.9779901472E-005,8.2401524570E-005,Pass,Pass,5.9671547148E-003,1.0648082316E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,6.3005204178E-003,1.5340003314E-002,Pass,Pass,2.0694516516E-002,1.2844723829E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,2.7357549725E-002,5.6334445089E-002,Pass,Pass,2.0463920023E-002,2.1723963094E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,3.0278771730E-002,6.6286955969E-002,Pass,Pass,2.1042831382E-002,2.2379618933E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,4.7966944235E-005,6.1786266881E-005,Pass,Pass,1.7526756355E-002,1.1352194754E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,5.1890671988E-005,5.8709345931E-005,Pass,Pass,1.8281318466E-002,1.3003124008E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,7.0291250584E-002,5.6123751805E-002,Pass,Pass,2.5496859099E-002,3.6998048960E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS DB=>MWB,1.4244921754E-002,2.6548193111E-002,Pass,Pass,2.0512129339E-002,1.5064633176E-002,Pass,Pass
+Environment,PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,35.40,12.00,DefaultMultipliers,97342,260,4.1,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,1.4863849787E-002,2.5624232673E-002,Pass,Pass,1.9972037554E-002,3.0715422085E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,6.4630120259E-002,5.5219724957E-002,Pass,Pass,2.1766548703E-002,2.4941742692E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3605967056E-002,0.1386739589,Pass,Pass,2.6143001862E-002,3.0511854523E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,2.3248523088E-004,5.0176227481E-004,Pass,Pass,8.7495344210E-003,1.4446328750E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,5.8972794436E-002,0.1004428529,Pass,Pass,1.9870239355E-002,2.3106486768E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,6.2404383878E-002,5.2305003085E-002,Pass,Pass,2.1462050431E-002,2.3963809185E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.0234941255E-002,8.7742749521E-002,Pass,Pass,2.1448873189E-002,2.2176861032E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,1.2525378340E-004,2.7566630613E-004,Pass,Pass,6.4143365300E-003,1.1087637757E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,4.6669728040E-002,5.6666584934E-002,Pass,Pass,1.8868538084E-002,1.8154216934E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,6.4521983642E-002,8.2088723835E-002,Pass,Pass,1.8560154753E-002,2.2322223472E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,6.3511218358E-002,0.1034803194,Pass,Pass,2.0407605289E-002,2.1858522972E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,2.9127466063E-002,5.7845869595E-002,Pass,Pass,1.7882634854E-002,1.5871423903E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,2.8613927780E-002,5.7125232827E-002,Pass,Pass,1.8145690519E-002,1.6423883181E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3618446290E-002,9.5092835762E-002,Pass,Pass,3.0405535871E-002,3.7783343800E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHOENIX SKY HARBOR INTL AP ANN CLG 1% CONDNS ENTH=>MDB,4.9195932227E-002,5.9286792924E-002,Pass,Pass,1.9227136790E-002,1.7502411496E-002,Pass,Pass
+Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01,12/31,Thursday,365,Use RunPeriod Specified Day,Yes,Yes,No ,Yes,Yes
+Environment:Daylight Saving,No,
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 2,RunPeriod: RUN PERIOD 1,8.2292175279E-002,0.1137865908,Pass,Pass,504.5413890023,4915.9672860663,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,RunPeriod: RUN PERIOD 1,5.5009014244E-002,0.1184720323,Pass,Pass,0.4695314112,2.4422085249,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,RunPeriod: RUN PERIOD 1,5.5511899646E-002,0.1072938986,Pass,Pass,8.3345086998E-002,0.1547364546,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,RunPeriod: RUN PERIOD 1,8.5434884508E-002,0.1272125103,Pass,Pass,0.2359917552,1.1438339828,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,RunPeriod: RUN PERIOD 1,3.9005995852E-002,7.4382211763E-002,Pass,Pass,6.8798642005E-002,0.1129125335,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,RunPeriod: RUN PERIOD 1,4.4760991151E-002,0.1049049553,Pass,Pass,0.3335975370,2.2776956962,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 5,RunPeriod: RUN PERIOD 1,8.4486684064E-002,0.1853314865,Pass,Pass,0.1584874172,0.3712720131,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,RunPeriod: RUN PERIOD 1,8.5748070154E-002,0.1452425691,Pass,Pass,2.4884059306E-002,4.8106030314E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,RunPeriod: RUN PERIOD 1,8.4151980104E-002,0.1456121781,Pass,Pass,0.1421399975,0.3063731364,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,RunPeriod: RUN PERIOD 1,1.4745879667E-002,4.6414993777E-002,Pass,Pass,0.5745303603,3.4495722103,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,RunPeriod: RUN PERIOD 1,5.1249450330E-002,9.2121790472E-002,Pass,Pass,9.4302545510E-002,0.2235596867,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,RunPeriod: RUN PERIOD 1,8.7316541440E-003,3.0008360880E-002,Pass,Pass,0.4043389433,1.6832764283,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,RunPeriod: RUN PERIOD 1,1.9866024947E-002,5.1129001247E-002,Pass,Pass,0.1451138783,0.5637119253,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,RunPeriod: RUN PERIOD 1,6.5632121989E-002,0.1516568994,Pass,Pass,1.6891406901,13.4118675450,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,RunPeriod: RUN PERIOD 1,8.4095019320E-002,0.1503769891,Pass,Pass,0.1631859373,0.4274831870,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, Yes,1, Not Set, Not Set, 1, 1, 102, N/A
+End of Data
