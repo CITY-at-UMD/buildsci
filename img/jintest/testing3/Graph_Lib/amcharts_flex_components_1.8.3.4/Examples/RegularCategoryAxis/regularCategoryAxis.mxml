@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:amcharts="http://www.amcharts.com/com_internal"
+				layout="absolute"
+				backgroundColor="#FFFFFF"
+				width="100%"
+				height="100%" viewSourceURL="srcview/index.html">
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var shadow:DropShadowFilter = new DropShadowFilter(2,45,0,0.5);
+			
+			[Bindable]
+			private var chartData:ArrayCollection = new ArrayCollection([
+				{year:2005,income:23.5,expences:18.1},
+				{year:2006,income:26.2,expences:22.8},
+				{year:2007,income:30.1,expences:23.9},
+				{year:2008,income:29.5,expences:25.1},
+				{year:2009,income:24.6,expences:25.0}
+			]);            
+		]]>
+	</mx:Script>
+	
+	<mx:VBox width="100%" height="100%">    
+		<amcharts:AmSerialChart
+			id="chart"
+			width="100%"
+			height="100%"
+			dataProvider="{chartData}"
+			categoryField="year"
+			startDuration="1"
+			rotate="true">
+			
+			<amcharts:graphs>
+				<amcharts:AmGraph title="Income" valueField="income" type="column" lineAlpha="0" fillColors="[#ADD981]" fillAlphas="[1]"/>                        
+				<amcharts:AmGraph title="Expences" valueField="expences" type="line" lineThickness="2" bullet="round" filters="{[shadow]}"/>                        
+			</amcharts:graphs>
+			<amcharts:categoryAxis>
+				<amcharts:CategoryAxis gridPosition="start" dashLength="5" fillAlpha="0.1" fillColor="#000000"/>                            
+			</amcharts:categoryAxis>
+		</amcharts:AmSerialChart>
+		<amcharts:AmLegend marginLeft="50" dataProvider="{chart}" textClickEnabled="false"/>                     
+	</mx:VBox>
+</mx:Application>

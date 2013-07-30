@@ -1,0 +1,113 @@
+<?php
+
+//include database information and user information
+require 'authentication.inc';
+
+session_start();
+
+//is the one accessing this page logged in or not?
+if (isset($_SESSION['db_is_logged_in'])){
+    //logged in, display appropriate information
+     $message="Hello ".$_SESSION['userID']."!";
+     header('Location: main.php');
+}
+
+$errorMessage = '';
+
+//are user ID and Password provided?
+if (isset($_POST['txtUserId']) && isset($_POST['txtPassword'])) {
+
+    //get userID and Password
+    $loginUserId = $_POST['txtUserId'];
+    $loginPassword = $_POST['txtPassword'];
+    
+    //connect to the database
+    $connection = mysql_connect("$hostName", "$sqlusername", "$sqlpassword")
+	or die("ERROR: selecting database server failed");
+
+    //choose the database
+    mysql_select_db($databaseName, $connection)
+	or die( "ERROR: Selecting database failed");	
+    
+    // Authenticate the user
+    if (authenticateUser($connection, $loginUserId, $loginPassword))
+	{
+	    //the user id and password match,
+	    // set the session	
+	    $_SESSION['db_is_logged_in'] = true;
+	    $_SESSION['userID'] = $loginUserId;
+	    
+	    // after login we move to the main page
+	    header('Refresh: 0; url=main.php');
+	    exit;
+	} else {
+	    $errorMessage = 'Sorry, wrong username / password';
+    }
+}
+?>
+
+<html>
+<head>
+<title>RMT: Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>RMT 4: Login</title>
+<LINK REL="SHORTCUT ICON" HREF="../img/eebhub" />
+<link href="../css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<link href="../css/demo.css" rel="stylesheet" type="text/css">
+
+<style>
+.login_form {
+    background-color: white;
+    position: static;
+    width: 50%;
+    margin: 25% auto ;
+    border: solid thin #888;
+    padding: 30px;
+}
+
+footer{
+	position: fixed;
+}
+
+</style>
+</head>
+
+<body>
+<div style="color: #eee; position: absolute; height: 80px; width: 100%; background: #999; top: 0; left: 0;">
+	<h1 style="margin-left: 50px"> <a style="text-decoration: none; color: #eee" href="../index.php"> Welcome to RMT </a></h1>
+</div>
+
+<div class="main-div">
+	<div class="login_form" >
+		<p>If you don't have an account, please <a href="signup.php">sign up</a>.</p>
+		<form action="" method="post" name="frmLogin" id="frmLogin">
+			<table width="400" border="0" align="center" cellpadding="2" cellspacing="2">
+			  <tr>
+			   <td width="150">User ID</td>
+			   <td><input name="txtUserId" type="text" id="txtUserId"></td>
+			  </tr>
+			  <tr>
+			   <td width="150">Password</td>
+			   <td><input name="txtPassword" type="password" id="txtPassword"></td>
+			  </tr>
+			  <tr>
+				<td colspan="2">
+					<p style="color: red; text-align: right;"> <Strong> <?php echo $errorMessage ?> </Strong></p>
+				</td>
+			  </tr>
+			  <tr>
+			   <td width="150">&nbsp;</td>
+			   <td><input name="btnLogin" class="button" type="submit" id="btnLogin" value="Login"></td>
+			  </tr>
+			 </table>
+		</form>
+	</div>
+	<p style="text-align: center">
+		<a class="policy-link" href="../index.php"> &copy; 2013, RMT </a>
+		<a class="policy-link" href="#"> Term of Service </a>
+		<a class="policy-link" href="../#"> Privacy Policy </a>
+		<a class="policy-link" href="../index.php"> Help </a>
+	</p>
+</div>
+</body>
+</html>

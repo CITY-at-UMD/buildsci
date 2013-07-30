@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amStock Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:amcharts="http://www.amcharts.com/com_internal"    
+				creationComplete="{generateChartData()}"
+				backgroundColor="#FFFFFF" viewSourceURL="srcview/index.html">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var chartData:ArrayCollection = new ArrayCollection();
+			
+			private function generateChartData():void
+			{
+				var firstDate:Date = new Date();
+				firstDate.setMinutes(firstDate.getMinutes() - 2000);
+				
+				for(var i:Number = 0; i < 2000; i++)
+				{
+					var newDate:Date = new Date(firstDate);
+					
+					newDate.setMinutes(newDate.getMinutes() + i);
+					
+					var a:Number = Math.round(Math.random() * (40 + i)) + 100 + i;
+					var b:Number   = Math.round(Math.random() * (1000 + i)) + 500 + i * 2;
+					
+					chartData.addItem({date:newDate, a:a, b:b});
+				}
+			}            
+		]]>
+	</mx:Script>    
+	
+	<mx:VBox width="100%" height="100%" paddingBottom="10" paddingTop="10" paddingLeft="10" paddingRight="10">
+		
+		<amcharts:AmStockChart width="100%" height="100%">
+			<amcharts:dataSets>
+				<amcharts:DataSet color="#00CC00" dataProvider="{chartData}" categoryField="date" title="First data set">                
+					<amcharts:fieldMappings>
+						<amcharts:FieldMapping fromField="a" toField="value"/>
+						<amcharts:FieldMapping fromField="b" toField="volume"/>
+					</amcharts:fieldMappings>                
+				</amcharts:DataSet>    
+			</amcharts:dataSets>
+						
+			<amcharts:panels>				
+				<!-- to enabled drawing icons, you only need to set drawingIconsEnabled="true" on StockPanel -->				
+				<amcharts:StockPanel drawingIconsEnabled="true" title="Value" height="50%" showCategoryAxis="true">
+					<amcharts:stockGraphs>
+						<amcharts:StockGraph bulletBorderColor="#FFFFFF" bullet="round" id="g1" valueField="value" compareField="value" comparable="true"/>                        
+					</amcharts:stockGraphs>
+					<amcharts:stockLegend>
+						<amcharts:StockLegend/>                        
+					</amcharts:stockLegend>
+				</amcharts:StockPanel>
+			</amcharts:panels>
+			
+			<amcharts:periodSelector>
+				<amcharts:PeriodSelector position="bottom" width="157">
+					<amcharts:periods>
+						<amcharts:PeriodButton selected="true" label="1 Hour" period="hh" count="1"/>
+						<amcharts:PeriodButton label="2 Hours" period="hh" count="2"/>
+						<amcharts:PeriodButton label="6 Hours" period="hh" count="6"/>
+						<amcharts:PeriodButton label="1 Day" period="DD" count="1"/>
+						<amcharts:PeriodButton label="MAX" period="MAX"/>
+					</amcharts:periods>
+				</amcharts:PeriodSelector>
+			</amcharts:periodSelector>
+
+			<amcharts:chartScrollbarSettings>
+				<amcharts:ChartScrollbarSettings height="30" graph="{g1}"/>
+			</amcharts:chartScrollbarSettings>
+			
+			<amcharts:categoryAxesSettings>
+				<amcharts:CategoryAxesSettings minPeriod="mm"/>
+			</amcharts:categoryAxesSettings>
+			
+			<amcharts:chartCursorSettings>
+				<amcharts:ChartCursorSettings showValueAxisValue="true" crosshair="true"/>
+			</amcharts:chartCursorSettings>
+			
+		</amcharts:AmStockChart>
+	</mx:VBox>	
+	
+</mx:Application>

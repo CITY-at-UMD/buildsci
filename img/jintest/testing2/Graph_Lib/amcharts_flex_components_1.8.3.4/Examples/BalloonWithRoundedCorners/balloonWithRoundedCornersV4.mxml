@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+    
+    <fx:Style> 
+        @font-face 
+        {
+            src: url("../assets/tahoma.ttf");
+            fontFamily: "Tahoma";
+            embedAsCFF: false;
+            unicode-range:
+                U+0020-U+0040, /* Punctuation, Numbers */
+                U+0041-U+005A, /* Upper-Case A-Z */
+                U+005B-U+0060, /* Punctuation and Symbols */
+                U+0061-U+007A, /* Lower-Case a-z */
+                U+007B-U+007E; /* Punctuation and Symbols */            
+        }  
+        
+        .MyTextStyle 
+        { 
+            font-family: Tahoma; 
+        }
+        
+    </fx:Style> 
+    
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            import flash.filters.DropShadowFilter;
+            
+            [Bindable]
+			private var chartData:Array = [{country:"USA",visits:4252},{country:"China",visits:1882},{country:"Japan",visits:1809},{country:"Germany",visits:1322},{country:"UK",visits:1122},{country:"France",visits:1114},{country:"India",visits:984},{country:"Spain",visits:711},{country:"Netherlands",visits:665},{country:"Russia",visits:580},{country:"South Korea",visits:443},{country:"Canada",visits:441},{country:"Brazil",visits:395},{country:"Italy",visits:386},{country:"Australia",visits:384},{country:"Taiwan",visits:338},{country:"Poland",visits:328}];
+            
+            [Bindable]
+			private var shadow:DropShadowFilter = new DropShadowFilter(2,45,0,0.5);
+            
+        ]]>
+    </fx:Script>
+    <s:HGroup width="100%" height="100%">
+        <amcharts:AmPieChart
+            styleName="MyTextStyle"
+            width="50%"
+            height="100%"
+            dataProvider="{chartData}"
+            valueField="visits"
+            titleField="country"
+            angle="5"
+            depth3D="5"
+            innerRadius="10"
+            groupPercent="3"
+            gradient="radial"
+            filters="{[shadow]}"
+            startDuration="1.5"
+            startRadius="100"
+            marginLeft="0"
+            marginRight="0"
+            labelWidth="100">
+            
+            <amcharts:balloon>
+                <amcharts:AmBalloon cornerRadius="10" borderThickness="2" borderColor="#FFFFFF" borderAlpha="1"/>                
+            </amcharts:balloon>
+            
+        </amcharts:AmPieChart>
+        
+        <amcharts:AmSerialChart 
+            styleName="MyTextStyle"
+            width="50%"
+            height="100%"
+            dataProvider="{chartData}"
+            categoryField="country"
+            startDuration="1"
+            angle="30"
+            depth3D="15">
+            <amcharts:categoryAxis>
+                <amcharts:CategoryAxis gridPosition="start" gridCount="{chartData.length}" labelRotation="90"/>
+            </amcharts:categoryAxis>
+			<amcharts:valueAxes>
+				<amcharts:ValueAxis title="VISITS PER DAY" titleTextColor="#CC0000"/>
+			</amcharts:valueAxes>			
+            <amcharts:graphs>
+                <amcharts:AmGraph balloonText="[[category]]: [[value]]" id="g0" valueField="visits" type="column" lineAlpha="0" fillAlphas="[0.8]"/>                        
+            </amcharts:graphs>
+            <amcharts:balloon>
+                <amcharts:AmBalloon cornerRadius="10" borderThickness="2" borderColor="#FFFFFF" borderAlpha="1"/>                
+            </amcharts:balloon>    
+            <amcharts:chartCursor>
+                <amcharts:ChartCursor zoomable="false" cursorAlpha="0" categoryBalloonEnabled="false"/>                    
+            </amcharts:chartCursor>    
+        </amcharts:AmSerialChart>
+    </s:HGroup>
+</s:Application>

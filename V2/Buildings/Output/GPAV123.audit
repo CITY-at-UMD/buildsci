@@ -1,0 +1,736 @@
+  Processing Data Dictionary (Energy+.idd) File -- Complete
+  Maximum number of Alpha Args=        4500
+  Maximum number of Numeric Args=        3200
+  Number of Object Definitions=         666
+  Number of Section Definitions=           2
+  Processing Input Data File (in.idf) -- Start
+      1 Version, 7.1.0;
+      2 
+      3 Building,
+      4   GPAV,  !- Name
+      5   0.0000,  !- North Axis [Sketchup Model North = True North]
+      6   City,  !- Terrain [IDF Editor Default = City][Sketchup Default = Suburbs]
+      7   0.0400,  !- Loads Convergence Tolerance Value [Watts]
+      8   0.2000,  !- Temperature Convergence Tolerance Value [deg C]
+      9   FullInteriorAndExterior,  !- Solar Distribution [Space must be convex for ext & int]
+     10   25,  !- Max Number of Warmup Days
+     11   6;  !- Min Number of Warmup Days
+     12 
+     13 GlobalGeometryRules,  !- Previously called SurfaceGeometry
+     14   UpperLeftCorner,  !- Starting Vertex Position
+     15   Counterclockwise,  !- Vertex Entry Direction
+     16   Relative,  !- Coordinate System [IDF Editor Default = relative][Sketchup Default = WORLD]
+     17   Relative;  !- Daylighting Reference Point Coordinate System
+     18 
+     19 !--SIMULATION--------------
+     20 Timestep,4;   !-Simulation Timestep = 60/4 = 15 minutes increments [Default = 4]
+     21 
+     22 SimulationControl,!- Previously called UseWeatherFile
+     23   No,  !- Do Zone Sizing Calculation NEEDS Sizing:Zone
+     24   No,  !- Do System Sizing Calculation NEEDS Sizing:System
+     25   No,  !- Do Plant Sizing Calculation NEEDS Sizing:Plant
+     26   No,  !- Run Simulation for Sizing Periods NEEDS SizingPeriod:DesignDay + SizingPeriod:WeatherFileDays + SizingPeriod:WeatherFileConditionType
+     27   Yes;  !- Run Simulation for Weather File Run Periods NEEDS RunPeriod
+     28 
+     29 RunPeriod,
+     30   ,  !- Name [Default = weather file title]
+     31   1,  !- Begin Month
+     32   1,  !- Begin Day of Month
+     33   12,  !- End Month
+     34   31,  !- End Day of Month
+     35   Sunday;  !- Day of Week for Start Day
+   ** Warning ** IP: IDF line~35 Object=RUNPERIOD, name=, entered with less than minimum number of fields.
+   **   ~~~   ** Attempting fill to minimum.
+   **   Add   ** YES   ! field=>Use Weather File Holidays and Special Days
+   **   Add   ** YES   ! field=>Use Weather File Daylight Saving Period
+   **   Add   ** NO   ! field=>Apply Weekend Holiday Rule
+   **   Add   ** YES   ! field=>Use Weather File Rain Indicators
+   **   Add   ** YES   ! field=>Use Weather File Snow Indicators
+     36 
+     37 !--ZONE---------------------
+     38 Zone,
+     39 Zone1,                    !- Zone Name
+     40 0,                       !- Direction of Relative North {deg}
+     41     0,                       !- X Origin {m}
+     42     0,                       !- Y Origin {m}
+     43     0,                       !- Z Origin {m}
+     44     ,                       !- Type
+     45     1,                       !- Multiplier
+     46 autocalculate,           !- Ceiling Height {m}
+     47     autocalculate;           !- Volume {m3}
+     48 !
+     49 !--GEOMETRY---------------------
+     50 !-West Wall
+     51 ! BuildingSurface:Detailed,
+     52 ! Zone1W,           !- User Supplied Surface Name
+     53 ! Wall,                    !- Surface Type
+     54 ! ExteriorWallConst,                  !- Construction Name of the Surface
+     55 ! Zone1,                !- Zone Name
+     56 ! Outdoors ,     !- Outside Boundary Condition
+     57 !  ,                        !- Outside Boundary Condition Object
+     58 ! SunExposed,              !- Sun Exposure
+     59 ! WindExposed,             !- Wind Exposure
+     60 ! 0.5,                     !- View Factor to Ground
+     61 ! 4,                       !- Number of Surface Vertex Groups -- Number of (X,Y,Z) groups in this surface
+     62 ! 0,                       !- Vertex 1 X-coordinate {m}
+     63 ! 5,                       !- Vertex 1 Y-coordinate {m}
+     64 ! 3,                       !- Vertex 1 Z-coordinate {m}
+     65 ! 0,                       !- Vertex 2 X-coordinate {m}
+     66 ! 0,                       !- Vertex 2 Y-coordinate {m}
+     67 ! 3,                       !- Vertex 2 Z-coordinate {m}
+     68 ! 0,                       !- Vertex 3 X-coordinate {m}
+     69 ! 0,                       !- Vertex 3 Y-coordinate {m}
+     70 ! 0,                       !- Vertex 3 Z-coordinate {m}
+     71 ! 0,                       !- Vertex 4 X-coordinate {m}
+     72 ! 5,                       !- Vertex 4 Y-coordinate {m}
+     73 ! 0;                       !- Vertex 4 Z-coordinate {m}
+     74 !
+     75 !-South Wall
+     76 ! BuildingSurface:Detailed,
+     77 ! Zone1S,           !- User Supplied Surface Name
+     78 ! Wall,                    !- Surface Type
+     79 ! ExteriorWallConst,                  !- Construction Name of the Surface
+     80 ! Zone1,                !- Zone Name
+     81 ! Outdoors ,     !- Outside Boundary Condition
+     82 !  ,                        !- Outside Boundary Condition Object
+     83 ! SunExposed,              !- Sun Exposure
+     84 ! WindExposed,             !- Wind Exposure
+     85 ! 0.5,                     !- View Factor to Ground
+     86 ! 4,                       !- Number of Surface Vertex Groups -- Number of (X,Y,Z) groups in this surface
+     87 ! 0,                       !- Vertex 1 X-coordinate {m}
+     88 ! 0,                       !- Vertex 1 Y-coordinate {m}
+     89 ! 3,                       !- Vertex 1 Z-coordinate {m}
+     90 ! 10,                       !- Vertex 2 X-coordinate {m}
+     91 ! 0,                       !- Vertex 2 Y-coordinate {m}
+     92 ! 3,                       !- Vertex 2 Z-coordinate {m}
+     93 ! 10,                       !- Vertex 3 X-coordinate {m}
+     94 ! 0,                       !- Vertex 3 Y-coordinate {m}
+     95 ! 0,                       !- Vertex 3 Z-coordinate {m}
+     96 ! 0,                       !- Vertex 4 X-coordinate {m}
+     97 ! 0,                       !- Vertex 4 Y-coordinate {m}
+     98 ! 0;                       !- Vertex 4 Z-coordinate {m}
+     99 !
+    100 !-East Wall-
+    101 ! BuildingSurface:Detailed,
+    102 ! Zone1E,           !- User Supplied Surface Name
+    103 ! Wall,                    !- Surface Type
+    104 ! ExteriorWallConst,                  !- Construction Name of the Surface
+    105 ! Zone1,                !- Zone Name
+    106 ! Outdoors ,     !- Outside Boundary Condition
+    107 !  ,                        !- Outside Boundary Condition Object
+    108 ! SunExposed,              !- Sun Exposure
+    109 ! WindExposed,             !- Wind Exposure
+    110 ! 0.5,                     !- View Factor to Ground
+    111 ! 4,                       !- Number of Surface Vertex Groups -- Number of (X,Y,Z) groups in this surface
+    112 ! 10,                       !- Vertex 1 X-coordinate {m}
+    113 ! 0,                       !- Vertex 1 Y-coordinate {m}
+    114 ! 3,                       !- Vertex 1 Z-coordinate {m}
+    115 ! 10,                       !- Vertex 2 X-coordinate {m}
+    116 ! 5,                       !- Vertex 2 Y-coordinate {m}
+    117 ! 3,                       !- Vertex 2 Z-coordinate {m}
+    118 ! 10,                       !- Vertex 3 X-coordinate {m}
+    119 ! 5,                       !- Vertex 3 Y-coordinate {m}
+    120 ! 0,                       !- Vertex 3 Z-coordinate {m}
+    121 ! 10,                       !- Vertex 4 X-coordinate {m}
+    122 ! 0,                       !- Vertex 4 Y-coordinate {m}
+    123 ! 0;                       !- Vertex 4 Z-coordinate {m}
+    124 !
+    125 !-North Wall-
+    126 ! BuildingSurface:Detailed,
+    127 ! Zone1N,           !- User Supplied Surface Name
+    128 ! Wall,                    !- Surface Type
+    129 ! ExteriorWallConst,                  !- Construction Name of the Surface
+    130 ! Zone1,                !- Zone Name
+    131 ! Outdoors ,     !- Outside Boundary Condition
+    132 !  ,                        !- Outside Boundary Condition Object
+    133 ! SunExposed,              !- Sun Exposure
+    134 ! WindExposed,             !- Wind Exposure
+    135 ! 0.5,                     !- View Factor to Ground
+    136 ! 4,                       !- Number of Surface Vertex Groups -- Number of (X,Y,Z) groups in this surface
+    137 ! 10,                       !- Vertex 1 X-coordinate {m}
+    138 ! 5,                       !- Vertex 1 Y-coordinate {m}
+    139 ! 3,                       !- Vertex 1 Z-coordinate {m}
+    140 ! 0,                       !- Vertex 2 X-coordinate {m}
+    141 ! 5,                       !- Vertex 2 Y-coordinate {m}
+    142 ! 3,                       !- Vertex 2 Z-coordinate {m}
+    143 ! 0,                       !- Vertex 3 X-coordinate {m}
+    144 ! 5,                       !- Vertex 3 Y-coordinate {m}
+    145 ! 0,                       !- Vertex 3 Z-coordinate {m}
+    146 ! 10,                       !- Vertex 4 X-coordinate {m}
+    147 ! 5,                       !- Vertex 4 Y-coordinate {m}
+    148 ! 0;                       !- Vertex 4 Z-coordinate {m}
+    149 !
+    150 !-Floor-
+    151 ! BuildingSurface:Detailed,
+    152 ! Zone1F,           !- User Supplied Surface Name
+    153 ! Floor,                    !- Surface Type
+    154 ! FloorConst,                  !- Construction Name of the Surface
+    155 ! Zone1,                !- Zone Name
+    156 ! Outdoors ,     !- Outside Boundary Condition
+    157 !  ,                        !- Outside Boundary Condition Object
+    158 ! SunExposed,              !- Sun Exposure
+    159 ! WindExposed,             !- Wind Exposure
+    160 ! 0.5,                     !- View Factor to Ground
+    161 ! 4,                       !- Number of Surface Vertex Groups -- Number of (X,Y,Z) groups in this surface
+    162 ! 0,                       !- Vertex 1 X-coordinate {m}
+    163 ! 0,                       !- Vertex 1 Y-coordinate {m}
+    164 ! 0,                       !- Vertex 1 Z-coordinate {m}
+    165 ! 10,                       !- Vertex 2 X-coordinate {m}
+    166 ! 0,                       !- Vertex 2 Y-coordinate {m}
+    167 ! 0,                       !- Vertex 2 Z-coordinate {m}
+    168 ! 10,                       !- Vertex 3 X-coordinate {m}
+    169 ! 5,                       !- Vertex 3 Y-coordinate {m}
+    170 ! 0,                       !- Vertex 3 Z-coordinate {m}
+    171 ! 0,                       !- Vertex 4 X-coordinate {m}
+    172 ! 5,                       !- Vertex 4 Y-coordinate {m}
+    173 ! 0;                       !- Vertex 4 Z-coordinate {m}
+    174 !
+    175 !-Ceiling/Roof-
+    176 ! BuildingSurface:Detailed,
+    177 ! Zone1C,           !- User Supplied Surface Name
+    178 ! ceiling,                    !- Surface Type
+    179 ! RoofConst,                  !- Construction Name of the Surface
+    180 ! Zone1,                !- Zone Name
+    181 ! Outdoors ,     !- Outside Boundary Condition
+    182 !  ,                        !- Outside Boundary Condition Object
+    183 ! SunExposed,              !- Sun Exposure
+    184 ! WindExposed,             !- Wind Exposure
+    185 ! 0.5,                     !- View Factor to Ground
+    186 ! 4,                       !- Number of Surface Vertex Groups -- Number of (X,Y,Z) groups in this surface
+    187 ! 10,                       !- Vertex 1 X-coordinate {m}
+    188 ! 0,                       !- Vertex 1 Y-coordinate {m}
+    189 ! 3,                       !- Vertex 1 Z-coordinate {m}
+    190 ! 0,                       !- Vertex 2 X-coordinate {m}
+    191 ! 0,                       !- Vertex 2 Y-coordinate {m}
+    192 ! 3,                       !- Vertex 2 Z-coordinate {m}
+    193 ! 0,                       !- Vertex 3 X-coordinate {m}
+    194 ! 5,                       !- Vertex 3 Y-coordinate {m}
+    195 ! 3,                       !- Vertex 3 Z-coordinate {m}
+    196 ! 10,                       !- Vertex 4 X-coordinate {m}
+    197 ! 5,                       !- Vertex 4 Y-coordinate {m}
+    198 ! 3;                       !- Vertex 4 Z-coordinate {m}
+    199 
+    200 !-Window-
+    201 FenestrationSurface:Detailed,
+    202 ZNSwindow,                !- User Supplied Surface Name
+    203 WINDOW,                  !- Surface Type
+    204 WindowConst,             !- Construction Name of the Surface
+    205 Zone1S,                   !- Base Surface Name
+    206 ,                        !- OutsideFaceEnvironment Object
+    207 0.5,                     !- View Factor to Ground
+    208 ,                        !- Name of shading control
+    209 ,                        !- WindowFrameAndDivider Name
+    210 1,                       !- Multiplier
+    211 4,                       !- Number of Surface Vertex Groups -- Number of (X,Y,Z) groups in this surface
+    212 5.5,                     !- Vertex 1 X-coordinate {m}
+    213 0,                       !- Vertex 1 Y-coordinate {m}
+    214 3,                     !- Vertex 1 Z-coordinate {m}
+    215 6.5,                     !- Vertex 2 X-coordinate {m}
+    216 0,                       !- Vertex 2 Y-coordinate {m}
+    217 3,                     !- Vertex 2 Z-coordinate {m}
+    218 6.5,                     !- Vertex 3 X-coordinate {m}
+    219 0,                       !- Vertex 3 Y-coordinate {m}
+    220 2,                       !- Vertex 3 Z-coordinate {m}
+    221 5.5,                     !- Vertex 4 X-coordinate {m}
+    222 0,                       !- Vertex 4 Y-coordinate {m}
+    223 2;                       !- Vertex 4 Z-coordinate {m}
+    224 
+    225 !--CONSTRUCTION---------------------
+    226 !-Construction, Name, Outside Layer, Layer 2, Layer 3, etc.-
+    227 
+    228 Construction, ExteriorWallConst, Insulator - 5cm, HW Concrete - 20cm;
+    229 Construction, FloorConst, Insulator - 10cm, HW Concrete - 25cm;
+    230 Construction, RoofConst, Insulator - 5cm, HW Concrete - 20cm;
+    231 Construction, WindowConst, Glass:Simple - 6mm, WindowGas:Air - 1cm, Glass:Simple - 6mm;
+    232 
+    233 !--MATERIALS---------------------
+    234 Material,
+    235     Insulator - 5cm,         !- Name
+    236     VeryRough,               !- Roughness
+    237     .05,                     !- Thickness {m}
+    238     .04,                     !- Conductivity {W/m-K}
+    239     32.03000    ,            !- Density {kg/m3}
+    240     830.0000    ,            !- Specific Heat {J/kg-K}
+    241     0.9000000    ,           !- Absorptance:Thermal
+    242     0.5000000    ,           !- Absorptance:Solar
+    243     0.5000000    ;           !- Absorptance:Visible
+    244 
+    245 Material,
+    246     Insulator - 10cm,        !- Name
+    247     VeryRough,               !- Roughness
+    248     .1,                      !- Thickness {m}
+    249     .04,                     !- Conductivity {W/m-K}
+    250     32.03000    ,            !- Density {kg/m3}
+    251     830.0000    ,            !- Specific Heat {J/kg-K}
+    252     0.9000000    ,           !- Absorptance:Thermal
+    253     0.5000000    ,           !- Absorptance:Solar
+    254     0.5000000    ;           !- Absorptance:Visible
+    255 
+    256 Material,
+    257     HW Concrete - 20cm,      !- Name
+    258     MediumRough,             !- Roughness
+    259     .2,                      !- Thickness {m}
+    260     1.720000    ,            !- Conductivity {W/m-K}
+    261     2242.580    ,            !- Density {kg/m3}
+    262     830.0000    ,            !- Specific Heat {J/kg-K}
+    263     0.9000000    ,           !- Absorptance:Thermal
+    264     0.6500000    ,           !- Absorptance:Solar
+    265     0.6500000    ;           !- Absorptance:Visible
+    266 
+    267 Material,
+    268     HW Concrete - 25cm,      !- Name
+    269     MediumRough,             !- Roughness
+    270     .25,                     !- Thickness {m}
+    271     1.720000    ,            !- Conductivity {W/m-K}
+    272     2242.580    ,            !- Density {kg/m3}
+    273     830.0000    ,            !- Specific Heat {J/kg-K}
+    274     0.9000000    ,           !- Absorptance:Thermal
+    275     0.6500000    ,           !- Absorptance:Solar
+    276     0.6500000    ;           !- Absorptance:Visible
+    277 
+    278 Material,
+    279     LW Concrete - 15cm,      !- Name
+    280     Rough,                   !- Roughness
+    281     .15,                     !- Thickness {m}
+    282     0.5700000    ,           !- Conductivity {W/m-K}
+    283     608.7000    ,            !- Density {kg/m3}
+    284     830.0000    ,            !- Specific Heat {J/kg-K}
+    285     0.9000000    ,           !- Absorptance:Thermal
+    286     0.6500000    ,           !- Absorptance:Solar
+    287     0.6500000    ;           !- Absorptance:Visible
+    288 
+    289 WindowMaterial:Glazing,
+    290     Glass:Simple - 6mm,      !- Name
+    291     SpectralAverage,         !- Optical Data Type
+    292     ,                        !- Name of Window Glass Spectral Data Set
+    293     .006,                    !- Thickness {m}
+    294     .775,                    !- Solar Transmittance at Normal Incidence
+    295     .071,                    !- Solar Reflectance at Normal Incidence: Front Side
+    296     .071,                    !- Solar Reflectance at Normal Incidence: Back Side
+    297     .881,                    !- Visible Transmittance at Normal Incidence
+    298     .080,                    !- Visible Reflectance at Normal Incidence: Front Side
+    299     .080,                    !- Visible Reflectance at Normal Incidence: Back Side
+    300     .0,                      !- IR Transmittance at Normal Incidence
+    301     .84,                     !- IR Hemispherical Emissivity: Front Side
+    302     .84,                     !- IR Hemispherical Emissivity: Back Side
+    303     .9;                      !- Conductivity {W/m-K}
+    304 
+    305 WindowMaterial:Gas,
+    306     WindowGas:Air - 1cm,     !- Name
+    307     AIR,                     !- Gas Type
+    308     .01;                     !- Thickness {m}
+    309 
+    310 !--SCHEDULE-------------------------
+    311 ScheduleTypeLimits, !- Needed to validate Schedule Compact of Type Fraction
+    312   Fraction,                !- Name
+    313   0.0,                     !- Lower Limit Value
+    314   1.0,                     !- Upper Limit Value
+    315   CONTINUOUS;              !- Numeric Type
+    316 
+    317 Schedule:Compact,
+    318     Work9-17,                !- Name
+    319     Fraction,                !- ScheduleType
+    320     Through: 12/31,           !- Complex Field #1
+    321     For: AllDays,            !- Complex Field #2
+    322     Until: 8:00,             !- Complex Field #3
+    323     0.0,                     !- Complex Field #4
+    324     Until: 9:00,             !- Complex Field #5
+    325     0.5,                     !- Complex Field #6
+    326     Until: 17:00,            !- Complex Field #7
+    327     1,                       !- Complex Field #8
+    328     Until: 18:00,            !- Complex Field #9
+    329     0.5,                     !- Complex Field #10
+    330     Until: 24:00,            !- Complex Field #11
+    331     0.0;                     !- Complex Field #12
+    332 !
+    333 !--HVAC---------------------
+    334 !
+    335 !   HVACTemplate:Thermostat,
+    336 !     Constant Setpoint Thermostat,  !- Name
+    337 !     ,                        !- Heating Setpoint Schedule Name
+    338 !     20,                      !- Constant Heating Setpoint {C}
+    339 !     ,                        !- Cooling Setpoint Schedule Name
+    340 !     25;                      !- Constant Cooling Setpoint {C}
+    341 !
+    342 !   HVACTemplate:Zone:IdealLoadsAirSystem,
+    343 !     Zone1,          !- Zone Name
+    344 !     Constant Setpoint Thermostat;               !- Thermostat Name
+    345 
+    346 !--LOADS------------------
+    347 !-People & Lights & Electrical-
+    348 
+    349 People,
+    350   PeopleName,  !- Name
+    351   Zone1,  !- Zone Name
+    352   Work9-17,  !- Schedule Name
+    353   People,  !- Number of People Calculation Method
+    354   3.0269,  !- Number of People
+    355   ,  !- People per Zone Area
+    356   ,  !- Zone Area per Person
+    357   0.3000,  !- Fraction Radiant
+    358   AUTOCALCULATE,  !- User Specified Sensible Fraction
+    359   Work9-17,  !- Activity Level Schedule Name
+    360   3.82E-8,  !- Carbon Dioxide Generation Rate {m3/s-W}
+    361   No,  !- Enable ASHRAE 55 Comfort Warnings
+    362   ZoneAveraged,  !- MRT Calculation
+    363   ,  !- Surface Name
+    364   Work9-17,  !- Work Efficiency Schedule Name
+    365   Work9-17,  !- Clothing Schedule Name
+    366   Work9-17,  !- Air Velocity Schedule Name
+    367   FANGER;  !- Thermal Comfort Report
+    368 
+    369 Lights,
+    370   LightsName,  !- Name
+    371   Zone1,  !- Zone Name
+    372   Work9-17,  !- Schedule Name
+    373   LightingLevel,  !- Design Level Calculation Method
+    374   832.9787,  !- Design Level {W}
+    375   ,  !- Watts per Zone Area {W/m2}
+    376   ,  !- Watts per Person {W/person}
+    377   0.0000,  !- Return Air Fraction
+    378   0.7000,  !- Fraction Radiant
+    379   0.2000,  !- Fraction Visible
+    380   1.0000,  !- Fraction Replaceable
+    381   General,  !- End-Use Subcategory
+    382   No;  !- Return Air Fraction is Calculated from Plenum Temperature
+    383 
+    384 ElectricEquipment,
+    385   ElectricEquipmentName,  !- Name
+    386   Zone1,  !- Zone Name
+    387   Work9-17,  !- Schedule Name
+    388   EquipmentLevel,  !- Design Level Calculation Method
+    389   624.7340,  !- Design Level {W}
+    390   ,  !- Watts per Zone Floor Area {W/m2}
+    391   ,  !- Watts per Person {W/person}
+    392   0.0000,  !- Fraction Latent
+    393   0.5000,  !- Fraction Radiant
+    394   0.0000,  !- Fraction Lost
+    395   PlugMisc;  !- End-Use Subcategory
+    396 
+    397 !--OUTPUT---------------------
+    398 OutputControl:Table:Style,
+    399   TabAndHTML;                    !- Column Separator
+    400 
+    401 Output:Surfaces:Drawing,
+    402   DXF;     !- Geometry
+    403 
+    404 Output:SQLite,
+    405   SimpleAndTabular;
+    406 
+    407 Output:Table:SummaryReports,
+    408   AnnualBuildingUtilityPerformanceSummary,  !- Report Name
+    409   InputVerificationandResultsSummary,
+    410   ClimaticDataSummary;
+    411 !
+    412 ! Cannot find Energy+.idd as specified in Energy+.ini.
+    413 !
+    414 ! Since the Energy+.IDD file cannot be read no range or choice checking was performed.
+    415 !
+    416 ! -------------------------------------------------------------
+    417 ! New objects created from ExpandObjects
+    418 ! -------------------------------------------------------------
+    419 !
+    420 
+    421 ScheduleTypeLimits,
+    422   HVACTemplate Any Number;                                 !- Name
+    423 
+    424 Schedule:Compact,
+    425   HVACTemplate-Always 20,                                  !- Name
+    426   HVACTemplate Any Number,                                 !- Schedule Type Limits Name
+    427   Through: 12/31,                                          !- Field 1
+    428   For: AllDays,                                            !- Field 2
+    429   Until: 24:00,                                            !- Field 3
+    430   20;                                                      !- Field 4
+    431 
+    432 Schedule:Compact,
+    433   HVACTemplate-Always 25,                                  !- Name
+    434   HVACTemplate Any Number,                                 !- Schedule Type Limits Name
+    435   Through: 12/31,                                          !- Field 1
+    436   For: AllDays,                                            !- Field 2
+    437   Until: 24:00,                                            !- Field 3
+    438   25;                                                      !- Field 4
+    439 
+    440 ThermostatSetpoint:DualSetpoint,
+    441   Constant Setpoint Thermostat Dual SP Control,            !- Name
+    442   HVACTemplate-Always 20,                                  !- Heating Setpoint Temperature Schedule Name
+    443   HVACTemplate-Always 25;                                  !- Cooling Setpoint Temperature Schedule Name
+    444 
+    445 Schedule:Compact,
+    446   HVACTemplate-Always 4,                                   !- Name
+    447   HVACTemplate Any Number,                                 !- Schedule Type Limits Name
+    448   Through: 12/31,                                          !- Field 1
+    449   For: AllDays,                                            !- Field 2
+    450   Until: 24:00,                                            !- Field 3
+    451   4;                                                       !- Field 4
+    452 
+    453 ZoneControl:Thermostat,
+    454   Zone1 Thermostat,                                        !- Name
+    455   Zone1,                                                   !- Zone or ZoneList Name
+    456   HVACTemplate-Always 4,                                   !- Control Type Schedule Name
+    457   ThermostatSetpoint:DualSetpoint,                         !- Control Object Type
+    458   Constant Setpoint Thermostat Dual SP Control;            !- Control Name
+    459 
+    460 ZoneHVAC:EquipmentConnections,
+    461   Zone1,                                                   !- Zone Name
+    462   Zone1 Equipment,                                         !- Zone Conditioning Equipment List Name
+    463   Zone1 Supply Inlet,                                      !- Zone Air Inlet Node or NodeList Name
+    464   ,                                                        !- Zone Air Exhaust Node or NodeList Name
+    465   Zone1 Zone Air Node,                                     !- Zone Air Node Name
+    466   Zone1 Return Outlet;                                     !- Zone Return Air Node Name
+    467 
+    468 ZoneHVAC:EquipmentList,
+    469   Zone1 Equipment,                                         !- Name
+    470   ZoneHVAC:IdealLoadsAirSystem,                            !- Zone Equipment Object Type
+    471   Zone1ZoneHVAC:IdealLoadsAirSystem,                       !- Zone Equipment Name
+    472   1,                                                       !- Zone Equipment Cooling Sequence
+    473   1;                                                       !- Zone Equipment Heating or No-Load Sequence
+    474 
+    475 ZoneHVAC:IdealLoadsAirSystem,
+    476   Zone1ZoneHVAC:IdealLoadsAirSystem,                       !- Name
+    477   ,                                                        !- Availability Schedule Name
+    478   Zone1 Supply Inlet,                                      !- Zone Supply Air Node Name
+    479   ,                                                        !- Zone Exhaust Air Node Name
+    480   50,                                                      !- Maximum Heating Supply Air Temperature [C]
+    481   13,                                                      !- Minimum Cooling Supply Air Temperature [C]
+    482   0.008,                                                   !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
+    483   0.009,                                                   !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
+    484   NoLimit,                                                 !- Heating Limit
+    485   ,                                                        !- Maximum Heating Air Flow Rate {m3/s}
+    486   ,                                                        !- Maximum Sensible Heating Capacity {m3/s}
+    487   NoLimit,                                                 !- Cooling Limit
+    488   ,                                                        !- Maximum Cooling Air Flow Rate {m3/s}
+    489   ,                                                        !- Maximum Total Cooling Capacity {m3/s}
+    490   ,                                                        !- Heating Availability Schedule Name
+    491   ,                                                        !- Cooling Availability Schedule Name
+    492   ConstantSensibleHeatRatio,                               !- Dehumidification Control Type
+    493   .7,                                                      !- Cooling Sensible Heat Ratio
+    494   ConstantSupplyHumidityRatio,                             !- Humidification Control Type
+    495   ,                                                        !- Design Specification Outdoor Air Object Name
+    496   ,                                                        !- Outdoor Air Inlet Node Name
+    497   None,                                                    !- Demand Controlled Ventilation Type
+    498   NoEconomizer,                                            !- Outdoor Air Economizer Type
+    499   None,                                                    !- Heat Recovery Type
+    500   .7,                                                      !- Sensible Heat Recovery Effectiveness
+    501   .65;                                                     !- Latent Heat Recovery Effectiveness
+    502 
+    503 BuildingSurface:Detailed,
+    504   Zone1W,                                                  !- Name
+    505   Wall,                                                    !- Surface Type
+    506   ExteriorWallConst,                                       !- Construction Name
+    507   Zone1,                                                   !- Zone Name
+    508   Outdoors,                                                !- Outside Boundary Condition
+    509   ,                                                        !- Outside Boundary Condition Object
+    510   SunExposed,                                              !- Sun Exposure
+    511   WindExposed,                                             !- Wind Exposure
+    512   0.5,                                                     !- View Factor to Ground
+    513   4,                                                       !- Number of Vertices
+    514   0,                                                       !- Vertex 1 X-coordinate
+    515   5,                                                       !- Vertex 1 Y-coordinate
+    516   3,                                                       !- Vertex 1 Z-coordinate
+    517   0,                                                       !- Vertex 2 X-coordinate
+    518   0,                                                       !- Vertex 2 Y-coordinate
+    519   3,                                                       !- Vertex 2 Z-coordinate
+    520   0,                                                       !- Vertex 3 X-coordinate
+    521   0,                                                       !- Vertex 3 Y-coordinate
+    522   0,                                                       !- Vertex 3 Z-coordinate
+    523   0,                                                       !- Vertex 4 X-coordinate
+    524   5,                                                       !- Vertex 4 Y-coordinate
+    525   0;                                                       !- Vertex 4 Z-coordinate
+    526 
+    527 BuildingSurface:Detailed,
+    528   Zone1S,                                                  !- Name
+    529   Wall,                                                    !- Surface Type
+    530   ExteriorWallConst,                                       !- Construction Name
+    531   Zone1,                                                   !- Zone Name
+    532   Outdoors,                                                !- Outside Boundary Condition
+    533   ,                                                        !- Outside Boundary Condition Object
+    534   SunExposed,                                              !- Sun Exposure
+    535   WindExposed,                                             !- Wind Exposure
+    536   0.5,                                                     !- View Factor to Ground
+    537   4,                                                       !- Number of Vertices
+    538   0,                                                       !- Vertex 1 X-coordinate
+    539   0,                                                       !- Vertex 1 Y-coordinate
+    540   3,                                                       !- Vertex 1 Z-coordinate
+    541   10,                                                      !- Vertex 2 X-coordinate
+    542   0,                                                       !- Vertex 2 Y-coordinate
+    543   3,                                                       !- Vertex 2 Z-coordinate
+    544   10,                                                      !- Vertex 3 X-coordinate
+    545   0,                                                       !- Vertex 3 Y-coordinate
+    546   0,                                                       !- Vertex 3 Z-coordinate
+    547   0,                                                       !- Vertex 4 X-coordinate
+    548   0,                                                       !- Vertex 4 Y-coordinate
+    549   0;                                                       !- Vertex 4 Z-coordinate
+    550 
+    551 BuildingSurface:Detailed,
+    552   Zone1E,                                                  !- Name
+    553   Wall,                                                    !- Surface Type
+    554   ExteriorWallConst,                                       !- Construction Name
+    555   Zone1,                                                   !- Zone Name
+    556   Outdoors,                                                !- Outside Boundary Condition
+    557   ,                                                        !- Outside Boundary Condition Object
+    558   SunExposed,                                              !- Sun Exposure
+    559   WindExposed,                                             !- Wind Exposure
+    560   0.5,                                                     !- View Factor to Ground
+    561   4,                                                       !- Number of Vertices
+    562   10,                                                      !- Vertex 1 X-coordinate
+    563   0,                                                       !- Vertex 1 Y-coordinate
+    564   3,                                                       !- Vertex 1 Z-coordinate
+    565   10,                                                      !- Vertex 2 X-coordinate
+    566   5,                                                       !- Vertex 2 Y-coordinate
+    567   3,                                                       !- Vertex 2 Z-coordinate
+    568   10,                                                      !- Vertex 3 X-coordinate
+    569   5,                                                       !- Vertex 3 Y-coordinate
+    570   0,                                                       !- Vertex 3 Z-coordinate
+    571   10,                                                      !- Vertex 4 X-coordinate
+    572   0,                                                       !- Vertex 4 Y-coordinate
+    573   0;                                                       !- Vertex 4 Z-coordinate
+    574 
+    575 BuildingSurface:Detailed,
+    576   Zone1N,                                                  !- Name
+    577   Wall,                                                    !- Surface Type
+    578   ExteriorWallConst,                                       !- Construction Name
+    579   Zone1,                                                   !- Zone Name
+    580   Outdoors,                                                !- Outside Boundary Condition
+    581   ,                                                        !- Outside Boundary Condition Object
+    582   SunExposed,                                              !- Sun Exposure
+    583   WindExposed,                                             !- Wind Exposure
+    584   0.5,                                                     !- View Factor to Ground
+    585   4,                                                       !- Number of Vertices
+    586   10,                                                      !- Vertex 1 X-coordinate
+    587   5,                                                       !- Vertex 1 Y-coordinate
+    588   3,                                                       !- Vertex 1 Z-coordinate
+    589   0,                                                       !- Vertex 2 X-coordinate
+    590   5,                                                       !- Vertex 2 Y-coordinate
+    591   3,                                                       !- Vertex 2 Z-coordinate
+    592   0,                                                       !- Vertex 3 X-coordinate
+    593   5,                                                       !- Vertex 3 Y-coordinate
+    594   0,                                                       !- Vertex 3 Z-coordinate
+    595   10,                                                      !- Vertex 4 X-coordinate
+    596   5,                                                       !- Vertex 4 Y-coordinate
+    597   0;                                                       !- Vertex 4 Z-coordinate
+    598 
+    599 BuildingSurface:Detailed,
+    600   Zone1F,                                                  !- Name
+    601   Floor,                                                   !- Surface Type
+    602   FloorConst,                                              !- Construction Name
+    603   Zone1,                                                   !- Zone Name
+    604   Outdoors,                                                !- Outside Boundary Condition
+    605   ,                                                        !- Outside Boundary Condition Object
+    606   SunExposed,                                              !- Sun Exposure
+    607   WindExposed,                                             !- Wind Exposure
+    608   0.5,                                                     !- View Factor to Ground
+    609   4,                                                       !- Number of Vertices
+    610   0,                                                       !- Vertex 1 X-coordinate
+    611   0,                                                       !- Vertex 1 Y-coordinate
+    612   0,                                                       !- Vertex 1 Z-coordinate
+    613   10,                                                      !- Vertex 2 X-coordinate
+    614   0,                                                       !- Vertex 2 Y-coordinate
+    615   0,                                                       !- Vertex 2 Z-coordinate
+    616   10,                                                      !- Vertex 3 X-coordinate
+    617   5,                                                       !- Vertex 3 Y-coordinate
+    618   0,                                                       !- Vertex 3 Z-coordinate
+    619   0,                                                       !- Vertex 4 X-coordinate
+    620   5,                                                       !- Vertex 4 Y-coordinate
+    621   0;                                                       !- Vertex 4 Z-coordinate
+    622 
+    623 BuildingSurface:Detailed,
+    624   Zone1C,                                                  !- Name
+    625   ceiling,                                                 !- Surface Type
+    626   RoofConst,                                               !- Construction Name
+    627   Zone1,                                                   !- Zone Name
+    628   Outdoors,                                                !- Outside Boundary Condition
+    629   ,                                                        !- Outside Boundary Condition Object
+    630   SunExposed,                                              !- Sun Exposure
+    631   WindExposed,                                             !- Wind Exposure
+    632   0.5,                                                     !- View Factor to Ground
+    633   4,                                                       !- Number of Vertices
+    634   10,                                                      !- Vertex 1 X-coordinate
+    635   0,                                                       !- Vertex 1 Y-coordinate
+    636   3,                                                       !- Vertex 1 Z-coordinate
+    637   0,                                                       !- Vertex 2 X-coordinate
+    638   0,                                                       !- Vertex 2 Y-coordinate
+    639   3,                                                       !- Vertex 2 Z-coordinate
+    640   0,                                                       !- Vertex 3 X-coordinate
+    641   5,                                                       !- Vertex 3 Y-coordinate
+    642   3,                                                       !- Vertex 3 Z-coordinate
+    643   10,                                                      !- Vertex 4 X-coordinate
+    644   5,                                                       !- Vertex 4 Y-coordinate
+    645   3;                                                       !- Vertex 4 Z-coordinate
+    646 
+    647 Output:PreprocessorMessage,
+    648   ExpandObjects,                                           !- Preprocessor Name
+    649   Warning,                                                 !- Error Severity
+    650   Cannot find Energy+.idd as specified in Energy+.ini.;    !- message line
+    651 
+    652 Output:PreprocessorMessage,
+    653   ExpandObjects,                                           !- Preprocessor Name
+    654   Warning,                                                 !- Error Severity
+    655   Since the Energy+.IDD file cannot be read no range or choice checking was,  !- message line
+    656   performed.;                                              !- message line
+  Processing Input Data File (in.idf) -- Complete
+  Number of IDF "Lines"=          45
+  Maximum number of Alpha IDF Args=          15
+  Maximum number of Numeric IDF Args=          15
+  Number of IDF "Lines"=          45
+  Number of Defaulted Fields=           1
+  Number of Fields with Defaults=         107
+  Number of Autosized Fields=           0
+  Number of Autosizable Fields =           4
+  Number of Autocalculated Fields=           3
+  Number of Autocalculatable Fields =          17
+ Getting object=OUTPUT:SQLITE
+ Getting object=OUTPUT:PREPROCESSORMESSAGE
+ Getting object=VERSION
+ Getting object=TIMESTEP
+ Getting object=SIMULATIONCONTROL
+ Getting object=OUTPUT:SURFACES:DRAWING
+ Getting object=RUNPERIOD
+ Getting object=SCHEDULE:COMPACT
+  Processing Schedule Input -- Start
+ Getting object=SCHEDULETYPELIMITS
+  Processing Schedule Input -- Complete
+ Getting object=BUILDING
+ Getting object=MATERIAL
+ Getting object=WINDOWMATERIAL:GLAZING
+ Getting object=WINDOWMATERIAL:GAS
+ Getting object=CONSTRUCTION
+ Getting object=ZONE
+ Getting object=GLOBALGEOMETRYRULES
+ Getting object=BUILDINGSURFACE:DETAILED
+ Getting object=FENESTRATIONSURFACE:DETAILED
+ Getting object=PEOPLE
+ Getting object=LIGHTS
+ Getting object=ELECTRICEQUIPMENT
+ Getting object=ZONECONTROL:THERMOSTAT
+ Getting object=THERMOSTATSETPOINT:DUALSETPOINT
+ Getting object=ZONEHVAC:EQUIPMENTCONNECTIONS
+ Getting object=ZONEHVAC:EQUIPMENTLIST
+ Getting object=ZONEHVAC:IDEALLOADSAIRSYSTEM
+ Getting object=OUTPUTCONTROL:TABLE:STYLE
+ Getting object=OUTPUT:TABLE:SUMMARYREPORTS
+ NumOfRVariable=         795
+ NumOfRVariable(Total)=         795
+ NumOfRVariable(Actual)=          12
+ NumOfRVariable(Summed)=          12
+ NumOfRVariable(Meter)=          12
+ NumOfIVariable=          15
+ NumOfIVariable(Total)=          15
+ NumOfIVariable(Actual)=           0
+ NumOfIVariable(Summed)=           0
+ MaxRVariable=        1000
+ MaxIVariable=          10
+ NumEnergyMeters=          33
+ NumVarMeterArrays=          12
+ maxUniqueKeyCount=        1500
+ maxNumberOfFigures=           2
+ MonthlyFieldSetInputCount=           0
+ NumConsideredOutputVariables=           0
+ MaxConsideredOutputVariables=       10000
+ numActuatorsUsed=           0
+ numEMSActuatorsAvailable=           0
+ maxEMSActuatorsAvailable=           0
+ numInternalVariablesUsed=           0
+ numEMSInternalVarsAvailable=           0
+ maxEMSInternalVarsAvailable=           0
+ NumOfNodeConnections=           4
+ MaxNumOfNodeConnections=           0

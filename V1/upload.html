@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Choose Files</title>
+	</head>
+	<body>
+		<form>
+			<input type="file" id="files" name="files[]" multiple />
+		</form>
+		<script type="text/javascript">
+			if (window.File && window.FileReader && window.FileList && window.Blob && window.XMLHttpRequest) 
+			{
+				var reader = new FileReader();
+				function handleFileSelect(evt)
+				{
+					for (var i=0, f; f=files[i]; i++) 
+					{
+						// Validate that the extension is a dae
+						if(/[^.]+$/.exec(f.name) == 'dae')
+						{
+							reader.onload = function(e)// After file read as text
+							{
+								parser = new DOMParser();
+								xmlDoc = parser.parseFromString(e.target.result,"text/xml");
+							}
+							reader.readAsText(f);
+						}
+						else
+						{
+							// Filetype not supported
+						}
+					}
+				}
+			}
+			else
+			{
+				alert('One or more features are not fully supported in this browser.');
+			}
+		</script>
+	</body>
+</html>

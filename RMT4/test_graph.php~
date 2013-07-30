@@ -1,0 +1,73 @@
+<?php	
+	/*==============================================================================================*/
+    /*
+     *  This function print out a pie chart javascript
+     *  input: $result is an array that contains the data values, units and names
+     */
+    /*==============================================================================================*/
+    function printPieJavascript($result) {
+    echo <<<END
+	    <script type="text/javascript">
+            var chart;
+            var legend;
+
+            var chartData = 
+			[
+END;
+			// input units
+			$units = $result[0]['Units'];			
+			
+			// set chart input with only numeric data
+			foreach($result as $R) {
+				// check if the data is compared in same unit
+				if($R[Units]!=$units) break;
+				
+				if(is_numeric($R['Value']) && $R['Value'] > 0 ){
+					echo" 	{ 	row_name: '{$R['RowName']}', 
+								row_value: {$R['Value']}   },";
+				}
+			}
+			echo <<<END
+			];
+
+            AmCharts.ready(function () {
+                // PIE CHART
+                chart = new AmCharts.AmPieChart();
+                chart.dataProvider = chartData;
+                chart.titleField = "row_name";
+                chart.valueField = "row_value";
+
+                // LEGEND
+                legend = new AmCharts.AmLegend();
+                legend.align = "center";
+                legend.markerType = "circle";
+				chart.depth3D = 10;
+				chart.labelRadius = 30;
+                chart.labelText = "[[title]]: [[percents]]%";
+                chart.angle = 10;
+                chart.addLegend(legend);
+				legend.switchType = "x";
+                
+                // WRITE
+                chart.write("chartdiv");
+            });
+        </script>
+END;
+}
+
+?>
+
+
+<html>
+
+
+<body>
+
+
+
+</body>
+
+
+
+</html>
+

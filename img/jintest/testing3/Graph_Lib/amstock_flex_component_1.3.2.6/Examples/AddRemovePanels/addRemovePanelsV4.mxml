@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   xmlns:amcharts="http://www.amcharts.com/com_internal"	
+			   backgroundColor="#FFFFFF"
+			   creationComplete="{generateChartData()}">
+
+		
+		<fx:Script>
+			<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var chartData:ArrayCollection = new ArrayCollection();			
+			
+			private function generateChartData():void
+			{
+				var firstDate:Date = new Date();
+				firstDate.setHours(0,0,0,0); 
+				firstDate.setDate(firstDate.getDate() - 200);
+				
+				for(var i:Number = 0; i < 200; i++)
+				{
+					var newDate:Date = new Date(firstDate);
+					
+					newDate.setDate(newDate.getDate() + i);
+					
+					var open:Number 	= Math.round(Math.random() * (30) + 100 + i * 0.3);
+					var close:Number   = open + Math.round(Math.random() * (15) - Math.random() * 10);
+					
+					var low:Number;
+					if(open < close)
+					{
+						low = open - Math.round(Math.random() * 5);
+					}
+					else
+					{
+						low = close - Math.round(Math.random() * 5);
+					}					
+					
+					var high:Number;
+					if(open < close)
+					{
+						high = close + Math.round(Math.random() * 5);
+					}
+					else
+					{
+						high = open + Math.round(Math.random() * 5);
+					}					
+					
+					var volume:Number   = Math.round(Math.random() * (1000 + i)) + 100 + i;
+					var value:Number   = Math.round(Math.random() * (5000 + i)) + 100;				
+					
+					chartData.addItem({date:newDate, open:open, close:close, high:high, low:low, volume:volume, value:value});
+				}
+			}	
+			
+			[Bindable]
+			private var _panel:StockPanel;
+			
+			private function addPanel():void
+			{
+				_panel = new StockPanel();
+				_panel.showCategoryAxis = false;
+				_panel.allowTurningOff = true;
+				_panel.percentHeight = 30;
+				_panel.title = "Average";
+				
+				var graph:StockGraph = new StockGraph();
+				graph.valueField = "value";
+				_panel.addStockGraph(graph);
+				
+				
+				chart.addPanelAt(_panel, 1);
+			}
+			
+			private function removePanel():void
+			{
+				chart.removePanel(_panel);
+			}
+			
+			private function set3D():void
+			{
+				chart.panelsSettings.angle = 30;
+				chart.panelsSettings.depth3D = 15;				
+			}
+			
+			private function set2D():void
+			{
+				chart.panelsSettings.angle = 0;
+				chart.panelsSettings.depth3D = 0;				
+			}			
+			
+			]]>
+		</fx:Script>	
+		
+		<s:VGroup width="100%" height="100%" paddingBottom="10" paddingTop="10" paddingLeft="10" paddingRight="10">
+			
+			<s:HGroup>
+				<s:Button label="add panel" click="{addPanel()}"/>
+				<s:Button label="remove panel" click="{removePanel()}"/>
+				<mx:Spacer width="20"/>
+				<s:Label text="Cursor type:"/>
+				<s:RadioButton groupName="panSelect" label="select" selected="true" click="{chart.chartCursorSettings.pan=false}"/>
+				<s:RadioButton groupName="panSelect" label="pan" click="{chart.chartCursorSettings.pan=true}"/>
+				<mx:Spacer width="20"/>
+				<s:RadioButton groupName="dgroup" label="2D" selected="true" click="{set2D()}"/>
+				<s:RadioButton groupName="dgroup" label="3D" click="{set3D()}"/>							
+			</s:HGroup>
+			
+			<amcharts:AmStockChart id="chart" width="100%" height="100%">
+				
+				<amcharts:dataSets>
+					<amcharts:DataSet
+						dataProvider="{chartData}" 
+						categoryField="date" 
+						title=""
+						color="#7f8da9">
+						
+						<amcharts:fieldMappings>
+							<amcharts:FieldMapping fromField="open" toField="open"/>
+							<amcharts:FieldMapping fromField="close" toField="close"/>
+							<amcharts:FieldMapping fromField="low" toField="low"/>
+							<amcharts:FieldMapping fromField="high" toField="high"/>
+							<amcharts:FieldMapping fromField="volume" toField="volume"/>
+							<amcharts:FieldMapping fromField="value" toField="value"/>
+						</amcharts:fieldMappings>				
+					</amcharts:DataSet>	
+				</amcharts:dataSets>
+				
+				<amcharts:panels>
+					
+					<amcharts:StockPanel title="Value" height="70%" showCategoryAxis="true">
+						
+						<amcharts:stockGraphs>
+							<amcharts:StockGraph 
+								id="g1"
+								valueField="close" 
+								type="candlestick" 
+								openField="open" 
+								closeField="close" 
+								lowField="low" 
+								highField="high"
+								lineColor="#7f8da9"
+								fillColors="[#7f8da9]"
+								negativeLineColor="#db4c3c"
+								negativeFillColors="[#db4c3c]" 
+								fillAlphas="[1]"
+								useDataSetColors="false"
+								legendValueText="open:[[open]] close:[[close]] low:[[low]] high:[[high]]"/>						
+						</amcharts:stockGraphs>
+						
+						<amcharts:stockLegend>
+							<amcharts:StockLegend markerType="none" valueWidth="250" markerSize="0" valueAlign="left"/>						
+						</amcharts:stockLegend>
+					</amcharts:StockPanel>
+					
+					<amcharts:StockPanel title="Volume" height="30%" allowTurningOff="true" showCategoryAxis="false">
+						<amcharts:stockGraphs>
+							<amcharts:StockGraph 
+								id="g2" 
+								valueField="volume" 
+								type="column" 
+								fillAlphas="[1]" 
+								lineAlpha="0"/>						
+						</amcharts:stockGraphs>
+						<amcharts:stockLegend>
+							<amcharts:StockLegend markerType="none" markerSize="0" valueAlign="left"/>						
+						</amcharts:stockLegend>					
+					</amcharts:StockPanel>			
+					
+				</amcharts:panels>
+				
+				<!-- Period selector is optional -->
+				<amcharts:periodSelector>
+					<amcharts:PeriodSelector>
+						<!-- predefined periods -->
+						<amcharts:periods>
+							<amcharts:PeriodButton label="10 Days" period="DD" count="10"/>
+							<amcharts:PeriodButton label="1 Month" period="MM" count="1"/>
+							<amcharts:PeriodButton selected="true" label="6 Months" period="MM" count="6"/>
+							<amcharts:PeriodButton label="MAX" period="MAX"/>
+							<amcharts:PeriodButton label="YTD" period="YTD"/>						
+						</amcharts:periods>
+					</amcharts:PeriodSelector>
+				</amcharts:periodSelector>
+				
+				<!-- Scrollbar settings -->
+				<amcharts:chartScrollbarSettings>
+					<amcharts:ChartScrollbarSettings 
+						selectedGraphFillColor="#7f8da9" 
+						selectedGraphFillAlpha="1" 
+						graphType="line" 
+						graph="{g1}"/>
+				</amcharts:chartScrollbarSettings>
+				
+				<amcharts:panelsSettings>
+					<amcharts:PanelsSettings 
+						backgroundColor="#FFFFFF" 
+						backgroundAlpha="1" 
+						panelHeaderPaddingTop="7" 
+						panelHeaderPaddingRight="7" 
+						panelHeaderPaddingLeft="7"/>
+				</amcharts:panelsSettings>
+				
+				<amcharts:chartCursorSettings>
+					<amcharts:ChartCursorSettings valueBalloonsEnabled="true" crosshair="true"/>
+				</amcharts:chartCursorSettings>
+				
+				<amcharts:valueAxesSettings>
+					<amcharts:ValueAxesSettings labelBackgroundAlpha="0.5" labelBackgroundColor="#000000" color="#FFFFFF"/>
+				</amcharts:valueAxesSettings>				
+				
+				<amcharts:balloon>
+					<amcharts:AmBalloon 
+						cornerRadius="8"
+						adjustBorderColor="true"
+						borderAlpha="1" 
+						fillColor="#FFFFFF" 
+						fillAlpha="0.9" 
+						color="#000000"
+						borderThickness="3"/>
+				</amcharts:balloon>
+				
+			</amcharts:AmStockChart>
+		</s:VGroup>
+	
+</s:Application>

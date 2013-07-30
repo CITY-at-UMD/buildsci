@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+
+    <fx:Script>
+        <![CDATA[
+            
+            [Embed(source='../assets/0.gif')]
+            private var _icon0:Class;
+            
+            [Embed(source='../assets/1.gif')]
+            private var _icon1:Class;
+            
+            [Embed(source='../assets/2.gif')]
+            private var _icon2:Class;
+            
+            [Embed(source='../assets/3.gif')]
+            private var _icon3:Class;    
+            
+            [Bindable]
+            [Embed(source='../assets/star.swf')]
+            private var _star:Class;
+            
+            [Bindable]
+            [Embed(source='../assets/redstar.swf')]
+            private var _redStar:Class;                                                
+            
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var columnChartData:ArrayCollection = new ArrayCollection( [
+                {name:"John",points:35654, color:0x7F8DA9, bullet:_icon0},  
+                {name:"Damon",points:65456, color:0xFEC514, bullet:_icon1},
+                {name:"Patrick",points:45724, color:0xDB4C3C, bullet:_icon2},  
+                {name:"Mark",points:13654, color:0xDAF0FD, bullet:_icon3}]);
+            
+            [Bindable]
+            private var lineChartData:ArrayCollection = new ArrayCollection([
+                {date:new Date(2009,10,2),value:5},
+                {date:new Date(2009,10,3),value:15},
+                {date:new Date(2009,10,4),value:13},
+                {date:new Date(2009,10,5),value:17},
+                {date:new Date(2009,10,6),value:15},
+                {date:new Date(2009,10,9),value:19},
+                {date:new Date(2009,10,10),value:21},
+                {date:new Date(2009,10,11),value:20},
+                {date:new Date(2009,10,12),value:20},
+                {date:new Date(2009,10,13),value:19},
+                {date:new Date(2009,10,16),value:25},
+                {date:new Date(2009,10,17),value:24},
+                {date:new Date(2009,10,18),value:26},
+                {date:new Date(2009,10,19),value:27},
+                {date:new Date(2009,10,20),value:25},
+                {date:new Date(2009,10,23),value:29},
+                {date:new Date(2009,10,24),value:28},
+                {date:new Date(2009,10,25),value:30},
+                {date:new Date(2009,10,26),value:72, customBullet:_redStar},
+                {date:new Date(2009,10,27),value:43},
+                {date:new Date(2009,10,30),value:31},
+                {date:new Date(2009,11,1),value:30},
+                {date:new Date(2009,11,2),value:29},
+                {date:new Date(2009,11,3),value:27},
+                {date:new Date(2009,11,4),value:26}
+            ]);
+        ]]>
+    </fx:Script>
+    
+    <s:HGroup width="100%" height="100%">
+        <!-- Column chart with custom bullets for every data point -->
+        <amcharts:AmSerialChart 
+            width="50%" 
+            height="100%" 
+            dataProvider="{columnChartData}"
+            categoryField="name" 
+			autoMargins="false"
+            marginRight="0" 
+            marginLeft="0"
+            marginBottom="0"
+            marginTop="0"
+            startDuration="1">
+            <amcharts:graphs>
+                <amcharts:AmGraph 
+                    valueField="points" 
+                    customBulletField="bullet" 
+                    bulletOffset="16" 
+                    centerCustomBullets="true" 
+                    colorField="color" 
+                    type="column" 
+                    fillAlphas="[0.8]"
+                    cornerRadiusTop="8"
+                    lineAlpha="0"/>
+            </amcharts:graphs>
+            <amcharts:valueAxes>
+                <amcharts:ValueAxis min="0" max="80000" dashLength="4"/>
+            </amcharts:valueAxes>
+            <amcharts:categoryAxis>
+                <amcharts:CategoryAxis inside="true" gridAlpha="0" color="#000000" tickLength="0"/>
+            </amcharts:categoryAxis>
+        </amcharts:AmSerialChart>
+        
+        <!-- line chart with the same custom bullet for all data points
+        and one different bullet for the data point with highest value -->
+        
+        <amcharts:AmSerialChart 
+            width="50%"
+            height="100%"
+			autoMargins="false"
+            marginRight="0" 
+            marginLeft="0"
+            marginBottom="0"
+            marginTop="0"
+            categoryField="date"
+            dataProvider="{lineChartData}">
+            
+            <amcharts:graphs>
+                <amcharts:AmGraph 
+                    valueField="value"
+                    type="line"
+                    lineColor="#D8E63C"
+                    customBullet="{_star}"
+                    customBulletField="customBullet"/>                        
+            </amcharts:graphs>
+            
+            <!-- It is very important to tell the category axis if it's values are date based or not.
+            In case yes, set parseDates to true. You should also set the minimum period of your data.
+            For example, if you have hourly data, set minPeriod to "hh". -->
+            <amcharts:valueAxes>
+                <amcharts:ValueAxis dashLength="4"/>
+            </amcharts:valueAxes>
+            
+            <amcharts:categoryAxis>
+                <amcharts:CategoryAxis parseDates="true" minPeriod="DD" inside="true" gridAlpha="0" color="#000000" tickLength="0"/>
+            </amcharts:categoryAxis>
+            
+            <amcharts:chartCursor>
+                <amcharts:ChartCursor cursorAlpha="0" cursorColor="#D8E63C"/>                        
+            </amcharts:chartCursor>
+            
+        </amcharts:AmSerialChart>        
+    </s:HGroup>
+</s:Application>

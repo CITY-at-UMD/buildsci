@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:ArrayCollection = new ArrayCollection([
+                {year:"2003",europe:2.5,namerica:2.5,asia:2.1,lamerica:0.3,meast:0.2,africa:0.1},
+                {year:"2004",europe:2.6,namerica:2.7,asia:2.2,lamerica:0.3,meast:0.3,africa:0.1},
+                {year:"2005",europe:2.8,namerica:2.9,asia:2.4,lamerica:0.3,meast:0.3,africa:0.1}
+            ]);    
+            
+            
+            private function rotateChart():void{
+                if(rbBars.selected){
+                    chart.rotate = true;
+                }
+                else{
+                    chart.rotate = false;
+                }
+            }
+        ]]>
+    </fx:Script>
+    
+    <s:HGroup contentBackgroundColor="#FFFFFF" width="100%" height="100%">
+        <amcharts:AmSerialChart columnWidth="0.6"
+                                rotate="true"
+                                width="100%"
+                                height="100%"
+                                id="chart"				
+                                dataProvider="{chartData}"
+                                categoryField="year"
+                                startDuration="1"
+                                angle="30"
+                                depth3D="15"
+                                plotAreaFillColors="[0xFAFAFA]">
+            <amcharts:graphs>
+                <amcharts:AmGraph labelText="[[value]]" title="Europe" valueField="europe" type="column" lineAlpha="0" fillAlphas="[1]" lineColor="#C72C95"/>                        
+                <amcharts:AmGraph labelText="[[value]]" title="North America" valueField="namerica" type="column" lineAlpha="0" fillAlphas="[1]" lineColor="#D8E0BD"/>
+                <amcharts:AmGraph labelText="[[value]]" title="Asia-Pacific" valueField="asia" type="column" lineAlpha="0" fillAlphas="[1]" lineColor="#B3DBD4"/>
+                <amcharts:AmGraph labelText="[[value]]" title="Latin America" valueField="lamerica" type="column" lineAlpha="0" fillAlphas="[1]" lineColor="#69A55C"/>
+                <amcharts:AmGraph labelText="[[value]]" title="Middle East" valueField="meast" type="column" lineAlpha="0" fillAlphas="[1]" lineColor="#B5B8D3"/>
+                <amcharts:AmGraph labelText="[[value]]" title="Africa" valueField="africa" type="column" lineAlpha="0" fillAlphas="[1]" lineColor="#F4E23B"/>                                                                
+            </amcharts:graphs>
+            
+            <amcharts:valueAxes>
+                <amcharts:ValueAxis stackType="regular" gridAlpha="0.1"/>                    
+            </amcharts:valueAxes>
+            
+            <amcharts:categoryAxis>
+                <amcharts:CategoryAxis gridPosition="start" gridAlpha="0.1"/>
+            </amcharts:categoryAxis>
+            
+        </amcharts:AmSerialChart>
+        <s:VGroup>
+            <amcharts:AmLegend 
+                width="160"
+                textClickEnabled="false" 
+                dataProvider="{chart}" 
+                marginTop="15"
+                marginLeft="0" 
+                marginRight="20"
+                valueWidth="0"
+                marginBottom="10"/>
+            
+            <s:RadioButton id="rbBars" groupName="g1" click="{rotateChart()}" label="bars" selected="true"/>
+            <s:RadioButton id="rbColumns" groupName="g1" click="{rotateChart()}" label="columns"/>            
+        </s:VGroup>
+    </s:HGroup>
+</s:Application>

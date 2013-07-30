@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+   <head>
+    	<title>VirtualPULSE</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--Google Maps API -->
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <!-- WebGL DAE Renderer -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript" src="Three.js"></script>
+	<script type="text/javascript" src="Detector.js"></script>
+	<script type="text/javascript" src="RequestAnimationFrame.js"></script>
+
+	<script type="text/javascript">
+	    var _gaq = _gaq || [];
+	    _gaq.push(['_setAccount', 'UA-26348074-2']);
+	    _gaq.push(['_trackPageview']);
+	    (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+	</script>
+    </head>
+
+    <body oncontextmenu="return false;">
+	<div id="navigation"></div>
+	
+    <div id="container">
+	<div id="header-outer" align="center">
+	<a href="http://www.buildingscience.psu.edu/"><img class="header" src="header.jpg" href=""></a>
+	</div>
+	
+	<div id="content">
+	<h1 style="text-align: center">Virtual PULSE  |  simulate building energy &amp; airflow</h1>
+			
+	<div class="top">
+	    
+	    <div class="model">
+		<button disabled="disabled">1: NEW import building model  [.dae]</button>
+		<div style="width: 100%">
+			<input class="selections" type="image" src="2cubes.JPG" onclick="loadobj('2cubes.dae');"/>
+			<input class="selections" type="image" src="harvard1.JPG" onclick="loadobj('harvard1.dae');"/>
+			<input class="selections" type="image" src="harvardRoundWall.JPG" onclick="loadobj('harvardRoundWall.dae');"/>
+		</div>
+		<div style="width: 100%"><input type="file" id="files" readonly size=50/></div>
+		<script type="text/javascript" src="model.js"></script>
+	    </div>
+	    
+	    <div class="setup">
+		<button disabled="disabled">2:  SETUP</button>
+		<table>
+		<tbody>
+		    <tr>
+			<h3>Location</h3>
+			<form action="">
+			    <input class="location" type="text" name="email" value="Street, City, State, Zip" onfocus="if(this.value==this.defaultValue){this.value=''};" onblur="if(this.value==''){this.value=this.defaultValue};" />
+			</form>
+		    </tr>
+		    <tr>
+			<iframe src="http://www.dr2ooo.com/tools/maps/maps.php?zoom=17&width=100%&height=170&ll=40.798684,-77.862301&type=satellite&cp=false&" width="100%" height="170"></iframe>
+		    </tr>
+		    <tr>
+			<h3>Surface Area </h3><div class="surface_area"><script type="text/javascript">document.write(TotalArea/12/12);</script> ft<sup>2</sup></div>
+		    </tr>
+		    <tr>
+			<h3>Volume </h3><p>___ ft<sup>3</sup></p>
+		    </tr>
+		    <tr>
+			<h3>Windows</h3>
+			<form action="">
+			<input class="windows" type="text"> % of Exterior Walls</input>
+			</form>
+			<p>or <a href="">by side</a></p>
+		    </tr>
+		    <tr>
+			<hr />
+			<h3>Wall Type</h3>
+			<form action="">
+			<select name="wall">
+			<option value="mass">Mass</option>
+			<option value="metal">Metal</option>
+			<option value="steel">Steel-Framed</option>
+			<option value="wood">Wood-Framed</option>
+			</select>
+			</form>
+		    </tr>
+		    <tr>
+			<hr />
+			<h3>Roof Type</h3>
+			<form action="">
+			<select name="roof">
+			<option value="attic">Attic & Other</option>
+			<option value="insulation">Insulation Entirely Above Deck</option>
+			<option value="metal">Metal Building</option>
+			</select>
+			</form>
+			<hr />
+		    </tr>
+		</tbody>
+		</table>
+	    </div>
+	</div>
+	
+	<div class="analyze">
+                    <button>3:   ANALYZE</button>
+                
+                    <div class="energy" align="center">
+                        <h3 style="text-align: center">Energy Plus Simulation</h3>
+                        <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0AmpmAq6B1uv_dDY2YlI4S3pEUGs5b0Z3QlNfU1lkOXc&transpose=0&headers=0&range=A1%3AB6&gid=0&pub=1","options":{"vAxes":[{"viewWindowMode":"pretty","viewWindow":{}},{"viewWindowMode":"pretty","viewWindow":{}}],"title":"Equipment Consumption [kBTUx10^6]","booleanRole":"certainty","animation":{"duration":500},"colors":["#3366CC","#DC3912","#FF9900","#109618","#990099","#0099C6","#DD4477","#66AA00","#B82E2E","#316395","#994499","#22AA99","#AAAA11","#6633CC","#E67300","#8B0707","#651067","#329262","#5574A6","#3B3EAC","#B77322","#16D620","#B91383","#F4359E","#9C5935","#A9C413","#2A778D","#668D1C","#BEA413","#0C5922","#743411"],"vAxis":{"format":""},"useFirstColumnAsDomain":true,"hAxis":{"maxAlternations":1,"format":""},"width":391,"height":286},"state":{},"view":["{\"columns\":[0,1]}","{\"columns\":[0,1]}","{\"columns\":[0,1]}"],"chartType":"PieChart","chartName":"Energy Consumption"} </script>
+                        <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0AmpmAq6B1uv_dDY2YlI4S3pEUGs5b0Z3QlNfU1lkOXc&transpose=0&headers=0&range=B17&gid=0&pub=1","options":{"animation":{"duration":500},"pointSize":7,"colors":["#4684EE","#DC3912","#FF9900","#008000","#666666","#4942CC","#CB4AC5","#D6AE00","#336699","#DD4477","#AAAA11","#66AA00","#888888","#994499","#DD5511","#22AA99","#999999","#705770","#109618","#A32929"],"vAxis":{"format":""},"is3D":false,"lineSize":2,"hAxis":{"title":"CO2 [(lb)x10^6]","viewWindowMode":"pretty","format":"","viewWindow":{}},"title":"Pollution ","booleanRole":"certainty","legend":"none","useFirstColumnAsDomain":false,"pointSizeOther":7,"reverseAxis":true,"isStacked":false,"width":399,"height":225},"state":{},"view":["{\"columns\":[{\"calc\":\"emptyString\",\"sourceColumn\":0,\"type\":\"string\"},0]}","{\"columns\":[0,1]}","{\"columns\":[0,1]}"],"chartType":"BarChart"} </script>
+
+                    </div>
+                    
+                    <div class="CFD">
+                        <h3 style="text-align: center">Computational Fluid Dynamics</h3>
+                        <iframe width="420" height="315" src="http://www.youtube.com/embed/I5TX0Cpz2zA" frameborder="0" allowfullscreen></iframe> 
+                        <!-- 
+                        <video width="320" height="240" controls="controls">
+                              <source src="simulation.mp4" type="video/mp4" />
+                              Your browser does not support the video tag.
+                        </video>
+			            -->
+                    </div>
+                
+                </div>
+                
+                
+	<div class="benchmark" align="center">
+
+	    <button>BENCHMARK</button>
+	    <p style="font-style: italic; text-align: center;">via the Energy Information Administration</p>
+	    <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0AmpmAq6B1uv_dGl1VGkzdTZVa2pzanFNZjZSSk1IQnc&transpose=0&headers=0&range=A8%3AB15&gid=0&pub=1","options":{"vAxes":[{"title":"thousand BTU /square foot","minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},{"viewWindowMode":"pretty","viewWindow":{}}],"series":{"0":{"color":"#6aa84f"}},"title":"building SIZE","booleanRole":"certainty","animation":{"duration":500},"legend":"none","vAxis":{"format":""},"useFirstColumnAsDomain":true,"hAxis":{"title":"square footage","maxAlternations":1,"format":""},"isStacked":true,"width":438,"height":371},"state":{},"view":["{\"columns\":[0,1]}","{\"columns\":[0,1]}","{\"columns\":[0,1]}"],"chartType":"ColumnChart","chartName":"SIZE"} </script>
+	    <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0AmpmAq6B1uv_dGl1VGkzdTZVa2pzanFNZjZSSk1IQnc&transpose=0&headers=0&range=A18%3AB35&gid=0&pub=1","options":{"vAxes":[{"title":"thousand BTU / square foot","minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},{"viewWindowMode":"pretty","viewWindow":{}}],"booleanRole":"certainty","title":"building TYPE","height":371,"animation":{"duration":500},"legend":"none","width":434,"vAxis":{"format":""},"useFirstColumnAsDomain":true,"hAxis":{"titleFontSize":"12","title":"occupancy type","textStyle":{"fontSize":"8"},"maxAlternations":1,"format":""},"isStacked":true},"state":{},"view":["{\"columns\":[0,1]}","{\"columns\":[0,1]}","{\"columns\":[0,1]}"],"chartType":"ColumnChart","chartName":"TYPE"} </script>
+	    <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0AmpmAq6B1uv_dGl1VGkzdTZVa2pzanFNZjZSSk1IQnc&transpose=0&headers=0&range=A48%3AB60&gid=0&pub=1","options":{"vAxes":[{"title":"thousand BTU / square foot","minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},{"viewWindowMode":"pretty","viewWindow":{}}],"series":{"0":{"color":"#e69138"}},"title":"building LOCATION","booleanRole":"certainty","animation":{"duration":500},"legend":"none","vAxis":{"format":""},"useFirstColumnAsDomain":true,"hAxis":{"title":"location","maxAlternations":1,"format":""},"isStacked":true,"width":432,"height":371},"state":{},"view":["{\"columns\":[0,1]}","{\"columns\":[0,1]}","{\"columns\":[0,1]}"],"chartType":"ColumnChart","chartName":"LOCATION"} </script>
+	</div>
+			
+	</div> <!--end content-->
+        </div> <!--end container-->
+		
+		<div id="footer">
+    		<p>Designed & Developed by Dr. Jelena Srebric, Jeff Chen, Mohammad Heidarinejad, <a href="http://www.joshwentz.net/">Josh Wentz</a></p>
+            <p>building science GROUP is based in the Architectural Engineering Department of Penn State University</p>
+		</div>
+	<!--GOOGLE ANALYTICS-->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26348074-3', 'virtualpulse.us/V1/');
+  ga('send', 'pageview');
+
+</script>    
+    </body>
+</html>

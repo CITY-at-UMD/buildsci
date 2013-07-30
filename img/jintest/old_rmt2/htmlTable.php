@@ -1,0 +1,7 @@
+<?php
+
+  print 'something';
+
+
+
+?>

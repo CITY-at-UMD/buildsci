@@ -1,0 +1,167 @@
+<?php
+
+// connect to database
+require 'connection.php';
+//never forget to start the session
+session_start();
+
+$email = $_SESSION[eMail] = $_POST[eMail];
+$floorArea = $_SESSION[floorArea] = $_POST[floorArea];
+$floors = $_SESSION[floors] = $_POST[floors];
+$functionID = $_SESSION[functionID] = $_POST[functionID];
+$roofMaterial = $_SESSION[roofMaterial] = $_POST[roofMaterial];
+$wallMaterial = $_SESSION[wallMaterial] = $_POST[wallMaterial];
+$windowPercent = $_SESSION[windowPercent] = $_POST[windowPercent];
+?>
+
+<!doctype html>
+<html lang="us">
+<head>
+<meta charset="utf-8">
+<title>RMT 4</title>
+<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<link href="css/demo.css" rel="stylesheet">
+<LINK REL="SHORTCUT ICON" HREF="img/eebhub" />
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js'></script>
+<script src='js/jquery.color-RGBa-patch.js'></script>
+<script src='js/dropzone.js'></script>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+
+<style>
+.result_div {
+	position: relative;
+	top: 20px;
+	max-width: 1000px;
+	margin: auto;
+	margin-bottom: 100px;
+	color: #333333;
+	font-family: Georgia, Serif;
+	background-color: #eee;
+	padding: 10px;
+}
+</style>
+    
+</head>
+
+<body>
+
+<div class="result_div">
+    <h1> Simulation </h1>
+    <?php 
+       $mtime = microtime(); 
+       $mtime = explode(" ",$mtime); 
+       $mtime = $mtime[1] + $mtime[0]; 
+       $starttime = $mtime;
+    ?> 
+    
+    <!-- put other code and html in here -->
+    <?php
+    	//CONNECT TO DATABASE
+    	echo '<pre>';
+    
+		// SELECT USER's EMAIL
+    	$result = mysql_query("SELECT * FROM users WHERE eMail='$_POST[eMail]'");
+    	$row = mysql_fetch_array($result);
+    	$userID = $row['userID'];
+		$_SESSION[userID] = $userID;
+    
+    	//SELECT WEATHER FILE Name
+    	$result = mysql_query("SELECT * FROM locations WHERE locationID='$_POST[locationID]'");
+    	$row = mysql_fetch_array($result); 
+    	$city = $row['weatherFile'];
+
+		//SELECT SPACE TYPE NAME
+    	$result = mysql_query("SELECT * FROM functions WHERE functionID='$_POST[functionID]'");
+    	$row = mysql_fetch_array($result); 
+    	$functionType = $row['functionType'];
+    	
+    	// RENAME THE BUILDING MODEL NAME
+    	$_SESSION[buildingName] = $building = str_replace(' ', '_', $_POST[buildingName]).rand(0,1000);
+    	echo $modelName = $_SESSION[modelName] = $building.$userID;
+
+		// Determine The size of Office
+		if($functionType == "Office/Professional") 
+		{
+			if($floorArea < 464.515) {     						// small office < 5000 ft^2 (approx. 464.515 meters) 
+				$functionType = "SmallOffice";
+			} else if($floorArea < 4645.152) {					// medium office < 50000 ft^2 (approx. 4645.152 meters)
+				$functionType = "MediumOffice";
+			} else if ($floorArea < 46451.52) {					// large office < 500000 ft^2 (approx. 46451.52 meters)
+				$functionType = "LargeOffice";
+			}
+		}
+
+        
+    	//////////////////////////////////// SET UP //////////////////////////////////////
+		echo '<p>New building input file started. <p/>';
+		$rubyCmdCreateIDF = 'sudo xvfb-run -a ruby1.8 VirtualPULSE_run.rb '.
+							$modelName.' '.						# ARGV[0] = idf_name
+							$floorArea.' '.						# ARGV[1] = area
+							$floors.' '.	        			# ARGV[2] = num_floors
+							$windowPercent.' '.					# ARGV[3] = wwr
+							$city.' '.                    		# ARGV[4] = city
+							$functionType;						# ARGV[5] = functionType
+
+		echo $rubyCmdCreateIDF;                    
+		$run = shell_exec($rubyCmdCreateIDF);
+		echo $run;
+		echo "<p>Building Input File: ".$modelName.".idf [created successfully]<p/>";                
+
+        ############ ORIGINAL SIMULATION CODE - COMMENTED OUT BY JIN AN #####################
+    	//RUN ENERGYPLUS (SHELL CODE)
+       /* echo "<p>EnergyPlus Terminal Output...<p/>";
+    	ini_set('max_execution_time', 120); //120 seconds = 2 minutes
+    
+    	echo '<hr />';
+    
+        // move to EnergyPlus dir that is under htdoc dir
+    	chdir('../EnergyPlus-7-2-0');
+    	chdir('bin');*/
+        
+        #echo shell_exec('sudo ./runenergyplus ../../Buildings/' . $modelName. '.idf ../../Weather/' . $city . '.epw');
+     ############ END ORIGINAL SIMULATION CODE - COMMENTED OUT BY JIN AN #####################  
+  		
+		//ADD USER
+    	$userQuery = "INSERT INTO users (eMail) VALUES('$_POST[eMail]')";
+    	if (!mysql_query($userQuery,$con))
+    	{
+    		die('Error: ' . mysql_error());
+    	}
+
+    	//ADD BUILDING
+    	$buildingQuery = "INSERT INTO buildings (buildingName, userSubmitted, locationID, functionID,
+								 roofMaterial, wallMaterial, floors, floorArea, windowPercent)
+    	VALUES ('$building', $userID, $_POST[locationID], $functionID, NULL, NULL, $floors, $floorArea, $windowPercent)";
+
+    	if (!mysql_query($buildingQuery, $con))
+    	{
+    		die('Error: ' . mysql_error());
+    	}	
+
+		echo "<p>User Added ".$email." [to database]<p/>";
+    	echo "<p>Building Added ".$building." [to database]<p/>";
+    	echo "<p>Weather File: ".$city.".epw [from database]<p/>";
+    ?>
+    
+    
+    <!-- print the simulation time  -->
+    <?php 
+       // total time result
+       $mtime = microtime(); 
+       $mtime = explode(" ",$mtime); 
+       $mtime = $mtime[1] + $mtime[0]; 
+       $endtime = $mtime; 
+       $totaltime = ($endtime - $starttime);   
+       echo "This page was created in ".$totaltime." seconds | ".($totaltime/60)." minutes<br>"; 
+    ?>
+</div>
+
+</body>
+</html>
+<?php
+    mysql_close($con);
+    header("Refresh: 3; url=./result.php?query=sumamry");
+?>
+

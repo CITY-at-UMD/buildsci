@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:amcharts="http://www.amcharts.com/com_internal"
+				layout="absolute"
+				backgroundColor="#FFFFFF"
+				creationComplete="{generateChartData()}"
+				width="100%"
+				height="100%" viewSourceURL="srcview/index.html">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.amcharts.axes.Guide;
+			import com.amcharts.chartClasses.AmGraph;
+			import mx.collections.ArrayCollection;
+			
+			
+			[Bindable]
+			private var chartData:ArrayCollection = new ArrayCollection(); 
+			// generate some random data
+			private function generateChartData():void{
+				var firstDate:Date = new Date();
+				firstDate.setDate(firstDate.getDate() - 20);
+				
+				for(var i:Number = 0; i < 20; i++){
+					var newDate:Date = new Date(firstDate);
+					newDate.setDate(newDate.getDate() + i);
+					
+					var visits:Number = Math.round(Math.random() * 40) + 100;
+					
+					chartData.addItem({date:newDate, visits:visits});
+				}
+				
+				// create guide and add it to category axis
+				var verticalGuideDate:Date = new Date();
+				verticalGuideDate.setHours(0,0,0,0);
+				verticalGuideDate.date -= 10;
+				
+				var verticalGuideToDate:Date = new Date();
+				verticalGuideToDate.setHours(0,0,0,0);
+				verticalGuideToDate.date -= 5;                
+				
+				var guide:Guide = new Guide();
+				guide.date = verticalGuideDate;
+				guide.toDate = verticalGuideToDate;
+				guide.fillAlpha = 0.15;                                
+				guide.lineAlpha = 0;
+				
+				catAxis.addGuide(guide);
+			}
+			
+			[Bindable]
+			private var shadow:DropShadowFilter = new DropShadowFilter(2,45,0,0.5);
+			
+			
+		]]>
+	</mx:Script>
+	
+	
+	<amcharts:AmSerialChart 
+		id="chart" 
+		width="100%" 
+		height="100%" 
+		autoMargins="false"
+		marginTop="0" 
+		marginLeft="0" 
+		marginRight="0"
+		marginBottom="0" 
+		dataProvider="{chartData}" 
+		categoryField="date">
+		
+		<amcharts:graphs>
+			<amcharts:AmGraph id="g1" lineColor="#7717D7" title="Visits" valueField="visits" type="line" dashLength="3" lineThickness="1" bullet="round" filters="{[shadow]}"/>                        
+		</amcharts:graphs>
+		<amcharts:valueAxes>
+			<amcharts:ValueAxis inside="true" tickLength="0">
+				<!-- guides to value axes addes from mxml (can also be added with valueAxis.addGuide(guide) method -->
+				<amcharts:guides>
+					<amcharts:Guide value="0" toValue="105" fillColor="#CC0000" fillAlpha="0.20" lineAlpha="0"/>
+					<amcharts:Guide value="105" toValue="110" fillColor="#CC0000" fillAlpha="0.15" lineAlpha="0"/>
+					<amcharts:Guide value="110" toValue="115" fillColor="#CC0000" fillAlpha="0.10" lineAlpha="0"/>
+					<amcharts:Guide value="115" toValue="120" fillColor="#CC0000" fillAlpha="0.05" lineAlpha="0"/>
+					<amcharts:Guide value="120" toValue="125" fillColor="#0000cc" fillAlpha="0.05" lineAlpha="0"/>
+					<amcharts:Guide value="125" toValue="130" fillColor="#0000cc" fillAlpha="0.10" lineAlpha="0"/>
+					<amcharts:Guide value="130" toValue="135" fillColor="#0000cc" fillAlpha="0.15" lineAlpha="0"/>
+					<amcharts:Guide value="135" toValue="200" fillColor="#0000cc" fillAlpha="0.20" lineAlpha="0"/>
+				</amcharts:guides>                    
+			</amcharts:ValueAxis>
+		</amcharts:valueAxes>
+		
+		<amcharts:categoryAxis>
+			<!-- no guides here, one is added with addGuide method -->
+			<amcharts:CategoryAxis id="catAxis" parseDates="true" minPeriod="DD" inside="true" tickLength="0"/>
+		</amcharts:categoryAxis>
+		
+		<amcharts:chartCursor>
+			<amcharts:ChartCursor/>                        
+		</amcharts:chartCursor>
+		
+		<amcharts:chartScrollbar>
+			<amcharts:ChartScrollbar graph="{g1}" hideResizeGrips="false"/>                        
+		</amcharts:chartScrollbar>            
+	</amcharts:AmSerialChart>
+	
+</mx:Application>

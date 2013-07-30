@@ -1,0 +1,557 @@
+<?php
+
+session_start();
+
+if($_SESSION['modelName'] == '') {
+    echo "<script> alert('Sorry, you recently don\'t have any simulation result.  Please run our simulation again.');</script>";
+    header("Refresh: 0; url=index.php");
+}
+
+// get modelName from Session
+$sqlFile="../Buildings/ENERGYPLUS/{$_SESSION['modelName']}.idf/EnergyPlus/eplusout.sql";
+$htmlFile1="../Buildings/ENERGYPLUS/{$_SESSION['modelName']}.idf/EnergyPlus/eplustbl.htm";
+
+/*
+ *	This function returns data from SQL file. <Sqlite3> 
+ */
+function getDataFromSql($fileName, $tableName, $columnName, $rowName, $reportName, $reportForString, $units)
+{
+	$db = new SQLite3("$fileName");
+	if(!$db) die("Error: File is Not found!\n"); 
+    
+	$sql = "Select Distinct * From TabularDataWithStrings
+		Where TableName Like '$tableName' 
+		      And ColumnName Like '%$columnName%'
+              And RowName Like '%$rowName%'
+              And RowName <> ''
+		      And ReportName Like '%$reportName%' 
+		      And ReportForString Like '%$reportForString%'
+		      And Units Like '%$units'";
+	$result = $db->query("$sql");
+	
+	if(!$result) die("Error: Query is incorrect!\n");
+
+	$output;
+	$index=0;
+	while($row=$result->fetchArray(SQLITE3_ASSOC)) {
+        
+		$output[$index]['ColumnName']=$row['ColumnName'];
+        $output[$index]['RowName']=$row['RowName'];
+        
+		$output[$index]['FullName']=$row['ColumnName'].'_'.$row['RowName']; 
+		$output[$index]['Value']=$row['Value']; 
+		$output[$index]['Units']=$row['Units'];
+        
+		$index++;
+	}
+	return $output;
+}
+
+/*
+ *  This function prints the summary of the building model based on the user input
+ */
+function display_results($search_key) {
+    
+    $username='root';
+    $password='srebric10-11';
+    $database='hackathon';
+    $localhost='localhost';
+    
+    // connect to database
+    $con = mysql_connect($localhost, $username, $password);
+    if(!$con) {
+        die('could not connect: '.mysql_error());
+    }
+    
+    // select database
+    mysql_select_db($database, $con); 
+
+    // SQL
+    $sql = "Select distinct B.buildingID, concat(buildingName, userSubmitted) as modelname, L.city, L.state,
+                   L.weatherFile, F.functionType, R.name as roofMaterial, W.name as wallMaterial,
+				   floors, floorArea, windowPercent 
+            From buildings B, locations L, roofmaterials R, wallmaterials W, functions F
+            Where concat(buildingName, userSubmitted) like '%".$search_key."%' and B.functionID = F.functionID 
+                  and B.locationID = L.locationID and W.wallMatID = 1 and R.roofMatID = 1
+            Order by B.buildingID DESC";
+    
+    // execute and check the sql query on the database 
+    $result = mysql_query($sql, $con); 
+    if(!$result) {
+        die('Invalid query: '.mysql_error());
+    }
+    
+    echo '<table width="100%" height="520px" border="0" style="padding: 5px;">';
+    $count = 0;
+    if($search_key != '') {
+        while ($row = mysql_fetch_assoc($result)) { 
+        //$html_path = '../Buildings/Output/'.$row['modelname'].'Table.html';
+        $html_path = "../Buildings/ENERGYPLUS/{$row['modelname']}.idf/EnergyPlus/eplustbl.htm";
+        $idf_path = '../Buildings/'.$row['modelname'].'.idf';
+        $epw_path = '../weather/'.$row['weatherFile'].'.epw';
+        
+        echo     '<tr>
+                    <td><div align="right"><strong>Simulated Result (.html):</strong></div></td>
+                    <td><div align="justify"><em><a href="'.$html_path.'" target="_blank"> '.$row['modelname'].'Table.html </a></em></div></td>
+                  </tr>
+                  <tr>
+                    <td width="250"><div align="right"><strong>Building (.idf):</strong></div></td>
+                                    <td width="550"> <div align="justify"><em><a href="'.$idf_path.'" target="_blank"> '.$row['modelname'].'.idf </a> </em></div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>Weather (.epw):</strong></div></td>
+                                    <td> <div align="justify"><em><a href="'.$epw_path.'" target="_blank"> '.$row['weatherFile'].'.epw </a> </em></div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>Created Date:</strong></div></td>
+                    <td><div align="justify"><em>not yet support</em></div></td>
+                  </tr>
+                <tr>
+                <td><div align="right"><strong>By Author:</strong></div></td>
+                                <td> <div align="justify"><em>not yet support </em></div></td>
+                </tr>
+                 
+                  <tr>
+                    <td><div align="right"></div></td>
+                    <td> <div align="justify"><em></em></div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>Area:</strong></div></td>
+                    <td><div align="justify"><em>'.$row['floorArea'].' m<sup>2</sup> </em></div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>Number Of Floors:</strong></div></td>
+                    <td><div align="justify"><em>'.$row['floors'].'</em></div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>Window Percentage:</strong></div></td>
+                    <td><div align="justify"><em>'.$row['windowPercent'].'%</em></div></td>
+                  </tr>
+                  
+                  <tr>
+                    <td><div align="right"><strong>Building Type:</strong></div></td>
+                    <td><div align="justify"><em>'.$row['functionType'].'</em></div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>Wall Materials:</strong></div></td>
+                    <td><div align="justify"><em>'.$row['wallMaterial'].'</em></div></td>
+                  </tr>
+                  <tr>
+                    <td><div align="right"><strong>Roof Materials:</strong></div></td>
+                    <td><div align="justify"><em>'.$row['roofMaterial'].'</em></div></td>
+                  </tr>
+             
+                  <tr>
+                    <td><div align="right"></div></td>
+                    <td><div align="justify"><em></em></div></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp; <hr /></td>
+                    <td>&nbsp;<hr /></td>
+                  </tr>';
+                  $count=$count+1;
+                  if($count > 0) break;      // display the lastest result for the user
+        }
+    
+    
+        if($count<1) {
+            echo '<tr>
+                    <td style="color:red;" align="middle" height="69" colspan="2"> <h3>Sorry, we can\'t found any matched model in your search. </h3></td>
+                  </tr>';
+        } else {
+                   echo '<tr>
+                    <td style="color:red;" align="middle" height="69" colspan="2"> <h3>We found '.$count.' matched model(s) for you. </h3></td>
+                  </tr>'; 
+        }
+    }
+    echo '</table>';
+    
+    // close database
+    mysql_close($con);
+}
+
+if(isset($_GET['tableName'])) {
+    $result = getDataFromSql($sqlFile, $_GET['tableName'], $_GET['columnName'], $_GET['rowName'],
+	         $_GET['reportName'], $_GET['reportForString'], $_GET['units']);
+}
+?>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>RMT 4: Result </title>
+<LINK REL="SHORTCUT ICON" HREF="img/eebhub" />
+<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<link href="css/demo.css" rel="stylesheet">
+<script src='js/amcharts.js' type="text/javascript"></script>
+<script src="js/canvg.js" type="text/javascript"></script>  
+<script src="js/rgbcolor.js" type="text/javascript"></script>  
+<script src="js/StackBlur.js" type="text/javascript"></script>  
+
+<script>
+// Extend AmCharts object
+AmCharts.getExport = function(id) {
+	var wrapper       = document.getElementById(id);
+	var svgs          = wrapper.getElementsByTagName('svg');
+	var options       = {
+		ignoreAnimation :   true,
+		ignoreMouse     :   true,
+		ignoreClear     :   true,
+		ignoreDimensions:   true,
+		offsetX         :   0,
+		offsetY         :   0
+	};
+
+	var canvas        = document.createElement('canvas');
+	var context       = canvas.getContext('2d');
+	var counter       = {
+		height            : 0,
+		width             : 0
+	}
+
+	// Nasty workaround until somebody figured out to support images
+	function removeImages(svg) {
+		var startStr    = '<image';
+		var stopStr     = '</image>';
+		var stopStrAlt  = '/\>';
+		var start       = svg.indexOf(startStr);
+		var match       = '';
+
+		// Recursion
+		if ( start != -1 ) {
+			var stop = svg.slice(start,start+1000).indexOf(stopStr);
+			if ( stop != -1 ) {
+				svg = removeImages(svg.slice(0,start) + svg.slice(start + stop + stopStr.length,svg.length));
+			} else {
+				stop = svg.slice(start,start+1000).indexOf(stopStrAlt);
+				if ( stop != -1 ) {
+					svg = removeImages(svg.slice(0,start) + svg.slice(start + stop + stopStr.length,svg.length));
+				}
+			}
+		}
+		return svg;
+	};
+
+	// Setup canvas
+	canvas.height     = wrapper.offsetHeight;
+	canvas.width      = wrapper.offsetWidth;
+	context.fillStyle = '#FFFFFF';
+	context.fillRect(0,0,canvas.width,canvas.height);
+
+	// Add SVGs
+	for( i = 0; i < svgs.length; i++ ) {
+		var container = svgs[i].parentNode;
+		var innerHTML = removeImages(container.innerHTML); // remove images from svg until its supported
+		options.offsetY = counter.height;
+		counter.height += container.offsetHeight;
+		counter.width = container.offsetWidth;
+		canvg(canvas,innerHTML,options);
+	}
+
+	// Return output data URL
+	return canvas.toDataURL();
+}
+
+// Sample dump function
+function exportDat(id) {
+	var output = AmCharts.getExport(id);
+	var image  = document.createElement('img');
+	var link   = document.createElement('a');
+
+	// Add image data
+	image.src = output;
+
+	// Create download link with the image
+	link.href     = output;
+	link.download = 'AmChartsExport.png';
+	link.title    = 'Just download that awesome export';
+	link.innerHTML = 'DownLoad';
+
+	// Return output into doc
+	document.getElementById('downloadButton').innerHTML = '';
+	document.getElementById('downloadButton').appendChild(link);
+}
+
+</script>
+
+<style>
+.green-back-ground {
+    background: #82B22C;
+}
+
+.menu_div {
+    position: absolute; 
+	top: 260px; 
+	width: 400px; 
+	z-index:1;
+    height: 200px;
+    min-width: 200px;
+    color: #333333;
+    font-family: Georgia, Serif;
+}
+
+#row:hover { background: #FF4040; color: white;}
+footer{
+	position: fixed;
+}
+</style>
+</head>
+
+<body>
+<form action="login/" method="post" style="position: absolute; width: 100%; top: 0px; left: 0px;" name="frmLogin" id="frmLogin" >
+    <nav class="top-nav">
+        <a style="margin: 0px 10px;" href="./index.php" > Home </a>
+        <a style="margin: 0px 10px;" href="#"> Tour </a>
+		<a style="margin: 0px 10px;" href="./index.php" > Contact </a>
+        <a style="margin: 0px 10px;" href="#"> About </a>
+    </nav>
+</form>  
+
+<header style="margin-top: 55px;">
+    <h1>
+        <a href="index.php"> <img src="img/hub.jpg" width="489" height="150" class="ui-icon-eject"> </a>
+        <nav class="user_zone"> <a href="login/signup.php">Register</a> | <a href="login/index.php"> Login </a> </nav>
+    </h1>         
+</header>
+
+
+<div class="main-div">
+    <div class="menu_div" id='cssmenuX' >
+        <ul>
+            <li> <a href="./result.php?query=sumamry" title="Summary"> Summary </a> </li>
+            <li> <a href="./result.php?query=pie&tableName=End+Uses&units=GJ" title="End Uses Annual"> End Uses Annual</a> 
+                <ul>
+                    <li> <a href="result.php?query=pie&tableName=End+Uses&columnName=Electricity&units=GJ"> Electricity [GJ] </a> </li>
+                    <li> <a href="result.php?query=pie&tableName=End+Uses&columnName=Electricity&units=W"> Peak Electricity [W] </a> </li>
+            	    <li> <a href="result.php?query=pie&tableName=End+Uses&columnName=Gas&units=GJ"> Gas [GJ] </a> </li>
+            	    <li> <a href="result.php?query=pie&tableName=End+Uses&columnName=Gas&units=W"> Peak Gas [W] </a> </li>
+                </ul>
+            </li>
+            <li> <a href="result.php?query=bar&tableName=&reportName=ELECTRICITY+MONTHLY"  title="End Uses Monthly"> End Uses Monthly</a> 
+                <ul>
+                    <li> <a href="result.php?tableName=&rowName=January&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> January </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=February&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> February </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=March&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> March </a> </li>
+            	    <li> <a href="result.php?tableName=&rowName=April&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> April </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=May&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> May </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=June&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> June </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=July&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> July </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=August&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> August </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=September&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> September </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=October&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> October </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=November&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> November </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=December&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> December </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=Sum&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> Annual Sum or Average </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=Min&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> Minimum of Months </a> </li>
+                    <li> <a href="result.php?tableName=&rowName=Max&reportName=ELECTRICITY+MONTHLY&reportForString=&query=bar"> Maximum of Months </a> </li>
+                </ul>
+            </li>
+			<li> <a href="report_on_demand.php"> Report On Demand </a> </li>
+        </ul>
+    </div>
+    
+
+    <form action="" method="get" style="padding: 5px;">
+		<input type="hidden" name="tableName" id="tableName" size=10 value="" /> 
+		<input type="hidden" name="columnName" id="columnName" size=10 value="" /> 
+		<input type="hidden" name="rowName" id="rowName" size=10 value="" /> 
+		<input type="hidden" name="reportName" id="reportName" size=10 value="" /> 
+		<input type="hidden" name="reportForString" id="reportForString"size=10 value="" /> 
+		<input type="hidden" name="units" size=10 id="units" value="" /> 
+		<input type="hidden" name="query" id="query" value=""/>
+    </form>
+    
+    <div class="panel">
+     <?php
+            switch($_GET['query']) {
+                case "sumamry":
+                    echo "<h3 class='sub-header'> {$_SESSION[modelName]} :: Summary </h3>";
+                    display_results($_SESSION[modelName]);
+                    break;      
+                case "pie":
+    // Pie Chart Javascript
+    echo <<<END
+    <script type="text/javascript">
+            var chart;
+            var legend;
+
+            var chartData = 
+			[
+END;
+			// input units
+			$units = $result[0]['Units'];			
+			
+			// set chart input with only numeric data
+			foreach($result as $R) {
+				// check if the data is compared in same unit
+				if($R['Units'] != $units) return;
+				$rowName = str_replace(":", "_", $R['FullName']);
+				if(is_numeric($R['Value']) && $R['Value'] > 0){
+					echo" 	{ 	row_name: '$rowName', 
+								row_value: {$R['Value']}   },";
+				}
+			}
+
+			echo <<<END
+			];
+
+            AmCharts.ready(function () {
+                // PIE CHART
+                chart = new AmCharts.AmPieChart();
+                chart.dataProvider = chartData;
+                chart.titleField = "row_name";
+                chart.valueField = "row_value";
+
+                // LEGEND
+                legend = new AmCharts.AmLegend();
+                legend.align = "center";
+                legend.markerType = "circle";
+				chart.depth3D = 10;
+				chart.labelRadius = 30;
+                chart.labelText = "[[title]]: [[percents]]%";
+                chart.angle = 10;
+                chart.addLegend(legend);
+				legend.switchType = "x";
+                // WRITE
+                chart.write("chartdiv");
+            });
+           
+        </script>
+END;
+					echo <<<END
+                    		<h3 class='sub-header'> {$_SESSION['modelName']} :: End Use Annual {$_GET['columnName']} (GJ) </h3>
+							<div onmouseover="exportDat('chartdiv'); 
+								this.onmouseover='';" style="padding: 2px; border: thin solid #999; 
+								float: right; color: blue; " id='downloadButton'> Download Image 
+							</div>
+                            <div id='chartdiv' style='width: 100%; height: 600px; position:relative;'></div>
+END;
+                    break;
+
+                case "bar":
+                     // Bar Chart Javascript
+        echo <<<END
+        <script type="text/javascript">
+            var chart;
+            var chartData1 = [\n
+END;
+            // Set up input data
+    	    $units = $result[0]['Units'];	
+            $skip = false;
+			$i = 0;
+            
+			// set chart input with only numeric data
+			While($i < count($result)) {
+                $rowName = str_replace(":", "_", $result[$i]['RowName']);
+                $columnName = str_replace(":", "_", $result[$i]['ColumnName']);
+                $value = $result[$i]['Value'];
+              /* if($units == "J") {
+                     // convert unit J to GJ
+                     $value = $value/1000000000;
+                     $units == "GJ";
+                }*/
+                
+                if ($result[$i]['RowName'] == NULL || $result[$i]['RowName'] == "Time of Peak" ) {
+                    $skip = true;
+                }
+                
+                if( $result[$i]['RowName'] != NULL && $result[$i]['RowName'] != "Time of Peak" && $result[$i]['ColumnName'] == $result[0]['ColumnName']) {
+                    $skip = false;
+                }
+                
+                // Start of the row, Set Row Name
+                if($result[$i]['ColumnName'] == $result[0]['ColumnName'] && !$skip) {
+				    echo "    { 	month: '$rowName',\n";
+                }
+                
+                // Input Cell Values
+                if($skip==false)
+                    echo "              $columnName: $value/1000000000,\n";  
+                $i=$i+1;
+                
+                // End of the row
+                if($result[$i]['ColumnName'] == $result[0]['ColumnName'] && $skip == false) {
+                    echo "    },\n";
+                }
+			}
+            
+			echo <<<END
+			 },];
+            
+            AmCharts.ready(function () {
+                // SERIAL CHART
+                chart = new AmCharts.AmSerialChart();
+                chart.dataProvider = chartData1;
+                chart.categoryField = "month";
+                chart.startDuration = 1;
+                chart.plotAreaBorderColor = "#DADADA";
+                chart.plotAreaBorderAlpha = 1;
+                // this single line makes the chart a bar chart          
+                chart.rotate = true;
+
+                // AXES
+                // Category
+                var categoryAxis = chart.categoryAxis;
+                categoryAxis.gridPosition = "start";
+                categoryAxis.gridAlpha = 0.1;
+                categoryAxis.axisAlpha = 0;
+
+                // Value
+                var valueAxis = new AmCharts.ValueAxis();
+                valueAxis.axisAlpha = 0;
+                valueAxis.gridAlpha = 0.1;
+                valueAxis.position = "top";
+                chart.addValueAxis(valueAxis);
+END;
+                // Initialize Graphs
+                if($result[0]['ColumnName']!=NULL) {
+                    $j=0;
+                    // Graph On Column
+                    do{
+                        $columnName = str_replace(":", "_", $result[$j]['ColumnName']);
+                        echo <<<END
+                         
+                        // GRAPH_$j
+                        var $columnName = new AmCharts.AmGraph();
+                        $columnName.type = "column";
+                        $columnName.title = "$columnName";
+                        $columnName.valueField = "$columnName";
+                        $columnName.balloonText = "$columnName: [[value]] $units";
+                        $columnName.lineAlpha = 0;
+                        $columnName.fillAlphas = 1;
+                        chart.addGraph($columnName);
+END;
+                        $j=$j+1;
+                    }while( $result[$j]['ColumnName'] != $result[0]['ColumnName'] && $result[$j]['ColumnName'] != NULL);  
+                }
+                
+                echo <<<END
+                // LEGEND
+                var legend = new AmCharts.AmLegend();
+                chart.addLegend(legend);
+
+                // WRITE
+                chart.write("monthly_data_chartdiv");
+            });
+
+        </script>
+END;
+                    echo <<<END
+					<h3 class='sub-header'> {$_SESSION['modelName']} :: Monthly Cooling {$_GET['rowName']} (GJ) </h3>
+<div onmouseover="exportDat('monthly_data_chartdiv'); this.onmouseover='';" style="padding: 2px; border: thin solid #999; float: right; color: blue; " id='downloadButton'> Download Image 
+	</div>
+                                <div id='monthly_data_chartdiv' style='width: 100%; height: 600px; position:relative;'></div>
+END;
+                    break;
+            }
+    ?>
+    </div>
+</div>
+
+<footer>
+    Copyright &copy; 2013, RMT All Rights Reserved.
+</footer>
+
+</body>
+
+</html>

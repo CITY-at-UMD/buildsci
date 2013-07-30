@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+   <head>
+    	<title>VirtualPULSE</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style2.css">
+	<!--Google Maps API -->
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <!-- WebGL DAE Renderer -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript" src="Three.js"></script>
+	<script type="text/javascript" src="Detector.js"></script>
+	<script type="text/javascript" src="RequestAnimationFrame.js"></script>
+
+	<script type="text/javascript">
+	    var _gaq = _gaq || [];
+	    _gaq.push(['_setAccount', 'UA-26348074-2']);
+	    _gaq.push(['_trackPageview']);
+	    (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	    })();
+	</script>
+    </head>
+
+    <body>
+      <div id="header-outer" align="center">
+      <a href="http://www.buildingscience.psu.edu/"><img class="header" src="header.jpg" href=""></a>
+      </div>
+      <h1 style="text-align: center">Virtual PULSE  |  simulate building energy &amp; airflow</h1>
+      
+		      
+      <form name=pulse id=pulse action="results.php" method="post">
+      <table border="1">
+      <tr>
+        <th colspan=4>STATISTICS</th>
+      </tr>
+      <tr>
+        <td colspan=2>Email
+	 
+	</td>
+	<td colspan=2>Building Name
+	 
+	</td>
+      </tr>
+      <tr>
+        <th colspan=4>MODEL</th>
+      </tr>
+      <tr>
+	 <td colspan=4>
+	 <div class="model" style="width: 100%">
+	    <input class="selections" type="image" src="2cubes.jpg" onclick="loadobj('2cubes.dae');"/>
+	    <input class="selections" type="image" src="harvard1.jpg" onclick="loadobj('harvard1.dae');"/>
+	    <input class="selections" type="image" src="harvardRoundWall.jpg" onclick="loadobj('harvardRoundWall.dae');"/>
+	 </div>
+	 <div style="width: 100%"><input type="file" id="files" readonly size=50/></div>
+	<script type="text/javascript" src="model.js"></script>
+	</td>
+      </tr>
+       <tr>
+	 <th>LOCATION</th>
+	 <th>TYPE</th>
+	 <th>SIZE</th>
+	 <th>MATERIALS</th> 
+       </tr>
+        <tr>
+	 <td>
+	    <input class="location" type="text" name="email" value="Street, City, State, Zip" onfocus="if(this.value==this.defaultValue){this.value=''};" onblur="if(this.value==''){this.value=this.defaultValue};" />
+	    <iframe src="http://www.dr2ooo.com/tools/maps/maps.php?zoom=17&width=100%&height=170&ll=40.798684,-77.862301&type=satellite&cp=false&" width="200px" height="170"></iframe>
+	 </td>
+	 <td>
+	    <p><label>Type:  <select name="type" size="1">
+            <option value = "Vacant" >Vacant</option>
+            <option value="Office/Professional" selected="selected">Office/Professional </option>
+            <option value="Laboratory">Laboratory</option >
+            <option value = "Warehouse(nonrefrig)">Warehouse(nonrefrig) </option>
+            <option value="Food Sales">Food Sales</option >
+            <option value = "Public Order and Safety">Public Order and Safety </option>
+            <option value="Health Care (outpatient)">Health Care (outpatient)</option >
+            <option value = "Warehouse(refrig)">Warehouse(refrig) </option >
+            <option value = "Religious Worship">Religious Worship </option >
+            <option value = "Public Assembly">Public Assembly </option >
+            <option value = "Education">Education </option >
+            <option value = "Food Service"> Food Service </option >
+            <option value = "Health Care(inpatient)">Health Care(inpatient) </option >
+            <option value = "Skilled Nursing">Skilled Nursing </option >
+            <option value = "Lodging">Lodging </option >
+            <option value = "Strip Shopping Mall">Strip Shopping Mall </option >
+            <option value = "Enclosed Mall">Enclosed Mall </option >
+            <option value = "Retail(excl.Mall)"> Retail(excl.Mall) </option >
+            <option value = "Service"> Service </option >
+            <option value = "Other"> Other </option >
+            </select>
+	    </label></p>
+	 </td>
+	 <td>
+	    <p>Surface Area </p><div class="surface_area"><script type="text/javascript">document.write(TotalArea/12/12);</script> ft<sup>2</sup></div>
+	    <p>Volume ___ ft<sup>3</sup></p>
+	 </td>
+	 <td>
+	    <p>Wall Type</p>
+	    <select name="wall">
+	    <option value="mass">Mass</option>
+	    <option value="metal">Metal</option>
+	    <option value="steel">Steel-Framed</option>
+	    <option value="wood">Wood-Framed</option>
+	    </select>
+	    <br>
+	    <p>Roof Type</p>
+	    <form action="">
+	    <select name="roof">
+	    <option value="attic">Attic & Other</option>
+	    <option value="insulation">Insulation Entirely Above Deck</option>
+	    <option value="metal">Metal Building</option>
+	    </select>
+	 </td>
+       </tr> 
+	   
+      </table>
+      
+      <div class=simulate align="center"> 
+      <input type="submit" value="Simulate Energy & Airflow" />
+      </div>
+      </form>
+		
+      <div id="footer">
+      <p>Designed & Developed by Dr. Jelena Srebric, Jeff Chen, Mohammad Heidarinejad, <a href="http://www.joshwentz.net/">Josh Wentz</a></p>
+      <p>building science GROUP is based in the Architectural Engineering Department of Penn State University</p>
+      </div>
+	    
+    </body>
+</html>

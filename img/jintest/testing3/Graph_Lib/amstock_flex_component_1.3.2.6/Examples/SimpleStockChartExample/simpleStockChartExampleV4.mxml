@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amStock Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               creationComplete="{generateChartData()}"
+               viewSourceURL="srcview/index.html">
+
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            
+            // generate some random data for 4 different data providers
+            
+            [Bindable]private var chartData1:ArrayCollection = new ArrayCollection();
+            
+            [Bindable]private var chartData2:ArrayCollection = new ArrayCollection();    
+            
+            [Bindable]private var chartData3:ArrayCollection = new ArrayCollection();    
+            
+            [Bindable]private var chartData4:ArrayCollection = new ArrayCollection();            
+            
+            private function generateChartData():void
+            {
+                var firstDate:Date = new Date();
+                firstDate.setDate(firstDate.getDate() - 1000);
+                
+                for(var i:Number = 0; i < 1000; i++)
+                {
+                    var newDate:Date = new Date(firstDate);
+                    
+                    newDate.setDate(newDate.getDate() + i);
+                    
+                    var a1:Number = Math.round(Math.random() * (40 + i)) + 100 + i;
+                    var b1:Number   = Math.round(Math.random() * (1000 + i)) + 500 + i * 2;
+                    
+                    var a2:Number   = Math.round(Math.random() * (100 + i)) + 200 + i;
+                    var b2:Number   = Math.round(Math.random() * (1000 + i)) + 600 + i * 2;
+                    
+                    var a3:Number   = Math.round(Math.random() * (100 + i)) + 200;
+                    var b3:Number   = Math.round(Math.random() * (1000 + i)) + 600 + i * 2;
+                    
+                    var a4:Number   = Math.round(Math.random() * (100 + i)) + 200 + i;
+                    var b4:Number   = Math.round(Math.random() * (100 + i)) + 600 + i;                                        
+                    
+                    chartData1.addItem({date:newDate, a:a1, b:b1});
+                    chartData2.addItem({date:newDate, a:a2, b:b2});
+                    chartData3.addItem({date:newDate, a:a3, b:b3});
+                    chartData4.addItem({date:newDate, a:a4, b:b4});
+                }
+            }            
+        ]]>
+    </fx:Script>    
+    
+    <s:VGroup width="100%" height="100%" paddingBottom="10" paddingTop="10" paddingLeft="10" paddingRight="10">
+        
+        <amcharts:AmStockChart width="100%" height="100%">
+            
+            <!-- Stock chart must have at least one data set -->
+            <amcharts:dataSets>
+                <!-- first data set -->
+                <amcharts:DataSet dataProvider="{chartData1}" categoryField="date" title="First data set">                
+                    <!-- all fields which will be used by stock chart must be mapped -->
+                    <amcharts:fieldMappings>
+                        <amcharts:FieldMapping fromField="a" toField="value"/>
+                        <amcharts:FieldMapping fromField="b" toField="volume"/>
+                    </amcharts:fieldMappings>                
+                </amcharts:DataSet>    
+                
+                <!-- second data set -->
+                <amcharts:DataSet dataProvider="{chartData2}" categoryField="date" title="Second data set">                
+                    <amcharts:fieldMappings>
+                        <amcharts:FieldMapping fromField="a" toField="value"/>
+                        <amcharts:FieldMapping fromField="b" toField="volume"/>
+                    </amcharts:fieldMappings>                
+                </amcharts:DataSet>    
+                
+                <!-- third data set -->
+                <amcharts:DataSet dataProvider="{chartData3}" categoryField="date" title="Third data set">                
+                    <amcharts:fieldMappings>
+                        <amcharts:FieldMapping fromField="a" toField="value"/>
+                        <amcharts:FieldMapping fromField="b" toField="volume"/>
+                    </amcharts:fieldMappings>                
+                </amcharts:DataSet>
+                
+                <!-- fourth data set -->
+                <amcharts:DataSet dataProvider="{chartData4}" categoryField="date" title="Fourth data set">                
+                    <amcharts:fieldMappings>
+                        <amcharts:FieldMapping fromField="a" toField="value"/>
+                        <amcharts:FieldMapping fromField="b" toField="volume"/>
+                    </amcharts:fieldMappings>                
+                </amcharts:DataSet>                                                    
+            </amcharts:dataSets>
+            
+            
+            <!-- Stock chart must have at least one stock panel -->
+            
+            <amcharts:panels>
+                <!-- first panel -->
+                <amcharts:StockPanel title="Value" height="50%" showCategoryAxis="false">
+                    <!-- graphs -->
+                    <amcharts:stockGraphs>
+                        <amcharts:StockGraph id="g1" valueField="value" compareField="value" comparable="true"/>                        
+                    </amcharts:stockGraphs>
+                    <!-- legend -->
+                    <amcharts:stockLegend>
+                        <amcharts:StockLegend/>                        
+                    </amcharts:stockLegend>
+                </amcharts:StockPanel>
+                
+                <!-- second panel -->
+                <amcharts:StockPanel title="Volume" height="50%">
+                    <!-- graphs -->
+                    <amcharts:stockGraphs>
+                        <amcharts:StockGraph id="g2" valueField="volume" type="column" fillAlphas="[1]" lineAlpha="0"/>                        
+                    </amcharts:stockGraphs>
+                    <amcharts:stockLegend>
+                        <amcharts:StockLegend/>                        
+                    </amcharts:stockLegend>                    
+                </amcharts:StockPanel>            
+                
+            </amcharts:panels>
+            
+            
+            <!-- Data set selector is optional -->
+            <amcharts:dataSetSelector>
+                <amcharts:DataSetSelector position="left" width="157"/>                
+            </amcharts:dataSetSelector>
+            
+            <!-- Period selector is optional -->
+            <amcharts:periodSelector>
+                <amcharts:PeriodSelector position="left" width="157">
+                    <!-- predefined periods -->
+                    <amcharts:periods>
+                        <amcharts:PeriodButton label="10 Days" period="DD" count="10"/>
+                        <amcharts:PeriodButton label="1 Month" period="MM" count="1"/>
+                        <amcharts:PeriodButton label="6 Months" period="MM" count="6"/>
+                        <amcharts:PeriodButton selected="true" label="1 Year" period="YYYY" count="1"/>
+                        <amcharts:PeriodButton label="MAX" period="MAX"/>
+                        <amcharts:PeriodButton label="YTD" period="YTD"/>                        
+                    </amcharts:periods>
+                </amcharts:PeriodSelector>
+            </amcharts:periodSelector>
+            
+            <!-- All settings components below are optional, you can remove them --> 
+            <!-- Scrollbar settings -->
+            <amcharts:chartScrollbarSettings>
+                <amcharts:ChartScrollbarSettings height="30" graph="{g1}"/>
+            </amcharts:chartScrollbarSettings>
+            
+            <!-- Category axes settings -->        
+            <amcharts:categoryAxesSettings>
+                <amcharts:CategoryAxesSettings maxSeries="100"/>
+            </amcharts:categoryAxesSettings>
+            
+            <!-- Value axes settings -->        
+            <amcharts:valueAxesSettings>
+                <amcharts:ValueAxesSettings/>
+            </amcharts:valueAxesSettings>    
+            
+            <!-- Panels settings -->        
+            <amcharts:panelsSettings>
+                <amcharts:PanelsSettings/>
+            </amcharts:panelsSettings>    
+            
+            <!-- Legends settings -->        
+            <amcharts:legendSettings>
+                <amcharts:LegendSettings/>
+            </amcharts:legendSettings>        
+            
+            <!-- Stock events settings -->        
+            <amcharts:stockEventsSettings>
+                <amcharts:StockEventsSettings/>
+            </amcharts:stockEventsSettings>                                                            
+            
+        </amcharts:AmStockChart>
+    </s:VGroup>
+    
+    
+</s:Application>

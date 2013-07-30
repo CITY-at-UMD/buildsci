@@ -1,0 +1,211 @@
+<?php
+    require 'connection.php';
+?>
+
+<!doctype html>
+<html lang="us">
+<head>
+<meta charset="utf-8">
+<title>RMT 4</title>
+<LINK REL="SHORTCUT ICON" HREF="img/eebhub" />
+
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+
+
+<script src='js/validateForm.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js'></script>
+<script src='js/jquery.color-RGBa-patch.js'></script>
+<script src='js/dropzone.js'></script>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+<script>
+   function loading () { 
+        // var myVar=setInterval(function(){myTimer()},1000);
+        document.getElementById("s-form").submit();
+   }
+   
+   function myTimer()
+    {
+        var d=new Date();
+        var t=d.toLocaleTimeString();
+        document.getElementById("s").innerHTML=t;
+    }
+</script>
+
+
+<style>
+
+.radio-switch {
+  margin-left: 100px;
+  text-shadow: 0 0 10px #eee;
+  width: 400px;
+  border-bottom: medium dashed #3399ff;
+}
+
+.radio-switch a{
+    text-decoration: none;
+    font-size: 30px;
+    color: #888;
+    margin-left: 10px;
+}
+
+.radio-switch a:hover{
+    background: #3399ff;
+    color: white;
+}
+
+.radio-switch a:active{
+    background: #79e823;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+    
+    <form action="login/" method="post" name="frmLogin" id="frmLogin">
+        <nav class="top-nav">
+            <a style="margin: 0px 10px;" href="./index" > Home </a>
+            <a style="margin: 0px 10px;" href="#"> News </a>
+            <a style="margin: 0px 10px;" href="#"> Contact </a>
+            <a style="margin: 0px 10px;" href="#"> About </a>
+            
+            
+            <span style="float: right; margin: -5px 3px"> <input type="submit" class="button" Value="Sign In" /> </span>
+            <span style="float: right; margin: -5px 3px"> Password: <input name="txtPassword" type="password" placeholder="*******" /> </span>
+            <span style="float: right; margin: -5px 3px"> Email: <input name="txtUserId" type="email" placeholder="rmt@virtualpulse.us" /> </span>
+        </nav>
+    </form>  
+    
+    <header>
+        <h1>
+            <a href="index.php"> <img src="img/hub.jpg" width="489" height="150" style="border: none;" class="ui-icon-eject"> </a>
+            <nav class="user_zone"> <a href="login/signup.php">Register</a> | <a href="login/index.php"> Login </a> </nav>
+        </h1>         
+    </header>
+
+	<div class="main-div" id="s">
+    
+        <nav class="radio-switch"> 
+            <a href="#"> Lite </a>
+            <a href="#"> Partial </a>
+            <a href="#"> Substantial </a>
+        </nav>
+        
+        
+		<form class="submit_form" id="s-form" action="simulate.php" name="bform" method="post" onSubmit="return validateform()">
+        
+    		<fieldset>
+        		<legend>USER</legend>
+            		Email: <input type="email" name="eMail" value="" placeholder="RMT@virtualpulse.us" /><br/>
+            		Building (name): <input type="text" name="buildingName" placeholder="New Building Name" value="" /><br/>
+    		</fieldset>
+    		<br/>
+		
+    		<fieldset>
+        		<legend>LOCATION</legend>
+            		City, State: 
+            		<select class="lt-select-wrapper" name="locationID">
+            		<?php
+            			$result = mysql_query("SELECT * FROM locations ORDER BY Enabled DESC, State, City");
+            			while($row = mysql_fetch_array($result))
+            			{
+            				if ($row['Enabled'] == 1)
+            				{
+            					echo "\t<option value=" . $row['locationID'] . ">" . $row['city'] . ", " . $row['state'] . "</option>\n";
+            				}
+            				else
+            				{
+            					echo "\t<option value=" . $row['locationID'] . " disabled=\"disabled\">" . $row['city'] . ", " . $row['state'].  " - Unavailable"  . "</option>\n";
+            				}
+            			}
+            		?>
+            		</select>
+                    <br/>
+    		</fieldset>
+    		<br/>
+		
+    		<fieldset>
+        		<legend>FUNCTION &amp SIZE</legend>
+            		Type:
+            		<select name="functionID">
+            		<?php
+            			$result = mysql_query("SELECT * FROM functions ORDER BY Enabled DESC, functionType");
+            			while($row = mysql_fetch_array($result))
+            			{
+            				if ($row['Enabled'] == 1)
+            				{
+            					echo "\t<option value=" . $row['functionID'] . ">" . $row['functionType'] . "</option>\n";
+            				}
+            				else
+            				{
+            					echo "\t<option value=" . $row['functionID'] . " disabled=\"disabled\">" . $row['functionType'] . " - Unavailable" . "</option>\n";
+            				}
+            			}
+            		?>
+            		</select><br/>
+            		Floors: <input type="number" min="1" max="300" name="floors" value="" placeholder="1-300" /><br/>
+            		Area (total floor) [m<sup>2</sup>]: <input type="number" name="floorArea"  min="1" max="100000" placeholder="1-100000"  value="" /><br/>
+    		</fieldset>
+    		<br/>
+		
+    		<fieldset>
+        		<legend>MATERIALS</legend>
+            		Roof:
+            		<select name="roofMaterial">
+            		<?php
+            			$result = mysql_query("SELECT * FROM roofmaterials ORDER BY Enabled DESC, name");
+            			while($row = mysql_fetch_array($result))
+            			{
+            				if ($row['Enabled'] == 1)
+            				{
+            					echo "\t<option value=" . $row['roofMatID'] . ">" . $row['name'] . "</option>\n";
+            				}
+            				else
+            				{
+            					echo "\t<option value=" . $row['roofMatID'] . " disabled=\"disabled\">" . $row['name'] . " - Unavailable" . "</option>\n";
+            				}
+            			}
+            		?>
+            		</select>
+                    <br/>
+                    
+            		Wall:
+            		<select name="wallMaterial">
+            		<?php
+            			$result = mysql_query("SELECT * FROM wallmaterials ORDER BY Enabled DESC, name");
+            			while($row = mysql_fetch_array($result))
+            			{
+            				if ($row['Enabled'] == 1)
+            				{
+            					echo "\t<option value=" . $row['wallMatID'] . ">" . $row['name'] . "</option>\n";
+            				}
+            				else
+            				{
+            					echo "\t<option value=" . $row['wallMatID'] . " disabled=\"disabled\">" . $row['name'] . " - Unavailable" . "</option>\n";
+            				}
+            			}
+            		?>
+            		</select><br/>
+                    
+            		% Windows: <input type="number" min="10" max="60" name="windowPercent" placeholder="10-60" value=""/><br/>
+    		</fieldset>
+    		<br/>
+		
+    		<input class="button blue" type="submit" value="SIMULATE" />
+    	</form>
+    	<br/>
+    </div>
+
+    <footer>
+    	Copyright &copy; 2013, RMT All Rights Reserved.
+    </footer>
+</body>
+
+</html>
+<?php
+    // close database(hackathon) connection
+    mysql_close($con);
+?>

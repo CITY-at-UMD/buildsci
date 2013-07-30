@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+
+    <fx:Script>
+        <![CDATA[
+            
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:ArrayCollection = new ArrayCollection([
+                {country:"Sales", income:20, expenses:18},  
+                {country:"Development", income:15, expenses:13},
+                {country:"Marketing", income:12, expenses:16},  
+                {country:"Customer support", income:18, expenses:15},  
+                {country:"Administration", income:11, expenses:5},  
+                {country:"Information technology", income:19, expenses:13}]); 
+        ]]>
+    </fx:Script>
+    
+    <s:VGroup width="100%" height="100%">        
+        
+        <amcharts:AmRadarChart id="chart" dataProvider="{chartData}" categoryField="country" width="100%" height="100%" startDuration="1">
+            <amcharts:valueAxes>
+                <amcharts:ValueAxis fillAlpha="0.05" fillColor="0x000000" axisAlpha="0.3" gridAlpha="0.05" fontWeight="bold" min="0"/>
+            </amcharts:valueAxes>
+            
+            <amcharts:graphs>
+                <amcharts:AmGraph 
+                    title="Income" 
+                    valueField="income" 
+                    bullet="round" 
+                    balloonText="Income: [[value]]"/>                
+                <amcharts:AmGraph 
+                    title="Expenses" 
+                    valueField="expenses" 
+                    bullet="square"
+                    markerType="square" 
+                    balloonText="Expenses: [[value]]"/>                
+            </amcharts:graphs>    
+            
+        </amcharts:AmRadarChart>
+        
+        <amcharts:AmLegend fontSize="14" markerType="circle" dataProvider=" {chart}" align="center" textClickEnabled="false" width="100%"/>            
+        
+    </s:VGroup>
+</s:Application>

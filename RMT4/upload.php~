@@ -1,0 +1,69 @@
+<html>
+	<body>
+		<form action="" method="post" enctype="multipart/form-data">
+			<label for="file">Please Upload a result file:</label>
+			<input type="file" name="file[]"">  
+			<br>
+			<input type="submit" value="Submit">
+		</form>	
+	</body>
+</html> 
+
+<?php
+	session_start();
+
+	/* type of file extension allowed */
+	$allowedExts_sql = array("sql");
+
+	/* parse the file name and check the file extension */
+	$extension_sql = end(explode(".", $_FILES["file"]["name"][0]));
+
+	/* with a file being selected: file[0] is the stl file and file[1] is the radresult.sql file */
+	if($_FILES["file"]["name"][0] != "")
+	{		
+
+			// use encripted ip address as file name
+			$ipaddress = getenv('REMOTE_ADDR');
+    		$encripted_ip = md5($ipaddress.rand());
+
+			$_FILES["file"]["name"][0] = $encripted_ip.".sql";	
+			$_SESSION['upload'] = "../Buildings/upload/"$encripted_ip.".sql";
+
+			/* restriction on the file type and file size */
+			/* Warning: $_FILES["file"]["type"] == "application/netfabb " for IE ? */
+			if (($_FILES["file"]["type"][0] == "application/x-sql") && ($_FILES["file"]["size"][0] < 5000000)
+				&& in_array($extension_sql, $allowedExts_sql))
+			{
+				
+					/* is there a error while uploading a file? */
+					if ($_FILES["file"]["error"][0] > 0)
+					{
+						echo "Return Code: " . $_FILES["file"]["error"][0] . "<br>";
+					}
+					else
+					{
+							echo "Upload: " . $_FILES["file"]["name"][0] . "<br>";
+							echo "Type: " . $_FILES["file"]["type"][0] . "<br>";
+							echo "Size: " . ($_FILES["file"]["size"][0] / 1024) . " kB<br>";
+
+							if (file_exists("upload/" . $_FILES["file"]["name"][0]))
+							{
+								echo $_FILES["file"]["name"][0] . " already exists. ";
+							}
+							else
+							{
+									// store the files to the upload folder
+									move_uploaded_file($_FILES["file"]["tmp_name"][0], "../Buildings/upload/" . $_FILES["file"]["name"][0]);
+									echo "Stored in: " . "upload/" . $_FILES["file"]["name"][0];
+							}
+
+					 }
+					 header("Refresh: 3; url=../RMT4/report_on_demand.php");
+			}
+			else
+			{
+					echo "Invalid file";
+			}
+	}	
+?> 
+

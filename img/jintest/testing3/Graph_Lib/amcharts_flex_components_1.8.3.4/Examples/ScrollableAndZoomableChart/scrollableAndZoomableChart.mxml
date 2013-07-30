@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:amcharts="http://www.amcharts.com/com_internal"
+				layout="absolute"
+				backgroundColor="#FFFFFF"
+				width="100%"
+				height="100%" 
+				creationComplete="{clearFilter()}" viewSourceURL="srcview/index.html">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]private var chartData:ArrayCollection = new ArrayCollection([
+				{year:"2000",a:20,b:5,c:10,d:5},
+				{year:"2001",a:21,b:6,c:10,d:10},
+				{year:"2002",a:24,b:7,c:9,d:10},
+				{year:"2003",a:21,b:5,c:10,d:8},
+				{year:"2004",a:24,b:4,c:10,d:8},
+				{year:"2005",a:26,b:8,c:10,d:9},
+				{year:"2006",a:27,b:9,c:12,d:9},
+				{year:"2007",a:29,b:9,c:13,d:8},
+				{year:"2008",a:30,b:10,c:14,d:7},
+				{year:"2009",a:26,b:12,c:15,d:8},
+				{year:"2010",a:24,b:11,c:13,d:9},
+				{year:"2011",a:22,b:14,c:11,d:8},
+				{year:"2012",a:21,b:16,c:11,d:7},
+				{year:"2013",a:20,b:17,c:13,d:6},
+				{year:"2014",a:15,b:19,c:13,d:5},
+				{year:"2015",a:14,b:18,c:14,d:3}
+				
+			]);
+			
+			private function zoom():void{
+				chart.zoomToIndexes(6,12);
+			}
+			
+			private function clearFilter():void{
+				this.filters = [];
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:filters> 
+		<flash.filters:BevelFilter id='bevelFilter' xmlns:flash.filters='flash.filters.*' 
+								   angle='60'
+								   blurX='5' blurY='5'
+								   distance='3'
+								   highlightAlpha='0.39' highlightColor='#ffffff' 
+								   knockout='false' quality='1'
+								   shadowAlpha='0.27' shadowColor='#000000' strength='1' type='inner'/>
+	</mx:filters>
+	
+	<mx:HBox backgroundColor="#FFFFFF" width="100%" height="100%">
+		<mx:VBox width="100%" height="100%">                
+			<amcharts:AmSerialChart
+				width="100%"
+				height="100%"
+				id="chart"
+				dataProvider="{chartData}"
+				categoryField="year"
+				plotAreaFillAlphas="[0]"
+				dataUpdated="{zoom()}">
+				<amcharts:graphs>
+					<amcharts:AmGraph 
+						color="#FFFFFF" 
+						title="Sample a" 
+						valueField="a" 
+						type="column" 
+						lineAlpha="0.8" 
+						fillAlphas="[0.8]"
+						showBalloon="false"
+						filters="{[bevelFilter]}"/>                        
+					<amcharts:AmGraph 
+						color="#FFFFFF" 
+						title="Sample b" 
+						valueField="b" 
+						type="column" 
+						lineAlpha="0.8" 
+						fillAlphas="[0.8]"
+						showBalloon="false"
+						filters="{[bevelFilter]}"/>
+					<amcharts:AmGraph 
+						color="#FFFFFF" 
+						title="Sample c" 
+						valueField="c" 
+						type="column" 
+						lineAlpha="0.8" 
+						fillAlphas="[0.8]"
+						showBalloon="false"
+						filters="{[bevelFilter]}"/>
+					<amcharts:AmGraph 
+						color="#FFFFFF" 
+						title="Sample d" 
+						valueField="d" 
+						type="column" 
+						lineAlpha="0.8"
+						fillAlphas="[0.8]"
+						showBalloon="false"
+						filters="{[bevelFilter]}"/>
+				</amcharts:graphs>
+				
+				<amcharts:valueAxes>
+					<amcharts:ValueAxis stackType="regular" gridAlpha="0.1"/>                    
+				</amcharts:valueAxes>
+				
+				<amcharts:categoryAxis>
+					<amcharts:CategoryAxis gridPosition="start" gridAlpha="0.1" fontWeight="bold"/>
+				</amcharts:categoryAxis>
+				
+				<amcharts:chartScrollbar>
+					<amcharts:ChartScrollbar hideResizeGrips="false" height="20"/>                    
+				</amcharts:chartScrollbar>
+				
+				<amcharts:chartCursor>
+					<amcharts:ChartCursor cursorAlpha=".5"/>                    
+				</amcharts:chartCursor>
+				
+			</amcharts:AmSerialChart>
+			
+			<amcharts:AmLegend 
+				fontWeight="bold"
+				dataProvider="{chart}" 
+				width="100%" align="center"/>                
+		</mx:VBox>
+		
+		
+	</mx:HBox>
+	
+</mx:Application>

@@ -1,0 +1,710 @@
+<?php
+    require 'ReportSQL.php';
+    session_start();
+?>
+
+<?php
+	/* type of file extension allowed */
+	$allowedExts_sql = array("sql");
+
+	/* parse the file name and check the file extension */
+	$extension_sql = end(explode(".", $_FILES["file"]["name"][0]));
+
+	/* with a file being selected: file[0] is the stl file and file[1] is the radresult.sql file */
+	if($_FILES["file"]["name"][0] != "")
+	{		
+			$ipaddress = getenv('REMOTE_ADDR');
+			$uploaded_model = md5($ipaddress.rand());
+			$_FILES["file"]["name"][0] = $uploaded_model.".sql";	
+			$msg = '';
+			/* restriction on the file type and file size */
+			/* Warning: $_FILES["file"]["type"] == "application/netfabb " for IE ? */
+			if ((($_FILES["file"]["type"][0] == "application/x-sql") || $_FILES["file"]["type"][0] == "text/x-sql" || $_FILES["file"]["type"][0] == "application/octet-stream")&& ($_FILES["file"]["size"][0] < 5000000)
+				&& in_array($extension_sql, $allowedExts_sql))
+			{
+				
+					/* is there a error while uploading a file? */
+					if ($_FILES["file"]["error"][0] > 0)
+					{
+						echo "<script> alert('Return Code: " . $_FILES["file"]["error"][0] . "')</script><br>";
+					}
+					else
+					{
+							$msg=$msg. "UPLOAD FILE: {$_FILES["file"]["name"][0]} | ";
+							$msg=$msg. "FILE TYPE: {$_FILES["file"]["type"][0]} | ";
+							$msg=$msg. "FILE SIZE: ".($_FILES["file"]["size"][0] / 1024)."kB";
+							if (file_exists("../Buildings/upload/" . $_FILES["file"]["name"][0]))
+							{
+								echo $_FILES["file"]["name"][0] . " already exists. ";
+							}
+							else
+							{
+								// store the files to the upload folder
+								move_uploaded_file($_FILES["file"]["tmp_name"][0], "../Buildings/upload/" . $_FILES["file"]["name"][0]);
+								// use encripted ip address as file name
+	 							$_SESSION['modelName'] = '';
+								$_SESSION['upload'] = $uploaded_model;
+								echo "<script> alert('$msg');</script>";
+							}
+					 }
+					 //header("Refresh: 3; url=../RMT4/report_on_demand.php");
+			}
+			else
+			{
+					$_SESSION['upload']='';
+					echo "<script> alert('Invalid File Type: {$_FILES["file"]["type"][0]}'); </script>";
+			}
+	}	
+?> 
+
+<?php
+    /*  ================================Setting Up ================================================ */
+    //$sqlFile="../Buildings/ENERGYPLUS/JinTest55.idf/EnergyPlus/eplusout.sql";
+    #$sqlFile="../Buildings/ENERGYPLUS/{$_SESSION['modelName']}.idf/EnergyPlus/eplusout.sql";
+	#$sqlFile="../Buildings/upload/{$_SESSION['modelName']}";
+	if($_SESSION['modelName']!='') {
+		$sqlFile="../Buildings/ENERGYPLUS/{$_SESSION['modelName']}.idf/EnergyPlus/eplusout.sql";
+	}
+	else if($_SESSION['upload']!='') {   	
+		$sqlFile= '../Buildings/upload/'.$_SESSION['upload'].".sql";
+	} 
+	else // no modelName, upload
+	{
+		echo '<body style="background: #ddd; min-width: 1024px;">
+		<div style="color: #eee; position: absolute; height: 80px; width: 100%; background: #999; top: 0; left: 0;">
+			<h1 style="margin-left: 50px"> <a style="text-decoration: none; color: #eee" 
+						href="index.php"> Welcome to Report On Demand </a></h1>
+		</div>
+
+		<div style="position: static; margin: 25% 30%; font-size: 18px;">
+		<p style="color: #EE0000;" > Hi! You recently don\'t have any simulated or uploaded result.  </br> Please upload your own model sql file below or </br> Run a new simulation <a href="index.php">here</a> .  
+		</p>
+		
+		<form action="" method="post" enctype="multipart/form-data">
+			<label for="file">SQL FILE:</label>
+			<input style="font-size: 16px" type="file" name="file[]"">  
+			<input class="button" style="font-size: 16px; padding: 0px; color: white; background-color: #3399ee"  
+		      			type="submit" value="UPLOAD">
+		</form>
+		</div>
+		</body>';
+	}
+
+    $reportName = getReportName($sqlFile);
+    $reportForString = getReportForString($sqlFile, $_POST['reportName']);
+    
+	// Setting Up TableName, RowName, And ColumnName
+    foreach($_POST['reportName'] as $RN) {
+        
+        $temp_tables = getTableName($sqlFile, $RN); // the tables that are from the current report 
+ 
+        // Save All TableName for the current report 
+        $tableName["$RN"]=$temp_tables;
+        
+        // Save All RowName and ColumnName From The Selected-Tables        
+        foreach($_POST['tableName'][$RN] as $TN) {
+
+            // the unique key of the table (ReportName+TableName)
+            $key = $RN.$TN;
+            
+            // Save ColumnName and RowName 
+            $columnName["$key"] = getColumnName($sqlFile, $TN, $RN);
+            $rowName["$key"] = getRowName($sqlFile, $TN, $RN);
+        }
+    }
+
+?>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="js/amcharts.js" type="text/javascript"></script>   
+<link type="text/css" href="css/report.css" rel="stylesheet">
+<link href="css/demo.css" rel="stylesheet">
+<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/canvg.js" type="text/javascript"></script>  
+<script src="js/rgbcolor.js" type="text/javascript"></script>  
+<script src="js/StackBlur.js" type="text/javascript"></script>  
+
+<style>
+#filter {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #eee;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 249;
+	opacity: 0.1;
+}
+
+#update_button{
+	height: 30px; 
+	position: fixed; 
+	background: #999;
+	top: 100px; 
+	left: 0; 
+	width: 20px;
+	opacity: 0.2;
+}
+#update_button:hover{
+	opacity: 1;
+	width: 100px;
+	background: #333;
+	color: #3399ee;
+	box-shadow: 0 5px 10px #888;
+}
+
+.top-nav {
+	min-width: 1280px;
+}
+
+footer{
+	position: fixed;
+}
+</style>
+
+<script>
+// Extend AmCharts object
+AmCharts.getExport = function(id) {
+	var wrapper       = document.getElementById(id);
+	var svgs          = wrapper.getElementsByTagName('svg');
+	var options       = {
+		ignoreAnimation :   true,
+		ignoreMouse     :   true,
+		ignoreClear     :   true,
+		ignoreDimensions:   true,
+		offsetX         :   0,
+		offsetY         :   0
+	};
+
+	var canvas        = document.createElement('canvas');
+	var context       = canvas.getContext('2d');
+	var counter       = {
+		height            : 0,
+		width             : 0
+	};
+
+	// Nasty workaround until somebody figured out to support images
+	function removeImages(svg) {
+		var startStr    = '<image';
+		var stopStr     = '</image>';
+		var stopStrAlt  = '/\>';
+		var start       = svg.indexOf(startStr);
+		var match       = '';
+
+		// Recursion
+		if ( start != -1 ) {
+			var stop = svg.slice(start,start+1000).indexOf(stopStr);
+			if ( stop != -1 ) {
+				svg = removeImages(svg.slice(0,start) + svg.slice(start + stop + stopStr.length,svg.length));
+			} else {
+				stop = svg.slice(start,start+1000).indexOf(stopStrAlt);
+				if ( stop != -1 ) {
+					svg = removeImages(svg.slice(0,start) + svg.slice(start + stop + stopStr.length,svg.length));
+				}
+			}
+		}
+		return svg;
+	};
+
+	// Setup canvas
+	canvas.height     = wrapper.offsetHeight;
+	canvas.width      = wrapper.offsetWidth;
+	context.fillStyle = '#FFFFFF';
+	context.fillRect(0,0,canvas.width,canvas.height);
+
+	// Add SVGs
+	for( i = 0; i < svgs.length; i++ ) {
+		var container = svgs[i].parentNode;
+		var innerHTML = removeImages(container.innerHTML); // remove images from svg until its supported
+		options.offsetY = counter.height;
+		counter.height += container.offsetHeight;
+		counter.width = container.offsetWidth;
+		canvg(canvas,innerHTML,options);
+	}
+
+	// Return output data URL
+	return canvas.toDataURL();
+}
+
+// Sample dump function
+function exportDat(id) {
+	var output = AmCharts.getExport(id);
+	var image  = document.createElement('img');
+	var link   = document.createElement('a');
+
+	// Add image data
+	image.src = output;
+
+	// Create download link with the image
+	link.href     = output;
+	link.download = 'AmChartsExport.png';
+	link.title    = 'Just download that awesome export';
+	link.innerHTML = 'DownLoad';
+
+	// Return output into doc
+	document.getElementById('downloadButton').innerHTML = '';
+	document.getElementById('downloadButton').appendChild(link);
+}
+
+</script>
+
+<script> 
+
+// update the list
+function changeSelectAction(form){
+    document.forms['abc'].submit();
+}
+
+// display a graph
+function display_graph(display_g, g_report, g_table, g_column, g_row) {
+
+	// change the display_g value "on"
+	document.getElementById('display_g').value =display_g;
+	document.getElementById('g_report').value =g_report;
+	document.getElementById('g_table').value =g_table;
+	document.getElementById('g_column').value =g_column;
+	document.getElementById('g_row').value =g_row;
+
+	// submit form
+	document.forms['abc'].submit();
+	return 0;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<form action="login/" method="post" name="frmLogin" id="frmLogin" >
+    <nav class="top-nav">
+        <a style="margin: 0px 10px;" href="./index.php" > Home </a>
+        <a style="margin: 0px 10px;" href="#"> Tour </a>
+		<a style="margin: 0px 10px;" href="./index.php" > Contact </a>
+        <a style="margin: 0px 10px;" href="#"> About </a>
+        
+        <span style="float: right; margin: -5px 3px"> 
+			<button type="button" class="button" onclick="window.location.href = 'login/signup.php'"> Sign Up </button>
+	    </span>
+    </nav>
+</form>  
+
+
+
+<!-- ################################################################################################################################## -->
+<div style="margin: auto; max-width: 1280px">
+	<h1 style="color: #777; text-shadow: 0 0 10px #eee; margin-bottom: 0;"> Report On Demand</h1>
+
+	<form style="font-size: 16px;" action="" method="post" enctype="multipart/form-data">
+		<label for="file">SQL FILE:</label>
+		<input style="font-size: 16px" type="file" name="file[]"">  
+		<input class="button" style="font-size: 16px; padding: 0px; background-color: #005588" type="submit" value="QUERY">
+	</form>	
+
+    <div id="page-wrap">
+    <form name="abc" action="" method="post">
+        <div id="example-one" >
+            <div class="list-wrap" >
+            
+         <!-- ReportName Section -->
+                <h2> Model </h2>
+                <hr>
+                <?php
+                 	if($_SESSION['modelName'] != '') {
+						echo "Simulated Model: {$_SESSION['modelName']} </br>";
+					} else if($_SESSION['upload'] != ''){
+						echo "Uploaded Model: {$_SESSION['upload']} </br>";
+					}
+                ?>
+                </ul>
+                </br>
+
+                <!-- ReportName Section -->
+                <h2> Summary </h2>
+                <hr>
+                <?php
+                    // ReportName List
+                    foreach($reportName as $RN) {
+                        echo "<li id='row'> <input type='checkbox'";
+                        // memorize which boxes are checked
+                        foreach($_POST['reportName'] as $checkedRN){
+                            if($checkedRN == $RN) {
+                                echo "checked='checked'";
+                                break;
+                            }
+                        }
+                        echo "name='reportName[]' value='$RN' onchange='return changeSelectAction(this.form);'> $RN </input> </li>";
+                    }
+                ?>
+                </ul>
+                </br>
+                
+                <!-- ################################################################################################################################## -->
+                <!-- ReportForString Section -->
+                <h2 > For </h2>
+                <hr>
+                <ul>
+                <?php 
+                    // ReportForString List
+                    foreach($reportForString as $RFS) {
+                        echo "<li id='row'> <input type='checkbox'";
+                        // memorize which boxes are checked
+                        foreach($_POST['reportForString'] as $checkedRFS){
+                            if($checkedRFS == $RFS) {
+                                echo "checked='checked'";
+                                break;
+                            }
+                        }
+                        echo "name='reportForString[]' value='$RFS' onchange='return changeSelectAction(this.form);'> $RFS </input> </li>";
+                    }
+                ?>
+                </ul>
+                
+                <!-- ################################################################################################################################## -->
+                <!-- TableName Section -->
+                </br>
+                <h2> Report Table </h2>
+                <hr>
+                <ul >
+                <?php 
+                    if($tableName != NULL)
+                        // select-all option
+                        echo '<li id="row"> 
+                                <input type="checkbox" name="all_table" onchange="return changeSelectAction(this.form);"> all 
+                                </input>
+                              </li>';
+
+                    // TableName List
+                    foreach($reportName as $RN) {                         // iterate reportName 
+                        foreach($tableName["$RN"] as $TN) {                            // iterate tableName in the current reportName
+                            
+                            // The checkboxes for TableName
+                            echo "<li id='row'> <input type='checkbox'";
+                            if($_POST['all_table']=="on") {
+                                echo "checked='checked'";
+                            }
+                            else {
+                                // memorize which boxes are checked
+                                foreach($_POST['tableName']["$RN"] as $checkedTN){
+                                    if($checkedTN == $TN ) {
+                                        echo "checked='checked'";
+                                        break;
+                                    }
+                                }
+                            }
+                            // store tableName in 1 dimension array
+                            echo "name='tableName[$RN][]' value='$TN' onchange='return changeSelectAction(this.form);'> $TN </input> </li>";
+                        }
+                    }
+                ?>
+               </ul>
+               
+               <!-- ################################################################################################################################## -->
+               <!-- ColumnName Section -->
+                </br>
+                <h2> Column </h2>
+                <hr>
+                <ul>
+                <?php 
+                foreach($_POST[reportName] as $RN) {                             // iterate selected-report summary
+                    foreach($_POST[tableName]["$RN"] as $TN) {                   // iterate table in the current Report Summary 
+                        
+                        $key = $RN.$TN;                                         // index for the unique table (ReportName + TableName)
+                        $columnNames = $columnName[$key];
+                        foreach($columnNames as $CN) {
+                            echo "<li id='row'> <input type='checkbox'";
+                            
+                            // determine if the box is checked or not
+                            if($_POST['columnName'][$key] == NULL) {                  // check all rowName options of the table
+                                echo "checked='checked'";                           //      if the user didnot selected any    
+                            }
+                            else {
+                                foreach($_POST['columnName'][$key] as $checkedCN){    // or select the only rowNames that are checked
+                                    if($checkedCN == $CN ) {
+                                        echo "checked='checked'";
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            echo "name='columnName[$key][]' value='$CN' > $CN <span class='float_right'> $TN </span> </input> </li>";
+                        }
+                    }
+                }
+                ?>
+                </ul>
+                
+                <!-- ################################################################################################################################## -->
+                <!-- RowName Section -->
+                </br>
+                <h2> Row </h2>
+                <hr>
+                <ul>
+                <?php 
+                foreach($_POST['reportName'] as $RN) {
+                    foreach($_POST['tableName']["$RN"] as $TN) {  
+                        
+                        $key = $RN.$TN;                                             // index for the unique table (ReportName + TableName)
+                        $rowNames = $rowName[$key];
+                        foreach($rowNames as $RRN) {
+                            echo "<li id='row'> <input type='checkbox'";
+                            
+                            if($_POST['rowName'][$key] == NULL) {                     // check all rowName options of the table
+                                echo "checked='checked'";                           //      if the user didnot selected any    
+                            }
+                            else{
+                                foreach($_POST['rowName'][$key] as $checkedRN){       // or select the only rowNames that are checked
+                                    if($checkedRN == $RRN ) {
+                                        echo "checked='checked'";
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            echo "name='rowName[$key][]' value='$RRN' > $RRN <span class='float_right'> $TN </span> </input> </li>";
+                        }
+                    }
+                }
+                ?>
+                </ul>
+    
+                <!-- ################################################################################################################################## -->
+                <!-- Units Section -->
+                </br>
+                <h2 > Units </h2>
+                <hr>
+                <select name="unit"> 
+                    <option value="SI"> SI </option>
+ 					<option value="IP" disabled> IP </option>
+                </select>
+            </div>
+            
+            </br>
+            <input align="left" class="button" type="submit" name="Update" value="Update" /> </br>
+		
+			<input id="update_button" class="button" type="submit" name="Update" value="Update" /> 
+
+
+			<!-- Graph Table -->		
+			<input type="hidden" value="off" id="display_g" name="display_g">
+			<input type="hidden" value="" id="g_report" name="g_report">
+			<input type="hidden" value="" id="g_table" name="g_table">
+			<input type="hidden" value="" id="g_column" name="g_column">
+			<input type="hidden" value="" id="g_row" name="g_row">
+        </div>
+    </form>
+    </div>
+
+<!-- ################################################################################################################################## -->
+    <!-- Result Table Section -->
+    <div style="position: absolute;">
+    <?php
+        foreach($_POST['reportName'] as $RN) {
+            foreach($_POST['tableName'][$RN] as $TN) {            // iterate selected tableName
+                
+                $key = $RN.$TN;
+                $columnNames = $_POST['columnName'][$key]; 
+                $rowNames = $_POST['rowName'][$key];
+
+				$i = 0;							# index for setting up values
+				$j = 0;							# index of the current cell 
+				$k = 0;							# counter for displaying row values in graph
+				$num_row = count($rowNames);   			# number of rows in the table
+				$num_column = count($columnNames);		# number of columns in the table
+
+                
+                // Save Selected-Value
+                $values = getValueFromSql($sqlFile, $TN, $columnNames, $rowNames, $RN, $_POST["reportForString"]);
+                
+                // start table_div with the table name 
+                echo "<div class='table-div'>
+                    <h2 class='table-head'> <a style='color: white' href='#' onclick='display_graph(\"on\", \"$RN\", \"$TN\", \"$columnNames\", \"$rowNames\")' title='$TN'> Table $TN </a> </h2>
+                    <div style='overflow: scroll; max-height:680px;'>
+                    <table width='100%' border='1' cellspacing='0'>";
+                   
+                // first row: display the table column names
+                echo "<tr>"; 
+                    echo "<th> <a href='#' title=''>  </a> </th>";
+                    foreach($columnNames as $CN) {
+						// k is the current cell index
+						// convert values and rowNames To JSON Format
+						$json = "[";
+						for($cur_row = 0; $cur_row < $num_row; $cur_row++) {
+							$val = $values[$k+$num_column*$cur_row]['Value']; 
+							if($val > 0) {
+							# iterate each column values in the current row 
+								// do nothing
+							}
+							else { $val =0; }
+
+							$cur_row_array = array("title"=>$rowNames[$cur_row],"values"=>$val);
+							# convert json format and append to the row_json
+						 	$json = $json.json_encode($cur_row_array).",";
+	
+						}
+						$json = $json."]";
+						$k++;	
+	                    echo "<th> <a href='#' onmouseover='update($json)' 
+	                      onclick='display_graph(\"on\", \"$RN\", \"$TN\", \"$CN\", \"$rowNames\")' 
+                          title='$CN'> $CN </a> </th>";
+                     } 
+                echo "</tr>\n"; 
+                
+                // second row to the end row of the table
+                foreach($rowNames as $RRN) {
+
+						// j is the current cell index
+						// convert values and rowNames To JSON Format
+						$json = "[";
+						for($cur_col = 0; $cur_col < $num_column; $cur_col++) {
+							$val = $values[$i+$cur_col]['Value'];
+							if($val > 0) { } else {$val =0;}
+							# iterate each column values in the current row 
+							$cur_col_array = array("title"=>$columnNames[$cur_col],"values"=>$val);
+
+							# convert json format and append to the row_json
+							$json = $json.json_encode($cur_col_array).",";
+						}
+						$json = $json."]";
+
+                        // first column: display the table row names
+                        echo "<tr id='row'>  
+								<th> 
+									<a 	onmouseover='update($json)'
+										onclick='display_graph(\"on\", \"$RN\", \"$TN\", \"$columnNames\", \"$RRN\")'
+ 										href='#' title='$RRN'> $RRN 
+									</a>
+								</th> ";
+                
+                        // body: display each cell value             
+                        foreach($columnNames as $T) {                           // use index of columnNames as counter
+                            echo "<td> {$values[$i]['Value']} </td>";
+                            $i=$i+1;            								// increment of value index
+                        }
+                        echo "</tr>\n";		
+                }
+                    
+                // close table_div
+                echo "</table> </div> </div> ";
+########################################################################################################
+				
+########################################################################################################
+            }
+
+        }
+echo '<div class="block" id="chartdiv" style="width: 500px; height: 400px;"></div>';
+    ?>
+    </div>
+
+	<form id="g" action="./report_on_demand.php" method="post">
+		<input type="hidden" value="off" id="display_g" name="display_g">
+	</form>
+
+
+	<?php
+		// Draw the Table or Row or Column with Pie Chart
+		if($_POST['display_g']=="on") {
+	
+			echo "	<style> 
+						body{color: #666; background: #333; } 
+						#example-one{background: #999; opacity: 0.5;}
+						.table-div{background: #999; opacity: 0.5;}
+						.table-head{background: #999; opacity: 0.5;}
+						.block{opacity: 0;}
+					</style>";
+
+			$RN = $_POST['g_report'];
+			$TN = $_POST['g_table'];
+			$colNMs = $_POST['g_column']; 
+            $rowNMs = $_POST['g_row'];
+			
+            // Selected-Value For the pop up graph
+            $value = getValueFromSql($sqlFile, $TN, $colNMs, $rowNMs, $RN, $_POST["reportForString"]);
+			printPieJavascript($value);
+		
+			echo '<div id="filter" > 
+					</div>';
+
+			echo "  <div class='dialog' style='top: 65px;; background: #e00; color: white; width: 90%; height: 20px;'> 
+<div onmouseover=\"exportDat('PieChart'); this.onmouseover='';\" style=\"float: left; \" id='downloadButton'> $TN (download image) </div>
+
+
+						<span style='float: right;' title='close' >
+                         <a style='color: white;' href='#' onclick='document.getElementById(\"display_g\").value=\"off\";
+                         document.forms[\"abc\"].submit(); '> X </a> </span>  </div>
+
+                    <div id='PieChart' class='dialog' height='60%' width='100%'>  </div>
+                    ";
+			
+			//echo "<div id='' class='dialog resizable' title='$key'>$columnNames </div>";
+			// reset the display_state
+			$_POST['display_g']="off";
+		}
+
+	?>
+</div>
+<?php
+if($_POST['display_g']=='on') {
+
+}
+?>
+<!-- ################################################################################################################################## -->
+<script>
+	$("#chartdiv").hide();
+	$("th").delay(5000).hover(
+	  function () {
+		
+		// get the position of the link
+		var link_position = $(this).position();
+
+		// place the chart under the link
+		$("#chartdiv").css("left", link_position.left-350);
+		$("#chartdiv").css("top", link_position.top+50); 
+
+		$("#chartdiv").fadeIn(0);
+	  },
+	  function () {
+		$("#chartdiv").fadeOut(0);
+	  }
+	);
+
+	// chart graph prototype, should make it as function ?
+    var chart1;
+
+	// Change the chart data only
+    var chartData1 = [];
+
+    AmCharts.ready(function () {
+        // PIE CHART
+        chart1 = new AmCharts.AmPieChart();
+
+		// Chart Info Fields
+        chart1.dataProvider = chartData1;
+        chart1.titleField = "title";
+        chart1.valueField = "values";
+
+		// Surface setting info
+        chart1.outlineColor = "#FFFFFF";
+        chart1.outlineAlpha = 0.8;
+        chart1.outlineThickness = 2;
+
+        // WRITE
+        chart1.write("chartdiv");
+    });
+	
+	// update the chart data and redraw the graph
+	function update(chartData) {
+		chart1.dataProvider = chartData;
+		chart1.validateData();
+	}
+</script>
+<!-- ################################################################################################################################## -->
+
+<footer>
+    Copyright &copy; 2013, RMT All Rights Reserved.
+</footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:amcharts="http://www.amcharts.com/com_internal"
+				layout="absolute"
+				backgroundColor="#FFFFFF"
+				width="100%"
+				height="100%">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var chartData:ArrayCollection = new ArrayCollection([
+				{year:"2002",equities:20,fixed:30,cash:25,restate:15,alternative:10},
+				{year:"2003",equities:28,fixed:24,cash:13,restate:16,alternative:19},
+				{year:"2004",equities:30,fixed:21,cash:13,restate:16,alternative:20}
+			]);	
+			
+			
+			private function makeRounded():void{
+				if(chbox.selected){
+					chart.setStyle("angle", 0);
+					chart.setStyle("depth3D", 0);
+					
+				}
+				else{
+					chart.setStyle("angle", 30);
+					chart.setStyle("depth3D", 20);					
+				}
+				
+				for(var i:uint = 0; i < chart.graphs.length; i++){					
+					var graph:AmGraph = chart.graphs[i];
+					if(chbox.selected){
+						graph.setStyle("cornerRadiusTop", 8);
+						graph.setStyle("cornerRadiusBottom", 8);
+					}
+					else{
+						graph.setStyle("cornerRadiusTop", 0);
+						graph.setStyle("cornerRadiusBottom", 0);						
+					}
+				}					
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:HBox width="100%" height="100%">
+		<amcharts:AmSerialChart
+			width="100%"
+			height="100%"
+			id="chart"
+			autoMargins="false"
+			marginTop="25"
+			marginLeft="20"
+			marginRight="20"
+			marginBottom="40"
+			dataProvider="{chartData}"
+			categoryField="year"
+			startDuration="1"
+			angle="30"
+			depth3D="20"
+			plotAreaFillAlphas="[0]">
+			<amcharts:graphs>
+				<amcharts:AmGraph
+					balloonText="In [[category]] [[percents]]% of rich people investments went to Equities" 
+					color="#FFFFFF" 
+					labelText="[[percents]]%" 
+					title="Equities" 
+					valueField="equities" 
+					type="column" 
+					lineAlpha="0" 
+					fillAlphas="[0.8]"/>						
+				<amcharts:AmGraph 
+					balloonText="In [[category]] [[percents]]% of rich people investments went to Fixed income" 
+					color="#FFFFFF" 
+					labelText="[[percents]]%" 
+					title="Fixed income" 
+					valueField="fixed" 
+					type="column" 
+					lineAlpha="0" 
+					fillAlphas="[0.8]"/>
+				<amcharts:AmGraph 
+					balloonText="In [[category]] [[percents]]% of rich people investments went to Cash" 
+					color="#FFFFFF" 
+					labelText="[[percents]]%" 
+					title="Cash" 
+					valueField="cash" 
+					type="column" 
+					lineAlpha="0" 
+					fillAlphas="[0.8]"/>
+				<amcharts:AmGraph 
+					balloonText="In [[category]] [[percents]]% of rich people investments went to Real Estate" 
+					color="#FFFFFF" 
+					labelText="[[percents]]%" 
+					title="Real Estate" 
+					valueField="restate" 
+					type="column" 
+					lineAlpha="0"
+					fillAlphas="[0.8]"/>
+				<amcharts:AmGraph 
+					balloonText="In [[category]] [[percents]]% of rich people investments went to Alternatives" 
+					color="#FFFFFF" 
+					labelText="[[percents]]%" 
+					title="Alternative" 
+					valueField="alternative" 
+					type="column" 
+					lineAlpha="0" 
+					fillAlphas="[0.8]"/>
+			</amcharts:graphs>
+			
+			<amcharts:valueAxes>
+				<amcharts:ValueAxis stackType="100%" gridAlpha="0" axisAlpha="0" labelsEnabled="false"/>					
+			</amcharts:valueAxes>
+			
+			<amcharts:categoryAxis>
+				<amcharts:CategoryAxis gridAlpha="0" axisAlpha="0" fontWeight="bold"/>
+			</amcharts:categoryAxis>
+			
+		</amcharts:AmSerialChart>
+		<mx:VBox>
+			<amcharts:AmLegend 
+				fontWeight="bold"
+				textClickEnabled="false" 
+				reversedOrder="true" 
+				dataProvider="{chart}" 
+				width="155"
+				valueWidth="0" 
+				marginTop="25"
+				marginLeft="0" 
+				marginRight="15"
+				marginBottom="15"/>
+			
+			<mx:CheckBox id="chbox" label="rounded corners" click="{makeRounded()}"/>
+		</mx:VBox>
+	</mx:HBox>
+</mx:Application>

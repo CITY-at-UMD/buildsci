@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+    <fx:Script>
+        <![CDATA[
+            
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:ArrayCollection = new ArrayCollection([
+                {direction:"N", value:8},  
+                {direction:"NE", value:9},
+                {direction:"E", value:4.5},  
+                {direction:"SE", value:3.5},  
+                {direction:"S", value:9.2},  
+                {direction:"SW", value:8.4},
+                {direction:"W", value:11.1},
+                {direction:"NW", value:10}]); 
+        ]]>
+    </fx:Script>
+    
+    <s:VGroup width="100%" height="100%">        
+        
+        <amcharts:AmRadarChart id="chart" dataProvider="{chartData}" categoryField="direction" width="100%" height="100%" startDuration="1">
+            <amcharts:valueAxes>
+                <amcharts:ValueAxis 
+                    gridType="circles" 
+                    fillAlpha="0.05" 
+                    fillColor="0x000000" 
+                    axisAlpha="0.2" 
+                    gridAlpha="0" 
+                    fontWeight="bold" 
+                    min="0">
+                    <amcharts:guides>
+                        <amcharts:Guide angle="225" tickLength="0" toAngle="315" value="0" toValue="14" fillColor="0x0066CC" fillAlpha="0.6"/>                                
+                        <amcharts:Guide angle="45" tickLength="0" toAngle="135" value="0" toValue="14" fillColor="0xCC3333" fillAlpha="0.6"/>                            
+                    </amcharts:guides>
+                </amcharts:ValueAxis>
+            </amcharts:valueAxes>
+            
+            <amcharts:graphs>
+                <amcharts:AmGraph 
+                    lineColor="0xFFCC00"
+                    fillAlphas="[0.4]" 
+                    bullet="round" 
+                    valueField="value"
+                    balloonText="[[direction]]: [[value]] m/s"/>                
+            </amcharts:graphs>    
+            
+        </amcharts:AmRadarChart>
+    </s:VGroup>
+</s:Application>

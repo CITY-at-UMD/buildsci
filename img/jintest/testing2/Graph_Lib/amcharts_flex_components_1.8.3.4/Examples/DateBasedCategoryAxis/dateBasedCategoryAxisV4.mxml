@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+    
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:ArrayCollection = new ArrayCollection([
+                {date:new Date(2009,10,2),value:11,value2:2},
+                {date:new Date(2009,10,3),value:15,value2:3},
+                {date:new Date(2009,10,4),value:13,value2:2},
+                {date:new Date(2009,10,5),value:17,value2:1},
+                {date:new Date(2009,10,6),value:15,value2:1},
+                {date:new Date(2009,10,9),value:19,value2:2},
+                {date:new Date(2009,10,10),value:21,value2:2},
+                {date:new Date(2009,10,11),value:20,value2:2},
+                {date:new Date(2009,10,12),value:20,value2:3},
+                {date:new Date(2009,10,13),value:19,value2:4},
+                {date:new Date(2009,10,16),value:25,value2:3},
+                {date:new Date(2009,10,17),value:24,value2:2},
+                {date:new Date(2009,10,18),value:26,value2:2},
+                {date:new Date(2009,10,19),value:27,value2:1},
+                {date:new Date(2009,10,20),value:25,value2:3},
+                {date:new Date(2009,10,23),value:29,value2:4},
+                {date:new Date(2009,10,24),value:28,value2:2},
+                {date:new Date(2009,10,25),value:30,value2:4},
+                {date:new Date(2009,10,26),value:32,value2:3},
+                {date:new Date(2009,10,27),value:33,value2:3},
+                {date:new Date(2009,10,30),value:31,value2:3},
+                {date:new Date(2009,11,1),value:30,value2:2},
+                {date:new Date(2009,11,2),value:29,value2:1},
+                {date:new Date(2009,11,3),value:27,value2:1},
+                {date:new Date(2009,11,4),value:26,value2:1}
+            ]);
+            
+            private function zoom():void{
+                var count:Number = chartData.length;
+                chart.zoomToIndexes(count - 10, count - 1);
+            }
+        ]]>
+    </fx:Script>
+    
+    <amcharts:AmSerialChart 
+        dataUpdated="{zoom()}"
+        id="chart"
+        width="100%"
+        height="100%"
+        dataProvider="{chartData}"
+        categoryField="date"
+        angle="30"
+        depth3D="20">
+        
+        <amcharts:graphs>
+            <amcharts:AmGraph id="g1" valueField="value" type="column" fillAlphas="[1]" lineColor="#D8E63C"/>                        
+            <amcharts:AmGraph id="g2" valueField="value2" type="column" fillAlphas="[1]" lineColor="#E1CE4F"/>                        
+        </amcharts:graphs>
+        
+        <!-- It is very important to tell the category axis if it's values are date based or not.
+        In case yes, set parseDates to true. You should also set the minimum period of your data.
+        For example, if you have hourly data, set minPeriod to "hh". -->
+        <amcharts:categoryAxis>
+            <amcharts:CategoryAxis parseDates="true" minPeriod="DD"/>
+        </amcharts:categoryAxis>
+        
+        <amcharts:valueAxes>
+            <amcharts:ValueAxis stackType="regular"/>
+        </amcharts:valueAxes>
+        
+        <amcharts:chartCursor>
+            <amcharts:ChartCursor/>                        
+        </amcharts:chartCursor>
+        
+        <amcharts:chartScrollbar>
+            <amcharts:ChartScrollbar graph="{g1}"/>                        
+        </amcharts:chartScrollbar>
+
+    </amcharts:AmSerialChart>
+    
+</s:Application>

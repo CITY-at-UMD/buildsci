@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFCC32"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:ArrayCollection = new ArrayCollection([
+                {year:new Date(1950,0), value:-0.307},
+                {year:new Date(1951,0), value:-0.168},
+                {year:new Date(1952,0), value:-0.073},
+                {year:new Date(1953,0), value:-0.027},
+                {year:new Date(1954,0), value:-0.251},
+                {year:new Date(1955,0), value:-0.281},
+                {year:new Date(1956,0), value:-0.348},
+                {year:new Date(1957,0), value:-0.074},
+                {year:new Date(1958,0), value:-0.011},
+                {year:new Date(1959,0), value:-0.074},
+                {year:new Date(1960,0), value:-0.124},
+                {year:new Date(1961,0), value:-0.024},
+                {year:new Date(1962,0), value:-0.022},
+                {year:new Date(1963,0), value:0.000},
+                {year:new Date(1964,0), value:-0.296},
+                {year:new Date(1965,0), value:-0.217},
+                {year:new Date(1966,0), value:-0.147},
+                {year:new Date(1967,0), value:-0.150},
+                {year:new Date(1968,0), value:-0.160},
+                {year:new Date(1969,0), value:-0.011},
+                {year:new Date(1970,0), value:-0.068},
+                {year:new Date(1971,0), value:-0.190},
+                {year:new Date(1972,0), value:-0.056},
+                {year:new Date(1973,0), value:0.077},
+                {year:new Date(1974,0), value:-0.213},
+                {year:new Date(1975,0), value:-0.170},
+                {year:new Date(1976,0), value:-0.254},
+                {year:new Date(1977,0), value:0.019},
+                {year:new Date(1978,0), value:-0.063},
+                {year:new Date(1979,0), value:0.050},
+                {year:new Date(1980,0), value:0.077},
+                {year:new Date(1981,0), value:0.120},
+                {year:new Date(1982,0), value:0.011},
+                {year:new Date(1983,0), value:0.177},
+                {year:new Date(1984,0), value:-0.021},
+                {year:new Date(1985,0), value:-0.037},
+                {year:new Date(1986,0), value:0.030},
+                {year:new Date(1987,0), value:0.179},
+                {year:new Date(1988,0), value:0.180},
+                {year:new Date(1989,0), value:0.104},
+                {year:new Date(1990,0), value:0.255},
+                {year:new Date(1991,0), value:0.210},
+                {year:new Date(1992,0), value:0.065},
+                {year:new Date(1993,0), value:0.110},
+                {year:new Date(1994,0), value:0.172},
+                {year:new Date(1995,0), value:0.269},
+                {year:new Date(1996,0), value:0.141},
+                {year:new Date(1997,0), value:0.353},
+                {year:new Date(1998,0), value:0.548},
+                {year:new Date(1999,0), value:0.298},
+                {year:new Date(2000,0), value:0.267},
+                {year:new Date(2001,0), value:0.411},
+                {year:new Date(2002,0), value:0.462},
+                {year:new Date(2003,0), value:0.470},
+                {year:new Date(2004,0), value:0.445},
+                {year:new Date(2005,0), value:0.470}]);
+            
+            private function changeType(event:MouseEvent):void{
+                g0.type = String(event.target.value);
+            }                         
+            
+        ]]>
+    </fx:Script>
+    
+    <s:VGroup width="100%" height="100%">
+        <amcharts:AmSerialChart  
+            id="chart" 
+            width="100%" 
+            height="100%" 
+            dataProvider="{chartData}" 
+            categoryField="year"
+            plotAreaFillAlphas="[0]">
+            
+            <amcharts:graphs>
+                <amcharts:AmGraph
+                    id="g0"
+                    lineColor="#CC0000"
+                    fillColors="[#CC0000]"
+                    negativeLineColor="#009900"
+                    negativeFillColors="[#009900]"
+                    fillAlphas="[0.3]"  
+                    valueField="value" 
+                    type="smoothedLine"/>                        
+            </amcharts:graphs>
+            <amcharts:categoryAxis>
+                <amcharts:CategoryAxis 
+                    parseDates="true" 
+                    minPeriod="YYYY" 
+                    axisColor="#FFFFFF" 
+                    gridColor="#FFFFFF" 
+                    gridAlpha="0.5" 
+                    dashLength="5" 
+                    gridCount="15"/>
+            </amcharts:categoryAxis>
+            <amcharts:valueAxes>
+                <amcharts:ValueAxis axisColor="#FFFFFF" gridColor="#FFFFFF" gridAlpha="0.5" dashLength="5"/>
+            </amcharts:valueAxes>
+            
+            <amcharts:chartCursor>
+                <amcharts:ChartCursor showValueAxisValue="true" crosshair="true" cursorPosition="mouse" categoryBalloonDateFormat="YYYY"/>
+            </amcharts:chartCursor>
+            <amcharts:chartScrollbar>
+                <amcharts:ChartScrollbar 
+                    graph="{g0}" 
+                    backgroundAlpha="0.1" 
+                    backgroundColor="#000000" 
+                    selectedBackgroundColor="#FFCC32"/>
+            </amcharts:chartScrollbar>
+        </amcharts:AmSerialChart>
+        
+        <s:HGroup>
+            <mx:Spacer width="35"/>
+            <s:RadioButton groupName="g1" click="{changeType(event)}" value="line" label="line"/>        
+            <s:RadioButton groupName="g1" click="{changeType(event)}" value="smoothedLine" label="smoothed line" selected="true"/>
+            <s:RadioButton groupName="g1" click="{changeType(event)}" value="column" label="columns"/>
+            <s:RadioButton groupName="g1" click="{changeType(event)}" value="step" label="step"/>        
+        </s:HGroup>
+        
+        <mx:Spacer height="10"/>
+    </s:VGroup>    
+</s:Application>

@@ -1,0 +1,726 @@
+Program Version,EnergyPlus-Linux-OMP-32 7.2.0.006, YMD=2013.01.23 13:23
+! <Version>, Version ID
+ Version, 7.2
+! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
+ Timesteps per Hour,  4, 15
+! <System Convergence Limits>, Minimum System TimeStep {minutes}, Max HVAC Iterations,  Minimum Plant Iterations, Maximum Plant Iterations
+ System Convergence Limits, 1, 20, 2, 8
+! <Simulation Control>, Do Zone Sizing, Do System Sizing, Do Plant Sizing, Do Design Days, Do Weather Simulation
+ Simulation Control, Yes, Yes, Yes, Yes, Yes
+! <Output Reporting Tolerances>, Tolerance for Time Heating Setpoint Not Met, Tolerance for Time Cooling Setpoint Not Met
+ Output Reporting Tolerances, 0.200, 0.200, 
+! <Site:GroundTemperature:BuildingSurface>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:BuildingSurface,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00,  18.00
+! <Site:GroundTemperature:FCfactorMethod>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:FCfactorMethod,   1.62,   0.54,   2.47,   5.49,  13.39,  19.49,  23.60,  24.85,  22.72,  17.98,  11.66,   5.79
+! <Site:GroundTemperature:Shallow>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Shallow,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00,  13.00
+! <Site:GroundTemperature:Deep>, Months From Jan to Dec {Deg C}
+ Site:GroundTemperature:Deep,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00,  16.00
+! <Site:GroundReflectance>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:SnowModifier>, Normal, Daylighting {dimensionless}
+ Site:GroundReflectance:SnowModifier,   1.000,   1.000
+! <Site:GroundReflectance:Snow>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Site:GroundReflectance:Snow:Daylighting>, Months From Jan to Dec {dimensionless}
+ Site:GroundReflectance:Snow:Daylighting,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20,  0.20
+! <Environment:Weather Station>,Wind Sensor Height Above Ground {m},Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Sensor Height Above Ground {m},Wind Speed Modifier Coefficient [Internal],Temperature Modifier Coefficient [Internal]
+Environment:Weather Station,10.000,0.140,270.000,1.500,1.586,9.750E-003
+! <Site:Location>, Location Name, Latitude {N+/S- Deg}, Longitude {E+/W- Deg},  Time Zone Number {GMT+/-}, Elevation {m},  Standard Pressure at Elevation {Pa}, Standard RhoAir at Elevation
+Site:Location,Philadelphia International Ap PA USA TMY3 WMO#=724080,39.87,-75.23,-5.00,2.00,101301,1.2040
+! <Building Information>, Building Name,North Axis {deg},Terrain,  Loads Convergence Tolerance Value,Temperature Convergence Tolerance Value,  Solar Distribution,Maximum Number of Warmup Days,Minimum Number of Warmup Days
+ Building Information,Building 1,0.000,Suburbs,4.00000E-002,0.40000,FullExterior,25,6
+! <Inside Convection Algorithm>, Algorithm {Simple | TARP | CeilingDiffuser | AdaptiveConvectionAlgorithm}
+Inside Convection Algorithm,TARP
+! <Outside Convection Algorithm>, Algorithm {SimpleCombined | TARP | MoWitt | DOE-2 | AdaptiveConvectionAlgorithm}
+Outside Convection Algorithm,DOE-2
+! <Sky Radiance Distribution>, Value {Anisotropic}
+Sky Radiance Distribution,Anisotropic
+! <Zone Air Solution Algorithm>, Value {ThirdOrderBackwardDifference | AnalyticalSolution | EulerMethod}
+ Zone Air Solution Algorithm, ThirdOrderBackwardDifference
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Carbon Dioxide Concentration
+ Zone Air Carbon Dioxide Balance Simulation, No,N/A
+! <Zone Air Contaminant Balance Simulation>, Simulation {Yes/No}, Generic Contaminant Concentration
+ Zone Air Generic Contaminant Balance Simulation, No,N/A
+! <Environment:Site Atmospheric Variation>,Wind Speed Profile Exponent {},Wind Speed Profile Boundary Layer Thickness {m},Air Temperature Gradient Coefficient {K/m}
+Environment:Site Atmospheric Variation,0.220,370.000,6.500000E-003
+! <SurfaceGeometry>,Starting Corner,Vertex Input Direction,Coordinate System,Daylight Reference Point Coordinate System,Rectangular (Simple) Surface Coordinate System
+ Surface Geometry,UpperLeftCorner,Counterclockwise,RelativeCoordinateSystem,RelativeCoordinateSystem,RelativeToZoneOrigin
+! <Surface Heat Transfer Algorithm>, Value {CTF - ConductionTransferFunction | EMPD - MoisturePenetrationDepthConductionTransferFunction | CondFD - ConductionFiniteDifference | HAMT - CombinedHeatAndMoistureFiniteElement} - Description,Inside Surface Max Temperature Limit{C}, Surface Convection Coefficient Lower Limit {W/m2-K}, Surface Convection Coefficient Upper Limit {W/m2-K}
+Surface Heat Transfer Algorithm, CTF - ConductionTransferFunction,200,0.10,1000.0
+! <Shading Summary>, Number of Fixed Detached Shades, Number of Building Detached Shades, Number of Attached Shades
+ Shading Summary,0,0,0
+! <Zone Summary>, Number of Zones, Number of Zone Surfaces, Number of SubSurfaces
+ Zone Summary,15,102,12
+! <Zone Information>,Zone Name,North Axis {deg},Origin X-Coordinate {m},Origin Y-Coordinate {m},Origin Z-Coordinate {m},Centroid X-Coordinate {m},Centroid Y-Coordinate {m},Centroid Z-Coordinate {m},Type,Zone Multiplier,Zone List Multiplier,Minimum X {m},Maximum X {m},Minimum Y {m},Maximum Y {m},Minimum Z {m},Maximum Z {m},Ceiling Height {m},Volume {m3},Zone Inside Convection Algorithm {Simple-Detailed-CeilingDiffuser-TrombeWall},Zone Outside Convection Algorithm {Simple-Detailed-Tarp-MoWitt-DOE-2-BLAST}, Floor Area {m2},Exterior Gross Wall Area {m2},Exterior Net Wall Area {m2},Exterior Window Area {m2}, Number of Surfaces, Number of SubSurfaces, Number of Shading SubSurfaces,  Part of Total Building Area
+ Zone Information, THERMAL ZONE 5,0.0,3.00,64.08,4.00,33.54,65.63,6.00,1,1,1,0.00,67.08,64.08,67.08,4.00,8.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 6,0.0,64.08,3.00,4.00,65.63,33.54,6.00,1,1,1,64.08,67.08,0.00,67.08,4.00,8.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 13,0.0,0.00,0.00,8.00,33.54,1.45,10.00,1,1,1,0.00,67.08,0.00,3.00,8.00,12.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 15,0.0,3.00,3.00,0.00,33.54,33.54,2.00,1,1,1,3.00,64.08,3.00,64.08,0.00,4.00,4.00,14924.06,TARP,DOE-2,3731.02,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 14,0.0,3.00,64.08,8.00,33.54,65.63,10.00,1,1,1,0.00,67.08,64.08,67.08,8.00,12.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 8,0.0,64.08,3.00,0.00,65.63,33.54,2.00,1,1,1,64.08,67.08,0.00,67.08,0.00,4.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 4,0.0,3.00,3.00,8.00,33.54,33.54,10.00,1,1,1,3.00,64.08,3.00,64.08,8.00,12.00,4.00,14924.06,TARP,DOE-2,3731.02,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 7,0.0,0.00,0.00,4.00,33.54,1.45,6.00,1,1,1,0.00,67.08,0.00,3.00,4.00,8.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 11,0.0,0.00,0.00,0.00,1.45,33.54,2.00,1,1,1,0.00,3.00,0.00,67.08,0.00,4.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 9,0.0,0.00,0.00,0.00,33.54,1.45,2.00,1,1,1,0.00,67.08,0.00,3.00,0.00,4.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 10,0.0,0.00,0.00,8.00,1.45,33.54,10.00,1,1,1,0.00,3.00,0.00,67.08,8.00,12.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 1,0.0,64.08,3.00,8.00,65.63,33.54,10.00,1,1,1,64.08,67.08,0.00,67.08,8.00,12.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 3,0.0,0.00,0.00,4.00,1.45,33.54,6.00,1,1,1,0.00,3.00,0.00,67.08,4.00,8.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+ Zone Information, THERMAL ZONE 12,0.0,3.00,3.00,4.00,33.54,33.54,6.00,1,1,1,3.00,64.08,3.00,64.08,4.00,8.00,4.00,14924.06,TARP,DOE-2,3731.02,0.00,0.00,0.00,6,0,0,Yes
+ Zone Information, THERMAL ZONE 2,0.0,3.00,64.08,0.00,33.54,65.63,2.00,1,1,1,0.00,67.08,64.08,67.08,0.00,4.00,4.00,768.98,TARP,DOE-2,192.25,268.33,214.66,53.67,6,1,0,Yes
+! <Zone Internal Gains/Equipment Information - Nominal>,Zone Name, Floor Area {m2},# Occupants,Area per Occupant {m2/person},Occupant per Area {person/m2},Interior Lighting {W/m2},Electric Load {W/m2},Gas Load {W/m2},Other Load {W/m2},Hot Water Eq {W/m2},Steam Equipment {W/m2},Sum Loads per Area {W/m2},Outdoor Controlled Baseboard Heat
+ Zone Internal Gains, THERMAL ZONE 5,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 6,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 13,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 15,3731.02,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 14,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 8,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 4,3731.02,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 7,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 11,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 9,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 10,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 1,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 3,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 12,3731.02,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+ Zone Internal Gains, THERMAL ZONE 2,192.25,0.0,N/A,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,No
+! <Shadowing/Sun Position Calculations> [Annual Simulations], Value {days}, Allowable Number Figures in Shadow Overlap {}, Polygon Clipping Algorithm, Sky Diffuse Modeling Algorithm
+Shadowing/Sun Position Calculations,20,15000,SutherlandHodgman,SimpleSkyDiffuseModeling
+! <RoomAir Model>, Zone Name, Mixing/Mundt/UCSDDV/UCSDCV/UCSDUFI/UCSDUFE/User Defined
+RoomAir Model,THERMAL ZONE 5,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 6,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 13,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 15,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 14,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 8,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 4,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 7,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 11,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 9,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 10,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 1,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 3,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 12,Mixing/Well-Stirred
+RoomAir Model,THERMAL ZONE 2,Mixing/Well-Stirred
+! <AirflowNetwork Model:Control>, No Multizone or Distribution/Multizone with Distribution/Multizone without Distribution/Multizone with Distribution only during Fan Operation
+AirflowNetwork Model:Control,NoMultizoneOrDistribution
+! <Zone Volume Capacitance Multiplier>, Sensible Heat Capacity Multiplier, Moisture Capacity Multiplier, Carbon Dioxide Capacity Multiplier, Generic Contaminant Capacity Multiplier
+Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
+! <Load Timesteps in Zone Design Calculation Averaging Window>, Value
+ Load Timesteps in Zone Design Calculation Averaging Window,    4
+! <Heating Sizing Factor Information>, Sizing Factor ID, Value
+ Heating Sizing Factor Information, Global,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 5,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 6,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 13,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 15,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 14,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 8,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 4,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 7,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 11,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 9,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 10,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 1,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 3,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 12,   1.2500    
+ Heating Sizing Factor Information, Zone THERMAL ZONE 2,   1.2500    
+! <Cooling Sizing Factor Information>, Sizing Factor ID, Value
+ Cooling Sizing Factor Information, Global,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 5,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 6,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 13,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 15,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 14,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 8,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 4,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 7,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 11,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 9,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 10,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 1,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 3,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 12,   1.1500    
+ Cooling Sizing Factor Information, Zone THERMAL ZONE 2,   1.1500    
+! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}
+ Zone Sizing Information, THERMAL ZONE 5, Cooling, 1101.94087, 1267.23200, 6.40505E-002, 7.36581E-002, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:15:00, 31.39150, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 5, Heating, 6090.11510, 7612.64387, 0.31002, 0.38753, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 6, Cooling, 5379.91031, 6186.89686, 0.31271, 0.35961, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 11:00:00, 31.83800, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 6, Heating, 6019.92697, 7524.90871, 0.30645, 0.38306, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 13, Cooling, 5723.22500, 6581.70875, 0.33266, 0.38256, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:30:00, 34.00000, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 13, Heating, 7255.61627, 9069.52034, 0.36935, 0.46169, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 15, Heating, 31876.41184, 39845.51479, 1.62270, 2.02837, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 3731.01553, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 14, Cooling, 2531.82788, 2911.60206, 0.14716, 0.16924, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 18:15:00, 31.39150, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 14, Heating, 7335.52130, 9169.40162, 0.37342, 0.46678, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 8, Cooling, 1365.47434, 1570.29549, 7.93674E-002, 9.12725E-002, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 10:45:00, 31.48550, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 8, Heating, 7169.42008, 8961.77510, 0.36497, 0.45621, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 4, Heating, 27635.64076, 34544.55095, 1.40682, 1.75852, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 3731.01553, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 7, Cooling, 4460.46471, 5129.53441, 0.25927, 0.29815, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:45:00, 34.00000, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 7, Heating, 6019.92697, 7524.90871, 0.30645, 0.38306, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 11, Cooling, 2432.59472, 2797.48392, 0.14139, 0.16260, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:00:00, 32.68400, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 11, Heating, 7210.46454, 9013.08068, 0.36705, 0.45882, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 9, Cooling, 713.28233, 820.27468, 4.14593E-002, 4.76782E-002, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 14:15:00, 34.00000, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 9, Heating, 7169.42008, 8961.77510, 0.36497, 0.45621, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 10, Cooling, 7932.34923, 9122.20162, 0.46107, 0.53023, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:30:00, 32.21400, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 10, Heating, 7335.52130, 9169.40162, 0.37342, 0.46678, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 1, Cooling, 6606.60749, 7597.59861, 0.38401, 0.44161, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 11:00:00, 31.83800, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 1, Heating, 7255.61627, 9069.52034, 0.36935, 0.46169, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 3, Cooling, 6525.60677, 7504.44779, 0.37930, 0.43620, PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB, 7/21 17:30:00, 32.21400, 1.48422E-002, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 3, Heating, 6090.11510, 7612.64387, 0.31002, 0.38753, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 12, Heating, 11380.50178, 14225.62722, 0.57933, 0.72417, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 3731.01553, 0.00000, 0.00000
+ Zone Sizing Information, THERMAL ZONE 2, Heating, 7210.46454, 9013.08068, 0.36705, 0.45882, PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB, 1/21 24:00:00, -10.80000, 1.48961E-003, 192.24612, 0.00000, 0.00000
+! <System Sizing Information>, System Name, Field Description, Value
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Cooling Design Air Flow Rate [m3/s], 2.99282
+ System Sizing Information, AIR LOOP HVAC 1, User Cooling Design Air Flow Rate [m3/s], 2.99282
+ System Sizing Information, AIR LOOP HVAC 1, Calculated Heating Design Air Flow Rate [m3/s], 9.73923
+ System Sizing Information, AIR LOOP HVAC 1, User Heating Design Air Flow Rate [m3/s], 9.73923
+! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Air Flow Rate [m3/s], 0.38753
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.01579E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Maximum Reheat Water Flow Rate [m3/s], 2.85927E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 10, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.38753
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Maximum Water Flow Rate [m3/s], 2.85927E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, Design Coil Load [W], 13161.28413
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 11, U-Factor Times Area Value [W/K], 275.64308
+! <Water Heating Coil Capacity Information>,Component Type,Name,Nominal Total Capacity {W}
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 11,12467.26
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Air Flow Rate [m3/s], 0.38306
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.99256E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Maximum Reheat Water Flow Rate [m3/s], 2.82631E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 13, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.38306
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Maximum Water Flow Rate [m3/s], 2.82631E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, Design Coil Load [W], 13009.60128
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 14, U-Factor Times Area Value [W/K], 272.46632
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 14,12323.58
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Air Flow Rate [m3/s], 0.46169
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Flow Fraction during Reheat [], 0.84611
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Maximum Reheat Water Flow Rate [m3/s], 3.40646E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 4, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.46169
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Maximum Water Flow Rate [m3/s], 3.40646E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, Design Coil Load [W], 15680.03654
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 5, U-Factor Times Area Value [W/K], 328.39452
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 5,14853.20
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Air Flow Rate [m3/s], 2.02837
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 5.43651E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Maximum Reheat Water Flow Rate [m3/s], 1.49657E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 12, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 2.02837
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Maximum Water Flow Rate [m3/s], 1.49657E-003
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, Design Coil Load [W], 68887.78065
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 13, U-Factor Times Area Value [W/K], 1442.74982
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 13,65255.19
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Air Flow Rate [m3/s], 0.46678
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Flow Fraction during Reheat [], 0.83690
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Maximum Reheat Water Flow Rate [m3/s], 3.44397E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 16, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.46678
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Maximum Water Flow Rate [m3/s], 3.44397E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, Design Coil Load [W], 15852.71846
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 17, U-Factor Times Area Value [W/K], 332.01108
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 17,15016.77
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Air Flow Rate [m3/s], 0.45621
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Flow Fraction during Reheat [], 0.85629
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Maximum Reheat Water Flow Rate [m3/s], 3.36599E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 11, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.45621
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Maximum Water Flow Rate [m3/s], 3.36599E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, Design Coil Load [W], 15493.75884
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 12, U-Factor Times Area Value [W/K], 324.49322
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 12,14676.74
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Air Flow Rate [m3/s], 1.75852
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 4.71325E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Maximum Reheat Water Flow Rate [m3/s], 1.29747E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 9, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 1.75852
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Maximum Water Flow Rate [m3/s], 1.29747E-003
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, Design Coil Load [W], 59723.09458
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 10, U-Factor Times Area Value [W/K], 1250.80940
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 10,56573.78
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Air Flow Rate [m3/s], 0.38306
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.99256E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Maximum Reheat Water Flow Rate [m3/s], 2.82631E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 6, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.38306
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Maximum Water Flow Rate [m3/s], 2.82631E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, Design Coil Load [W], 13009.60128
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 7, U-Factor Times Area Value [W/K], 272.46632
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 7,12323.58
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Air Flow Rate [m3/s], 0.45882
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Flow Fraction during Reheat [], 0.85141
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Maximum Reheat Water Flow Rate [m3/s], 3.38526E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 8, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.45882
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Maximum Water Flow Rate [m3/s], 3.38526E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, Design Coil Load [W], 15582.45961
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 9, U-Factor Times Area Value [W/K], 326.35092
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 9,14760.77
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Air Flow Rate [m3/s], 0.45621
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Flow Fraction during Reheat [], 0.85629
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Maximum Reheat Water Flow Rate [m3/s], 3.36599E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 2, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.45621
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Maximum Water Flow Rate [m3/s], 3.36599E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, Design Coil Load [W], 15493.75884
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 3, U-Factor Times Area Value [W/K], 324.49322
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 3,14676.74
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Air Flow Rate [m3/s], 0.53023
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Flow Fraction during Reheat [], 0.73675
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Maximum Reheat Water Flow Rate [m3/s], 3.44397E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 14, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.46678
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Maximum Water Flow Rate [m3/s], 3.44397E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, Design Coil Load [W], 15852.71846
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 15, U-Factor Times Area Value [W/K], 377.14427
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 15,16369.62
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Air Flow Rate [m3/s], 0.46169
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Flow Fraction during Reheat [], 0.84611
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Maximum Reheat Water Flow Rate [m3/s], 3.40646E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 7, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.46169
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Maximum Water Flow Rate [m3/s], 3.40646E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, Design Coil Load [W], 15680.03654
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 8, U-Factor Times Area Value [W/K], 328.39452
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 8,14853.20
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Air Flow Rate [m3/s], 0.43620
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Flow Fraction during Reheat [], 0.89557
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Maximum Reheat Water Flow Rate [m3/s], 2.85927E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 3, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.38753
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Maximum Water Flow Rate [m3/s], 2.85927E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, Design Coil Load [W], 13161.28413
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 4, U-Factor Times Area Value [W/K], 310.26057
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 4,13508.24
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Air Flow Rate [m3/s], 0.72417
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 1.94094E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Flow Fraction during Reheat [], 1.00000
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Maximum Reheat Water Flow Rate [m3/s], 5.34306E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 15, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.72417
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Maximum Water Flow Rate [m3/s], 5.34306E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, Design Coil Load [W], 24594.28352
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 16, U-Factor Times Area Value [W/K], 515.08987
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 16,23297.38
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Air Flow Rate [m3/s], 0.45882
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow per Zone Floor Area during Reheat [m3/s-m2], 2.03200E-003
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Flow Fraction during Reheat [], 0.85141
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Maximum Reheat Water Flow Rate [m3/s], 3.38526E-004
+ Component Sizing Information, AirTerminal:SingleDuct:VAV:Reheat, AIR TERMINAL SINGLE DUCT VAV REHEAT 5, Reheat Coil Sizing Air Volume Flow Rate [m3/s], 0.45882
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Maximum Water Flow Rate [m3/s], 3.38526E-004
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, Design Coil Load [W], 15582.45961
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 6, U-Factor Times Area Value [W/K], 326.35092
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 6,14760.77
+ Component Sizing Information, Branch, BRANCH {796A0858-C966-40F8-A403-710F144661BB}, Maximum Flow Rate [m3/s], 9.73923
+ Component Sizing Information, AirLoopHVAC, AIR LOOP HVAC 1, Design Supply Air Flow Rate [m3/s], 9.73923
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Maximum Outdoor Air Flow Rate [m3/s], 9.73923
+ Component Sizing Information, Controller:OutdoorAir, CONTROLLER OUTDOOR AIR 1, Minimum Outdoor Air Flow Rate [m3/s], 0.00000
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Air Flow Rate [m3/s], 9.73923
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Total Cooling Capacity (gross) [W], 241848.17317
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated High Speed Sensible Heat Ratio, 0.67608
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Air Flow Rate [m3/s], 3.24608
+ Component Sizing Information, Coil:Cooling:DX:TwoSpeed, COIL COOLING DX TWO SPEED 1, Rated Low Speed Total Cooling Capacity (gross) [W], 80607.99612
+! <VAV DX Cooling Coil Standard Rating Information>, DX Coil Type, DX Coil Name, Fan Type, Fan Name, Standard Net Cooling Capacity {W}, Standard Net Cooling Capacity {Btu/h}, IEER {Btu/W-h}, COP 100% Capacity {W/W}, COP 75% Capacity {W/W}, COP 50% Capacity {W/W}, COP 25% Capacity {W/W}, EER 100% Capacity {Btu/W-h}, EER 75% Capacity {Btu/W-h}, EER 50% Capacity {Btu/W-h}, EER 25% Capacity {Btu/W-h}, Supply Air Flow 100% {kg/s}, Supply Air Flow 75% {kg/s},Supply Air Flow 50% {kg/s},Supply Air Flow 25% {kg/s}
+ VAV DX Cooling Coil Standard Rating Information, Coil:Cooling:DX:TwoSpeed,COIL COOLING DX TWO SPEED 1,N/A,N/A,234726.40,800919.71,25.64,4.59,6.13,8.63,12.67,15.66,20.93,29.43,43.23,11.2620,9.0058,6.1974,3.1662,
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Maximum Water Flow Rate [m3/s], 1.81240E-003
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, Design Coil Load [W], 83425.24666
+ Component Sizing Information, Coil:Heating:Water, COIL HEATING WATER 1, U-Factor Times Area Value [W/K], 1139.69211
+Water Heating Coil Capacity Information,Coil:Heating:Water,COIL HEATING WATER 1,64955.58
+ Component Sizing Information, Fan:VariableVolume, FAN VARIABLE VOLUME 1, Maximum Flow Rate [m3/s], 9.73923
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Maximum Actuated Flow [m3/s], 1.81240E-003
+ Component Sizing Information, Controller:WaterCoil, CONTROLLER WATER COIL 1, Controller Convergence Tolerance, 2.62741E-004
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Nominal Capacity [W], 415793.43973
+ Component Sizing Information, Boiler:HotWater, BOILER HOT WATER 1, Design Water Flow Rate [m3/s], 8.99821E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Maximum Loop Flow Rate [m3/s], 8.99821E-003
+ Component Sizing Information, PlantLoop, PLANT LOOP 1, Plant Loop Volume [m3], 10.12298
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Flow Rate [m3/s], 8.99821E-003
+ Component Sizing Information, Pump:VariableSpeed, PUMP VARIABLE SPEED 1, Rated Power Consumption [W], 2298.92606
+! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values
+! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
+! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
+! <Environment:WarmupDays>, NumberofWarmupDays
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+! <Environment:Design Day Data>, Max Dry-Bulb Temp {C}, Temp Range {dC}, Temp Range Ind Type, Hum Ind Value at Max Temp, Hum Ind Type,Pressure {Pa}, Wind Direction {deg CW from N}, Wind Speed {m/s}, Clearness, Rain, Snow
+! <Environment:Design_Day_Misc>,DayOfYear,ASHRAE A Coeff,ASHRAE B Coeff,ASHRAE C Coeff,Solar Constant-Annual Variation,Eq of Time {minutes}, Solar Declination Angle {deg}, Solar Model
+Environment:Design Day Data,28.80,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,1.1014859677E-002,2.3350236826E-002,Pass,Pass,0.8341927631,4.9745301630,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.2662802492E-002,8.0686633282E-002,Pass,Pass,0.1591896776,0.7370380978,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,6.7596887041E-002,6.1296607397E-002,Pass,Pass,3.5466799905E-002,4.1427123763E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,5.1889556098E-003,2.9666934498E-003,Pass,Pass,5.1726497331E-004,3.0290652246E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,1.5388941240E-002,2.5035518238E-002,Pass,Pass,9.5465784138E-002,0.2180927356,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,3.6691377739E-002,7.3658018540E-002,Pass,Pass,0.4186412284,2.3700277236,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,5.8792091378E-004,1.1478653414E-003,Pass,Pass,2.7684687501E-002,1.6747523199E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,6.8930530343E-002,6.6604738314E-002,Pass,Pass,0.1140515137,0.2182845607,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,5.2545014972E-002,0.1052049552,Pass,Pass,0.2367520270,0.7729575403,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,2.0917731383E-002,4.4125424299E-002,Pass,Pass,0.4630978546,2.9567062759,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3581945708E-002,9.2332960825E-002,Pass,Pass,2.9591834992E-002,2.6013389595E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,7.9599469170E-002,7.5297068234E-002,Pass,Pass,3.2556678925E-002,5.0060802107E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,8.3551611468E-002,9.5644854782E-002,Pass,Pass,4.0452989482E-002,3.7239867585E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,1.1197069859E-004,8.5636150789E-005,Pass,Pass,7.6429571941E-002,9.0192793492E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS WB=>MDB,9.9325371874E-004,7.6130699747E-004,Pass,Pass,0.2570279122,1.1619403563,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,31.40,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,2.0432896296E-002,2.8586893460E-002,Pass,Pass,7.2252136192E-002,0.1099839158,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3409289705E-002,8.5358921846E-002,Pass,Pass,3.4397319938E-002,4.8021100281E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,7.9765871396E-002,6.0244855662E-002,Pass,Pass,1.6550799973E-002,2.0634268148E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,5.2684973154E-003,3.0151879785E-003,Pass,Pass,5.5157174132E-004,2.8614028284E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,2.6939417949E-002,2.7084006969E-002,Pass,Pass,2.7329720088E-002,3.2510730481E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,4.3546090290E-002,7.7631864417E-002,Pass,Pass,1.0693779232,8.9186261859,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,6.2783389204E-003,7.4201113027E-003,Pass,Pass,1.1940698066E-002,1.5547572265E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,7.8909398173E-002,6.6537106999E-002,Pass,Pass,2.9428881022E-002,3.5482844416E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,5.9588018125E-002,0.1130590961,Pass,Pass,0.1838765361,0.3488965981,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,2.7906264709E-002,5.4013286648E-002,Pass,Pass,0.1779522119,0.4294768175,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3445826982E-002,8.5987120141E-002,Pass,Pass,2.1380208758E-002,2.9333506770E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3382653348E-002,7.9848710915E-002,Pass,Pass,2.0320284062E-002,3.1280610787E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,8.3468001219E-002,9.0393695857E-002,Pass,Pass,2.8237448476E-002,3.4299928035E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,9.3903449084E-005,6.5099823272E-005,Pass,Pass,0.2095452516,0.5189484324,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS WB=>MDB,9.2780441597E-004,6.3924877800E-004,Pass,Pass,0.2571266194,0.8641029623,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-10.80,0.00,DefaultMultipliers,101301,290,5.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,6.7091794805E-005,1.3199492341E-005,Pass,Pass,5.6190188193E-006,1.1063424172E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,6.7911444139E-005,1.3361636865E-005,Pass,Pass,5.6811959514E-006,1.1186686810E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,7.2957483611E-005,1.4353982167E-005,Pass,Pass,6.0379940108E-006,1.1889454136E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,4.6514982797E-005,9.1482280601E-006,Pass,Pass,4.1764774675E-006,8.2187925029E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,7.2134774306E-005,1.4191937319E-005,Pass,Pass,5.9702987042E-006,1.1755893521E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.1314545864E-005,4.1935823274E-006,Pass,Pass,1.8423406019E-006,3.6256921706E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,1.6323565954E-004,3.2105198608E-005,Pass,Pass,1.3768884412E-005,2.7132828703E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,6.7803578302E-005,1.3339695331E-005,Pass,Pass,5.6787906992E-006,1.1181344863E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.0633032986E-005,4.0582925649E-006,Pass,Pass,1.7942706456E-006,3.5300207459E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.1291155231E-005,4.1887704828E-006,Pass,Pass,1.8407295802E-006,3.6223394679E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,6.7124955368E-005,1.3202982952E-005,Pass,Pass,5.7465600248E-006,1.1312147978E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,7.3085774405E-005,1.4379990072E-005,Pass,Pass,6.0403148216E-006,1.1894662136E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,6.3160812279E-005,1.2423008467E-005,Pass,Pass,5.4040907593E-006,1.0637265454E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,1.5359861752E-004,3.0210014750E-005,Pass,Pass,1.3287278755E-005,2.6182219006E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99.6% CONDNS DB,2.1121835354E-005,4.1554117484E-006,Pass,Pass,1.8258628101E-006,3.5930352307E-007,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,31.10,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,1.8896519329E-002,2.8134310972E-002,Pass,Pass,0.1915158511,0.9039174268,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3449276605E-002,8.4435228251E-002,Pass,Pass,3.6825665865E-002,5.0940233093E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,7.7784216016E-002,6.0806582427E-002,Pass,Pass,1.8800954284E-002,2.4628884006E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,5.2839711442E-003,2.9944632609E-003,Pass,Pass,5.3098187688E-004,3.0848795913E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,2.5006935966E-002,2.7114694892E-002,Pass,Pass,3.0620745464E-002,3.5818013485E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,4.2432679341E-002,7.6887130263E-002,Pass,Pass,0.2796708436,1.2516970336,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,5.1680559447E-003,6.7109103697E-003,Pass,Pass,1.3979159277E-002,1.5698230532E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,7.7269478028E-002,6.6889276300E-002,Pass,Pass,3.2827584415E-002,3.9730230577E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,5.8370128117E-002,0.1122657698,Pass,Pass,0.4006724613,2.0840468444,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,2.6701968493E-002,5.2930374099E-002,Pass,Pass,0.4955286118,3.2563592111,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3500763596E-002,8.7178163626E-002,Pass,Pass,2.2333493616E-002,2.7445174439E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3401437241E-002,7.8953283288E-002,Pass,Pass,2.1501813945E-002,3.1266119469E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,8.3441712177E-002,9.1199568968E-002,Pass,Pass,2.9395862119E-002,3.2138937919E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,9.5137080773E-005,7.2905331342E-005,Pass,Pass,0.2763975787,1.1876821592,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DB=>MWB,7.0807302202E-004,5.2572628383E-004,Pass,Pass,0.2158063303,0.6352491003,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,28.80,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,1.1359766923E-002,2.4028055307E-002,Pass,Pass,0.4513438056,2.9503693701,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.2840035553E-002,8.0737815493E-002,Pass,Pass,0.1239752204,0.4619238321,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,6.7919651081E-002,6.1489680133E-002,Pass,Pass,3.4889090374E-002,4.2055209003E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,5.2055685054E-003,2.9688281889E-003,Pass,Pass,5.1898365293E-004,3.0324980410E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,1.5796161987E-002,2.5176613889E-002,Pass,Pass,8.7526806529E-002,0.1593254613,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,3.6775333334E-002,7.3529458883E-002,Pass,Pass,0.3320171450,1.6103405929,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,7.4637098823E-004,1.5593931689E-003,Pass,Pass,2.6508891781E-002,1.7643771676E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,6.9273284664E-002,6.6715378371E-002,Pass,Pass,0.1044480795,0.1953255098,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,5.2855974706E-002,0.1057468528,Pass,Pass,0.2627974935,1.0770725244,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,2.1166884312E-002,4.4591131454E-002,Pass,Pass,0.3862513463,2.1826131042,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3550622016E-002,9.2412747598E-002,Pass,Pass,2.9531972109E-002,2.6343204933E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,7.9781199248E-002,7.5390849031E-002,Pass,Pass,3.2310968892E-002,4.9693430253E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,8.3549102052E-002,9.5816135791E-002,Pass,Pass,4.0345513884E-002,3.7963302251E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,1.0569823562E-004,6.7216254853E-005,Pass,Pass,8.4384405262E-002,0.1056317474,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS ENTH=>MDB,9.0283428392E-004,6.7361408753E-004,Pass,Pass,0.7161634521,5.3369837986,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-8.70,0.00,DefaultMultipliers,101301,290,5.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,5.7710561846E-005,1.1347963532E-005,Pass,Pass,4.9879795605E-006,9.8150021520E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,5.8417679181E-005,1.1488173926E-005,Pass,Pass,5.0396033300E-006,9.9176611840E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,6.2762417481E-005,1.2341953958E-005,Pass,Pass,5.3803236105E-006,1.0588137625E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,3.9992849287E-005,7.8604651498E-006,Pass,Pass,3.6082607837E-006,7.0955031187E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,6.2053788237E-005,1.2202358630E-005,Pass,Pass,5.3238032669E-006,1.0476614921E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.8335611642E-005,3.6056709030E-006,Pass,Pass,1.6150340535E-006,3.1766584980E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.4034247724E-004,2.7585059412E-005,Pass,Pass,1.2174793865E-005,2.3971000520E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,5.8324081919E-005,1.1468832441E-005,Pass,Pass,5.0374449387E-006,9.9126030046E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.7748387192E-005,3.4886145737E-006,Pass,Pass,1.5734780157E-006,3.0935023167E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.8315250061E-005,3.6013941908E-006,Pass,Pass,1.6135995477E-006,3.1735960252E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,5.7744779732E-005,1.1350635753E-005,Pass,Pass,5.1189171037E-006,1.0069240668E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,6.2873617299E-005,1.2364819146E-005,Pass,Pass,5.3823886270E-006,1.0593059171E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,5.4327345050E-005,1.0678574618E-005,Pass,Pass,4.7921165213E-006,9.4256973348E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.3208248327E-004,2.5961480740E-005,Pass,Pass,1.1638522923E-005,2.2913387566E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99.6% CONDNS DP=>MCDB,1.8169046460E-005,3.5725809797E-006,Pass,Pass,1.6012352613E-006,3.1492158175E-007,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,34.00,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  8
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,3.0591967085E-002,2.9696725903E-002,Pass,Pass,2.6906271718E-002,3.5250486199E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.3352225133E-002,9.0016255732E-002,Pass,Pass,2.4887100569E-002,3.1908488514E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.0056154548E-002,6.0070540911E-002,Pass,Pass,1.1557274302E-002,1.4760384721E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,5.0416892724E-003,3.1858989200E-003,Pass,Pass,7.8073286104E-004,8.2750496549E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,4.0068748163E-002,2.2812504267E-002,Pass,Pass,1.1654808558E-002,1.9439011065E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,5.0421296946E-002,8.1938429709E-002,Pass,Pass,0.1809672799,0.4770260698,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,1.2506930539E-002,7.2080022440E-003,Pass,Pass,1.0804723232E-003,6.1678969166E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.3406287572E-002,6.7672556285E-002,Pass,Pass,1.8329806356E-002,2.4071187330E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,6.6866721738E-002,0.1197860843,Pass,Pass,0.2718952762,0.8672159460,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,3.4693851565E-002,6.1564682729E-002,Pass,Pass,0.1917508409,0.5037732467,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,7.7616650049E-002,7.7647245443E-002,Pass,Pass,1.8944822517E-002,3.4430246993E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,7.8215017598E-002,8.2771731711E-002,Pass,Pass,1.6232265678E-002,2.2491584129E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,8.3365523866E-002,8.2331370391E-002,Pass,Pass,2.1623505251E-002,3.7611889976E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,7.3041993907E-005,6.3941467558E-005,Pass,Pass,0.2335756801,0.7260498219,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DB=>MWB,9.3615205696E-004,6.1643680340E-004,Pass,Pass,0.2483073347,0.9048064886,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,1.10,0.00,DefaultMultipliers,101301,290,11.6,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.7950546938E-003,7.4972458025E-005,Pass,Pass,5.1971124662E-003,1.1796912394E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,6.3955661377E-005,3.7543941812E-005,Pass,Pass,1.0295475405E-004,5.7319430437E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,7.2381105284E-005,4.2539709144E-005,Pass,Pass,1.0144622203E-004,5.6484418002E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.2763762393E-005,1.3920208488E-005,Pass,Pass,1.0447215218E-004,5.9235515822E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.4244510045E-003,2.1179606236E-003,Pass,Pass,2.4434507501E-003,2.4788704153E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,8.4536808076E-005,4.9683454844E-005,Pass,Pass,1.0545088972E-004,5.8867958850E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,1.1033811698E-003,7.2000274081E-004,Pass,Pass,6.9151238671E-003,4.1737717536E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,6.3955449517E-005,3.7545095828E-005,Pass,Pass,1.0295552798E-004,5.7319765601E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,8.5257846053E-005,5.0094311124E-005,Pass,Pass,1.0561643168E-004,5.8970153791E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,8.4536896596E-005,4.9683564465E-005,Pass,Pass,1.0545098357E-004,5.8868002784E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,2.9543771588E-003,1.5180876657E-003,Pass,Pass,4.1984141709E-003,1.9119657471E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,7.2346672536E-005,4.2590590975E-005,Pass,Pass,1.0143429937E-004,5.6504003833E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,6.1763214870E-005,3.5954128720E-005,Pass,Pass,9.7389704280E-005,5.4584122062E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,8.1532116347E-006,5.6565760321E-006,Pass,Pass,1.0959646522E-004,6.2278318062E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99% CONDNS WS=>MCDB,8.5254509050E-005,5.0090575383E-005,Pass,Pass,1.0561311411E-004,5.8968395862E-005,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,28.10,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.7947353086E-003,2.0557846054E-002,Pass,Pass,0.2857145151,1.0762828766,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.0263245756E-002,8.0427591369E-002,Pass,Pass,0.1202918598,0.3189993701,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,6.4615797684E-002,6.1130464535E-002,Pass,Pass,4.4309456159E-002,5.0986554335E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,5.1557543337E-003,2.9657229278E-003,Pass,Pass,5.1458840546E-004,2.9910600520E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,1.2700546063E-002,2.3788331572E-002,Pass,Pass,0.1417942981,0.3275041676,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,3.5013016751E-002,7.1977497497E-002,Pass,Pass,4.4723072284,41.9903067961,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,1.5150290101E-004,1.1818933581E-004,Pass,Pass,3.2093356267E-002,1.6840371532E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,6.6498570132E-002,6.6632433399E-002,Pass,Pass,0.2102051783,0.6781106402,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,5.0720054563E-002,0.1029438892,Pass,Pass,0.2251728644,0.8452919573,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,1.9115277001E-002,4.2477359007E-002,Pass,Pass,0.2986015545,1.2930572334,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3587358813E-002,9.2691687206E-002,Pass,Pass,3.2730707985E-002,3.0041387873E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,7.6583047538E-002,7.4595158947E-002,Pass,Pass,4.0203054676E-002,6.0281697607E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,8.3622432536E-002,9.6182292630E-002,Pass,Pass,4.6158879362E-002,4.4678951923E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,1.0766882917E-004,6.5687550395E-005,Pass,Pass,4.4713438094E-002,3.5202103117E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS DP=>MDB,1.0177165622E-003,8.1018585669E-004,Pass,Pass,0.2596258923,1.4675495938,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,2.80,0.00,DefaultMultipliers,101301,290,12.7,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.3917983104E-003,1.2827446793E-003,Pass,Pass,4.1022317745E-003,2.3311587684E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.9262432614E-003,3.9259202717E-005,Pass,Pass,5.9270534450E-003,6.2514613574E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.7651968456E-005,3.5680281855E-005,Pass,Pass,3.7589044794E-005,4.7610063724E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,9.6242150999E-006,1.2186625923E-005,Pass,Pass,3.9460601946E-005,4.9774080602E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.7949297736E-005,3.6063761401E-005,Pass,Pass,3.7578470711E-005,4.7596477717E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.2359847261E-005,4.1627326000E-005,Pass,Pass,3.7700625534E-005,4.7772169284E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.6178105625E-004,6.6063788222E-004,Pass,Pass,2.0722028907E-003,4.1870668515E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.9128597764E-003,3.9251639462E-005,Pass,Pass,5.8991476288E-003,6.2448728760E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.0688018385E-003,5.2248600336E-005,Pass,Pass,4.5806466880E-003,6.0111886231E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.2361790403E-005,4.1622803145E-005,Pass,Pass,3.7699587094E-005,4.7774105588E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.6492604540E-003,4.2969883378E-005,Pass,Pass,4.6238939345E-003,5.7143561504E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.7651276849E-005,3.5682314144E-005,Pass,Pass,3.7589560666E-005,4.7609306872E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,2.9707506437E-003,1.9393691370E-003,Pass,Pass,5.1408237496E-003,3.0463031659E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.9445028256E-006,4.4304314472E-006,Pass,Pass,4.1585268029E-005,5.2383257527E-005,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG WIND 99.6% CONDNS WS=>MCDB,3.0868456223E-003,5.2249187049E-005,Pass,Pass,4.6083490312E-003,6.0144533128E-005,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,30.00,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  7
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,1.5685667439E-002,2.6700646218E-002,Pass,Pass,0.1882017836,0.6537524485,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3407494694E-002,8.3733650461E-002,Pass,Pass,4.5047285038E-002,6.6467285688E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,7.3470358636E-002,6.1460547371E-002,Pass,Pass,2.4663523275E-002,3.0699226789E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,5.2671953709E-003,2.9757220170E-003,Pass,Pass,5.2629988385E-004,3.0651910214E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,2.1087294669E-002,2.6606073694E-002,Pass,Pass,4.1426041016E-002,4.6766854540E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,4.0039754688E-002,7.5174025995E-002,Pass,Pass,0.1835833408,0.4794898317,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,3.2378103941E-003,5.0957030197E-003,Pass,Pass,1.8913214283E-002,1.7787926971E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,7.3753678928E-002,6.7017534898E-002,Pass,Pass,4.5169826574E-002,5.3037697912E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,5.6025093254E-002,0.1095240185,Pass,Pass,0.2606299831,1.2185163630,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,2.4321179260E-002,4.9647325492E-002,Pass,Pass,0.3057542262,1.2130068539,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3538901284E-002,9.0429782394E-002,Pass,Pass,2.5125338144E-002,2.7161871451E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3397222918E-002,7.7121451453E-002,Pass,Pass,2.4833358233E-002,3.7777427664E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,8.3501601702E-002,9.4455016745E-002,Pass,Pass,3.3591487066E-002,3.5469480321E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,9.4843367485E-005,7.3926544216E-005,Pass,Pass,0.2430447469,0.7579511006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS ENTH=>MDB,9.6565198520E-004,6.6567487234E-004,Pass,Pass,0.4310282117,2.1372485814,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,31.70,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,2.2205096861E-002,2.9125838462E-002,Pass,Pass,5.7034486880E-002,7.0914645284E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3381797378E-002,8.6283750256E-002,Pass,Pass,3.2707739388E-002,4.5960799756E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.1768532361E-002,5.9894337712E-002,Pass,Pass,1.4619078824E-002,1.8419121529E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,5.2578209850E-003,3.0331536433E-003,Pass,Pass,5.7489698043E-004,2.9579417717E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,2.9048661101E-002,2.7017690371E-002,Pass,Pass,2.4271777655E-002,2.9901181088E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,4.4580845021E-002,7.8191288836E-002,Pass,Pass,0.3076858093,1.4789311145,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,7.4103619373E-003,8.0517032915E-003,Pass,Pass,1.0318349760E-002,1.6898707594E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.0537236471E-002,6.6612828104E-002,Pass,Pass,2.6816827121E-002,3.2928953901E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,6.0885336123E-002,0.1142545206,Pass,Pass,0.4307818065,2.3794122354,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,2.9158962699E-002,5.6101603057E-002,Pass,Pass,0.2871415693,1.3092588493,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3408594732E-002,8.3933999693E-002,Pass,Pass,2.0592602675E-002,2.7590038220E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3352761662E-002,8.0251305538E-002,Pass,Pass,1.9250571274E-002,2.8112335576E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.3428008451E-002,8.9033277301E-002,Pass,Pass,2.7226855608E-002,3.3563337424E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,8.5567404676E-005,6.6829161308E-005,Pass,Pass,0.2475282464,0.7127644575,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG .4% CONDNS ENTH=>MDB,1.0077548167E-003,7.7688925107E-004,Pass,Pass,0.5685313639,3.5771297551,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,26.80,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,4.7337186480E-003,1.3099833337E-002,Pass,Pass,0.2314391055,0.6006933139,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,7.5632868109E-002,7.8942389785E-002,Pass,Pass,0.1589460640,0.4232180681,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,5.8885074014E-002,6.0300863447E-002,Pass,Pass,0.1699780053,0.5062832741,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,5.0823065488E-003,2.9639568383E-003,Pass,Pass,5.0648499813E-004,2.9584677417E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,7.5164241995E-003,1.8981907262E-002,Pass,Pass,0.2979660432,1.2089001499,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,3.1653341247E-002,6.9088275303E-002,Pass,Pass,0.1966568888,0.5362539035,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,1.7465745818E-004,1.3974367917E-004,Pass,Pass,4.1280506085E-002,2.6346170197E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,6.1763268684E-002,6.5727125433E-002,Pass,Pass,0.1851254519,0.4547149742,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,4.7267564595E-002,9.8107521649E-002,Pass,Pass,0.2736850750,1.3753188858,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,1.5781743912E-002,3.6580207412E-002,Pass,Pass,0.4972576889,3.2360942995,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3430926730E-002,9.1735747687E-002,Pass,Pass,4.1049734405E-002,4.1955274943E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,7.0926545753E-002,7.3057569298E-002,Pass,Pass,0.1009697522,0.2931398006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,8.3605842927E-002,9.5635533050E-002,Pass,Pass,6.9019422788E-002,7.9371343267E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,1.0318615221E-004,7.7926044105E-005,Pass,Pass,2.7812205000E-002,1.7909772153E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 2% CONDNS DP=>MDB,9.9755004515E-004,7.3321139238E-004,Pass,Pass,0.1068986266,0.2436574347,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,30.20,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,1.5903861657E-002,2.6975901950E-002,Pass,Pass,0.5052138643,3.5543689070,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3438069668E-002,8.3667232551E-002,Pass,Pass,4.3365003077E-002,6.3446147203E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,7.4002228334E-002,6.1459774041E-002,Pass,Pass,2.3573542064E-002,3.0395786416E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,5.2582118747E-003,2.9744562485E-003,Pass,Pass,5.2579293957E-004,3.0688459896E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,2.1442555615E-002,2.6544735983E-002,Pass,Pass,3.9464522755E-002,4.3873276288E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,4.0349785573E-002,7.5546667883E-002,Pass,Pass,0.1863953263,0.4997987680,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,3.4203368850E-003,5.2702229628E-003,Pass,Pass,1.8281813484E-002,1.7423574738E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,7.4155567015E-002,6.6926934633E-002,Pass,Pass,4.2657223410E-002,5.1020117312E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,5.6155261576E-002,0.1096950147,Pass,Pass,0.1863714125,0.5239956816,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,2.4486797505E-002,4.9818695079E-002,Pass,Pass,0.3505542735,1.8314736053,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3484852583E-002,9.0076397705E-002,Pass,Pass,2.4619985650E-002,2.6654008828E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3385495686E-002,7.7379792550E-002,Pass,Pass,2.4110046836E-002,3.5573645036E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,8.3537699703E-002,9.3818401021E-002,Pass,Pass,3.2767082410E-002,3.4098858804E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,9.5661641112E-005,7.3722960806E-005,Pass,Pass,0.2707733436,1.0607975990,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS WB=>MDB,9.6795511331E-004,7.7151299374E-004,Pass,Pass,0.2502442263,0.7436854914,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-8.40,0.00,DefaultMultipliers,101301,290,5.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.4271022702E-005,1.0680288944E-005,Pass,Pass,4.7478573320E-006,9.3497702890E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.4934499608E-005,1.0812102210E-005,Pass,Pass,4.7987131111E-006,9.4510725238E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.9002368501E-005,1.1611820200E-005,Pass,Pass,5.1292818401E-006,1.0101801833E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,3.7633409752E-005,7.4023930301E-006,Pass,Pass,3.4129856931E-006,6.7164593544E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.8338185138E-005,1.1480885993E-005,Pass,Pass,5.0734713838E-006,9.9916163590E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,1.7238750177E-005,3.3927713840E-006,Pass,Pass,1.5325555904E-006,3.0168806168E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,1.3204988754E-004,2.5974644987E-005,Pass,Pass,1.1600955945E-005,2.2856501167E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.4846051999E-005,1.0793658052E-005,Pass,Pass,4.7966394811E-006,9.4460796568E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,1.6686572787E-005,3.2823528163E-006,Pass,Pass,1.4928084078E-006,2.9370604642E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,1.7219486356E-005,3.3886781155E-006,Pass,Pass,1.5311836068E-006,3.0139107875E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.4281385970E-005,1.0677609773E-005,Pass,Pass,4.8765776482E-006,9.5991877321E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.9107359552E-005,1.1633588909E-005,Pass,Pass,5.1312610201E-006,1.0106662883E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,5.1084028156E-005,1.0048492788E-005,Pass,Pass,4.5598959713E-006,8.9752740990E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,1.2433378865E-004,2.4457018597E-005,Pass,Pass,1.1057795769E-005,2.1784838213E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HTG 99% CONDNS DB,1.7082675122E-005,3.3616963709E-006,Pass,Pass,1.5191947309E-006,2.9902556188E-007,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,27.40,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,6.5563405805E-003,1.6693883750E-002,Pass,Pass,0.2265393683,0.6303906537,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,7.7684774841E-002,7.9808717028E-002,Pass,Pass,0.1546478217,0.4590229734,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,6.1556988718E-002,6.0501431343E-002,Pass,Pass,6.0943702824E-002,7.3309316494E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,5.1165167600E-003,2.9663957592E-003,Pass,Pass,5.0992133278E-004,2.9758546288E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,9.9196268573E-003,2.1598962854E-002,Pass,Pass,0.3471111141,1.8570072977,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,3.3074207443E-002,7.0448323322E-002,Pass,Pass,0.2306430956,0.8053454968,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,1.4900579399E-004,1.1074621864E-004,Pass,Pass,3.5439316334E-002,2.0671685715E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,6.3973660672E-002,6.5996158800E-002,Pass,Pass,0.1977407600,0.5440031453,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,4.8791609383E-002,0.1004700096,Pass,Pass,0.1665712092,0.4245737624,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,1.7347710238E-002,3.8382838435E-002,Pass,Pass,0.2415310051,0.8106550338,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3599769821E-002,9.2195042831E-002,Pass,Pass,3.6601986554E-002,3.3239951421E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,7.3486654181E-002,7.4230488014E-002,Pass,Pass,5.2680341933E-002,8.0910723235E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,8.3612301878E-002,9.5955531725E-002,Pass,Pass,5.4805224336E-002,5.7534382012E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,9.9471076784E-005,7.3830693663E-005,Pass,Pass,3.4531695910E-002,2.2403246516E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DP=>MDB,1.0884787408E-003,7.8979422623E-004,Pass,Pass,0.1364489710,0.4045920992,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,SizingPeriod:DesignDay,01/21,01/21,WinterDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,-6.70,0.00,DefaultMultipliers,101301,290,5.2,0.00,No ,No 
+Environment:Design_Day_Misc, 21,1229.0,0.1415,5.7310E-002,1.0,-11.15,-20.1,ASHRAEClearSky
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,4.7212041451E-005,9.2336072984E-006,Pass,Pass,4.0427104048E-006,7.9156609745E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,4.7886809743E-005,9.3702042457E-006,Pass,Pass,4.0918842911E-006,8.0161338323E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,5.1097661798E-005,9.9918683952E-006,Pass,Pass,4.3735956861E-006,8.5622840765E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,3.2457968921E-005,6.3485518855E-006,Pass,Pass,2.7715834251E-006,5.4268417827E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,5.0529945376E-005,9.8806154556E-006,Pass,Pass,4.3286701527E-006,8.4740780215E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.5687752462E-005,3.0688180386E-006,Pass,Pass,1.2265188662E-006,2.4026328935E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.1211753265E-004,2.1927723384E-005,Pass,Pass,9.8774104555E-006,1.9352844811E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,4.7704771586E-005,9.3302005941E-006,Pass,Pass,4.0816705552E-006,7.9921795235E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.4877202511E-005,2.9012680795E-006,Pass,Pass,1.1681799793E-006,2.2802160371E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.5648965937E-005,3.0599793183E-006,Pass,Pass,1.2235249616E-006,2.3956415464E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,3.5050702443E-005,6.8042714592E-006,Pass,Pass,5.0557778764E-006,9.8876920204E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,5.1432846741E-005,1.0062493406E-005,Pass,Pass,4.3959367615E-006,8.6105869110E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,4.2463097250E-005,8.2772704955E-006,Pass,Pass,3.7699149536E-006,7.3554296332E-007,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.0573685131E-004,2.0683439891E-005,Pass,Pass,9.3489453786E-006,1.8319422605E-006,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN HUM_N 99% CONDNS DP=>MCDB,1.5530647235E-005,3.0367748453E-006,Pass,Pass,1.2140586390E-006,2.3770531791E-007,Pass,Pass
+Environment,PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,SizingPeriod:DesignDay,07/21,07/21,SummerDesignDay,1,N/A,N/A,N/A,N/A,N/A,N/A
+Environment:Daylight Saving,No,SizingPeriod:DesignDay
+Environment:Design Day Data,32.60,9.40,DefaultMultipliers,101301,240,5.0,0.00,No ,No 
+Environment:Design_Day_Misc,202,1084.4,0.2082,0.1365,1.0,-6.23,20.6,ASHRAETau
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,2.4627810185E-002,2.9587520767E-002,Pass,Pass,4.1402908285E-002,4.9729278500E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3394682601E-002,8.7486593008E-002,Pass,Pass,2.9451516827E-002,4.2427245060E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3389999352E-002,5.9847981434E-002,Pass,Pass,1.2230956086E-002,1.2240893405E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,5.1935358673E-003,3.0749473090E-003,Pass,Pass,6.0992837660E-004,3.7981894505E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,3.2234392001E-002,2.6428247977E-002,Pass,Pass,1.9578123837E-002,2.6119652121E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,4.6508548052E-002,7.9321320669E-002,Pass,Pass,0.2138424350,0.7038193002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,9.0495576527E-003,8.5110632112E-003,Pass,Pass,6.9568299496E-003,1.1330090621E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3376072576E-002,6.5827758832E-002,Pass,Pass,2.1766028429E-002,2.7466504013E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,6.2673703062E-002,0.1162528255,Pass,Pass,0.2458248588,0.6045446697,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,3.1042288141E-002,5.7196500382E-002,Pass,Pass,0.3536897250,1.8406537351,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3350622821E-002,8.0676247590E-002,Pass,Pass,1.8834016246E-002,2.9392405245E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3342782345E-002,8.0846641264E-002,Pass,Pass,1.6928582225E-002,2.4401396230E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,8.3397838188E-002,8.7064084582E-002,Pass,Pass,2.4969832395E-002,3.7185870972E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,9.9673755750E-005,7.2637980245E-005,Pass,Pass,0.2559971836,0.7186021100,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,SizingPeriod: PHILADELPHIA INTERNATIONAL AP ANN CLG 1% CONDNS DB=>MWB,7.8194408733E-004,5.3410850549E-004,Pass,Pass,0.2190851402,0.5925356837,Pass,Pass
+Environment,RUN PERIOD 1,WeatherFileRunPeriod,01/01,12/31,Thursday,365,Use RunPeriod Specified Day,Yes,Yes,No ,Yes,Yes
+Environment:Daylight Saving,Yes,InputFile,03/08,11/01
+Environment:WarmupDays,  6
+ Warmup Convergence Information,THERMAL ZONE 5,RunPeriod: RUN PERIOD 1,1.8216231344E-003,1.2108974573E-003,Pass,Pass,8.6906771770E-003,6.3753778726E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 6,RunPeriod: RUN PERIOD 1,1.7233751295E-003,1.3670282631E-003,Pass,Pass,2.6069598702E-002,3.3446571578E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 13,RunPeriod: RUN PERIOD 1,2.3463326808E-002,5.4080848977E-002,Pass,Pass,0.2996762644,1.4209593842,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 15,RunPeriod: RUN PERIOD 1,3.4562744251E-003,2.7786585627E-003,Pass,Pass,3.8544324857E-004,2.7031493630E-004,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 14,RunPeriod: RUN PERIOD 1,2.4201580683E-003,1.6062657116E-003,Pass,Pass,7.7042668069E-003,5.6176609256E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 8,RunPeriod: RUN PERIOD 1,3.3660020842E-003,4.8024745637E-003,Pass,Pass,2.3030673031E-002,3.7350642801E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 4,RunPeriod: RUN PERIOD 1,7.1072219303E-004,5.1938829246E-004,Pass,Pass,5.3417635505E-003,4.3990064268E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 7,RunPeriod: RUN PERIOD 1,4.3734852562E-002,8.5166625498E-002,Pass,Pass,0.2016670239,0.6222984693,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 11,RunPeriod: RUN PERIOD 1,2.0082218750E-003,1.5885095048E-003,Pass,Pass,5.3201469614E-002,8.8214710697E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 9,RunPeriod: RUN PERIOD 1,1.6450489286E-002,3.8199277642E-002,Pass,Pass,0.2124743833,0.7628527207,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 10,RunPeriod: RUN PERIOD 1,1.7448844496E-003,1.3288714448E-003,Pass,Pass,5.9641300125E-002,0.1067981425,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 1,RunPeriod: RUN PERIOD 1,1.5016993357E-003,1.3616963620E-003,Pass,Pass,2.0782904417E-002,2.6511074101E-002,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 3,RunPeriod: RUN PERIOD 1,1.5872842466E-003,1.1951992180E-003,Pass,Pass,0.7578042512,5.9227891169,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 12,RunPeriod: RUN PERIOD 1,2.1267574935E-003,1.6279771431E-003,Pass,Pass,1.6439667121E-003,2.7350396205E-003,Pass,Pass
+ Warmup Convergence Information,THERMAL ZONE 2,RunPeriod: RUN PERIOD 1,4.1058645373E-003,5.0460467645E-003,Pass,Pass,5.4455617337E-003,5.5937109801E-003,Pass,Pass
+! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
+Program Control:Threads/Parallel Sims, Yes,1, Not Set, Not Set, 1, 1, 102, N/A
+End of Data

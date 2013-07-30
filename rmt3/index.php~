@@ -1,0 +1,255 @@
+<?php
+	session_start();
+	require 'connection.php';
+?>
+
+<html>
+<head>
+<title>RMT 3: Home</title>
+<LINK REL="SHORTCUT ICON" HREF="img/eebhub" />
+<link rel="stylesheet" type="text/css" href="css/theme.css">
+
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+
+<style>
+#filter {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #eee;
+	min-width: 100%;
+	min-height: 100%;
+	opacity: 0.1;
+}
+
+.progress{
+    height: 30px;
+}
+
+.loading-div {
+    z-index: 100;
+	position: fixed;
+    top: 55%;
+	display: none;
+	padding: 10px;
+	text-align: center;
+	margin: 0 20%;
+	width: 60%;
+	max-width: 800px;
+	background: #fff;
+}
+</style>
+
+
+<script>
+// Valify form-A input
+function valForm(theForm)
+{
+	var f = document.getElementById(theForm);	
+	var eMail = f.eMail.value;
+	var buildingName =	f.buildingName.value;
+	var locationID = f.locationID.value;
+	var functionID = f.functionID.value;
+	var numberFloors = f.floors.value;
+	var floorArea = f.floorArea.value;
+	var roofMaterial= f.roofMaterial.value;
+	var wallMaterial = f.wallMaterial.value;
+	var windowPercent = f.windowPercent.value;
+
+	var err_msg = "Please Enter Valid: \n\n";
+	
+	if(eMail ==""){
+		err_msg+="Email \n";
+	}
+	if(buildingName ==""){
+		err_msg+="Building Name \n";
+	}
+	if(locationID ==""){
+		err_msg+="Building Location \n";
+	}
+	if(functionID ==""){
+		err_msg+="Building Space Type \n";
+	}
+	if(numberFloors =="" || numberFloors < 0 || numberFloors > 300){
+		err_msg+="Number Of Floors \n";
+	}
+	if(floorArea =="" ||floorArea < 0 || floorArea > 99999){
+		err_msg+="Area \n";
+	}
+	if(roofMaterial ==""){
+		err_msg+="Building Roof \n";
+	}
+	if(wallMaterial ==""){
+		err_msg+="Building Wall \n";
+	}
+	if(windowPercent =="" || windowPercent > 99 || windowPercent < 10){
+		err_msg+="Window Percentage \n";
+	}
+
+    // handle the submission success
+	if(err_msg == "Please Enter Valid: \n\n") 
+	{ 
+        $('#baseline-form, header, .top-nav, footer').fadeTo('slow', 0.33);
+        $('.loading-div').fadeIn('slow');  
+		$('html,body').css('overflow', 'hidden');
+        loading(); 
+		
+		return true; 
+	}	
+
+    // handle the submission is failed 
+	else {      
+		alert(err_msg); 
+		return false;
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+<header>
+	<div style="margin-left: 50px; font-size: 18px;" >
+		<h1> <a href="index.php"> RMT 3 </a> </h1>
+		<h4><i>simulate building energy ONLINE</i></h4>
+	</div>
+</header>
+
+	
+<form id="baseline-form" method="post" action="" onsubmit="return valForm('baseline-form');">
+	<fieldset>
+	<legend>USER</legend>
+		Email: <input type="email" name="eMail" value="<?php echo $_POST[eMail];?>" placeholder="rmt@virtualpulse.us"/><br/>
+		Building (name): <input type="text" name="buildingName" value="<?php echo $_POST[buildingName];?>" placeholder="Building Model"/><br/>
+	</fieldset>
+	<br/>
+	
+	<fieldset>
+	<legend>LOCATION</legend>
+		City, State: 
+		<select name="locationID">
+		<?php
+			$result = mysql_query("SELECT * FROM locations ORDER BY Enabled DESC, State, City");
+			while($row = mysql_fetch_array($result))
+			{
+				if ($row['Enabled'] == 1)
+				{
+					echo "\t<option value=" . $row['locationID'] . ">" . $row['city'] . ", " . $row['state'] . "</option>\n";
+				}
+				else
+				{
+					echo "\t<option value=" . $row['locationID'] . " disabled=\"disabled\">" . $row['city'] . ", " . $row['state'].  " - Unavailable"  . "</option>\n";
+				}
+			}
+		?>
+		</select><br/>
+	</fieldset>
+	<br/>
+	
+	<fieldset>
+	<legend>FUNCTION &amp SIZE</legend>
+		Type:
+		<select name="functionID">
+		<?php
+			$result = mysql_query("SELECT * FROM functions ORDER BY Enabled DESC, functionType");
+			while($row = mysql_fetch_array($result))
+			{
+				if ($row['Enabled'] == 1)
+				{
+					echo "\t<option value=" . $row['functionID'] . ">" . $row['functionType'] . "</option>\n";
+				}
+				else
+				{
+					echo "\t<option value=" . $row['functionID'] . " disabled=\"disabled\">" . $row['functionType'] . " - Unavailable" . "</option>\n";
+				}
+			}
+		?>
+		</select><br/>
+		Floors: <input type="number" min="1" max="20" name="floors" placeholder=" 1 - 20" value="<?php echo $_POST[floors];?>"/><br/>
+		Area (total floor) [m<sup>2</sup>]: <input type="number" name="floorArea"  min="10" max="99999" placeholder=" 10 - 99999" value="<?php echo $_POST[floorArea];?>" /><br/>
+	</fieldset>
+	<br/>
+	
+	<fieldset>
+	<legend>MATERIALS</legend>
+		Roof:
+		<select name="roofMaterial">
+		<?php
+			$result = mysql_query("SELECT * FROM roofmaterials ORDER BY Enabled DESC, name");
+			while($row = mysql_fetch_array($result))
+			{
+				if ($row['Enabled'] == 1)
+				{
+					echo "\t<option value=" . $row['roofMatID'] . ">" . $row['name'] . "</option>\n";
+				}
+				else
+				{
+					echo "\t<option value=" . $row['roofMatID'] . " disabled=\"disabled\">" . $row['name'] . " - Unavailable" . "</option>\n";
+				}
+			}
+		?>
+		</select><br/>
+		Wall:
+		<select name="wallMaterial">
+		<?php
+			$result = mysql_query("SELECT * FROM wallmaterials ORDER BY Enabled DESC, name");
+			while($row = mysql_fetch_array($result))
+			{
+				if ($row['Enabled'] == 1)
+				{
+					echo "\t<option value=" . $row['wallMatID'] . ">" . $row['name'] . "</option>\n";
+				}
+				else
+				{
+					echo "\t<option value=" . $row['wallMatID'] . " disabled=\"disabled\">" . $row['name'] . " - Unavailable" . "</option>\n";
+				}
+			}
+		?>
+		</select><br/>
+		% Windows: <input type="number" min="10" max="60" placeholder=" 10 - 60" name="windowPercent" value="<?php echo $_POST[windowPercent];?>"/><br/>
+	</fieldset>
+	<br/>
+	
+	<input onclick="this.form.action='simulate.php';" style="margin-left: 350px;" type="submit" value="SIMULATE" />  
+</form>
+
+
+<div class="loading-div container-fluid">
+	<div id="filter" > 
+	</div>
+
+	<h4 id="loading-status"> Please Wait!  The simulation may take up to 15 mins. </h4>
+</div>
+<!--  Testing Loading Bar
+<button class="button" onclick="$('input, select, a, button').attr('disabled', 'disabled'); $('.main-div, header, .top-nav, footer').fadeTo('slow', 0.33);$('.loading-div').fadeIn('slow');  loading();"> Loading </button>
+-->
+<script>
+
+function loading() {
+	var abc = <?php echo "updateing ..."; ?>;
+	// update the progress every second
+	var update = setInterval(function(){
+			$("#loading-status").html(abc);
+
+	},1000);
+}
+</script>
+
+<footer>
+	<p style="text-align: center">
+		<a class="policy-link" href="index.php"> &copy;2013 RMT </a>
+		<a class="policy-link" href="#"> Term of Service </a>
+		<a class="policy-link" href="#"> Privacy Policy </a>
+		<a class="policy-link" href="#"> Help </a>
+	</p>
+</footer>
+
+</body>
+
+</html>
+
+<?php
+	mysql_close($con);
+?>

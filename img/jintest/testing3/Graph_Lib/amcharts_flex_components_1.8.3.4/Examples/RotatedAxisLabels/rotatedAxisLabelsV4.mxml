@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+    
+    <!-- 
+    You have to embed fonts in order rotated axis labels to be visible.
+    Note, we do not distribute font files, you should copy the font's you
+    want to use to your assets folder yourself. 
+    -->
+    
+    <fx:Style>
+        @font-face 
+        {
+            src: url("../assets/tahoma.ttf");
+            fontFamily: "Tahoma";
+            embedAsCFF: false;
+            unicode-range:
+                U+0020-U+0040, /* Punctuation, Numbers */
+                U+0041-U+005A, /* Upper-Case A-Z */
+                U+005B-U+0060, /* Punctuation and Symbols */
+                U+0061-U+007A, /* Lower-Case a-z */
+                U+007B-U+007E; /* Punctuation and Symbols */            
+        }
+        
+        .MyTextStyle 
+        { 
+            font-family: Tahoma; 
+        }
+        
+    </fx:Style>
+    
+    
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:Array = [{country:"USA",visits:4252,color:0xFF0F00},
+                {country:"China",visits:1882,color:0xFF6600},
+                {country:"Japan",visits:1809,color:0xFF9E01},
+                {country:"Germany",visits:1322,color:0xFCD202},
+                {country:"UK",visits:1122,color:0xF8FF01},
+                {country:"France",visits:1114,color:0xB0DE09},
+                {country:"India",visits:984,color:0x04D215},
+                {country:"Spain",visits:711,color:0x0D8ECF},
+                {country:"Netherlands",visits:665,color:0x0D52D1},
+                {country:"Russia",visits:580,color:0x2A0CD0},
+                {country:"South Korea",visits:443,color:0x8A0CCF},
+                {country:"Canada",visits:441,color:0xCD0D74},
+                {country:"Brazil",visits:395,color:0x754DEB},
+                {country:"Italy",visits:386,color:0xDDDDDD},
+                {country:"Australia",visits:384,color:0x999999},
+                {country:"Taiwan",visits:338,color:0x333333},
+                {country:"Poland",visits:328,color:0x000000}];
+            
+        ]]>
+    </fx:Script>
+    
+    <amcharts:AmSerialChart
+        rotate="false"
+        styleName="MyTextStyle"
+        width="100%"
+        height="100%"
+        id="chart"
+        dataProvider="{chartData}"
+        categoryField="country"
+        startDuration="1">        
+        <amcharts:graphs>
+            <amcharts:AmGraph cornerRadiusTop="10"                
+                              valueField="visits"
+                              balloonText="[[category]]: [[value]]"
+                              colorField="color"
+                              type="column"
+                              lineAlpha="0"
+                              fillAlphas="[0.8]" />                        
+        </amcharts:graphs>
+        
+		<amcharts:valueAxes>
+			<amcharts:ValueAxis title="VISITS PER DAY" titleTextColor="#CC0000"/>
+		</amcharts:valueAxes>		
+		
+        <amcharts:categoryAxis>
+            <amcharts:CategoryAxis gridPosition="start" labelRotation="45" gridCount="{chartData.length}"/>
+        </amcharts:categoryAxis>
+        
+        <amcharts:balloon>
+            <amcharts:AmBalloon cornerRadius="10" borderThickness="2" borderColor="#FFFFFF" borderAlpha="1"/>                
+        </amcharts:balloon>    
+        
+        <amcharts:chartCursor>
+            <amcharts:ChartCursor zoomable="false" cursorAlpha="0" categoryBalloonEnabled="false"/>                    
+        </amcharts:chartCursor>    
+    </amcharts:AmSerialChart>
+</s:Application>

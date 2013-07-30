@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Pie Chart</title>
+
+	<meta charset="utf-8">
+	
+	<script src="js/piechart.js"></script>
+
+	<script>
+	
+	// input data from other html file
+	var myObjects = ["Heating", "Cooling", "Lighting", "Equipment", "Fans", "Pumps"];
+	var myDatas = new Array();
+	var myLabels = new Array();
+	
+	// AJAX get information for php file to javascript
+	function getData() 
+	{
+		var str = "";					// response text from php
+		
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	    
+		// wait for response
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				str = xmlhttp.responseText;
+			}
+		}
+	    
+		// the .php file name "readFile.php"
+		xmlhttp.open("GET","readFile.php?q="+str,false);
+		xmlhttp.send();
+		
+		return str;
+	}
+	
+    var numbers  = new Array();
+	var data  = getData().split("<br>");
+	var number_string = data[1].match(/[0-9]+\.[0-9]+/g);
+	
+	for(var i =0; i < number_string.length; i++) 
+	{	
+		numbers[i] = parseFloat(number_string[i]);
+	}
+	
+	myDatas  = [numbers[0], numbers[1], numbers[2], numbers[4], numbers[6], numbers[7]];   
+	
+	for(var i =0; i < myDatas.length; i++) 
+	{
+		myLabels[i] = myObjects[i] + ": " + (myDatas[i]/numbers[14]*100).toFixed(2)+"%";
+		myDatas[i] = myDatas[i] / numbers[14].toFixed(2) * 3.6*100; 
+	}	
+	
+	// kick things off
+	window.onload = createPieChart;
+
+	function createPieChart()
+	{
+		//
+		// create a PieChart.
+		//
+		var pieChart = new PieChart( "piechart",
+			{
+				includeLabels: true,
+				data: 	myDatas,
+				labels: myLabels,
+				colors: [
+							["#ffffff", "#1d8e04"], // green
+							["#ffffff", "#9edd08"], // yellow green
+							["#ffffff", "#faf406"], // yellow
+							["#ffffff", "#f2700f"], // orange
+							["#ffffff", "#ea2507"], // red
+							["#ffffff", "#9e2126"]  // purple
+						]
+			}
+		);
+
+		//
+		// nothing appears until you call draw().
+		//
+		//pieChart.draw();
+
+		/*
+		* If you want to draw the labels separately, you can set
+		* includeLabels to false, and call drawLabel() for each
+		* pie chart segment.
+		*/
+		/*for (var i = 0; i < pieChart.labels.length; i++) {
+			pieChart.drawLabel(i);
+		}*/
+		
+		/*
+		* If you want to select a segment to highight it, you can
+		* call select() for a given segment. Here's a little snippet
+		* that animates selecting each segment.
+		*/
+		var segment = 0;
+		function nextSegment() {
+		pieChart.select(segment);
+		segment++;
+		if (segment < pieChart.data.length) {
+		setTimeout(nextSegment, 100);
+		}
+		}
+		setTimeout(nextSegment, 100);		
+	}
+
+	// draw labels
+	document.write("<pre>");
+	document.write("Output File:           "+"BuildChicagoTable.html"+"<br/>");
+	document.write("Total Energy Used:     "+numbers[14]+"[GJ]<hr/>");
+	document.write("<ul>");
+	for(var i = 0; i < myLabels.length; i++)
+	{
+		document.write( "<li>"+myLabels[i]);
+	}
+	document.write("</ul>");
+	document.write("</pre>");
+
+	</script>
+</head>
+
+<body>
+	<canvas id="piechart" width="400" height="400" align="center">
+	</canvas>
+</body>
+
+</html>

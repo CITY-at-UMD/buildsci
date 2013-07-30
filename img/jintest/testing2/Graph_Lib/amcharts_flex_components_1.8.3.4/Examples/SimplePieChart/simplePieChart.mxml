@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:amcharts="http://www.amcharts.com/com_internal"
+				layout="absolute"
+				backgroundColor="#FFFFFF"
+				width="100%"
+				height="100%" viewSourceURL="srcview/index.html">
+	
+	<mx:Script>
+		<![CDATA[
+			
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var chartData:ArrayCollection = new ArrayCollection( [
+				{country:"Czech Republic",litres:156.90},  
+				{country:"Ireland",litres:131.10},
+				{country:"Germany",litres:115.80},  
+				{country:"Australia",litres:109.90},  
+				{country:"Austria",litres:108.30},  
+				{country:"UK",litres:99.00},  
+				{country:"Belgium",litres:93.00}]); 
+		]]>
+	</mx:Script>
+	
+	<amcharts:AmPieChart width="100%" height="100%" dataProvider="{chartData}" titleField="country" valueField="litres"/>
+	
+</mx:Application>

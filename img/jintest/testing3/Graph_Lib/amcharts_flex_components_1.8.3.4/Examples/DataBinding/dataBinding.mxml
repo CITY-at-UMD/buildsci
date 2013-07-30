@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:amcharts="http://www.amcharts.com/com_internal"
+				layout="absolute"
+				backgroundColor="#FFFFFF"
+				width="100%"
+				height="100%" viewSourceURL="srcview/index.html">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			
+			[Bindable]
+			private var chartData:ArrayCollection = new ArrayCollection([
+				{year:2005,income:23.5,expenses:18.1},
+				{year:2006,income:26.2,expenses:22.8},
+				{year:2007,income:30.1,expenses:23.9},
+				{year:2008,income:29.5,expenses:25.1},
+				{year:2009,income:24.6,expenses:25.0}
+			]);
+			
+			[Bindable]
+			private var shadow:DropShadowFilter = new DropShadowFilter(2,45,0,0.5);
+			
+		]]>
+	</mx:Script>    
+	
+	<mx:VBox width="100%" height="100%">
+		<mx:Canvas width="100%" height="100%">
+			<amcharts:AmSerialChart 
+				id="chart"
+				width="100%"
+				height="100%"                 
+				dataProvider="{chartData}"
+				categoryField="year"
+				angle="30"
+				depth3D="30">
+				
+				<amcharts:graphs>
+					<amcharts:AmGraph title="Income" id="g0" valueField="income" type="column" lineAlpha="0" fillColors="[#ADD981]" fillAlphas="[1]"/>                        
+					<amcharts:AmGraph title="Expenses" markerType="line" id="g1" valueField="expenses" type="line" lineThickness="2" bullet="round" filters="{[shadow]}"/>                        
+				</amcharts:graphs>
+				<amcharts:valueAxes>
+					<amcharts:ValueAxis dashLength="5"/>                            
+				</amcharts:valueAxes>
+				<amcharts:categoryAxis>
+					<amcharts:CategoryAxis gridPosition="start" dashLength="5"/>                            
+				</amcharts:categoryAxis>
+			</amcharts:AmSerialChart>
+			
+			<amcharts:AmLegend 
+				color="0x000000"
+				x="45" 
+				y="20"
+				switchable="false"
+				dataProvider="{chart}"
+				width="100%"
+				marginRight="20"
+				marginLeft="40"
+				textClickEnabled="false"
+				marginBottom="5"/>                     
+		</mx:Canvas>
+		<mx:HBox horizontalGap="0" width="100%">
+			<mx:Spacer width="35"/>
+			<mx:DataGrid dataProvider="{chartData}" width="100%" editable="true" height="70"/>                    
+			<mx:Spacer width="20"/>
+		</mx:HBox>
+		<mx:Spacer height="10"/>
+	</mx:VBox>            
+</mx:Application>

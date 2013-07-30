@@ -1,0 +1,774 @@
+<?php
+    require 'connection.php';
+	session_start();
+?>
+
+<!doctype html>
+<html lang="us">
+<head>
+<meta charset="utf-8">
+<title>RMT 4: Home</title>
+<LINK REL="SHORTCUT ICON" HREF="img/eebhub" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+
+<script src='js/jquery.color-RGBa-patch.js'></script>
+<script src='js/dropzone.js'></script>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+
+<script>
+// update the form
+function changeSelectAction(form){
+    form.submit();
+}
+
+// Valify form-A input
+function valForm(theForm)
+{
+	var f = document.getElementById(theForm);	
+	var eMail = f.eMail.value;
+	var buildingName =	f.buildingName.value;
+	var locationID = f.locationID.value;
+	var functionID = f.functionID.value;
+	var numberFloors = f.numberFloors.value;
+	var floorArea = f.floorArea.value;
+	var roofMaterial= f.roofMaterial.value;
+	var wallMaterial = f.wallMaterial.value;
+	var windowPercent = f.windowPercent.value;
+
+	var err_msg = "Please Enter Valid: \n\n";
+
+    // Detecting Form-A input
+	if(eMail ==""){
+		err_msg+="Email \n";
+	}
+	if(buildingName ==""){
+		err_msg+="Building Name \n";
+	}
+	if(locationID ==""){
+		err_msg+="Building Location \n";
+	}
+	if(functionID ==""){
+		err_msg+="Building Space Type \n";
+	}
+	if(numberFloors =="" || numberFloors < 0 || numberFloors > 20){
+		err_msg+="Number Of Floors \n";
+	}
+	if(floorArea =="" ||floorArea/numberFloors < 10 || floorArea > 99999){
+		err_msg+="Area \n";
+	}
+	if(roofMaterial ==""){
+		err_msg+="Building Roof \n";
+	}
+	if(wallMaterial ==""){
+		err_msg+="Building Wall \n";
+	}
+	if(windowPercent =="" || windowPercent > 99 || windowPercent < 10){
+		err_msg+="Window Percentage \n";
+	}
+
+    // handle the submission success
+	if(err_msg == "Please Enter Valid: \n\n") 
+	{ 
+        $('.main-div, header, .top-nav, footer').fadeTo('slow', 0.33);
+        $('.loading-div').fadeIn('slow');  
+        loading(); 
+		
+		return true; 
+	}	
+    // handle the submission is failed 
+	else {      
+		alert(err_msg); 
+		return false;
+	}
+}
+</script>
+
+<style>
+#filter {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #eee;
+	min-width: 100%;
+	min-height: 100%;
+	opacity: 0.1;
+}
+
+.progress{
+    height: 30px;
+}
+
+.loading-div {
+    z-index: 100;
+	position: fixed;
+    top: 55%;
+	display: none;
+	padding: 10px;
+	text-align: center;
+	margin: 0 20%;
+	width: 60%;
+	max-width: 800px;
+	background: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<form action="login/" method="post" name="frmLogin" id="frmLogin" >
+    <nav class="top-nav">
+        <a style="margin: 0px 10px;" href="./index.php" > Home </a>
+        <a style="margin: 0px 10px;" href="#"> Tour </a>
+		<a style="margin: 0px 10px;" href="./index.php" > Contact </a>
+        <a style="margin: 0px 10px;" href="#"> About </a>
+        
+<!--
+        <span style="float: right; margin: -5px 3px"> 
+			<input type="submit" class="button" Value="Sign In" /> </span>
+        <span style="float: right; margin: -5px 3px"> Password: 
+			<input name="txtPassword" type="password" placeholder="*******" /> </span>
+        <span style="float: right; margin: -5px 3px"> Email: 
+			<input name="txtUserId" type="email" placeholder="rmt@virtualpulse.us" /> </span> -->
+    </nav>
+</form>  
+    
+<header>
+    <h1>
+        <a href="index.php"> <img src="img/hub.jpg" width="489" height="150px" 
+			style="border: none; width:489px; height:150px;" class="ui-icon-eject"> </a>
+		<nav class="user_zone"> <a href="login/signup.php">Register</a> | <a href="login/index.php"> Login </a> </nav>
+    </h1>         
+</header>
+
+<div class="main-div" id="s">
+<!-- ###################################################################################################### -->
+	<main class="container-fluid">
+	<ul id="tab-form" class="nav nav-tabs" >
+	  <li><a class="active" href="#" id="tab-A" > BASELINE FORM </a></li>
+	  <li><a href="#" id="tab-B" > ADVANCED FORM </a></li>
+	  <li><a href="report_on_demand.php" > VIEW BY SQL FILE </a></li>
+	  <?php
+	  	if($_SESSION['modelName']!='') echo '<li><a href="result.php?query=sumamry" > PREVIOUS RESULT </a></li>';
+	  ?>
+	</ul>
+
+	<!-- ################################ User Section Form-B ####################################################### -->
+	<ul class="nav nav-list span3" id="section-nav">
+	  <li class="nav-header">USER</li>
+	  <li class="active"><a href="#inputEmail">Email</a></li>
+
+	  <li class="nav-header">BUILDING BIO</li>
+	  <li><a href="#buildingName">Building Name</a></li>
+	  <li><a href="#buildingLocation">Building Location</a></li>
+	  <li><a href="#buildingSpaceType">Building Space Type</a></li>
+	  <li><a href="#buildingVintage">Building Vintage</a></li>
+
+	  <li class="nav-header">GEOMETRY</li>
+	  <li><a href="#buildingShape">Building Shape</a></li>
+	  <li><a href="#length">Length</a></li>
+	  <li><a href="#width">Width</a></li>
+	  <li><a href="#numberOfFloors">Number Of Floors</a></li>
+	  <li><a href="#floorHeight">Floor To Floor Height</a></li>
+	  <li><a href="#plenumHeight">Plenum Height</a></li>
+	  <li><a href="#perimeterZoneDepth">Perimeter Zone Depth</a></li>
+
+	  <li class="nav-header">WINDOWS</li>
+	  <li><a href="#windowWallRatio">Window-wall Ratio</a></li>
+	  <li><a href="#offSet">Offset</a></li>
+	  <li><a href="#applicationType">Application Type</a></li>
+
+	  <li class="nav-header">HVAC</li>
+	  <li><a href="#fanEff">Fan Efficiency</a></li>
+	  <li><a href="#boilerEff">Boiler Efficiency</a></li>
+	  <li><a href="#boilerFuleType">Boiler Fuel Type</a></li>
+	  <li><a href="#">Coil Cool Rated High Speed COP</a></li>
+	  <li><a href="#">Coil Cool Rated Low Speed COP</a></li>
+	  <li><a href="#">Economizer Type</a></li>
+	  <li><a href="#">Economizer Enthalpy Limit</a></li>
+
+	  <li class="nav-header">THERMOSTATS</li>
+	  <li><a href="#">Heating Set Point</a></li>
+	  <li><a href="#">Cooling Set Point</a></li>
+
+	</ul>
+
+	<!-- ###################################################################################################### -->
+
+	<form id="form-B" action="" method="post" class="form-horizontal span5">
+	<!-- ###################################################################################################### -->
+		<section class="span5">
+		<legend>USER</legend>
+	 	<div class="control-group">
+			<label class="control-label" for="inputEmail">Email</label>
+			<div class="controls">
+				<div class="input-prepend">
+				  <span class="add-on"><i class="icon-envelope"></i></span>
+				  <input type="email" name="inputEmail" id="inputEmail" placeholder="RMT@virtualpulse.us">
+				</div>		
+			</div>
+	  	</div>
+		</section>
+
+	<!-- ################################## Building Bio Section ############################################## -->
+		<section class="span5">    
+		<legend>BUILDING BIO</legend>
+		<div class="control-group">
+			<label class="control-label" for="buildingName">Building Name</label>
+			<div class="controls">
+			  <div class="input-prepend">
+		 		<span class="add-on" > <i class="icon-home"> </i></span>
+			  	<input type="text" name="buildingName" id="buildingName" placeholder="New Building Name">
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="buildingLocation">Building Location</label>
+			<div class="controls">
+				<div class="input-prepend">
+					<span class="add-on">State</span>
+					<?php
+						echo "<select onchange='changeSelectAction(this.form)' class='span2' name='state' placeholder='State'> ";
+						echo "\t<option value='{$_POST['state']}'>{$_POST['state']}</option>\n";
+						$result = mysql_query("Select Distinct state_code From cities_extended 
+												Where state_code <> '{$_POST['state']}'
+												Order By state_code ASC");
+						while($row = mysql_fetch_array($result))
+						{
+							echo "\t<option value='{$row['state_code']}'>{$row['state_code']}</option>\n";
+						}
+	    			?>
+					</select>
+				</div>
+
+				<div class="input-prepend">
+					<span class="add-on">City&nbsp;&nbsp;</span>
+					<select class="span2" name="city" placeholder="City"> 
+						<?php
+							$result = mysql_query("Select Distinct city From cities_extended Where state_code='{$_POST['state']}' Order By city ASC");
+							while($row = mysql_fetch_array($result))
+							{
+								echo "\t<option value='{$row['city']}'>{$row['city']}</option>\n";
+							}
+		    			?>
+					</select>
+				</div>
+
+				<h4 style="margin-left: 100px;"> Or </h4>
+				
+				<div class="input-prepend">
+					<span class="add-on">Zip</span>
+						<input type="number" name="zip" id="zip" placeholder="Zip Code">
+				</div>
+
+
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="buildingSpaceType">Building Space Type</label>
+			<div class="controls">
+				<select name=buildingSpaceType placeholder="Building Space Type"> 
+					<option Value="SmallOffice"> SmallOffice </option>
+				</select>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="buildingVintage">Building Vintage</label>
+			<div class="controls">
+	  		  <select name="buildingVintage">
+				<option value="ASHRAE_90.1-2004"> ASHRAE_90.1-2004 </option>	
+			  </select>
+			</div>
+	  	</div>
+		</section>
+
+
+	<!-- ######################################### Geometry Section ################################################ -->
+		<section class="span5">
+		<legend> GEOMETRY </legend>
+
+		<div class="control-group">
+			<label class="control-label" for="buildingShape">Building Shape</label>
+			<div class="controls">
+			 	<select name="buildingShape" disabled>
+					<option value="rectangle"> Rectangle </option>
+					<option value="Courtyard"> Courtyard </option>
+					<option value="L-Shape"> L-Shape </option>
+					<option value="H-Shape"> H-Shape </option>
+					<option value="T-Shape"> T-Shape </option>
+					<option value="U-Shape"> U-Shape </option>
+		 	 	</select>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="length">Length</label>
+			<div class="controls">
+	  			<div class="input-append">
+			 		<input class="span2" type="number" name="length" placeholder="0 - ??">
+					<span class="add-on" > Meters </span>
+				</div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="width">Width</label>
+			<div class="controls">
+			 	<div class="input-append">
+			  		<input class="span2" min="0" type="number" name="width" id="width" placeholder="0 - ??">
+			  		<span class="add-on" > Meters </span>	
+				</div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="numberFloors">Number Of Floors</label>
+			<div class="controls">
+			 	<div class="input-append">
+			  		<input class="span2" min="0" max="200" type="number" name="numberFloors" value="<?php echo $_POST['floors']; ?>" id="numberFloors" placeholder="0 - 200">
+			 		<span class="add-on" > Floors </span>	
+				</div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="floorToFloorHeight">Floor To Floor Height</label>
+			<div class="controls">
+				<div class="input-append">
+			  		<input class="span2" type="number" name="floorToFloorHeight" id="floorToFloorHeight" placeholder="0 - ??">
+					<span class="add-on" > Meters </span>	
+				</div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="plenumHeight">Plenum Height</label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" name="plenumHeight" id="plenumHeight" placeholder="0 - ??">
+				<span class="add-on"> Meters </span>
+			  </div>		
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="perimeterZoneDepth">Perimeter Zone Depth</label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" name="perimeterZoneDepth" id="perimeterZoneDepth" placeholder="0 - ??">
+				<span class="add-on"> Meters </span>
+			  </div>
+			</div>
+	  	</div>
+		</section>
+
+
+	<!-- ######################################### Window Section ############################################### -->
+		<section class="span5">
+		<legend> WINDOWS </legend>
+		<div class="control-group">
+			<label class="control-label" for="windowWallRatio">Window-wall Ratio</label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" min="10" max="60" name="windowWallRatio" id="windowWallRatio" placeholder="10 - 60 ">
+				<span class="add-on"> % </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="offSet"> Offset</label>
+			<div class="controls">
+			  <div class="input-append">
+			   	<input class="span2" min="0" type="number" name="offSet" id="offSet" placeholder="0 - ??">
+				<span class="add-on"> Meters </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="applicationType"> Application Type</label>
+			<div class="controls">
+			  <select name="applicationType">
+				<option value="Above Floor"> Above Floor</option>	
+			  </select>
+			</div>
+	  	</div>
+		</section>
+
+	<!-- ########################################## HVAC Section ################################################ -->
+		<section class="span5">
+		<legend> HVAC </legend>
+		<div class="control-group">
+			<label class="control-label" for="fanEff">Fan Efficiency</label>
+			<div class="controls">
+	  		  <div class="input-append">
+			  	<input class="span2" type="number" min="0" name="fanEff" id="fanEff" placeholder="0 - ?? ">
+				<span class="add-on"> % </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="boilerEff">Boiler Effciency</label>
+			<div class="controls">
+		 	  <div class="input-append">
+			  	<input class="span2" type="number" min="0" name="fanEff" id="fanEff" placeholder="0 - ?? ">
+				<span class="add-on"> % </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="boilerFuelType">Boiler Fuel Type</label>
+			<div class="controls">
+	  		  <select name="boilerFuelType">
+				<option value="NaturalGas"> Natural Gas </option>
+				<option value="OtherFuel"> Other Fuel </option>	
+			  </select>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="coilCoolRatedHighSpeedCOP">Coil Cool Rated High Speed COP</label>
+			<div class="controls">
+	  	 	  <div class="input-append">
+			  	<input class="span2"type="number" min="0" name="coilCoolRatedHighSpeedCOP" id="coilCoolRatedHighSpeedCOP" placeholder="0 - ??">
+				<span class="add-on"> Ratio </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="coilCoolRatedLowSpeedCOP">Coil Cool Rated Low Speed COP</label>
+			<div class="controls">
+	  	 	  <div class="input-append">
+			  	<input class="span2" type="number" min="0" name="coilCoolRatedLowSpeedCOP" id="coilCoolRatedLowSpeedCOP" placeholder="0 - ??">
+				<span class="add-on"> Ratio </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="economizerType">Economizer Type</label>
+			<div class="controls">
+	  		  <select name="economizerType">
+				<option value="Fixed Dry Bulb Temperature Limit"> Fixed Dry Bulb Temperature Limit </option>	
+				<option value="Economizer Enthalpy Limit"> Economizer Enthalpy Limit </option>	
+			  </select>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="economizerDryBulbTempLimit">Economizer Dry Bulb Temperture Limit</label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" min="0" name="economizerDryBulbTempLimit" id="economizerDryBulbTempLimit" placeholder="0 - ??">
+				<span class="add-on"> &#8457; </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="economizerEnthalpyLimit">Economizer Enthalpy Limit</label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" min="0" name="economizerEnthalpyLimit" id="economizerEnthalpyLimit" placeholder="0 - ??">
+				<span class="add-on"> KJ / KG </span>
+			  </div>
+			</div>
+	  	</div>
+		</section>
+
+	<!-- ########################################## Thermostats Section ############################################# -->
+		<section class="span5">
+		<legend> THERMOSTATS </legend>
+		<div class="control-group">
+			<label class="control-label" for="heatingSetPoint"> Heating Set Point </label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" name="heatingSetPoint" id="heatingSetPoint" placeholder="0 - ??">
+				<span class="add-on"> &#8457; </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="coolingSetPoint"> Cooling Set Point </label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" min="0" name="coolingSetPoint" id="coolingSetPoint" placeholder="0 - ??">
+				<span class="add-on"> &#8457; </span>
+			  </div>
+			</div>
+	  	</div>
+		</section>
+
+		<section>
+			<input id="submit-btn" style="margin-left: 400px;" type="submit" value="SIMULATE" class="button blue" />  
+		</section>
+	</form>
+
+	<!-- ###################################################################################################### --><!-- ##################################### Form A ############################################ --><!-- ############################################## Here ##################################################### --><!-- ###################################################################################################### -->
+<!-- ###################################################################################################### -->
+	<ul class="nav nav-list span3" id="section-A-nav">
+	  <li class="nav-header">USER</li>
+	  <li class="active"><a href="#inputEmail">Email</a></li>
+	  <li><a href="#buildingName">Building Name</a></li>
+	  <li><a href="#buildingLocation">Building Location</a></li>
+
+	  <li class="nav-header">FUNCTION & SIZE</li>
+	  <li><a href="#buildingSpaceType">Building Space Type</a></li>
+  	  <li><a href="#numberOfFloors">Number Of Floors</a></li>
+	  <li><a href="#area">Area</a></li>
+
+	  <li class="nav-header">MATERIAL</li>
+	  <li><a href="#buildingRoof">Building Roof</a></li>
+	  <li><a href="#buildingWall">Building Wall</a></li>
+	  <li><a href="#windowPercentage">Window Percentage</a></li>
+
+	</ul>
+
+
+
+	<form id="form-A" method="post" action="" class="form-horizontal span5" onsubmit="return valForm('form-A');">
+	<!-- ###################################################################################################### -->
+		<section class="span5">
+		<legend>USER</legend>
+	 	<div class="control-group">
+			<label class="control-label" for="inputEmail">Email</label>
+			<div class="controls">
+				<div class="input-prepend">
+				  <span class="add-on"><i class="icon-envelope"></i></span>
+				  <input type="email" name="eMail" id="eMail" value="<?php echo $_POST['eMail'];?>" placeholder="RMT@virtualpulse.us">
+				</div>		
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="buildingName">Building Name</label>
+				<div class="controls">
+				  <div class="input-prepend">
+			 		<span class="add-on" > <i class="icon-home"> </i></span>
+				  	<input type="text" name="buildingName" id="buildingName" value="<?php echo $_POST['buildingName'];?>" placeholder="New Building Name">
+				  </div>
+				</div>
+		  	</div>
+
+			<div class="control-group">
+				<label class="control-label" for="buildingLocation">Building Location</label>
+				<div class="controls">
+					<div class="input-prepend">
+    					<span class="add-on">City, State</span>
+						<select class="span2" name="locationID" placeholder="City, State">
+							<option value=""></option>
+						<?php
+							$result = mysql_query("SELECT * FROM locations ORDER BY Enabled DESC, City ASC, State ");
+							while($row = mysql_fetch_array($result))
+							{
+								if ($row['Enabled'] == 1)
+								{
+									echo "\t<option value=" . $row['locationID'] . ">" . $row['city'] . ", " . $row['state'] . "</option>\n";
+								}
+								else
+								{
+									echo "\t<option value=" . $row['locationID'] . " disabled=\"disabled\">" . $row['city'] . ", " . $row['state'].  " - Unavailable"  . "</option>\n";
+								}
+							}
+						?></select>
+					</div>
+				</div>
+		  	</div>
+
+	  	</div>
+		</section>
+
+	<!-- ###################################################################################################### -->
+		<section class="span5">    
+		<legend>FUNCTION & SIZE</legend>
+		<div class="control-group">
+			<label class="control-label" for="buildingSpaceType">Building Space Type</label>
+			<div class="controls">
+				<select name="functionID" placeholder="Building Space Type">
+					<option value="<?php echo $_POST['functionID'];?>"></option>
+				<?php
+					$result = mysql_query("SELECT * FROM functions ORDER BY Enabled DESC, functionType");
+					while($row = mysql_fetch_array($result))
+					{
+						if ($row['Enabled'] == 1)
+						{
+							echo "\t<option value=" . $row['functionID'] . ">" . $row['functionType'] . "</option>\n";
+						}
+						else
+						{
+							echo "\t<option value=" . $row['functionID'] . " disabled=\"disabled\">" . 
+									$row['functionType'] . " - Unavailable" . "</option>\n";
+						}
+					}
+				?>
+        		</select>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="numberFloors">Number Of Floors</label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" value="<?php echo $_POST['floors']; ?>" min="0" max="20" name="floors" id="numberFloors" placeholder="0 - 20">
+				<span class="add-on"> Floors </span>
+			  </div>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="area">Area (total floor): </label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" type="number" min="10" max="99999" value="<?php echo $_POST['floorArea'];?>" name="floorArea" id="floorArea" placeholder="10 - 99999">
+				<span class="add-on"> m<sup>2</sup> </span>
+			  </div>
+			</div>
+	  	</div>
+
+		</section>
+
+	<!-- ###################################################################################################### -->
+		<section class="span5">    
+		<legend> MATERIAL </legend>
+
+		<div class="control-group">
+			<label class="control-label" for="buidingRoof">Building Roof</label>
+			<div class="controls">
+				<select name="roofMaterial" >
+					<option value="<?php echo $_POST['roofMaterial'];?>"></option>
+        		<?php
+        			$result = mysql_query("SELECT * FROM roofmaterials ORDER BY Enabled DESC, name");
+        			while($row = mysql_fetch_array($result))
+        			{
+        				if ($row['Enabled'] == 1)
+        				{
+        					echo "\t<option value=" . $row['roofMatID'] . ">" . $row['name'] . "</option>\n";
+        				}
+        				else
+        				{
+        					echo "\t<option value=" . $row['roofMatID'] . " disabled=\"disabled\">" .
+									 $row['name'] . " - Unavailable" . "</option>\n";
+        				}
+        			}
+        		?>
+        		</select>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="buildingWall">Building Wall</label>
+			<div class="controls">
+				<select name="wallMaterial" >
+					<option value="<?php echo $_POST['wallMaterial'];?>"></option>
+        		<?php
+        			$result = mysql_query("SELECT * FROM wallmaterials ORDER BY Enabled DESC, name");
+        			while($row = mysql_fetch_array($result))
+        			{
+        				if ($row['Enabled'] == 1)
+        				{
+        					echo "\t<option value=" . $row['wallMatID'] . ">" . $row['name'] . "</option>\n";
+        				}
+        				else
+        				{
+        					echo "\t<option value=" . $row['wallMatID'] . " disabled=\"disabled\">" .
+									 $row['name'] . " - Unavailable" . "</option>\n";
+        				}
+        			}
+        		?>
+				</select>
+			</div>
+	  	</div>
+
+		<div class="control-group">
+			<label class="control-label" for="windowPercentage">Window Percentage</label>
+			<div class="controls">
+			  <div class="input-append">
+			  	<input class="span2" value="<?php echo $_POST['windowPercent'];?>" type="number" min="10" max="99" name="windowPercent" id="windowPercent"
+							 placeholder="10 - 99">
+				<span class="add-on"> % </span>
+			  </div>
+			</div>
+	  	</div>
+		</section>
+
+		<section>
+			<input onclick="this.form.action='simulate.php'" id="submit-btn" style="margin-left: 400px;" type="submit" value="SIMULATE" class="button blue" />  
+		</section>
+	</form>
+	</main>
+</div>
+
+
+<!-- ################################ Loading Bar ##################################################### -->
+
+<div class="loading-div container-fluid">
+	<div id="filter" > 
+	</div>
+
+	<div class="progress progress-striped active">
+	  <div class="bar" ></div>
+	</div>
+
+	<h4 id="loading-status"> Please Wait!  The simulation may take up to 15 mins. </h4>
+</div>
+<!--  Testing Loading Bar
+<button class="button" onclick="$('input, select, a, button').attr('disabled', 'disabled'); $('.main-div, header, .top-nav, footer').fadeTo('slow', 0.33);$('.loading-div').fadeIn('slow');  loading();"> Loading </button>
+-->
+<script>
+
+function loading() {
+	var num = 40;
+	// update the progress every second
+	var update = setInterval(function(){
+		if(num>=$(".loading-div").width()) { 
+				$("#loading-status").html("Loading...");
+				clearInterval(update);
+		}
+		$(".bar").width(num);
+
+        // increase the loading bar 2 pixes per second.
+		num=num+2;
+	},1000);
+}
+</script>
+<!-- ###################################################################################################### -->
+
+<footer style="position: static; bottom: 0;">
+	Copyright &copy; 2013, RMT All Rights Reserved.
+</footer>
+
+<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery1.10.1.js"></script>
+<script>
+	$("#tab-A").click(function() {
+		$("#form-B").hide();
+		$("#section-nav").hide();
+		$("#section-A-nav").fadeIn("fast");
+		$("#form-A").fadeIn("fast");	
+	});
+
+	$("#tab-B").click(function() {
+		$("#form-A").hide();
+		$("#section-A-nav").hide();
+		$("#section-nav").fadeIn("fast");
+		$("#form-B").fadeIn("fast");	
+	});
+</script>
+</body>
+
+</html>
+<?php
+    // close database(hackathon) connection
+    mysql_close($con);
+?>

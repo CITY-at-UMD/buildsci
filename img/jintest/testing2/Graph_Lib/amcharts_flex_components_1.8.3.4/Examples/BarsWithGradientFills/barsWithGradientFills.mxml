@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:amcharts="http://www.amcharts.com/com_internal"
+				layout="absolute"     
+				backgroundColor="#FFFFFF"
+				width="100%"
+				height="100%" viewSourceURL="srcview/index.html">     
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.effects.easing.Elastic
+				
+				[Bindable]private var chartData:ArrayCollection = new ArrayCollection([
+					{country:"Czech Republic",litres:156.90,short:"CZ"},  
+					{country:"Ireland",litres:131.10,short:"IR"},
+					{country:"Germany",litres:115.80,short:"DE"},
+					{country:"Australia",litres:109.90,short:"AU"},  
+					{country:"Austria",litres:108.30,short:"AT"},
+					{country:"UK",litres:99.00,short:"UK"},
+					{country:"Belgium",litres:93.00,short:"BE"} 
+				]);    
+			
+			[Bindable]
+			[Embed(source='../assets/bg.jpg')]
+			private var bg:Class;  
+			
+		]]>
+		
+		
+		
+	</mx:Script>
+	<mx:HBox width="100%" height="100%">    
+		<mx:Canvas width="430" height="400" backgroundImage="{bg}">
+			<mx:Label x="50" y="40" text="Beer Consumption by country" fontSize="15" color="#000000" fontWeight="bold">            
+			</mx:Label>
+			
+			<amcharts:AmSerialChart
+				rotate="true"
+				color="#FFFFFF"
+				width="100%"
+				height="100%"
+				id="chart"
+				autoMargins="false"
+				marginTop="100"
+				marginLeft="50"
+				marginRight="30"                 
+				dataProvider="{chartData}"
+				categoryField="country"
+				plotAreaFillAlphas="[0]"
+				startEffect="{Elastic.easeOut}"
+				startDuration="2">
+				<amcharts:graphs>
+					<amcharts:AmGraph 
+						valueField="litres" 
+						type="column" 
+						lineAlpha="0" 
+						fillAlphas="[0.7,0.7]" 
+						fillColors="[#000000,#FF6600]"
+						gradientOrientation="horizontal"
+						labelPosition="bottom"
+						labelText="[[category]]: [[value]] Litres"
+						balloonText="[[category]]: [[value]] Litres"/>                        
+				</amcharts:graphs>
+				
+				<amcharts:valueAxes>
+					<amcharts:ValueAxis gridAlpha="0" axisAlpha="0" labelsEnabled="false" min="0"/>
+				</amcharts:valueAxes>
+				
+				<amcharts:categoryAxis>
+					<amcharts:CategoryAxis gridAlpha="0" axisAlpha="0" labelsEnabled="false"/>
+				</amcharts:categoryAxis>
+				
+			</amcharts:AmSerialChart>
+		</mx:Canvas>
+		
+		<amcharts:AmSerialChart
+			color="#000000"
+			width="100%"
+			height="400"
+			autoMargins="false"
+			marginTop="32"
+			marginLeft="15"
+			marginRight="15"                 
+			dataProvider="{chartData}"
+			categoryField="country"
+			plotAreaFillAlphas="[0]"
+			startEffect="{Elastic.easeOut}"
+			startDuration="2">
+			<amcharts:graphs>
+				<amcharts:AmGraph
+					fontSize="12" 
+					valueField="litres" 
+					descriptionField="short"
+					type="column" 
+					lineAlpha="0" 
+					fillAlphas="[1,0]" 
+					fillColors="[#000000,#000000]"
+					gradientOrientation="vertical"
+					labelPosition="bottom"
+					labelText="[[description]]"
+					balloonText="[[category]]: [[value]] Litres"/>                        
+			</amcharts:graphs>
+			
+			<amcharts:valueAxes>
+				<amcharts:ValueAxis gridAlpha="0" axisAlpha="0" labelsEnabled="false" min="0"/>
+			</amcharts:valueAxes>
+			
+			<amcharts:categoryAxis>
+				<amcharts:CategoryAxis gridAlpha="0" axisAlpha="0" labelsEnabled="false"/>
+			</amcharts:categoryAxis>
+			
+		</amcharts:AmSerialChart>        
+		
+	</mx:HBox>
+</mx:Application>

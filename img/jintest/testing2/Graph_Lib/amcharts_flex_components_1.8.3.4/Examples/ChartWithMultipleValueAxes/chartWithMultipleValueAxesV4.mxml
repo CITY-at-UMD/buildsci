@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               creationComplete="{generateChartData()}"
+               viewSourceURL="srcview/index.html">
+    
+    <fx:Script>
+        <![CDATA[
+            import com.amcharts.chartClasses.AmGraph;
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:ArrayCollection = new ArrayCollection(); 
+            // generate some random data, quite different range
+            private function generateChartData():void{
+                var firstDate:Date = new Date();
+                firstDate.setDate(firstDate.getDate() - 100);
+                
+                for(var i:Number = 0; i < 100; i++){
+                    var newDate:Date = new Date(firstDate);
+                    newDate.setDate(newDate.getDate() + i);
+                    
+                    var visits:Number = Math.round(Math.random() * 40) + 100;
+                    var hits:Number   = Math.round(Math.random() * 80) + 500;
+                    var views:Number   = Math.round(Math.random() * 6000);
+                    
+                    chartData.addItem({date:newDate, visits:visits, hits:hits, views:views});
+                }
+            }
+            
+            private function zoom():void{
+                chart.zoomToIndexes(0,20);
+            }
+            
+            private var _newValueAxis:ValueAxis;
+            
+            private function addValueAxis():void{
+                
+                _newValueAxis = new ValueAxis();
+                _newValueAxis.offset = 50;
+                _newValueAxis.setStyle("gridAlpha", 0);
+                _newValueAxis.setStyle("axisColor", 0xB0DE09);
+                _newValueAxis.setStyle("axisThickness", 2);
+                chart.addValueAxis(_newValueAxis);
+                
+                var graph:AmGraph = new AmGraph();
+                graph.valueField = "views";
+                graph.setStyle("bullet", "triangleUp");
+                graph.setStyle("hideBulletsCount", 30);
+                graph.type = "smoothedLine";
+                graph.valueAxis = _newValueAxis;        
+                chart.addGraph(graph);                
+                
+                addAxis.enabled = false;
+                removeAxis.enabled = true;
+            }
+            
+            private function removeValueAxis():void{
+                chart.removeValueAxis(_newValueAxis);
+                addAxis.enabled = true;
+                removeAxis.enabled = false;            
+            }
+            
+        ]]>
+    </fx:Script>
+    
+    <s:VGroup width="100%" height="100%">
+        <amcharts:AmSerialChart 
+            dataUpdated="{zoom()}" 
+            id="chart" 
+            width="100%" 
+            height="100%" 
+            dataProvider="{chartData}" 
+            categoryField="date">
+            
+            <amcharts:graphs>
+                <!-- In case you have more then one value axis, you should set valueAxis for the graph -->
+                <amcharts:AmGraph title="Visits" valueAxis="{v1}" valueField="visits" type="smoothedLine" bullet="round" hideBulletsCount="30"/>                        
+                <amcharts:AmGraph title="Visits" valueAxis="{v2}" valueField="hits" type="smoothedLine"  bullet="square" hideBulletsCount="30"/>                        
+            </amcharts:graphs>
+            <!-- you can have any number of value axes. If you place value axes on the same side, you can move axis by setting "offset" property -->
+            <amcharts:valueAxes>
+                <amcharts:ValueAxis id="v1" axisColor="#FF6600" axisThickness="2"/>                    
+                <amcharts:ValueAxis id="v2" position="right" axisColor="#FCD202" gridAlpha="0" axisThickness="2"/>                    
+            </amcharts:valueAxes>
+            
+            <amcharts:categoryAxis>
+                <amcharts:CategoryAxis parseDates="true" minPeriod="DD" gridCount="13"/>
+            </amcharts:categoryAxis>
+            
+            <amcharts:chartCursor>
+                <amcharts:ChartCursor cursorPosition="mouse"/>                        
+            </amcharts:chartCursor>
+            <amcharts:chartScrollbar>
+                <amcharts:ChartScrollbar height="15"/>                        
+            </amcharts:chartScrollbar>
+        </amcharts:AmSerialChart>
+        <s:HGroup>
+            <mx:Spacer width="40"/>
+            <mx:Button id="addAxis" label="add value axis" click="{addValueAxis()}"/>
+            <mx:Button enabled="false" id="removeAxis" label="remove value axis" click="{removeValueAxis()}"/>
+        </s:HGroup>
+        <mx:Spacer height="15"/>
+    </s:VGroup>    
+</s:Application>

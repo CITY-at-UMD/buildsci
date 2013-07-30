@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This example is made using amCharts Flex component. Visit http://flex.amcharts.com to see more examples -->
+
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" 
+               xmlns:amcharts="http://www.amcharts.com/com_internal"
+               backgroundColor="#FFFFFF"
+               width="100%" height="100%"
+               viewSourceURL="srcview/index.html">
+    
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            
+            [Bindable]
+            private var chartData:ArrayCollection = new ArrayCollection([
+                {x:6, y:5, value:15},
+                {x:10, y:2.9, value:19},
+                {x:5, y:8.0, value:5},
+                {x:9, y:1.6, value:13},
+                {x:2, y:6.2, value:22},
+                {x:5, y:9.4, value:15},
+                {x:11, y:2.2, value:8}            
+            ]);    
+        ]]>
+    </fx:Script>
+    
+    
+    <amcharts:AmXYChart
+        width="100%"
+        height="100%"
+        id="chart"        
+        dataProvider="{chartData}"
+        startDuration="1">
+        <amcharts:graphs>
+            <amcharts:AmGraph 
+                id="g0"
+                xField="x"
+                yField="y"
+                valueField="value" 
+                lineAlpha="0" 
+                bullet="bubble"
+                itemColors="[0xFF6600,0xFCD202,0xB0DE09,0x0D8ECF,0x2A0CD0,0xCD0D74,0xCC0000]"/>                        
+        </amcharts:graphs>
+        
+        <amcharts:chartCursor>
+            <amcharts:ChartCursor>                    
+            </amcharts:ChartCursor>
+        </amcharts:chartCursor>            
+        
+        <amcharts:chartScrollbar>
+            <amcharts:ChartScrollbar hideResizeGrips="false" height="20">
+            </amcharts:ChartScrollbar>    
+        </amcharts:chartScrollbar>
+        
+    </amcharts:AmXYChart>
+    
+</s:Application>
